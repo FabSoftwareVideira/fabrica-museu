@@ -6,7 +6,7 @@ O site do museu hoje é apenas uma página estática dentro do site da prefeitur
 
 - [ ] Criar um projeto com nodejs, express e javascript
 - [ ] Usar EJS para renderizar as páginas do site
-- [ ] Criar uma página inicial com informações sobre o museu (veja uma ideia de layout na pasta `public`). Na seção `hero`, o foco é direcionar para Explorar o Acervo (ainda vamos pensar nessa página de acervo depois)
+- [ ] Criar uma página inicial com informações sobre o museu (veja uma ideia no arquivo `index.html`). Na seção `hero`, o foco é direcionar para Explorar o Acervo (ainda vamos pensar nessa página de acervo depois)
 - [ ] Criar um botão flutuante para contato via WhatsApp (49 9 9156-1089). Através do WhatsApp os visitantes fazem o agendamento para visitar o museu.
 - [ ] Na seção "O museu", incluir um texto sobre o museu (pode ser um resumo do texto do site da prefeitura) e algumas imagens do museu (podemos usar as imagens do site da prefeitura ou outras imagens que encontrarmos)
 - [ ] Na seção "O que você encontra aqui", pode deixar como está. Apenas incluir imagens ilustrativas por enquanto.
