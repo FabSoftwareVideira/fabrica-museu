@@ -21,3 +21,11 @@ O site do museu hoje é apenas uma página estática dentro do site da prefeitur
 - Adicionar alguns critérios de acessibilidade, como contraste de cores, modo dark/light (ícone na barra de navegação), texto alternativo para imagens, etc.
 - Deve rodar com Docker, pelo menos em produção. Para desenvolvimento, pode ser rodado localmente sem Docker, mas o ideal é que seja possível rodar com Docker também.
 - Usar boas práticas de desenvolvimento, como organização de código, uso de variáveis de ambiente para configurações, etc.
+
+## Explorar o Acervo
+
+- Temos aproximadamente **3000 imagens digitalizadas** que fazem parte do acervo do museu. A ideia é criar uma página onde os visitantes possam explorar esse acervo. 
+- Não temos ainda uma estrutura de dados para o acervo, mas a ideia é criar uma página onde os visitantes possam navegar por categorias (ex: fotografias, documentos, objetos, etc) e ver as imagens correspondentes.
+- Estou testando uma IA que vai ajudar a classificar as imagens do acervo, mas isso ainda está em desenvolvimento. Por enquanto, podemos criar uma página de "Explorar o Acervo" com algumas categorias fictícias e imagens de exemplo, e depois atualizar essa página quando tivermos a classificação das imagens pronta.
+- A página de "Explorar o Acervo" deve ser fácil de navegar e permitir que os visitantes encontrem as imagens que estão procurando. Podemos usar filtros, categorias, etc para facilitar a navegação.
+- Separei algumas imagens como amostra. Pode baixar em: [https://drive.google.com/drive/folders/1bl3iOXWApcAXVrXnilMyzlie_flPXJfL?usp=sharing](https://drive.google.com/drive/folders/1bl3iOXWApcAXVrXnilMyzlie_flPXJfL?usp=sharing).
