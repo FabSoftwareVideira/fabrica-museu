@@ -29,3 +29,4 @@ O site do museu hoje é apenas uma página estática dentro do site da prefeitur
 - Estou testando uma IA que vai ajudar a classificar as imagens do acervo, mas isso ainda está em desenvolvimento. Por enquanto, podemos criar uma página de "Explorar o Acervo" com algumas categorias fictícias e imagens de exemplo, e depois atualizar essa página quando tivermos a classificação das imagens pronta.
 - A página de "Explorar o Acervo" deve ser fácil de navegar e permitir que os visitantes encontrem as imagens que estão procurando. Podemos usar filtros, categorias, etc para facilitar a navegação.
 - Separei algumas imagens como amostra. Pode baixar em: [https://drive.google.com/drive/folders/1bl3iOXWApcAXVrXnilMyzlie_flPXJfL?usp=sharing](https://drive.google.com/drive/folders/1bl3iOXWApcAXVrXnilMyzlie_flPXJfL?usp=sharing).
+- Precisamos de um servidor para as imagens, estilo amazon S3, que seja gratuito. Pelo menos por enquanto para testes. 
