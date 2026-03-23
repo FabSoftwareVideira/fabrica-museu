@@ -1,0 +1,45 @@
+name: Deploy fabrica-museu
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy para Produção na VPS da BRDrive
+    runs-on: self-hosted
+
+    steps:
+      # ── 1. PREPARAÇÃO ───────────────────────────────────────────────────────
+      - name: 📂 Checkout do Código
+        uses: actions/checkout@v4
+
+      - name: Validar Ambiente e Arquivos
+        run: |
+          echo "Verificando arquivos críticos..."
+          test -f docker-compose.yml || (echo "ERRO: docker-compose.yml não encontrado" && exit 1)
+          
+          echo "Validando sintaxe do Docker Compose de Produção..."
+          docker compose -f docker-compose.yml config -q
+
+      # ── 2. EXECUÇÃO ─────────────────────────────────────────────────────────
+      - name: Atualizar e Subir Containers
+        run: |
+          echo "Puxando imagens novas (se houver)..."
+          docker compose -f docker-compose.yml pull --quiet
+          
+          echo "Iniciando serviços de produção..."
+          # Usando o arquivo de produção para subir o stack
+          docker compose -f docker-compose.yml up -d --remove-orphans --wait
+
+      # ── 3. MANUTENÇÃO (PÓS-DEPLOY) ──────────────────────────────────────────
+      - name: Status Final
+        run: |
+          echo "--- Containers Ativos ---"
+          docker compose -f docker-compose.yml ps
+          
+          echo "--- Consumo de Recursos ---"
+          # O nome do container deve ser o que está no seu docker-compose.yml
+          docker stats --no-stream fabrica-museu-web
