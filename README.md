@@ -12,3 +12,12 @@ O site do museu hoje é apenas uma página estática dentro do site da prefeitur
 - [ ] Na seção "O que você encontra aqui", pode deixar como está. Apenas incluir imagens ilustrativas por enquanto.
 - [ ] Na seção "Uma linha do tempo da vitivinicultura", pode deixar como está. A equipe do museu vai criar a linha do tempo.
 - [ ] Na seção de contato, incluir o endereço do museu e um mapa interativo usando a biblioteca LeafLet (adicionar uma forma de abrir o Google Maps), telefone fixo, email, horário de atendimento, redes sociais (instagram: turismoeculturavideira), etc. Não precisa de formulário de contato, apenas as informações de contato.
+
+## Requisitos Técnicos
+
+- O projeto deve ser criado usando Node.js, Express e JavaScript.
+- O EJS deve ser usado para renderizar as páginas do site.
+- O site deve ser responsivo e funcionar bem em dispositivos móveis. Deve ser parcialmente um PWA (Progressive Web App) para que os visitantes possam pelo menos instalar o site no celular.
+- Adicionar alguns critérios de acessibilidade, como contraste de cores, modo dark/light (ícone na barra de navegação), texto alternativo para imagens, etc.
+- Deve rodar com Docker, pelo menos em produção. Para desenvolvimento, pode ser rodado localmente sem Docker, mas o ideal é que seja possível rodar com Docker também.
+- Usar boas práticas de desenvolvimento, como organização de código, uso de variáveis de ambiente para configurações, etc.
