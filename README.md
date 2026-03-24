@@ -34,4 +34,4 @@ O site do museu hoje é apenas uma página estática dentro do site da prefeitur
 
 ## Hospedagem
 
-O site em modo produção estará disponível em `museudovinho.fsw-ifc.brdrive.cloud`. A cada novo `git push` na branch `main`, soobe uma nova versão.
+O site em modo produção estará disponível em [https://museudovinho.fsw-ifc.brdrive.cloud/](https://museudovinho.fsw-ifc.brdrive.cloud/). A cada novo `git push` na branch `main`, soobe uma nova versão.
