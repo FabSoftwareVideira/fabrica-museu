@@ -1,4 +1,4 @@
-# Museu do Vinho Mário Pellegrin — Videira, SC
+# Museu do Vinho Mário Pellegrin
 
 O site do museu hoje é apenas uma página estática dentro do site da prefeitura. Veja: [https://turismo.videira.sc.gov.br/post-13419/](https://turismo.videira.sc.gov.br/post-13419/). Neste site, temos a logotipo, algumas imagens que podemos usar, um texto sobre o museu e detalhes de contato que vamos usar no nosso projeto.
 
@@ -31,3 +31,7 @@ O site do museu hoje é apenas uma página estática dentro do site da prefeitur
 - A página de "Explorar o Acervo" deve ser fácil de navegar e permitir que os visitantes encontrem as imagens que estão procurando. Podemos usar filtros, categorias, etc para facilitar a navegação.
 - Separei algumas imagens como amostra. Pode baixar em: [https://drive.google.com/drive/folders/1bl3iOXWApcAXVrXnilMyzlie_flPXJfL?usp=sharing](https://drive.google.com/drive/folders/1bl3iOXWApcAXVrXnilMyzlie_flPXJfL?usp=sharing).
 - Precisamos de um servidor para as imagens, estilo amazon S3, que seja gratuito. Pelo menos por enquanto para testes. 
+
+## Hospedagem
+
+O site em modo produção estará disponível em `museudovinho.fsw-ifc.brdrive.cloud`. A cada novo `git push` na branch `main`, soobe uma nova versão.
