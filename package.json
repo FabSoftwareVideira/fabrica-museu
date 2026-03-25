@@ -1,0 +1,20 @@
+{
+  "name": "fabrica-museu",
+  "version": "1.0.0",
+  "description": "O site do museu hoje é apenas uma página estática dentro do site da prefeitura. Veja: [https://turismo.videira.sc.gov.br/post-13419/](https://turismo.videira.sc.gov.br/post-13419/). Neste site, temos a logotipo, algumas imagens que podemos usar, um texto sobre o museu e detalhes de contato que vamos usar no nosso projeto.",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FabSoftwareVideira/fabrica-museu.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FabSoftwareVideira/fabrica-museu/issues"
+  },
+  "homepage": "https://github.com/FabSoftwareVideira/fabrica-museu#readme"
+}
