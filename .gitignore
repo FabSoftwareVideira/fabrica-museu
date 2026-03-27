@@ -1,0 +1,67 @@
+# =========================
+# Dependências do Node
+# =========================
+node_modules/
+.pnp/
+.pnp.js
+
+# =========================
+# Logs
+# =========================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# =========================
+# Variáveis de Ambiente e Segredos
+# =========================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.pem
+
+# =========================
+# Arquivos de Build / Compilação e Testes
+# =========================
+dist/
+build/
+out/
+coverage/
+.nyc_output/
+
+# =========================
+# Arquivos Temporários e Uploads (Express)
+# =========================
+tmp/
+temp/
+uploads/
+*.sqlite
+*.db
+
+# =========================
+# VS Code e Editores
+# =========================
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Ignorar pastas de outras IDEs caso alguém da equipe use
+.idea/
+.DS_Store
+Thumbs.db
+
+# =========================
+# Ferramentas de Frontend (caso integre depois)
+# =========================
+.next/
+.nuxt/
+.vuepress/
+.cache/
