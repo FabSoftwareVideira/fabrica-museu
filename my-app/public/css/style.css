@@ -1,0 +1,86 @@
+/* ==========================================
+   VARIÁVEIS DE CORES (PALETA DO LOGOTIPO)
+   ========================================== */
+:root {
+  /* Cores Extraídas Diretamente do Logo */
+  --cor-marca-verde: #90A860;  /* Verde Oliva Mudo (Tendril) */
+  --cor-marca-uva: #A880C0;    /* Lavanda Suave (Uvas) */
+  --cor-texto-principal: #303030; /* Cinza Escuro (Museu do Vinho) */
+
+  /* Cores de Fundo e Destaque (Tema Claro - Padrão) */
+  --cor-fundo: #FFFFFF;        /* Branco Puro */
+  --cor-fundo-alternativo: #F4F1EA; /* Creme Suave (para seções diferentes) */
+  --cor-destaque: #D4AF37;     /* Dourado (combina bem para botões) */
+  --cor-texto-mutado: #606060;
+  --cor-borda: #E0E0E0;
+}
+
+/* ==========================================
+   TEMA ESCURO (DARK MODE AUTOMÁTICO)
+   ========================================== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Cores de Fundo e Destaque (Tema Escuro) */
+    --cor-fundo: #121212;        /* Quase Preto */
+    --cor-fundo-alternativo: #1E1E1E; /* Cinza Escuro */
+    --cor-texto-principal: #F4F1EA; /* Creme Suave */
+    --cor-texto-mutado: #A0A0A0;
+    --cor-borda: #333333;
+
+    /* Mantemos as cores da marca (Verde e Uva) para identidade! */
+  }
+}
+
+/* ==========================================
+   RESET E ESTILOS GERAIS
+   ========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto-principal);
+  line-height: 1.6;
+  transition: background-color 0.3s, color 0.3s; /* Transição suave */
+}
+
+a {
+  color: var(--cor-marca-verde);
+  text-decoration: none;
+}
+
+/* Títulos usando o Verde da Marca */
+h1, h2, h3, h4 {
+  color: var(--cor-marca-verde);
+  margin-bottom: 1rem;
+}
+
+/* Exemplo de botão principal usando o Dourado de destaque */
+.btn-principal {
+  background-color: var(--cor-destaque);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  display: inline-block;
+  transition: opacity 0.3s;
+}
+
+.btn-principal:hover {
+  opacity: 0.8;
+}
+
+/* ==========================================
+   EXEMPLOS DE USO DAS CORES (TEMPORÁRIO)
+   ========================================= */
+.cor-exemplo-verde {
+  color: var(--cor-marca-verde);
+}
+
+.cor-exemplo-uva {
+  color: var(--cor-marca-uva);
+}
