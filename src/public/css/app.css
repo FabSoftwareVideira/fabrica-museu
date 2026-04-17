@@ -192,6 +192,24 @@ h3,
   font-family: var(--ff-body);
 }
 
+.navbar-brand-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.navbar-brand-logo {
+  inline-size: 34px;
+  block-size: 34px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.navbar-brand-text {
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
 .navbar-item:hover,
 .navbar-item.is-active {
   background-color: var(--surface) !important;
@@ -229,6 +247,15 @@ h3,
 }
 
 @media (max-width: 1023px) {
+  .navbar-brand-logo {
+    inline-size: 30px;
+    block-size: 30px;
+  }
+
+  .navbar-brand-text {
+    font-size: 0.95rem;
+  }
+
   .theme-toggle--mobile {
     display: inline-flex;
   }
@@ -288,6 +315,20 @@ h3,
 [data-theme='dark'] .section.has-background-light,
 [data-theme='dark'] main.has-background-light {
   background-color: var(--section-bg) !important;
+}
+
+.home-hero-highlight {
+  position: relative;
+  background:
+    linear-gradient(115deg, rgba(20, 14, 4, 0.84), rgba(20, 14, 4, 0.46)),
+    url('/public/img/museu-frente.webp') center / cover no-repeat;
+}
+
+.home-hero-highlight .hero-body {
+  position: relative;
+  z-index: 1;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 
 [data-theme='dark'] .footer {

@@ -2,11 +2,12 @@
   <div class="container">
     <div class="navbar-brand">
       <a
-        class="navbar-item has-text-weight-semibold"
+        class="navbar-item has-text-weight-semibold navbar-brand-link"
         href="{{#if isHome}}#home{{else}}/#home{{/if}}"
         aria-label="Ir para o inicio"
       >
-        Museu do Vinho
+        <img src="/public/img/museu-logo.webp" alt="Logo Museu do Vinho" class="navbar-brand-logo" loading="eager" />
+        <span class="navbar-brand-text">Museu do Vinho</span>
       </a>
       <button
         class="button is-ghost navbar-item theme-toggle theme-toggle--mobile"
