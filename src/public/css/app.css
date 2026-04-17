@@ -566,10 +566,11 @@ h3,
 .acervo-category-chips {
   display: flex;
   flex: 1;
+  flex-wrap: wrap;
   gap: 0.45rem;
-  overflow-x: auto;
-  padding-bottom: 0.1rem;
-  scrollbar-width: thin;
+  overflow-x: visible;
+  padding-bottom: 0;
+  scrollbar-width: auto;
 }
 
 .acervo-category-chip {
