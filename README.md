@@ -81,6 +81,16 @@ Observacoes:
 - Os servicos expõem internamente a porta `3000` via `expose`.
 - O profile `prod` entra na rede externa `fabrica-network`.
 - O profile `dev` usa a rede interna padrao do Compose.
+- Em production atras de proxy reverso (Nginx), `TRUST_PROXY=true` ja fica ativo no profile `prod`.
+
+Exemplo minimo de headers no Nginx para HTTPS:
+
+```nginx
+proxy_set_header Host $host;
+proxy_set_header X-Real-IP $remote_addr;
+proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+proxy_set_header X-Forwarded-Proto $scheme;
+```
 
 ```text
 http://localhost:3000
