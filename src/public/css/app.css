@@ -156,6 +156,7 @@
    ============================================================ */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 3.25rem;
 }
 
 body {
@@ -180,10 +181,11 @@ h3,
 .navbar.is-light {
   background-color: var(--navbar-bg) !important;
   color: var(--text-color) !important;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
   box-shadow: 0 2px 12px var(--navbar-shadow);
+}
+
+.navbar.is-fixed-top {
+  z-index: 1000;
 }
 
 .navbar-item,
