@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
     <link rel="stylesheet" href="/public/css/app.css" />
   </head>
   <body>
@@ -23,7 +24,14 @@
         </div>
         <div class="navbar-menu is-active">
           <div class="navbar-end">
-            <a class="navbar-item" href="/#home">Inicio</a>
+            <a class="navbar-item" href="/#home">
+              <span class="icon-text">
+                <span class="icon">
+                  <i class="fa-solid fa-house" aria-hidden="true"></i>
+                </span>
+                <span>Início</span>
+              </span>
+            </a>
             <a class="navbar-item" href="/#institucional">Sobre</a>
             <a class="navbar-item is-active" href="/acervo">Acervo</a>
             <a class="navbar-item" href="/#timeline">Linha do tempo</a>
@@ -96,7 +104,12 @@
               </div>
 
               <div class="card-footer">
-                <p class="card-footer-item is-size-7 has-text-grey-light">🤖 Informacoes geradas por IA</p>
+                <p class="card-footer-item is-size-7 has-text-grey-light">
+                  <span class="icon-text">
+                    <span class="icon is-small"><i class="fa-solid fa-robot" aria-hidden="true"></i></span>
+                    <span>Informacoes geradas por IA</span>
+                  </span>
+                </p>
               </div>
             </article>
           </div>
@@ -122,7 +135,12 @@
 
         <article class="message is-warning is-light mb-5" aria-label="Aviso sobre uso de IA">
           <div class="message-body">
-            <p class="has-text-weight-semibold">🤖 Metadados gerados por IA</p>
+            <p class="has-text-weight-semibold">
+              <span class="icon-text">
+                <span class="icon is-small"><i class="fa-solid fa-robot" aria-hidden="true"></i></span>
+                <span>Metadados gerados por IA</span>
+              </span>
+            </p>
             <p class="is-size-7 mt-1">
               Descricoes, categorias, tags e demais informacoes deste acervo foram geradas automaticamente por
               inteligencia artificial e podem conter imprecisoes.
@@ -170,9 +188,9 @@
       rel="noopener noreferrer"
       aria-label="Falar no WhatsApp"
     >
-      WhatsApp
+      <span class="icon" aria-hidden="true"><i class="fa-brands fa-whatsapp"></i></span>
+      <span>WhatsApp</span>
     </a>
-
     <script src="/public/js/main.js"></script>
   </body>
 </html>
