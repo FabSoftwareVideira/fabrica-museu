@@ -21,21 +21,10 @@
       {{/each}}
     </div>
 
-    <p id="acervo-count-status" class="is-size-7 has-text-grey mb-4">
-      Exibindo {{items.length}} de {{initialBatch.totalItems}} itens.
-    </p>
+    <p id="acervo-count-status" class="is-size-7 has-text-grey mb-4">Exibindo {{items.length}} itens.</p>
 
     {{#if hasItems}}
-    <div
-      id="acervo-grid"
-      class="columns is-multiline"
-      data-category="{{activeCategory}}"
-      data-next-page="{{initialBatch.nextPage}}"
-      data-total-pages="{{initialBatch.totalPages}}"
-      data-page-size="{{initialBatch.pageSize}}"
-      data-total-items="{{initialBatch.totalItems}}"
-      data-has-next="{{initialBatch.hasNext}}"
-    >
+    <div id="acervo-grid" class="columns is-multiline" data-category="{{activeCategory}}" data-page-size="24">
       {{#each items}}
       <div class="column is-4-desktop is-6-tablet">
         <article class="card h-100" aria-label="Item do acervo: {{this.description}}">

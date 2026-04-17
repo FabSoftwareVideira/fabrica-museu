@@ -139,14 +139,12 @@ app.get('/acervo', async (request, reply) => {
         })),
         items: pagedItems,
         hasItems: pagedItems.length > 0,
-        initialBatch: {
-            currentPage,
-            totalPages,
-            hasNext: totalPages > 1,
-            nextPage: 2,
-            totalItems,
-            pageSize,
-        },
+        acervoCurrentPage: String(currentPage),
+        acervoTotalPages: String(totalPages),
+        acervoHasNext: totalPages > 1 ? 'true' : 'false',
+        acervoNextPage: '2',
+        acervoTotalItems: String(totalItems),
+        acervoPageSize: String(pageSize),
         imagesFolder: 'src/public/photos',
     });
 });

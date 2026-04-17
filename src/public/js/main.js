@@ -170,14 +170,16 @@ const setupAcervoInfiniteScroll = () => {
     const countStatusNode = document.getElementById('acervo-count-status');
     const skeletonNodes = [];
 
+    const getRealItemsCount = () => grid.querySelectorAll('.column:not(.acervo-skeleton-item)').length;
+
     const state = {
         category: grid.dataset.category || 'todos',
-        nextPage: Number(grid.dataset.nextPage || 2),
-        totalPages: Number(grid.dataset.totalPages || 1),
+        nextPage: 2,
+        totalPages: 1,
         pageSize: Number(grid.dataset.pageSize || 24),
-        totalItems: Number(grid.dataset.totalItems || grid.children.length),
-        loadedItems: grid.children.length,
-        hasNext: grid.dataset.hasNext === 'true',
+        totalItems: getRealItemsCount(),
+        loadedItems: getRealItemsCount(),
+        hasNext: false,
         loading: false,
     };
 
@@ -256,7 +258,8 @@ const setupAcervoInfiniteScroll = () => {
                 grid.appendChild(buildItemCard(item));
             });
 
-            state.loadedItems = grid.children.length;
+            clearSkeletons();
+            state.loadedItems = getRealItemsCount();
             state.totalItems = payload.pagination?.totalItems || state.totalItems;
 
             const currentPage = payload.pagination?.page || state.nextPage;
@@ -280,15 +283,6 @@ const setupAcervoInfiniteScroll = () => {
         }
     };
 
-    updateStatusText();
-
-    if (!state.hasNext) {
-        showEndMessage();
-        return;
-    }
-
-    hideEndMessage();
-
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
@@ -301,7 +295,45 @@ const setupAcervoInfiniteScroll = () => {
         rootMargin: '300px 0px',
     });
 
-    observer.observe(sentinel);
+    const bootstrapFromApi = async () => {
+        try {
+            const query = new URLSearchParams({
+                categoria: state.category,
+                page: '1',
+                limit: String(state.pageSize),
+            });
+
+            const response = await fetch(`/api/acervo?${query.toString()}`);
+            if (!response.ok) {
+                throw new Error(`Erro HTTP ${response.status}`);
+            }
+
+            const payload = await response.json();
+            const currentPage = payload.pagination?.page || 1;
+            const totalPages = payload.pagination?.totalPages || 1;
+
+            state.totalItems = payload.pagination?.totalItems || state.loadedItems;
+            state.totalPages = totalPages;
+            state.nextPage = currentPage + 1;
+            state.hasNext = currentPage < totalPages;
+
+            updateStatusText();
+
+            if (!state.hasNext) {
+                showEndMessage();
+                return;
+            }
+
+            hideEndMessage();
+            observer.observe(sentinel);
+        } catch (error) {
+            console.warn('Falha ao inicializar metadados do acervo:', error);
+            updateStatusText();
+            showEndMessage();
+        }
+    };
+
+    bootstrapFromApi();
 };
 
 window.addEventListener('load', () => {
