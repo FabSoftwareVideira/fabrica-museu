@@ -1,42 +1,52 @@
 {{#> base pageTitle=pageTitle year=year themeColor="#6d1623" isAcervo=true}}
-<header class="hero is-small is-dark">
-  <div class="hero-body py-6">
+<header class="hero is-small is-dark acervo-hero">
+  <div class="hero-body py-4">
     <div class="container">
-      <h1 class="title is-2 has-text-white">Explorar o Acervo</h1>
-      <p class="subtitle is-5 has-text-grey-light">Filtros iniciais para navegacao por categorias do acervo digital.</p>
+      <div class="acervo-hero-inner">
+        <div>
+          <p class="acervo-hero-kicker">Arquivo Fotografico e Documental</p>
+          <h1 class="title is-3 has-text-white mb-2">Explorar o Acervo</h1>
+          <p class="subtitle is-6 mb-0">
+            Navegue por categorias, altere o modo de visualizacao e abra imagens em tamanho original.
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </header>
 
-<main class="section acervo-main-section">
+<main class="section acervo-main-section p-2">
   <div class="container">
-    <div class="buttons mb-5">
-      {{#each categories}}
-      <a
-        href="/acervo?categoria={{this.slug}}"
-        class="button is-rounded {{#if this.isActive}}is-dark{{else}}is-light{{/if}}"
-      >
-        {{this.label}} ({{this.count}})
-      </a>
-      {{/each}}
-    </div>
-
-    <div
-      class="is-flex is-justify-content-space-between is-align-items-center mb-4 is-flex-wrap-wrap"
-      style="gap: 0.75rem"
-    >
-      <p id="acervo-count-status" class="is-size-7 has-text-grey mb-0">Exibindo {{items.length}} itens.</p>
-
-      <div class="buttons has-addons are-small mb-0" id="acervo-view-controls" aria-label="Modo de visualizacao">
-        <button class="button is-primary" type="button" data-view-mode="cards" aria-pressed="true">Cards</button>
-        <button class="button is-ghost" type="button" data-view-mode="list-compact" aria-pressed="false">
-          Lista compacta
-        </button>
-        <button class="button is-ghost" type="button" data-view-mode="list-detailed" aria-pressed="false">
-          Lista detalhada
-        </button>
+    <section class="acervo-toolbar mb-4" aria-label="Filtros e visualizacao do acervo">
+      <div class="acervo-toolbar-row acervo-toolbar-row--categories">
+        <p class="acervo-toolbar-label">Categorias</p>
+        <div class="acervo-category-chips" role="list">
+          {{#each categories}}
+          <a
+            href="/acervo?categoria={{this.slug}}"
+            class="button is-rounded is-small acervo-category-chip {{#if this.isActive}}is-dark{{else}}is-light{{/if}}"
+            role="listitem"
+          >
+            {{this.label}} ({{this.count}})
+          </a>
+          {{/each}}
+        </div>
       </div>
-    </div>
+
+      <div class="acervo-toolbar-row acervo-toolbar-row--controls pt-4">
+        <p id="acervo-count-status" class="is-size-7 has-text-grey">Exibindo {{items.length}} itens.</p>
+
+        <div class="buttons has-addons are-small" id="acervo-view-controls" aria-label="Modo de visualizacao">
+          <button class="button is-primary" type="button" data-view-mode="cards" aria-pressed="true">Cards</button>
+          <button class="button is-ghost" type="button" data-view-mode="list-compact" aria-pressed="false">
+            Compacta
+          </button>
+          <button class="button is-ghost" type="button" data-view-mode="list-detailed" aria-pressed="false">
+            Detalhada
+          </button>
+        </div>
+      </div>
+    </section>
 
     {{#if hasItems}}
     <div
@@ -46,8 +56,8 @@
       data-page-size="24"
     >
       {{#each items}}
-      <div class="column is-4-desktop is-6-tablet p-2">
-        <article class="card h-100" aria-label="Item do acervo: {{this.description}}">
+      <div class="column is-4-desktop is-6-tablet px-2 py-0">
+        <article class="card is-radiusless m-1 h-100" aria-label="Item do acervo: {{this.description}}">
           <div class="card-image">
             <a
               href="{{this.imageUrl}}"

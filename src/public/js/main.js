@@ -102,6 +102,23 @@ const registerServiceWorker = async () => {
         return;
     }
 
+    const isLocalDev = ['localhost', '127.0.0.1'].includes(window.location.hostname);
+
+    if (isLocalDev) {
+        try {
+            const registrations = await navigator.serviceWorker.getRegistrations();
+            await Promise.all(registrations.map((registration) => registration.unregister()));
+
+            if ('caches' in window) {
+                const keys = await caches.keys();
+                await Promise.all(keys.map((key) => caches.delete(key)));
+            }
+        } catch (error) {
+            console.warn('Falha ao limpar Service Worker/cache em desenvolvimento:', error);
+        }
+        return;
+    }
+
     try {
         await navigator.serviceWorker.register('/public/service-worker.js');
     } catch (error) {
