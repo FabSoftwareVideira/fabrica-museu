@@ -118,8 +118,6 @@ app.get('/acervo', async (request, reply) => {
     const categoryIsValid = collectionCategories.some((category) => category.slug === selectedCategory);
     const activeCategory = categoryIsValid ? selectedCategory : 'todos';
 
-    const requestedPage = Number(request.query.page || 1);
-    const page = Number.isInteger(requestedPage) && requestedPage > 0 ? requestedPage : 1;
     const pageSize = 24;
 
     const filteredItems = activeCategory === 'todos'
@@ -128,9 +126,8 @@ app.get('/acervo', async (request, reply) => {
 
     const totalItems = filteredItems.length;
     const totalPages = Math.max(1, Math.ceil(totalItems / pageSize));
-    const currentPage = Math.min(page, totalPages);
-    const start = (currentPage - 1) * pageSize;
-    const pagedItems = filteredItems.slice(start, start + pageSize);
+    const currentPage = 1;
+    const pagedItems = filteredItems.slice(0, pageSize);
 
     return reply.view('acervo.hbs', {
         pageTitle: 'Explorar o Acervo',
@@ -142,16 +139,13 @@ app.get('/acervo', async (request, reply) => {
         })),
         items: pagedItems,
         hasItems: pagedItems.length > 0,
-        pagination: {
+        initialBatch: {
             currentPage,
             totalPages,
-            hasPrevious: currentPage > 1,
-            hasNext: currentPage < totalPages,
-            previousPage: currentPage - 1,
-            nextPage: currentPage + 1,
+            hasNext: totalPages > 1,
+            nextPage: 2,
             totalItems,
             pageSize,
-            basePath: `/acervo?categoria=${activeCategory}&page=`,
         },
         imagesFolder: 'src/public/photos',
     });

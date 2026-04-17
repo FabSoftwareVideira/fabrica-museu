@@ -32,7 +32,280 @@ const registerServiceWorker = async () => {
     }
 };
 
+const toText = (value, fallback = '-') => {
+    if (value === null || value === undefined || value === '') {
+        return fallback;
+    }
+    return String(value);
+};
+
+const buildItemCard = (item) => {
+    const column = document.createElement('div');
+    column.className = 'column is-4-desktop is-6-tablet';
+
+    const article = document.createElement('article');
+    article.className = 'card h-100';
+    article.setAttribute('aria-label', `Item do acervo: ${toText(item.description, 'Sem descricao')}`);
+
+    const imageWrapper = document.createElement('div');
+    imageWrapper.className = 'card-image';
+
+    const figure = document.createElement('figure');
+    figure.className = 'image is-square has-background-grey-lighter';
+
+    const image = document.createElement('img');
+    image.src = item.imageUrl;
+    image.alt = toText(item.description, 'Imagem do acervo');
+    image.loading = 'lazy';
+
+    figure.appendChild(image);
+    imageWrapper.appendChild(figure);
+
+    const content = document.createElement('div');
+    content.className = 'card-content';
+
+    const detailsTags = document.createElement('div');
+    detailsTags.className = 'tags mb-3';
+
+    if (item.estimatedYear) {
+        const yearTag = document.createElement('span');
+        yearTag.className = 'tag is-warning is-light';
+        yearTag.textContent = `Ano estimado: ${item.estimatedYear}`;
+        detailsTags.appendChild(yearTag);
+    }
+
+    if (item.historicalPeriod) {
+        const periodTag = document.createElement('span');
+        periodTag.className = 'tag is-light';
+        periodTag.textContent = item.historicalPeriod;
+        detailsTags.appendChild(periodTag);
+    }
+
+    content.appendChild(detailsTags);
+
+    const description = document.createElement('p');
+    description.className = 'mb-4';
+    description.textContent = toText(item.description, 'Sem descricao disponivel.');
+    content.appendChild(description);
+
+    const categoriesTags = document.createElement('div');
+    categoriesTags.className = 'tags';
+    (Array.isArray(item.categoriesLabel) ? item.categoriesLabel : []).forEach((label) => {
+        const categoryTag = document.createElement('span');
+        categoryTag.className = 'tag is-info is-light';
+        categoryTag.textContent = label;
+        categoriesTags.appendChild(categoryTag);
+    });
+    content.appendChild(categoriesTags);
+
+    const people = document.createElement('p');
+    people.className = 'is-size-7 has-text-grey mt-2';
+    people.textContent = `Pessoas na cena: ${toText(item.peopleCount, 'Nao informado')}`;
+    content.appendChild(people);
+
+    const type = document.createElement('p');
+    type.className = 'is-size-7 has-text-grey';
+    type.textContent = `Tipo: ${toText(item.documentType, 'Nao informado')}`;
+    content.appendChild(type);
+
+    const tags = document.createElement('p');
+    tags.className = 'is-size-7 has-text-grey';
+    const tagsText = Array.isArray(item.tags) ? item.tags.join(', ') : toText(item.tags, '');
+    tags.textContent = `Tags: ${tagsText || 'Sem tags'}`;
+    content.appendChild(tags);
+
+    const footer = document.createElement('div');
+    footer.className = 'card-footer';
+    footer.innerHTML = `
+        <p class="card-footer-item is-size-7 has-text-grey-light">
+            <span class="icon-text">
+                <span class="icon is-small"><i class="fa-solid fa-robot" aria-hidden="true"></i></span>
+                <span>Informacoes geradas por IA</span>
+            </span>
+        </p>
+    `;
+
+    article.appendChild(imageWrapper);
+    article.appendChild(content);
+    article.appendChild(footer);
+    column.appendChild(article);
+
+    return column;
+};
+
+const buildSkeletonCard = () => {
+    const column = document.createElement('div');
+    column.className = 'column is-4-desktop is-6-tablet acervo-skeleton-item';
+
+    const article = document.createElement('article');
+    article.className = 'card h-100';
+    article.setAttribute('aria-hidden', 'true');
+
+    article.innerHTML = `
+        <div class="card-image">
+            <div class="acervo-skeleton-block acervo-skeleton-image"></div>
+        </div>
+        <div class="card-content">
+            <div class="acervo-skeleton-block acervo-skeleton-line acervo-skeleton-line-short"></div>
+            <div class="acervo-skeleton-block acervo-skeleton-line"></div>
+            <div class="acervo-skeleton-block acervo-skeleton-line"></div>
+            <div class="acervo-skeleton-block acervo-skeleton-line acervo-skeleton-line-short"></div>
+        </div>
+    `;
+
+    column.appendChild(article);
+    return column;
+};
+
+const setupAcervoInfiniteScroll = () => {
+    const grid = document.getElementById('acervo-grid');
+    const sentinel = document.getElementById('acervo-sentinel');
+
+    if (!grid || !sentinel) {
+        return;
+    }
+
+    const loadingNode = document.getElementById('acervo-loading');
+    const endMessageNode = document.getElementById('acervo-end-message');
+    const countStatusNode = document.getElementById('acervo-count-status');
+    const skeletonNodes = [];
+
+    const state = {
+        category: grid.dataset.category || 'todos',
+        nextPage: Number(grid.dataset.nextPage || 2),
+        totalPages: Number(grid.dataset.totalPages || 1),
+        pageSize: Number(grid.dataset.pageSize || 24),
+        totalItems: Number(grid.dataset.totalItems || grid.children.length),
+        loadedItems: grid.children.length,
+        hasNext: grid.dataset.hasNext === 'true',
+        loading: false,
+    };
+
+    const updateStatusText = () => {
+        if (!countStatusNode) {
+            return;
+        }
+        countStatusNode.textContent = `Exibindo ${state.loadedItems} de ${state.totalItems} itens.`;
+    };
+
+    const setLoading = (isLoading) => {
+        if (!loadingNode) {
+            return;
+        }
+        loadingNode.classList.toggle('is-hidden', !isLoading);
+    };
+
+    const showSkeletons = () => {
+        const remaining = Math.max(0, state.totalItems - state.loadedItems);
+        const skeletonCount = Math.min(6, Math.max(3, remaining));
+
+        for (let index = 0; index < skeletonCount; index += 1) {
+            const skeleton = buildSkeletonCard();
+            skeletonNodes.push(skeleton);
+            grid.appendChild(skeleton);
+        }
+    };
+
+    const clearSkeletons = () => {
+        while (skeletonNodes.length > 0) {
+            const node = skeletonNodes.pop();
+            node.remove();
+        }
+    };
+
+    const showEndMessage = () => {
+        if (!endMessageNode) {
+            return;
+        }
+        endMessageNode.classList.remove('is-hidden');
+    };
+
+    const hideEndMessage = () => {
+        if (!endMessageNode) {
+            return;
+        }
+        endMessageNode.classList.add('is-hidden');
+    };
+
+    const fetchNextPage = async () => {
+        if (!state.hasNext || state.loading) {
+            return;
+        }
+
+        state.loading = true;
+        setLoading(true);
+        showSkeletons();
+
+        try {
+            const query = new URLSearchParams({
+                categoria: state.category,
+                page: String(state.nextPage),
+                limit: String(state.pageSize),
+            });
+
+            const response = await fetch(`/api/acervo?${query.toString()}`);
+
+            if (!response.ok) {
+                throw new Error(`Erro HTTP ${response.status}`);
+            }
+
+            const payload = await response.json();
+            const items = Array.isArray(payload.items) ? payload.items : [];
+
+            items.forEach((item) => {
+                grid.appendChild(buildItemCard(item));
+            });
+
+            state.loadedItems = grid.children.length;
+            state.totalItems = payload.pagination?.totalItems || state.totalItems;
+
+            const currentPage = payload.pagination?.page || state.nextPage;
+            const totalPages = payload.pagination?.totalPages || state.totalPages;
+            state.totalPages = totalPages;
+            state.nextPage = currentPage + 1;
+            state.hasNext = currentPage < totalPages;
+
+            updateStatusText();
+
+            if (!state.hasNext) {
+                showEndMessage();
+                observer.disconnect();
+            }
+        } catch (error) {
+            console.warn('Falha ao carregar mais itens do acervo:', error);
+        } finally {
+            clearSkeletons();
+            state.loading = false;
+            setLoading(false);
+        }
+    };
+
+    updateStatusText();
+
+    if (!state.hasNext) {
+        showEndMessage();
+        return;
+    }
+
+    hideEndMessage();
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                fetchNextPage();
+            }
+        });
+    }, {
+        root: null,
+        threshold: 0,
+        rootMargin: '300px 0px',
+    });
+
+    observer.observe(sentinel);
+};
+
 window.addEventListener('load', () => {
     setupMap();
+    setupAcervoInfiniteScroll();
     registerServiceWorker();
 });

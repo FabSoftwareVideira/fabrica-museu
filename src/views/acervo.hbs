@@ -21,12 +21,21 @@
       {{/each}}
     </div>
 
-    <p class="is-size-7 has-text-grey mb-4">
-      Exibindo {{pagination.totalItems}} itens no total. Pagina {{pagination.currentPage}} de {{pagination.totalPages}}.
+    <p id="acervo-count-status" class="is-size-7 has-text-grey mb-4">
+      Exibindo {{items.length}} de {{initialBatch.totalItems}} itens.
     </p>
 
     {{#if hasItems}}
-    <div class="columns is-multiline">
+    <div
+      id="acervo-grid"
+      class="columns is-multiline"
+      data-category="{{activeCategory}}"
+      data-next-page="{{initialBatch.nextPage}}"
+      data-total-pages="{{initialBatch.totalPages}}"
+      data-page-size="{{initialBatch.pageSize}}"
+      data-total-items="{{initialBatch.totalItems}}"
+      data-has-next="{{initialBatch.hasNext}}"
+    >
       {{#each items}}
       <div class="column is-4-desktop is-6-tablet">
         <article class="card h-100" aria-label="Item do acervo: {{this.description}}">
@@ -70,23 +79,25 @@
       </div>
       {{/each}}
     </div>
+
+    <div id="acervo-loading" class="has-text-centered is-size-7 has-text-grey my-4 is-hidden">
+      Carregando mais itens...
+    </div>
+    <div id="acervo-end-message" class="has-text-centered is-size-7 has-text-grey my-4 is-hidden">
+      Voce chegou ao fim deste acervo.
+    </div>
+    <div id="acervo-sentinel" class="acervo-sentinel" aria-hidden="true"></div>
+
+    <noscript>
+      <article class="message is-info is-light mt-4">
+        <div class="message-body">Ative JavaScript para carregar o restante das imagens ao rolar a pagina.</div>
+      </article>
+    </noscript>
     {{else}}
     <article class="message is-warning is-light">
       <div class="message-body">Nenhuma imagem encontrada para este filtro.</div>
     </article>
     {{/if}}
-
-    <nav class="pagination is-centered mt-5" role="navigation" aria-label="Paginacao do acervo">
-      {{#if pagination.hasPrevious}}
-      <a class="pagination-previous" href="{{pagination.basePath}}{{pagination.previousPage}}">Anterior</a>
-      {{else}}
-      <a class="pagination-previous" disabled>Anterior</a>
-      {{/if}} {{#if pagination.hasNext}}
-      <a class="pagination-next" href="{{pagination.basePath}}{{pagination.nextPage}}">Proxima</a>
-      {{else}}
-      <a class="pagination-next" disabled>Proxima</a>
-      {{/if}}
-    </nav>
 
     <article class="message is-warning is-light mb-5" aria-label="Aviso sobre uso de IA">
       <div class="message-body">

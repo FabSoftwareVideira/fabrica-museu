@@ -32,6 +32,40 @@ body {
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
 }
 
+.acervo-sentinel {
+  width: 100%;
+  height: 1px;
+}
+
+.acervo-skeleton-block {
+  border-radius: 8px;
+  background: linear-gradient(90deg, #e6e6e6 25%, #f4f4f4 37%, #e6e6e6 63%);
+  background-size: 400% 100%;
+  animation: acervo-shimmer 1.2s ease-in-out infinite;
+}
+
+.acervo-skeleton-image {
+  aspect-ratio: 1 / 1;
+}
+
+.acervo-skeleton-line {
+  block-size: 12px;
+  margin-block-end: 0.75rem;
+}
+
+.acervo-skeleton-line-short {
+  inline-size: 70%;
+}
+
+@keyframes acervo-shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
 @media (max-width: 768px) {
   .contact-map {
     min-height: 300px;
