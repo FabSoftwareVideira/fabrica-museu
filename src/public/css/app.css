@@ -43,53 +43,99 @@ body {
   max-width: 100%;
 }
 
-.acervo-grid--list-compact .card,
+/* --- list-detailed --- */
 .acervo-grid--list-detailed .card {
   display: flex;
   flex-direction: row;
   min-height: 190px;
 }
 
-.acervo-grid--list-compact .card-image,
 .acervo-grid--list-detailed .card-image {
   flex: 0 0 240px;
 }
 
-.acervo-grid--list-compact .card-image .image,
 .acervo-grid--list-detailed .card-image .image {
   height: 100%;
 }
 
-.acervo-grid--list-compact .card-image img,
 .acervo-grid--list-detailed .card-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.acervo-grid--list-compact .card-content,
 .acervo-grid--list-detailed .card-content {
   flex: 1;
 }
 
-.acervo-grid--list-compact .card-footer,
 .acervo-grid--list-detailed .card-footer {
   align-items: flex-end;
 }
 
+.acervo-grid--list-detailed .acervo-description {
+  margin-bottom: 0.75rem;
+}
+
+.acervo-grid--list-detailed .acervo-ai-badge {
+  display: none;
+}
+
+/* --- list-compact --- */
+.acervo-grid--list-compact .card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-height: unset;
+}
+
+.acervo-grid--list-compact .card-image {
+  flex: 0 0 72px;
+  width: 72px;
+  height: 72px;
+  overflow: hidden;
+  margin: 0.5rem;
+  border-radius: 6px;
+}
+
+.acervo-grid--list-compact .card-image .image {
+  width: 72px;
+  height: 72px;
+  aspect-ratio: 1 / 1;
+}
+
+.acervo-grid--list-compact .card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.acervo-grid--list-compact .card-content {
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.acervo-grid--list-compact .acervo-description,
 .acervo-grid--list-compact .acervo-meta-item,
-.acervo-grid--list-compact .acervo-category-tags,
 .acervo-grid--list-compact .tags.mb-3,
 .acervo-grid--list-compact .card-footer {
   display: none;
 }
 
-.acervo-grid--list-compact .acervo-description {
+.acervo-grid--list-compact .acervo-category-tags {
   margin-bottom: 0;
+  flex-wrap: wrap;
 }
 
-.acervo-grid--list-detailed .acervo-description {
-  margin-bottom: 0.75rem;
+.acervo-grid--list-compact .acervo-ai-badge {
+  margin-left: auto;
+  color: #aaa;
+  flex-shrink: 0;
 }
 
 .acervo-grid--list-detailed .card-footer {
@@ -131,12 +177,14 @@ body {
     min-height: 300px;
   }
 
-  .acervo-grid--list-compact .card,
+  .acervo-grid--list-compact .card {
+    flex-direction: row;
+  }
+
   .acervo-grid--list-detailed .card {
     flex-direction: column;
   }
 
-  .acervo-grid--list-compact .card-image,
   .acervo-grid--list-detailed .card-image {
     flex-basis: auto;
   }

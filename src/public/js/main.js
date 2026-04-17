@@ -179,6 +179,12 @@ const buildItemCard = (item) => {
     tags.textContent = `Tags: ${tagsText || 'Sem tags'}`;
     content.appendChild(tags);
 
+    const aiBadge = document.createElement('span');
+    aiBadge.className = 'acervo-ai-badge icon has-text-grey-light';
+    aiBadge.title = 'Informacoes geradas por IA';
+    aiBadge.innerHTML = '<i class="fa-solid fa-robot" aria-hidden="true"></i>';
+    content.appendChild(aiBadge);
+
     const footer = document.createElement('div');
     footer.className = 'card-footer';
     footer.innerHTML = `
