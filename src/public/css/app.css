@@ -1,21 +1,333 @@
-:root {
+/* ============================================================
+   THEME VARIABLES
+   ============================================================ */
+:root,
+[data-theme='light'] {
+  /* Brand palette */
+  --bg: #f5f0e8;
+  --surface: #ede7d9;
+  --wire: #c8b89a;
+  --wire-dk: #8a6e4e;
+  --ink: #2e1f0e;
+  --ink-soft: #7a5c3e;
+  --accent: #7b1c2e;
+  --accent2: #b5451b;
+  --gold: #c9982a;
+  --white: #faf8f4;
+
+  /* Mapped tokens */
   --bulma-family-primary: 'DM Sans', sans-serif;
+  --ff-display: 'Playfair Display', Georgia, serif;
+  --ff-body: 'DM Sans', sans-serif;
+  /* ── Bulma color overrides ──────────────────────────────────
+     Bulma 1.0 derives ALL shades/inverts from h/s/l triplets.
+     Overriding just these cascades to buttons, tags, tabs,
+     links, focus rings, pagination, hero, navbar, etc.
+  ──────────────────────────────────────────────────────────── */
+
+  /* Primary → accent #7b1c2e (bordeaux) */
+  --bulma-primary-h: 349deg;
+  --bulma-primary-s: 63%;
+  --bulma-primary-l: 30%;
+  --bulma-primary-invert-l: 100%;
+  --bulma-primary-on-scheme-l: 28%;
+
+  /* Link → accent2 #b5451b (burnt-orange);
+     also drives <a>, arrow-color, focus ring, pagination */
+  --bulma-link-h: 16deg;
+  --bulma-link-s: 74%;
+  --bulma-link-l: 41%;
+  --bulma-link-invert-l: 100%;
+  --bulma-link-on-scheme-l: 35%;
+
+  /* Warning → gold #c9982a */
+  --bulma-warning-h: 42deg;
+  --bulma-warning-s: 65%;
+  --bulma-warning-l: 48%;
+  --bulma-warning-invert-l: 8%;
+  --bulma-warning-on-scheme-l: 36%;
+
+  /* Danger → deep red (slightly lighter than primary) */
+  --bulma-danger-h: 349deg;
+  --bulma-danger-s: 60%;
+  --bulma-danger-l: 35%;
+  --bulma-danger-invert-l: 100%;
+  --bulma-danger-on-scheme-l: 30%;
+
+  /* Scheme key (drives scheme-main, background, border shades) */
+  --bulma-scheme-h: 38deg;
+  --bulma-scheme-s: 30%;
+
+  /* Text key (drives text-weak, strong, title) */
+  --bulma-text-h: 28deg;
+  --bulma-text-s: 28%;
+  --site-bg: var(--bg);
+  --card-bg: var(--white);
+  --section-bg: var(--surface);
+  --navbar-bg: var(--white);
+  --navbar-shadow: rgba(46, 31, 14, 0.12);
+  --footer-bg: var(--surface);
+  --footer-color: var(--ink);
+  --text-color: var(--ink);
+  --text-muted: var(--ink-soft);
+  --border-color: var(--wire);
+  --btn-light-bg: var(--surface);
+  --btn-light-color: var(--ink);
+  --btn-light-border: var(--wire);
+  --tag-light-bg: var(--surface);
+  --tag-light-color: var(--ink-soft);
+  --figure-bg: var(--wire);
+  --skeleton-c1: var(--surface);
+  --skeleton-c2: var(--bg);
+  --card-footer-bg: var(--surface);
+  --card-footer-border: var(--wire);
 }
 
+[data-theme='dark'] {
+  /* Dark variants derived from the brand palette */
+  --bg: #1a1108;
+  --surface: #241808;
+  --wire: #4a3520;
+  --wire-dk: #6b5030;
+  --ink: #f0e8d8;
+  --ink-soft: #b89c7a;
+  --accent: #d4566a;
+  --accent2: #e07850;
+  --gold: #d4a83a;
+  --white: #faf8f4;
+
+  --site-bg: var(--bg);
+  --card-bg: #2a1e0e;
+  --section-bg: var(--surface);
+  --navbar-bg: #140e04;
+  --navbar-shadow: rgba(0, 0, 0, 0.55);
+  --footer-bg: #140e04;
+  --footer-color: var(--ink);
+  --text-color: var(--ink);
+  --text-muted: var(--ink-soft);
+  --border-color: var(--wire);
+  --btn-light-bg: #2f2010;
+  --btn-light-color: var(--ink);
+  --btn-light-border: var(--wire);
+  --tag-light-bg: #2f2010;
+  --tag-light-color: var(--ink-soft);
+  --figure-bg: #3a2810;
+  --skeleton-c1: #2a1e0e;
+  --skeleton-c2: #38280f;
+  --card-footer-bg: #1e1508;
+  --card-footer-border: var(--wire);
+
+  /* ── Bulma dark overrides ──────────────────────────────────
+     Lighten primary/link/warning so they read on dark canvas.
+  ──────────────────────────────────────────────────────────── */
+  --bulma-primary-h: 349deg;
+  --bulma-primary-s: 60%;
+  --bulma-primary-l: 55%;
+  --bulma-primary-invert-l: 100%;
+  --bulma-primary-on-scheme-l: 60%;
+
+  --bulma-link-h: 16deg;
+  --bulma-link-s: 80%;
+  --bulma-link-l: 62%;
+  --bulma-link-invert-l: 5%;
+  --bulma-link-on-scheme-l: 65%;
+
+  --bulma-warning-h: 42deg;
+  --bulma-warning-s: 70%;
+  --bulma-warning-l: 58%;
+  --bulma-warning-invert-l: 8%;
+  --bulma-warning-on-scheme-l: 60%;
+
+  --bulma-danger-h: 349deg;
+  --bulma-danger-s: 60%;
+  --bulma-danger-l: 55%;
+  --bulma-danger-invert-l: 5%;
+  --bulma-danger-on-scheme-l: 60%;
+
+  --bulma-scheme-h: 28deg;
+  --bulma-scheme-s: 22%;
+
+  --bulma-text-h: 30deg;
+  --bulma-text-s: 18%;
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  background: #f6f1e8;
-  font-family: 'DM Sans', sans-serif;
+  background: var(--site-bg);
+  color: var(--text-color);
+  font-family: var(--ff-body);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
+h1,
+h2,
+h3,
+.title {
+  font-family: var(--ff-display);
+}
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
 .navbar.is-light {
+  background-color: var(--navbar-bg) !important;
+  color: var(--text-color) !important;
   position: sticky;
   top: 0;
   z-index: 40;
-  box-shadow: 0 2px 12px rgba(46, 31, 14, 0.1);
+  box-shadow: 0 2px 12px var(--navbar-shadow);
+}
+
+.navbar-item,
+.navbar-link {
+  color: var(--text-color);
+  font-family: var(--ff-body);
+}
+
+.navbar-item:hover,
+.navbar-item.is-active {
+  background-color: var(--surface) !important;
+  color: var(--accent) !important;
+}
+
+[data-theme='dark'] .navbar-item:hover,
+[data-theme='dark'] .navbar-item.is-active {
+  background-color: var(--surface) !important;
+  color: var(--accent) !important;
+}
+
+#theme-toggle {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+
+#theme-toggle:hover {
+  color: var(--text-color);
+}
+
+/* ============================================================
+   CARDS
+   ============================================================ */
+[data-theme='dark'] .card {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+}
+
+[data-theme='dark'] .card-content {
+  color: var(--text-color);
+}
+
+[data-theme='dark'] .card-footer {
+  background-color: var(--card-footer-bg);
+  border-top-color: var(--card-footer-border);
+}
+
+[data-theme='dark'] .card-footer-item {
+  color: var(--text-muted);
+  border-right-color: var(--card-footer-border);
+}
+
+[data-theme='dark'] .has-background-grey-lighter {
+  background-color: var(--figure-bg) !important;
+}
+
+/* ============================================================
+   SECTIONS / HERO / FOOTER
+   ============================================================ */
+[data-theme='dark'] .section.has-background-light,
+[data-theme='dark'] main.has-background-light {
+  background-color: var(--section-bg) !important;
+}
+
+[data-theme='dark'] .footer {
+  background-color: var(--footer-bg);
+  color: var(--footer-color);
+}
+
+[data-theme='dark'] .footer a {
+  color: var(--text-muted);
+}
+
+[data-theme='dark'] .footer a:hover {
+  color: var(--text-color);
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.button.is-light {
+  background-color: var(--btn-light-bg) !important;
+  color: var(--btn-light-color) !important;
+  border-color: var(--btn-light-border) !important;
+}
+.button.is-light:hover {
+  background-color: var(--surface) !important;
+}
+
+/* ============================================================
+   TAGS
+   ============================================================ */
+.tag.is-light {
+  background-color: var(--tag-light-bg) !important;
+  color: var(--tag-light-color) !important;
+}
+
+.tag.is-info.is-light {
+  background-color: #dceeff !important;
+  color: #1e3a60 !important;
+}
+
+[data-theme='dark'] .tag.is-info.is-light {
+  background-color: #1e3250 !important;
+  color: #93c5fd !important;
+}
+
+.tag.is-warning.is-light {
+  background-color: #fef3d0 !important;
+  color: #6b4800 !important;
+}
+
+[data-theme='dark'] .tag.is-warning.is-light {
+  background-color: #3a2e10 !important;
+  color: #fde68a !important;
+}
+
+/* ============================================================
+   TYPOGRAPHY HELPERS
+   ============================================================ */
+.has-text-grey {
+  color: var(--text-muted) !important;
+}
+
+.has-text-grey-light {
+  color: var(--ink-soft) !important;
+}
+
+/* ============================================================
+   MESSAGES
+   ============================================================ */
+[data-theme='dark'] .message.is-info.is-light {
+  background-color: #1e3250;
+  color: #93c5fd;
+}
+
+/* ============================================================
+   ACERVO LIST-DETAILED FOOTER BORDER
+   ============================================================ */
+.acervo-main-section {
+  background-color: var(--section-bg);
 }
 
 .contact-map {
@@ -139,13 +451,18 @@ body {
 }
 
 .acervo-grid--list-detailed .card-footer {
-  border-left: 1px solid #ececec;
+  border-left: 1px solid var(--border-color);
   min-width: 210px;
 }
 
 .acervo-skeleton-block {
   border-radius: 8px;
-  background: linear-gradient(90deg, #e6e6e6 25%, #f4f4f4 37%, #e6e6e6 63%);
+  background: linear-gradient(
+    90deg,
+    var(--skeleton-c1) 25%,
+    var(--skeleton-c2) 37%,
+    var(--skeleton-c1) 63%
+  );
   background-size: 400% 100%;
   animation: acervo-shimmer 1.2s ease-in-out infinite;
 }
@@ -191,7 +508,7 @@ body {
 
   .acervo-grid--list-detailed .card-footer {
     border-left: 0;
-    border-top: 1px solid #ececec;
+    border-top: 1px solid var(--border-color);
     min-width: auto;
   }
 }

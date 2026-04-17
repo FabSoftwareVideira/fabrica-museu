@@ -1,4 +1,4 @@
-const CACHE_NAME = 'museu-vinho-v6';
+const CACHE_NAME = 'museu-vinho-v9';
 const OFFLINE_ASSETS = [
     '/',
     '/acervo',

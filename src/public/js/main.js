@@ -1,5 +1,43 @@
 const museumCoordinates = [-27.008, -51.1516];
 
+const applyTheme = (theme) => {
+    document.documentElement.setAttribute('data-theme', theme);
+
+    const btn = document.getElementById('theme-toggle');
+    if (btn) {
+        const icon = btn.querySelector('i');
+        if (icon) {
+            icon.className = theme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+        }
+        const label = theme === 'dark' ? 'Mudar para modo claro' : 'Mudar para modo escuro';
+        btn.setAttribute('title', label);
+        btn.setAttribute('aria-label', label);
+    }
+};
+
+const setupTheme = () => {
+    let stored = null;
+    try { stored = localStorage.getItem('siteTheme'); } catch (e) { }
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const initial = stored || (prefersDark ? 'dark' : 'light');
+    applyTheme(initial);
+
+    document.getElementById('theme-toggle')?.addEventListener('click', () => {
+        const current = document.documentElement.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        try { localStorage.setItem('siteTheme', next); } catch (e) { }
+        applyTheme(next);
+    });
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        let saved = null;
+        try { saved = localStorage.getItem('siteTheme'); } catch (err) { }
+        if (!saved) {
+            applyTheme(e.matches ? 'dark' : 'light');
+        }
+    });
+};
+
 const setupMap = () => {
     const mapElement = document.getElementById('museum-map');
 
@@ -77,8 +115,8 @@ const setupAcervoViewModes = (grid) => {
             const mode = normalizeViewMode(button.dataset.viewMode || 'cards');
             const isActive = mode === activeMode;
 
-            button.classList.toggle('is-dark', isActive);
-            button.classList.toggle('is-light', !isActive);
+            button.classList.toggle('is-primary', isActive);
+            button.classList.toggle('is-ghost', !isActive);
             button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
         });
     };
@@ -408,8 +446,58 @@ const setupAcervoInfiniteScroll = () => {
     bootstrapFromApi();
 };
 
+const setupNavActiveSection = () => {
+    // Only applies on the home page (has anchor sections)
+    const sectionIds = ['home', 'institucional', 'timeline', 'contato-link'];
+    const sections = sectionIds.map((id) => document.getElementById(id)).filter(Boolean);
+    if (sections.length === 0) return;
+
+    const navLinks = Array.from(
+        document.querySelectorAll('.navbar-end .navbar-item[href]')
+    ).filter((a) => a.getAttribute('href').startsWith('#'));
+
+    const setActive = (id) => {
+        navLinks.forEach((a) => {
+            const hash = a.getAttribute('href').replace(/^.*#/, '');
+            a.classList.toggle('is-active', hash === id);
+        });
+    };
+
+    // Click: set immediately so there's no delay
+    navLinks.forEach((a) => {
+        a.addEventListener('click', () => {
+            const hash = a.getAttribute('href').replace(/^.*#/, '');
+            setActive(hash);
+        });
+    });
+
+    // Scroll: IntersectionObserver tracks which section is in view
+    const navHeight = document.querySelector('.navbar')?.offsetHeight || 64;
+    let currentActive = sectionIds[0];
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    currentActive = entry.target.id;
+                    setActive(currentActive);
+                }
+            });
+        },
+        {
+            root: null,
+            rootMargin: `-${navHeight}px 0px -55% 0px`,
+            threshold: 0,
+        }
+    );
+
+    sections.forEach((s) => observer.observe(s));
+};
+
 window.addEventListener('load', () => {
+    setupTheme();
     setupMap();
+    setupNavActiveSection();
     setupAcervoInfiniteScroll();
     registerServiceWorker();
 });

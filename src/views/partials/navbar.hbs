@@ -16,6 +16,15 @@
         <a class="navbar-item {{#if isAcervo}}is-active{{/if}}" href="/acervo">Acervo</a>
         <a class="navbar-item" href="{{#if isHome}}#timeline{{else}}/#timeline{{/if}}">Linha do tempo</a>
         <a class="navbar-item" href="{{#if isHome}}#contato-link{{else}}/#contato-link{{/if}}">Contato</a>
+        <button
+          id="theme-toggle"
+          class="button is-ghost navbar-item"
+          type="button"
+          title="Alternar tema claro/escuro"
+          aria-label="Alternar tema claro/escuro"
+        >
+          <span class="icon"><i class="fa-solid fa-moon" aria-hidden="true"></i></span>
+        </button>
       </div>
     </div>
   </div>
