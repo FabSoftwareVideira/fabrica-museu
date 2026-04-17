@@ -447,14 +447,25 @@ const setupAcervoInfiniteScroll = () => {
 };
 
 const setupNavActiveSection = () => {
-    // Only applies on the home page (has anchor sections)
-    const sectionIds = ['home', 'institucional', 'timeline', 'contato-link'];
-    const sections = sectionIds.map((id) => document.getElementById(id)).filter(Boolean);
-    if (sections.length === 0) return;
-
+    // Only applies on pages with anchor sections in the navbar (home)
     const navLinks = Array.from(
         document.querySelectorAll('.navbar-end .navbar-item[href]')
-    ).filter((a) => a.getAttribute('href').startsWith('#'));
+    ).filter((a) => {
+        const href = a.getAttribute('href') || '';
+        return href.startsWith('#');
+    });
+
+    if (navLinks.length === 0) return;
+
+    const sections = navLinks
+        .map((a) => {
+            const hash = a.getAttribute('href').replace(/^.*#/, '');
+            const section = document.getElementById(hash);
+            return section ? { id: hash, section } : null;
+        })
+        .filter(Boolean);
+
+    if (sections.length === 0) return;
 
     const setActive = (id) => {
         navLinks.forEach((a) => {
@@ -463,35 +474,43 @@ const setupNavActiveSection = () => {
         });
     };
 
-    // Click: set immediately so there's no delay
+    const getActiveSectionId = () => {
+        const navHeight = document.querySelector('.navbar')?.offsetHeight || 64;
+        const activationLine = navHeight + 20;
+
+        let activeId = sections[0].id;
+
+        sections.forEach(({ id, section }) => {
+            const top = section.getBoundingClientRect().top;
+            if (top <= activationLine) {
+                activeId = id;
+            }
+        });
+
+        return activeId;
+    };
+
+    let rafScheduled = false;
+    const updateFromScroll = () => {
+        if (rafScheduled) return;
+        rafScheduled = true;
+        window.requestAnimationFrame(() => {
+            setActive(getActiveSectionId());
+            rafScheduled = false;
+        });
+    };
+
     navLinks.forEach((a) => {
         a.addEventListener('click', () => {
             const hash = a.getAttribute('href').replace(/^.*#/, '');
             setActive(hash);
+            updateFromScroll();
         });
     });
 
-    // Scroll: IntersectionObserver tracks which section is in view
-    const navHeight = document.querySelector('.navbar')?.offsetHeight || 64;
-    let currentActive = sectionIds[0];
-
-    const observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    currentActive = entry.target.id;
-                    setActive(currentActive);
-                }
-            });
-        },
-        {
-            root: null,
-            rootMargin: `-${navHeight}px 0px -55% 0px`,
-            threshold: 0,
-        }
-    );
-
-    sections.forEach((s) => observer.observe(s));
+    window.addEventListener('scroll', updateFromScroll, { passive: true });
+    window.addEventListener('resize', updateFromScroll);
+    updateFromScroll();
 };
 
 window.addEventListener('load', () => {
