@@ -394,6 +394,28 @@ h3,
   max-width: 100%;
 }
 
+/* --- cards (equal height) --- */
+.acervo-grid--cards .column {
+  display: flex;
+}
+
+.acervo-grid--cards .card {
+  display: flex;
+  flex-direction: column;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.acervo-grid--cards .card-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.acervo-grid--cards .acervo-category-tags {
+  margin-top: auto;
+}
+
 /* --- list-detailed --- */
 .acervo-grid--list-detailed .card {
   display: flex;

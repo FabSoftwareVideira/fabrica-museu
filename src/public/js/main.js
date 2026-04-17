@@ -183,7 +183,7 @@ const setupAcervoViewModes = (grid) => {
 
 const buildItemCard = (item) => {
     const column = document.createElement('div');
-    column.className = 'column is-4-desktop is-6-tablet';
+    column.className = 'column is-4-desktop is-6-tablet p-2';
 
     const article = document.createElement('article');
     article.className = 'card h-100';
