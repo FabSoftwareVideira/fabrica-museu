@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#6d1623" />
+    <title>{{pageTitle}}</title>
+    <link rel="manifest" href="/public/manifest.webmanifest" />
+    <link rel="icon" href="/public/icons/icon-192.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="/public/css/app.css" />
+  </head>
+  <body>
+    <header class="hero is-small museum-hero">
+      <nav class="navbar is-transparent">
+        <div class="navbar-brand">
+          <a class="navbar-item brand" href="/">Museu do Vinho</a>
+        </div>
+      </nav>
+      <div class="hero-body py-6">
+        <div class="container">
+          <h1 class="title is-2 hero-title">Explorar o Acervo</h1>
+          <p class="subtitle hero-subtitle is-5">Filtros iniciais para navegacao por categorias do acervo digital.</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="section section-soft section-acervo">
+      <div class="container">
+        <div class="filter-wrap mb-5">
+          {{#each categories}}
+            <a
+              href="/acervo?categoria={{this.slug}}"
+              class="button is-rounded {{#if this.isActive}}is-dark{{else}}is-light{{/if}}"
+            >
+              {{this.label}}
+            </a>
+          {{/each}}
+        </div>
+
+        <div class="columns is-multiline">
+          {{#each items}}
+            <div class="column is-4-desktop is-6-tablet">
+              <article class="card museum-card acervo-item">
+                <div class="card-image">
+                  <div class="mock-thumb" aria-hidden="true"></div>
+                </div>
+                <div class="card-content">
+                  <p class="tag is-warning is-light mb-3">{{this.period}}</p>
+                  <p class="title is-5">{{this.title}}</p>
+                  <p class="mb-4">{{this.description}}</p>
+                  <p class="is-size-7 has-text-weight-semibold">Categoria: {{this.category}}</p>
+                </div>
+              </article>
+            </div>
+          {{/each}}
+        </div>
+
+        <div class="mt-5">
+          <a href="/" class="button is-link is-light">Voltar para a pagina inicial</a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer py-5">
+      <div class="content has-text-centered">
+        <p>Projeto em desenvolvimento. {{year}} Museu do Vinho Mario Pellegrin.</p>
+      </div>
+    </footer>
+
+    <script src="/public/js/main.js"></script>
+  </body>
+</html>

@@ -17,7 +17,12 @@ src/
 	public/
 		css/
 			app.css
+		icons/
+		js/
+		manifest.webmanifest
+		service-worker.js
 	views/
+		acervo.hbs
 		index.hbs
 	server.js
 docker-compose.yml
@@ -69,9 +74,12 @@ http://localhost:3000
 - Variaveis de ambiente em `.env` e `.env.example`
 - Botao flutuante de WhatsApp na home
 - Layout inicial responsivo com Bulma e CSS customizado
+- Rota de acervo com filtros por categoria: `/acervo?categoria=fotografias|documentos|objetos`
+- Mapa interativo no contato com Leaflet + OpenStreetMap
+- Base PWA: `manifest.webmanifest`, `service-worker.js` e icones
 
-## Proximos passos sugeridos
+## Rotas disponiveis
 
-- Criar rota e pagina dedicada para "Explorar o Acervo"
-- Adicionar mapa com Leaflet na secao de contato
-- Evoluir para PWA (manifest + service worker)
+- `/`
+- `/acervo`
+- `/health`
