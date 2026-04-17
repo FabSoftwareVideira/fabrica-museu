@@ -22,7 +22,7 @@
     </div>
 
     <div
-      class="is-flex is-justify-content-space-between is-align-items-center mb-1 is-flex-wrap-wrap"
+      class="is-flex is-justify-content-space-between is-align-items-center mb-4 is-flex-wrap-wrap"
       style="gap: 0.75rem"
     >
       <p id="acervo-count-status" class="is-size-7 has-text-grey mb-0">Exibindo {{items.length}} itens.</p>
@@ -46,12 +46,19 @@
       data-page-size="24"
     >
       {{#each items}}
-      <div class="column is-4-desktop is-6-tablet">
+      <div class="column is-4-desktop is-6-tablet p-1">
         <article class="card h-100" aria-label="Item do acervo: {{this.description}}">
           <div class="card-image">
-            <figure class="image is-square has-background-grey-lighter">
-              <img src="{{this.imageUrl}}" alt="{{this.description}}" loading="lazy" />
-            </figure>
+            <a
+              href="{{this.imageUrl}}"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Abrir imagem em tamanho original"
+            >
+              <figure class="image is-square has-background-grey-lighter">
+                <img src="{{this.imageUrl}}" alt="{{this.description}}" loading="lazy" />
+              </figure>
+            </a>
           </div>
 
           <div class="card-content">

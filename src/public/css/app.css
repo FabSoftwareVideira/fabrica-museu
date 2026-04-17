@@ -428,6 +428,7 @@ h3,
   margin-bottom: 0.75rem;
 }
 
+.acervo-grid--cards .acervo-ai-badge,
 .acervo-grid--list-detailed .acervo-ai-badge {
   display: none;
 }
