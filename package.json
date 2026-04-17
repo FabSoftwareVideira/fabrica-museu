@@ -4,7 +4,7 @@
   "description": "Aplicacao web do Museu do Vinho usando Node.js, Fastify, Handlebars e Bulma.",
   "main": "src/server.js",
   "scripts": {
-    "dev": "nodemon --watch src --ext js,hbs,css --exec node src/server.js",
+    "dev": "nodemon --watch src --ext js,hbs,css,json --exec node src/server.js",
     "start": "node src/server.js",
     "test": "echo \"Sem testes automatizados ainda\""
   },

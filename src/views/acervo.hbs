@@ -47,34 +47,80 @@
 
     <main class="section has-background-light">
       <div class="container">
+
         <div class="buttons mb-5">
           {{#each categories}}
             <a
               href="/acervo?categoria={{this.slug}}"
               class="button is-rounded {{#if this.isActive}}is-dark{{else}}is-light{{/if}}"
             >
-              {{this.label}}
+              {{this.label}} ({{this.count}})
             </a>
           {{/each}}
         </div>
 
-        <div class="columns is-multiline">
-          {{#each items}}
-            <div class="column is-4-desktop is-6-tablet">
-              <article class="card">
-                <div class="card-image">
-                  <div class="has-background-grey-lighter p-6 has-text-centered has-text-grey" aria-hidden="true" style="min-height: 160px;"></div>
-                </div>
-                <div class="card-content">
-                  <p class="tag is-warning is-light mb-3">{{this.period}}</p>
-                  <p class="title is-5">{{this.title}}</p>
-                  <p class="mb-4">{{this.description}}</p>
-                  <p class="is-size-7 has-text-weight-semibold">Categoria: {{this.category}}</p>
-                </div>
-              </article>
+        <p class="is-size-7 has-text-grey mb-4">
+          Exibindo {{pagination.totalItems}} itens no total. Pagina {{pagination.currentPage}} de {{pagination.totalPages}}.
+        </p>
+
+        {{#if hasItems}}
+          <div class="columns is-multiline">
+            {{#each items}}
+              <div class="column is-4-desktop is-6-tablet">
+                <article class="card">
+                  <div class="card-image">
+                    <figure class="image is-4by3 has-background-grey-lighter">
+                      <img src="{{this.imageUrl}}" alt="{{this.description}}" loading="lazy" />
+                    </figure>
+                  </div>
+                  <div class="card-content">
+                    <div class="tags mb-3">
+                      {{#if this.estimatedYear}}
+                        <span class="tag is-warning is-light">Ano estimado: {{this.estimatedYear}}</span>
+                      {{/if}}
+                      {{#if this.historicalPeriod}}
+                        <span class="tag is-light">{{this.historicalPeriod}}</span>
+                      {{/if}}
+                    </div>
+
+                    <p class="title is-5">{{this.title}}</p>
+                    <p class="mb-4">{{this.description}}</p>
+
+                    <div class="tags">
+                      {{#each this.categoriesLabel}}
+                        <span class="tag is-info is-light">{{this}}</span>
+                      {{/each}}
+                    </div>
+
+                    <p class="is-size-7 has-text-grey mt-2">Pessoas na cena: {{this.peopleCount}}</p>
+                    <p class="is-size-7 has-text-grey">Tipo: {{this.documentType}}</p>
+                    <p class="is-size-7 has-text-grey">Arquivo: {{this.filename}}</p>
+                  </div>
+                </article>
+              </div>
+            {{/each}}
+          </div>
+        {{else}}
+          <article class="message is-warning is-light">
+            <div class="message-body">
+              Nenhuma imagem encontrada para este filtro.
             </div>
-          {{/each}}
-        </div>
+          </article>
+        {{/if}}
+
+        <nav class="pagination is-centered mt-5" role="navigation" aria-label="Paginacao do acervo">
+          {{#if pagination.hasPrevious}}
+            <a class="pagination-previous" href="{{pagination.basePath}}{{pagination.previousPage}}">Anterior</a>
+          {{else}}
+            <a class="pagination-previous" disabled>Anterior</a>
+          {{/if}}
+
+          {{#if pagination.hasNext}}
+            <a class="pagination-next" href="{{pagination.basePath}}{{pagination.nextPage}}">Proxima</a>
+          {{else}}
+            <a class="pagination-next" disabled>Proxima</a>
+          {{/if}}
+        </nav>
 
         <div class="mt-5">
           <a href="/" class="button is-link is-light">Voltar para a pagina inicial</a>

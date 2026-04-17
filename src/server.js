@@ -3,6 +3,7 @@ const Fastify = require('fastify');
 const fastifyStatic = require('@fastify/static');
 const fastifyView = require('@fastify/view');
 const handlebars = require('handlebars');
+const acervoIndex = require('./data/acervo-index.json');
 
 const app = Fastify({
     logger: true,
@@ -11,56 +12,72 @@ const app = Fastify({
 const port = Number(process.env.PORT || 3000);
 const host = process.env.HOST || '0.0.0.0';
 
-const collectionItems = [
-    {
-        id: 1,
-        title: 'Vindima da Familia Rech - 1954',
-        category: 'fotografias',
-        period: '1950-1960',
-        description: 'Registro da colheita em comunidade no interior de Videira.',
-    },
-    {
-        id: 2,
-        title: 'Convite da Festa da Uva',
-        category: 'documentos',
-        period: '1978',
-        description: 'Material impresso de divulgacao de evento regional.',
-    },
-    {
-        id: 3,
-        title: 'Prensa manual de madeira',
-        category: 'objetos',
-        period: 'Decada de 1940',
-        description: 'Ferramenta usada para extracao inicial do mosto da uva.',
-    },
-    {
-        id: 4,
-        title: 'Album da Cooperativa Colonial',
-        category: 'fotografias',
-        period: '1962',
-        description: 'Fotos de producao coletiva e comercializacao local.',
-    },
-    {
-        id: 5,
-        title: 'Livro-caixa da cantina',
-        category: 'documentos',
-        period: '1937-1939',
-        description: 'Anotacoes de vendas, trocas e producao de vinho artesanal.',
-    },
-    {
-        id: 6,
-        title: 'Barrica restaurada',
-        category: 'objetos',
-        period: 'Inicio do seculo XX',
-        description: 'Peca preservada para exposicao sobre tecnicas tradicionais.',
-    },
-];
+const categoryLabelMap = {
+    architecture: 'Arquitetura',
+    event: 'Evento',
+    sport: 'Esporte',
+    documento: 'Documento',
+    fotografia: 'Fotografia',
+};
+
+const toSlug = (value) => String(value || '')
+    .trim()
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+
+const toLabel = (slug) => categoryLabelMap[slug]
+    || slug
+        .replace(/-/g, ' ')
+        .replace(/\b\w/g, (char) => char.toUpperCase());
+
+const buildPublicPath = (relativePath) => {
+    const normalizedPath = String(relativePath || '').replace(/\\/g, '/');
+    return `/public/${encodeURI(normalizedPath)}`;
+};
+
+const collectionItems = acervoIndex.map((item, index) => {
+    const categories = Array.isArray(item.categories)
+        ? item.categories.map((category) => toSlug(category)).filter(Boolean)
+        : [];
+
+    return {
+        id: item.file_hash || `${index}`,
+        filename: item.filename,
+        imagePath: item.path,
+        imageUrl: buildPublicPath(item.path),
+        fileSize: item.file_size,
+        description: item.description,
+        tags: Array.isArray(item.tags) ? item.tags : [],
+        categories,
+        categoriesLabel: categories.map(toLabel),
+        peopleCount: item.people_count,
+        historicalPeriod: item.historical_period,
+        estimatedYear: item.estimated_year,
+        sceneType: item.scene_type,
+        documentType: item.document_type,
+        title: item.filename,
+    };
+});
+
+const categoryCounts = collectionItems.reduce((acc, item) => {
+    item.categories.forEach((category) => {
+        acc[category] = (acc[category] || 0) + 1;
+    });
+    return acc;
+}, {});
 
 const collectionCategories = [
-    { slug: 'todos', label: 'Todos' },
-    { slug: 'fotografias', label: 'Fotografias' },
-    { slug: 'documentos', label: 'Documentos' },
-    { slug: 'objetos', label: 'Objetos' },
+    { slug: 'todos', label: 'Todos', count: collectionItems.length },
+    ...Object.keys(categoryCounts)
+        .sort((a, b) => a.localeCompare(b))
+        .map((slug) => ({
+            slug,
+            label: toLabel(slug),
+            count: categoryCounts[slug],
+        })),
 ];
 
 app.register(fastifyStatic, {
@@ -87,9 +104,19 @@ app.get('/acervo', async (request, reply) => {
     const categoryIsValid = collectionCategories.some((category) => category.slug === selectedCategory);
     const activeCategory = categoryIsValid ? selectedCategory : 'todos';
 
+    const requestedPage = Number(request.query.page || 1);
+    const page = Number.isInteger(requestedPage) && requestedPage > 0 ? requestedPage : 1;
+    const pageSize = 24;
+
     const filteredItems = activeCategory === 'todos'
         ? collectionItems
-        : collectionItems.filter((item) => item.category === activeCategory);
+        : collectionItems.filter((item) => item.categories.includes(activeCategory));
+
+    const totalItems = filteredItems.length;
+    const totalPages = Math.max(1, Math.ceil(totalItems / pageSize));
+    const currentPage = Math.min(page, totalPages);
+    const start = (currentPage - 1) * pageSize;
+    const pagedItems = filteredItems.slice(start, start + pageSize);
 
     return reply.view('acervo.hbs', {
         pageTitle: 'Explorar o Acervo',
@@ -99,7 +126,55 @@ app.get('/acervo', async (request, reply) => {
             ...category,
             isActive: category.slug === activeCategory,
         })),
-        items: filteredItems,
+        items: pagedItems,
+        hasItems: pagedItems.length > 0,
+        pagination: {
+            currentPage,
+            totalPages,
+            hasPrevious: currentPage > 1,
+            hasNext: currentPage < totalPages,
+            previousPage: currentPage - 1,
+            nextPage: currentPage + 1,
+            totalItems,
+            pageSize,
+            basePath: `/acervo?categoria=${activeCategory}&page=`,
+        },
+        imagesFolder: 'src/public/photos',
+    });
+});
+
+app.get('/api/acervo', async (request, reply) => {
+    const selectedCategory = String(request.query.categoria || 'todos').toLowerCase();
+    const categoryIsValid = collectionCategories.some((category) => category.slug === selectedCategory);
+    const activeCategory = categoryIsValid ? selectedCategory : 'todos';
+
+    const requestedPage = Number(request.query.page || 1);
+    const requestedLimit = Number(request.query.limit || 24);
+    const page = Number.isInteger(requestedPage) && requestedPage > 0 ? requestedPage : 1;
+    const limit = Number.isInteger(requestedLimit) && requestedLimit > 0
+        ? Math.min(requestedLimit, 100)
+        : 24;
+
+    const filteredItems = activeCategory === 'todos'
+        ? collectionItems
+        : collectionItems.filter((item) => item.categories.includes(activeCategory));
+
+    const totalItems = filteredItems.length;
+    const totalPages = Math.max(1, Math.ceil(totalItems / limit));
+    const currentPage = Math.min(page, totalPages);
+    const start = (currentPage - 1) * limit;
+    const pagedItems = filteredItems.slice(start, start + limit);
+
+    return reply.send({
+        category: activeCategory,
+        pagination: {
+            page: currentPage,
+            limit,
+            totalItems,
+            totalPages,
+        },
+        categories: collectionCategories,
+        items: pagedItems,
     });
 });
 
