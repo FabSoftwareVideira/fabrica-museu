@@ -8,8 +8,29 @@
       >
         Museu do Vinho
       </a>
+      <button
+        class="button is-ghost navbar-item theme-toggle theme-toggle--mobile"
+        data-theme-toggle
+        type="button"
+        title="Alternar tema claro/escuro"
+        aria-label="Alternar tema claro/escuro"
+      >
+        <span class="icon"><i class="fa-solid fa-moon" aria-hidden="true"></i></span>
+      </button>
+      <button
+        class="navbar-burger"
+        id="navbar-burger"
+        type="button"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+        aria-controls="main-navbar-menu"
+      >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
     </div>
-    <div class="navbar-menu is-active">
+    <div class="navbar-menu" id="main-navbar-menu">
       <div class="navbar-end">
         <a class="navbar-item {{#if isHome}}is-active{{/if}}" href="{{#if isHome}}#home{{else}}/#home{{/if}}">Inicio</a>
         <a class="navbar-item" href="{{#if isHome}}#institucional{{else}}/#institucional{{/if}}">Sobre</a>
@@ -17,8 +38,8 @@
         <a class="navbar-item" href="{{#if isHome}}#timeline{{else}}/#timeline{{/if}}">Linha do tempo</a>
         <a class="navbar-item" href="{{#if isHome}}#contato-link{{else}}/#contato-link{{/if}}">Contato</a>
         <button
-          id="theme-toggle"
-          class="button is-ghost navbar-item"
+          class="button is-ghost navbar-item theme-toggle theme-toggle--desktop"
+          data-theme-toggle
           type="button"
           title="Alternar tema claro/escuro"
           aria-label="Alternar tema claro/escuro"

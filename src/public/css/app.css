@@ -204,7 +204,7 @@ h3,
   color: var(--accent) !important;
 }
 
-#theme-toggle {
+.theme-toggle {
   border: none;
   background: transparent;
   cursor: pointer;
@@ -212,8 +212,22 @@ h3,
   transition: color 0.2s ease;
 }
 
-#theme-toggle:hover {
+.theme-toggle:hover {
   color: var(--text-color);
+}
+
+.theme-toggle--mobile {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .theme-toggle--mobile {
+    display: inline-flex;
+  }
+
+  .theme-toggle--desktop {
+    display: none;
+  }
 }
 
 /* ============================================================

@@ -3,16 +3,17 @@ const museumCoordinates = [-27.008, -51.1516];
 const applyTheme = (theme) => {
     document.documentElement.setAttribute('data-theme', theme);
 
-    const btn = document.getElementById('theme-toggle');
-    if (btn) {
+    const label = theme === 'dark' ? 'Mudar para modo claro' : 'Mudar para modo escuro';
+    const themeButtons = document.querySelectorAll('[data-theme-toggle]');
+
+    themeButtons.forEach((btn) => {
         const icon = btn.querySelector('i');
         if (icon) {
             icon.className = theme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
         }
-        const label = theme === 'dark' ? 'Mudar para modo claro' : 'Mudar para modo escuro';
         btn.setAttribute('title', label);
         btn.setAttribute('aria-label', label);
-    }
+    });
 };
 
 const setupTheme = () => {
@@ -22,11 +23,13 @@ const setupTheme = () => {
     const initial = stored || (prefersDark ? 'dark' : 'light');
     applyTheme(initial);
 
-    document.getElementById('theme-toggle')?.addEventListener('click', () => {
-        const current = document.documentElement.getAttribute('data-theme');
-        const next = current === 'dark' ? 'light' : 'dark';
-        try { localStorage.setItem('siteTheme', next); } catch (e) { }
-        applyTheme(next);
+    document.querySelectorAll('[data-theme-toggle]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+            try { localStorage.setItem('siteTheme', next); } catch (e) { }
+            applyTheme(next);
+        });
     });
 
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
@@ -56,6 +59,42 @@ const setupMap = () => {
         .addTo(map)
         .bindPopup('Museu do Vinho Mario Pellegrin')
         .openPopup();
+};
+
+const setupNavbarMenu = () => {
+    const burger = document.getElementById('navbar-burger');
+    const menu = document.getElementById('main-navbar-menu');
+
+    if (!burger || !menu) {
+        return;
+    }
+
+    const closeMenu = () => {
+        burger.classList.remove('is-active');
+        menu.classList.remove('is-active');
+        burger.setAttribute('aria-expanded', 'false');
+    };
+
+    const toggleMenu = () => {
+        const willOpen = !burger.classList.contains('is-active');
+        burger.classList.toggle('is-active', willOpen);
+        menu.classList.toggle('is-active', willOpen);
+        burger.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+    };
+
+    burger.addEventListener('click', toggleMenu);
+
+    menu.querySelectorAll('.navbar-item[href]').forEach((link) => {
+        link.addEventListener('click', () => {
+            closeMenu();
+        });
+    });
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth >= 1024) {
+            closeMenu();
+        }
+    });
 };
 
 const registerServiceWorker = async () => {
@@ -514,6 +553,7 @@ const setupNavActiveSection = () => {
 };
 
 window.addEventListener('load', () => {
+    setupNavbarMenu();
     setupTheme();
     setupMap();
     setupNavActiveSection();
