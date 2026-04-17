@@ -9,7 +9,7 @@
     <link rel="icon" href="/public/icons/icon-192.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
@@ -17,23 +17,23 @@
     <link rel="stylesheet" href="/public/css/app.css" />
   </head>
   <body>
-    <header class="hero is-small museum-hero">
+    <header class="hero is-small is-dark">
       <nav class="navbar is-transparent">
         <div class="navbar-brand">
-          <a class="navbar-item brand" href="/">Museu do Vinho</a>
+          <a class="navbar-item has-text-weight-semibold has-text-white" href="/">Museu do Vinho</a>
         </div>
       </nav>
       <div class="hero-body py-6">
         <div class="container">
-          <h1 class="title is-2 hero-title">Explorar o Acervo</h1>
-          <p class="subtitle hero-subtitle is-5">Filtros iniciais para navegacao por categorias do acervo digital.</p>
+          <h1 class="title is-2 has-text-white">Explorar o Acervo</h1>
+          <p class="subtitle is-5 has-text-grey-light">Filtros iniciais para navegacao por categorias do acervo digital.</p>
         </div>
       </div>
     </header>
 
-    <main class="section section-soft section-acervo">
+    <main class="section has-background-light">
       <div class="container">
-        <div class="filter-wrap mb-5">
+        <div class="buttons mb-5">
           {{#each categories}}
             <a
               href="/acervo?categoria={{this.slug}}"
@@ -47,9 +47,9 @@
         <div class="columns is-multiline">
           {{#each items}}
             <div class="column is-4-desktop is-6-tablet">
-              <article class="card museum-card acervo-item">
+              <article class="card">
                 <div class="card-image">
-                  <div class="mock-thumb" aria-hidden="true"></div>
+                  <div class="has-background-grey-lighter p-6 has-text-centered has-text-grey" aria-hidden="true" style="min-height: 160px;"></div>
                 </div>
                 <div class="card-content">
                   <p class="tag is-warning is-light mb-3">{{this.period}}</p>
