@@ -47,7 +47,7 @@
 
     <main class="section has-background-light">
       <div class="container">
-
+        
         <div class="buttons mb-5">
           {{#each categories}}
             <a
@@ -67,36 +67,43 @@
           <div class="columns is-multiline">
             {{#each items}}
               <div class="column is-4-desktop is-6-tablet">
-                <article class="card">
-                  <div class="card-image">
-                    <figure class="image is-4by3 has-background-grey-lighter">
-                      <img src="{{this.imageUrl}}" alt="{{this.description}}" loading="lazy" />
-                    </figure>
-                  </div>
-                  <div class="card-content">
-                    <div class="tags mb-3">
-                      {{#if this.estimatedYear}}
-                        <span class="tag is-warning is-light">Ano estimado: {{this.estimatedYear}}</span>
-                      {{/if}}
-                      {{#if this.historicalPeriod}}
-                        <span class="tag is-light">{{this.historicalPeriod}}</span>
-                      {{/if}}
+                <article class="card h-100" aria-label="Item do acervo: {{this.description}}">
+                    <div class="card-image">
+                        <figure class="image is-square has-background-grey-lighter">
+                        <img src="{{this.imageUrl}}" alt="{{this.description}}" loading="lazy" />
+                        </figure>
                     </div>
 
-                    <p class="title is-5">{{this.title}}</p>
-                    <p class="mb-4">{{this.description}}</p>
+                    <div class="card-content">
 
-                    <div class="tags">
-                      {{#each this.categoriesLabel}}
-                        <span class="tag is-info is-light">{{this}}</span>
-                      {{/each}}
+                        <div class="tags mb-3">
+                        {{#if this.estimatedYear}}
+                            <span class="tag is-warning is-light">Ano estimado: {{this.estimatedYear}}</span>
+                        {{/if}}
+                        {{#if this.historicalPeriod}}
+                            <span class="tag is-light">{{this.historicalPeriod}}</span>
+                        {{/if}}
+                        </div>
+
+                        <p class="mb-4">{{this.description}}</p>
+
+                        <div class="tags">
+                        {{#each this.categoriesLabel}}
+                            <span class="tag is-info is-light">{{this}}</span>
+                        {{/each}}
+                        </div>
+
+                        <p class="is-size-7 has-text-grey mt-2">Pessoas na cena: {{this.peopleCount}}</p>
+                        <p class="is-size-7 has-text-grey">Tipo: {{this.documentType}}</p>
+                        <p class="is-size-7 has-text-grey">Tags: {{this.tags}}</p>
                     </div>
 
-                    <p class="is-size-7 has-text-grey mt-2">Pessoas na cena: {{this.peopleCount}}</p>
-                    <p class="is-size-7 has-text-grey">Tipo: {{this.documentType}}</p>
-                    <p class="is-size-7 has-text-grey">Arquivo: {{this.filename}}</p>
-                  </div>
-                </article>
+                    <div class="card-footer">
+                        <p class="card-footer-item is-size-7 has-text-grey-light">
+                        🤖 Informacoes geradas por IA
+                        </p>
+                    </div>  
+                    </article>
               </div>
             {{/each}}
           </div>
@@ -121,10 +128,15 @@
             <a class="pagination-next" disabled>Proxima</a>
           {{/if}}
         </nav>
-
-        <div class="mt-5">
-          <a href="/" class="button is-link is-light">Voltar para a pagina inicial</a>
-        </div>
+        
+        <article class="message is-warning is-light mb-5" aria-label="Aviso sobre uso de IA">
+          <div class="message-body">
+            <p class="has-text-weight-semibold">🤖 Metadados gerados por IA</p>
+            <p class="is-size-7 mt-1">
+              Descricoes, categorias, tags e demais informacoes deste acervo foram geradas automaticamente por inteligencia artificial e podem conter imprecisoes.
+            </p>
+          </div>
+        </article>
       </div>
     </main>
 

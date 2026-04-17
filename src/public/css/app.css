@@ -21,7 +21,7 @@ body {
 .contact-map {
   width: 100%;
   min-height: 360px;
-  border-radius: 10px;
+  /* border-radius: 10px; */
 }
 
 .whatsapp-float {
