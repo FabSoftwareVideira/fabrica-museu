@@ -22,26 +22,26 @@ jobs:
         run: |
           echo "Verificando arquivos críticos..."
           test -f docker-compose.yml || (echo "ERRO: docker-compose.yml não encontrado" && exit 1)
-          
+
           echo "Validando sintaxe do Docker Compose de Produção..."
-          docker compose -f docker-compose.yml config -q
+          docker compose -f docker-compose.yml --profile prod config -q
 
       # ── 2. EXECUÇÃO ─────────────────────────────────────────────────────────
       - name: Atualizar e Subir Containers
         run: |
           echo "Puxando imagens novas (se houver)..."
-          docker compose -f docker-compose.yml pull --quiet
-          
+          docker compose -f docker-compose.yml --profile prod pull --quiet || true
+
           echo "Iniciando serviços de produção..."
           # Usando o arquivo de produção para subir o stack
-          docker compose -f docker-compose.yml up -d --remove-orphans --wait
+          docker compose -f docker-compose.yml --profile prod up -d --build --remove-orphans --wait
 
       # ── 3. MANUTENÇÃO (PÓS-DEPLOY) ──────────────────────────────────────────
       - name: Status Final
         run: |
           echo "--- Containers Ativos ---"
-          docker compose -f docker-compose.yml ps
-          
+          docker compose -f docker-compose.yml --profile prod ps
+
           echo "--- Consumo de Recursos ---"
           # O nome do container deve ser o que está no seu docker-compose.yml
-          docker stats --no-stream fabrica-museu-web
+          docker stats --no-stream fabrica-museu-prod
