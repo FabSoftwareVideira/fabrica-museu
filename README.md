@@ -26,7 +26,7 @@ src/
 		index.hbs
 	server.js
 docker-compose.yml
-Dockerfile.dev
+Dockerfile
 ```
 
 ## Executar localmente (sem Docker)
@@ -49,15 +49,38 @@ npm run dev
 http://localhost:3000
 ```
 
-## Executar com Docker (modo dev)
+## Executar com Docker (dev e production)
 
-1. Suba os containers:
+1. Suba em modo desenvolvimento:
 
 ```bash
-docker compose up --build
+docker compose --profile dev up --build -d
 ```
 
-2. Acesse:
+2. Crie a rede externa (uma vez, apenas para production):
+
+```bash
+docker network create fabrica-network
+```
+
+3. Suba em modo production:
+
+```bash
+docker compose --profile prod up --build -d
+```
+
+4. Verifique os containers ativos:
+
+```bash
+docker compose ps
+```
+
+Observacoes:
+
+- Nao ha mapeamento de portas externas (`ports`) no compose.
+- Os servicos expõem internamente a porta `3000` via `expose`.
+- O profile `prod` entra na rede externa `fabrica-network`.
+- O profile `dev` usa a rede interna padrao do Compose.
 
 ```text
 http://localhost:3000

@@ -1,10 +1,12 @@
 services:
-  web:
+  fabrica-museu-dev:
     build:
       context: .
-      dockerfile: Dockerfile.dev
-    container_name: fabrica-museu-web
+      dockerfile: Dockerfile
+      target: dev
+    container_name: fabrica-museu-dev
     working_dir: /app
+    profiles: ['dev']
     env_file:
       - .env
     environment:
@@ -15,11 +17,41 @@ services:
       - ./:/app
       - /app/node_modules
     command: npm run dev
-    ports:
-      - '3000:3000'
+    expose:
+      - '3000'
     restart: unless-stopped
     healthcheck:
       test: ['CMD', 'wget', '-qO-', 'http://localhost:3000/health']
       interval: 10s
       timeout: 3s
       retries: 5
+
+  fabrica-museu-prod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: prod
+    container_name: fabrica-museu-prod
+    working_dir: /app
+    profiles: ['prod']
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      PORT: 3000
+    command: npm start
+    expose:
+      - '3000'
+    restart: unless-stopped
+    healthcheck:
+      test: ['CMD', 'wget', '-qO-', 'http://localhost:3000/health']
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    networks:
+      - fabrica-network
+
+networks:
+  fabrica-network:
+    external: true
