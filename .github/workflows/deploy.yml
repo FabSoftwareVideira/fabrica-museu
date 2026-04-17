@@ -18,10 +18,32 @@ jobs:
       - name: 📂 Checkout do Código
         uses: actions/checkout@v4
 
+      - name: Gerar .env a partir do ENV_FILE do repositório
+        env:
+          ENV_FILE_SECRET: ${{ secrets.ENV_FILE }}
+          ENV_FILE_VAR: ${{ vars.ENV_FILE }}
+        run: |
+          echo "Gerando .env para o deploy..."
+
+          ENV_CONTENT="$ENV_FILE_SECRET"
+          if [ -z "$ENV_CONTENT" ]; then
+            ENV_CONTENT="$ENV_FILE_VAR"
+          fi
+
+          if [ -z "$ENV_CONTENT" ]; then
+            echo "ERRO: ENV_FILE não definido em secrets ou vars do repositório."
+            exit 1
+          fi
+
+          printf '%s' "$ENV_CONTENT" > .env
+
+          echo "Arquivo .env criado com sucesso para o deploy."
+
       - name: Validar Ambiente e Arquivos
         run: |
           echo "Verificando arquivos críticos..."
           test -f docker-compose.yml || (echo "ERRO: docker-compose.yml não encontrado" && exit 1)
+          test -f .env || (echo "ERRO: .env não encontrado" && exit 1)
 
           echo "Validando sintaxe do Docker Compose de Produção..."
           docker compose -f docker-compose.yml --profile prod config -q
@@ -45,3 +67,7 @@ jobs:
           echo "--- Consumo de Recursos ---"
           # O nome do container deve ser o que está no seu docker-compose.yml
           docker stats --no-stream fabrica-museu-prod
+
+      - name: Limpar arquivo .env temporário
+        if: always()
+        run: rm -f .env
