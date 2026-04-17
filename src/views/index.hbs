@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{pageTitle}}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="/public/css/app.css" />
+  </head>
+  <body>
+    <header class="hero is-fullheight-with-navbar museum-hero">
+      <nav class="navbar is-transparent">
+        <div class="navbar-brand">
+          <a class="navbar-item brand" href="/">Museu do Vinho</a>
+        </div>
+      </nav>
+
+      <div class="hero-body">
+        <div class="container">
+          <div class="columns is-vcentered">
+            <div class="column is-7-desktop">
+              <p class="tag is-warning is-light mb-4">Videira, SC</p>
+              <h1 class="title is-1 mb-4 hero-title">Memorias da vitivinicultura em um so lugar</h1>
+              <p class="subtitle is-5 mb-5 hero-subtitle">
+                Projeto inicial em Node.js + Fastify + Handlebars com Bulma para acelerar o desenvolvimento do novo site do museu.
+              </p>
+              <div class="buttons">
+                <a href="#contato" class="button is-danger is-medium">Agendar visita</a>
+                <a href="#acervo" class="button is-light is-medium">Explorar acervo</a>
+              </div>
+            </div>
+            <div class="column is-5-desktop">
+              <div class="hero-card box">
+                <p class="is-size-5 has-text-weight-semibold">Horario de atendimento</p>
+                <p class="mt-2">Seg a Sex: 08:00 as 17:00</p>
+                <p>Sabado: mediante agendamento</p>
+                <hr />
+                <p class="has-text-weight-semibold">Contato rapido</p>
+                <p class="mt-2">
+                  WhatsApp:
+                  <a href="https://wa.me/5549991561089" target="_blank" rel="noopener noreferrer">(49) 9 9156-1089</a>
+                </p>
+                <p>Email: museudovinho@videira.sc.gov.br</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="acervo" class="section section-soft">
+        <div class="container">
+          <h2 class="title is-3">Explore o acervo</h2>
+          <p class="subtitle is-6 mb-5">Categorias demonstrativas para prototipacao.</p>
+          <div class="columns is-multiline">
+            <div class="column is-4-desktop is-6-tablet">
+              <article class="card museum-card">
+                <div class="card-content">
+                  <p class="title is-5">Fotografias</p>
+                  <p>Registros historicos de familias, colheitas e festas da uva.</p>
+                </div>
+              </article>
+            </div>
+            <div class="column is-4-desktop is-6-tablet">
+              <article class="card museum-card">
+                <div class="card-content">
+                  <p class="title is-5">Documentos</p>
+                  <p>Certificados, cartas e materiais sobre a historia local.</p>
+                </div>
+              </article>
+            </div>
+            <div class="column is-4-desktop is-6-tablet">
+              <article class="card museum-card">
+                <div class="card-content">
+                  <p class="title is-5">Objetos</p>
+                  <p>Ferramentas e itens que contam a evolucao da vitivinicultura.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contato" class="section">
+        <div class="container">
+          <h2 class="title is-3">Contato</h2>
+          <div class="columns">
+            <div class="column is-6-desktop">
+              <p><strong>Endereco:</strong> Rua XV de Novembro, Videira - SC</p>
+              <p><strong>Telefone:</strong> (49) 3566-XXXX</p>
+              <p><strong>Instagram:</strong> @turismoeculturavideira</p>
+            </div>
+            <div class="column is-6-desktop">
+              <a class="button is-link is-light" href="https://maps.google.com" target="_blank" rel="noopener noreferrer">
+                Abrir no Google Maps
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <a class="whatsapp-float" href="https://wa.me/5549991561089" target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp">
+      WhatsApp
+    </a>
+
+    <footer class="footer py-5">
+      <div class="content has-text-centered">
+        <p>Projeto em desenvolvimento. {{year}} Museu do Vinho Mario Pellegrin.</p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,17 +1,25 @@
 services:
   web:
-    image: busybox:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
     container_name: fabrica-museu-web
+    working_dir: /app
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: development
+      HOST: 0.0.0.0
+      PORT: 3000
     volumes:
-      - ./src:/var/www/html
-    command: >
-      /bin/sh -c "
-      busybox httpd -f -p 80 -h /var/www/html
-      "
-    restart: always
-    networks:
-      - fabrica-network
-
-networks:
-  fabrica-network:
-    external: true
+      - ./:/app
+      - /app/node_modules
+    command: npm run dev
+    ports:
+      - '3000:3000'
+    restart: unless-stopped
+    healthcheck:
+      test: ['CMD', 'wget', '-qO-', 'http://localhost:3000/health']
+      interval: 10s
+      timeout: 3s
+      retries: 5

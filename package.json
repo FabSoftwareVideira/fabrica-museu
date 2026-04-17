@@ -1,0 +1,35 @@
+{
+  "name": "fabrica-museu",
+  "version": "1.0.0",
+  "description": "Aplicacao web do Museu do Vinho usando Node.js, Fastify, Handlebars e Bulma.",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "nodemon --watch src --ext js,hbs,css --exec node src/server.js",
+    "start": "node src/server.js",
+    "test": "echo \"Sem testes automatizados ainda\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FabSoftwareVideira/fabrica-museu.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/FabSoftwareVideira/fabrica-museu/issues"
+  },
+  "homepage": "https://github.com/FabSoftwareVideira/fabrica-museu#readme",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@fastify/static": "^9.1.1",
+    "@fastify/view": "^11.1.1",
+    "fastify": "^5.8.5",
+    "handlebars": "^4.7.9"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

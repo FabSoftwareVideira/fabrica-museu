@@ -2,8 +2,10 @@ name: Deploy fabrica-museu
 
 on:
   push:
-    branches:
-      - main
+    # branches:
+    #   - main
+    tags:
+      - 'v*.*.*'
   workflow_dispatch:
 
 jobs:
