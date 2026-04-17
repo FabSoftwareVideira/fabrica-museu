@@ -10,10 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css" />
     <link rel="stylesheet" href="/public/css/app.css" />
   </head>
   <body>
@@ -40,100 +37,95 @@
       <div class="hero-body py-6">
         <div class="container">
           <h1 class="title is-2 has-text-white">Explorar o Acervo</h1>
-          <p class="subtitle is-5 has-text-grey-light">Filtros iniciais para navegacao por categorias do acervo digital.</p>
+          <p class="subtitle is-5 has-text-grey-light">
+            Filtros iniciais para navegacao por categorias do acervo digital.
+          </p>
         </div>
       </div>
     </header>
 
     <main class="section has-background-light">
       <div class="container">
-        
         <div class="buttons mb-5">
           {{#each categories}}
-            <a
-              href="/acervo?categoria={{this.slug}}"
-              class="button is-rounded {{#if this.isActive}}is-dark{{else}}is-light{{/if}}"
-            >
-              {{this.label}} ({{this.count}})
-            </a>
+          <a
+            href="/acervo?categoria={{this.slug}}"
+            class="button is-rounded {{#if this.isActive}}is-dark{{else}}is-light{{/if}}"
+          >
+            {{this.label}} ({{this.count}})
+          </a>
           {{/each}}
         </div>
 
         <p class="is-size-7 has-text-grey mb-4">
-          Exibindo {{pagination.totalItems}} itens no total. Pagina {{pagination.currentPage}} de {{pagination.totalPages}}.
+          Exibindo {{pagination.totalItems}} itens no total. Pagina {{pagination.currentPage}} de
+          {{pagination.totalPages}}.
         </p>
 
         {{#if hasItems}}
-          <div class="columns is-multiline">
-            {{#each items}}
-              <div class="column is-4-desktop is-6-tablet">
-                <article class="card h-100" aria-label="Item do acervo: {{this.description}}">
-                    <div class="card-image">
-                        <figure class="image is-square has-background-grey-lighter">
-                        <img src="{{this.imageUrl}}" alt="{{this.description}}" loading="lazy" />
-                        </figure>
-                    </div>
-
-                    <div class="card-content">
-
-                        <div class="tags mb-3">
-                        {{#if this.estimatedYear}}
-                            <span class="tag is-warning is-light">Ano estimado: {{this.estimatedYear}}</span>
-                        {{/if}}
-                        {{#if this.historicalPeriod}}
-                            <span class="tag is-light">{{this.historicalPeriod}}</span>
-                        {{/if}}
-                        </div>
-
-                        <p class="mb-4">{{this.description}}</p>
-
-                        <div class="tags">
-                        {{#each this.categoriesLabel}}
-                            <span class="tag is-info is-light">{{this}}</span>
-                        {{/each}}
-                        </div>
-
-                        <p class="is-size-7 has-text-grey mt-2">Pessoas na cena: {{this.peopleCount}}</p>
-                        <p class="is-size-7 has-text-grey">Tipo: {{this.documentType}}</p>
-                        <p class="is-size-7 has-text-grey">Tags: {{this.tags}}</p>
-                    </div>
-
-                    <div class="card-footer">
-                        <p class="card-footer-item is-size-7 has-text-grey-light">
-                        🤖 Informacoes geradas por IA
-                        </p>
-                    </div>  
-                    </article>
+        <div class="columns is-multiline">
+          {{#each items}}
+          <div class="column is-4-desktop is-6-tablet">
+            <article class="card h-100" aria-label="Item do acervo: {{this.description}}">
+              <div class="card-image">
+                <figure class="image is-square has-background-grey-lighter">
+                  <img src="{{this.imageUrl}}" alt="{{this.description}}" loading="lazy" />
+                </figure>
               </div>
-            {{/each}}
+
+              <div class="card-content">
+                <div class="tags mb-3">
+                  {{#if this.estimatedYear}}
+                  <span class="tag is-warning is-light">Ano estimado: {{this.estimatedYear}}</span>
+                  {{/if}} {{#if this.historicalPeriod}}
+                  <span class="tag is-light">{{this.historicalPeriod}}</span>
+                  {{/if}}
+                </div>
+
+                <p class="mb-4">{{this.description}}</p>
+
+                <div class="tags">
+                  {{#each this.categoriesLabel}}
+                  <span class="tag is-info is-light">{{this}}</span>
+                  {{/each}}
+                </div>
+
+                <p class="is-size-7 has-text-grey mt-2">Pessoas na cena: {{this.peopleCount}}</p>
+                <p class="is-size-7 has-text-grey">Tipo: {{this.documentType}}</p>
+                <p class="is-size-7 has-text-grey">Tags: {{this.tags}}</p>
+              </div>
+
+              <div class="card-footer">
+                <p class="card-footer-item is-size-7 has-text-grey-light">🤖 Informacoes geradas por IA</p>
+              </div>
+            </article>
           </div>
+          {{/each}}
+        </div>
         {{else}}
-          <article class="message is-warning is-light">
-            <div class="message-body">
-              Nenhuma imagem encontrada para este filtro.
-            </div>
-          </article>
+        <article class="message is-warning is-light">
+          <div class="message-body">Nenhuma imagem encontrada para este filtro.</div>
+        </article>
         {{/if}}
 
         <nav class="pagination is-centered mt-5" role="navigation" aria-label="Paginacao do acervo">
           {{#if pagination.hasPrevious}}
-            <a class="pagination-previous" href="{{pagination.basePath}}{{pagination.previousPage}}">Anterior</a>
+          <a class="pagination-previous" href="{{pagination.basePath}}{{pagination.previousPage}}">Anterior</a>
           {{else}}
-            <a class="pagination-previous" disabled>Anterior</a>
-          {{/if}}
-
-          {{#if pagination.hasNext}}
-            <a class="pagination-next" href="{{pagination.basePath}}{{pagination.nextPage}}">Proxima</a>
+          <a class="pagination-previous" disabled>Anterior</a>
+          {{/if}} {{#if pagination.hasNext}}
+          <a class="pagination-next" href="{{pagination.basePath}}{{pagination.nextPage}}">Proxima</a>
           {{else}}
-            <a class="pagination-next" disabled>Proxima</a>
+          <a class="pagination-next" disabled>Proxima</a>
           {{/if}}
         </nav>
-        
+
         <article class="message is-warning is-light mb-5" aria-label="Aviso sobre uso de IA">
           <div class="message-body">
             <p class="has-text-weight-semibold">🤖 Metadados gerados por IA</p>
             <p class="is-size-7 mt-1">
-              Descricoes, categorias, tags e demais informacoes deste acervo foram geradas automaticamente por inteligencia artificial e podem conter imprecisoes.
+              Descricoes, categorias, tags e demais informacoes deste acervo foram geradas automaticamente por
+              inteligencia artificial e podem conter imprecisoes.
             </p>
           </div>
         </article>
@@ -171,8 +163,13 @@
       </div>
     </footer>
 
-    <a class="button is-success is-rounded whatsapp-float" href="https://wa.me/5549991561089" target="_blank" rel="noopener noreferrer"
-      aria-label="Falar no WhatsApp">
+    <a
+      class="button is-success is-rounded whatsapp-float"
+      href="https://wa.me/5549991561089"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Falar no WhatsApp"
+    >
       WhatsApp
     </a>
 
