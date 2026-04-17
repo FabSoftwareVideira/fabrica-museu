@@ -1,272 +1,176 @@
-<!doctype html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#7b1c2e" />
-    <title>{{pageTitle}}</title>
-    <link rel="manifest" href="/public/manifest.webmanifest" />
-    <link rel="icon" href="/public/icons/icon-192.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-      crossorigin=""
-    />
-    <link rel="stylesheet" href="/public/css/app.css" />
-  </head>
+{{#> base pageTitle=pageTitle year=year themeColor="#7b1c2e" isHome=true loadLeaflet=true}}
+<section id="home" class="hero is-medium is-dark">
+  <div class="hero-body">
+    <div class="container">
+      <p class="tag is-warning is-light mb-4">Videira - Santa Catarina - Est. 1984</p>
+      <h1 class="title is-1">A memoria viva do vinho catarinense</h1>
+      <p class="subtitle is-5 has-text-grey-light">
+        Um espaco dedicado a historia, cultura e tradicao vinicola do Vale do Rio do Peixe. Descubra seculos de
+        imigracao italiana e paixao pela viticultura.
+      </p>
+      <div class="buttons mt-5">
+        <a href="/acervo" class="button is-warning is-medium has-text-weight-semibold">Explorar acervo</a>
+        <a href="#destaques" class="button is-light is-medium">Ver destaques</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <body>
-    <nav class="navbar is-light" role="navigation" aria-label="Navegacao principal">
-      <div class="container">
-        <div class="navbar-brand">
-          <a class="navbar-item has-text-weight-semibold" href="#home" aria-label="Ir para o inicio">
-            Museu do Vinho
-          </a>
-        </div>
-        <div class="navbar-menu is-active">
-          <div class="navbar-end">
-            <a class="navbar-item" href="#home">Inicio</a>
-            <a class="navbar-item" href="#institucional">Sobre</a>
-            <a class="navbar-item" href="/acervo">Acervo</a>
-            <a class="navbar-item" href="#timeline">Linha do tempo</a>
-            <a class="navbar-item" href="#contato-link">Contato</a>
+<section class="section" id="institucional">
+  <div class="container">
+    <div class="columns is-vcentered is-variable is-6">
+      <div class="column is-7-desktop">
+        <p class="is-size-7 has-text-weight-semibold has-text-grey mb-2">O MUSEU</p>
+        <h2 class="title is-2">Guardioes da cultura vinicola do Sul do Brasil</h2>
+        <p>
+          Fundado na cidade de Videira, o Museu do Vinho preserva e difunde o patrimonio historico e cultural ligado a
+          vitivinicultura regional.
+        </p>
+        <p class="mt-3">
+          O acervo reune ferramentas, documentos, fotografias e objetos que contam a saga dos colonizadores italianos na
+          regiao.
+        </p>
+        <div class="columns is-mobile mt-4">
+          <div class="column has-text-centered">
+            <p class="title is-4 mb-1">2400+</p>
+            <p class="is-size-7">Pecas no acervo</p>
+          </div>
+          <div class="column has-text-centered">
+            <p class="title is-4 mb-1">40+</p>
+            <p class="is-size-7">Anos de historia</p>
+          </div>
+          <div class="column has-text-centered">
+            <p class="title is-4 mb-1">12k</p>
+            <p class="is-size-7">Visitantes/ano</p>
           </div>
         </div>
       </div>
-    </nav>
-
-    <section id="home" class="hero is-medium is-dark">
-      <div class="hero-body">
-        <div class="container">
-          <p class="tag is-warning is-light mb-4">Videira - Santa Catarina - Est. 1984</p>
-          <h1 class="title is-1">A memoria viva do vinho catarinense</h1>
-          <p class="subtitle is-5 has-text-grey-light">
-            Um espaco dedicado a historia, cultura e tradicao vinicola do Vale do Rio do Peixe. Descubra seculos de
-            imigracao italiana e paixao pela viticultura.
-          </p>
-          <div class="buttons mt-5">
-            <a href="/acervo" class="button is-warning is-medium has-text-weight-semibold">Explorar acervo</a>
-            <a href="#destaques" class="button is-light is-medium">Ver destaques</a>
-          </div>
+      <div class="column is-5-desktop">
+        <div class="box has-background-light has-text-centered">
+          <p class="has-text-grey">Imagem institucional do museu</p>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <section class="section" id="institucional">
-      <div class="container">
-        <div class="columns is-vcentered is-variable is-6">
-          <div class="column is-7-desktop">
-            <p class="is-size-7 has-text-weight-semibold has-text-grey mb-2">O MUSEU</p>
-            <h2 class="title is-2">Guardioes da cultura vinicola do Sul do Brasil</h2>
+<section id="destaques" class="section has-background-light">
+  <div class="container">
+    <p class="is-size-7 has-text-weight-semibold has-text-grey mb-2">EXPLORE</p>
+    <h2 class="title is-3">O que voce encontra aqui</h2>
+    <div class="columns is-multiline mt-4">
+      <div class="column is-6-desktop">
+        <article class="card">
+          <div class="card-image">
+            <div class="has-background-grey-lighter p-6 has-text-centered has-text-grey">Imagem do Acervo</div>
+          </div>
+          <div class="card-content">
+            <span class="tag is-danger is-light mb-3">Acervo</span>
+            <h3 class="title is-4">Pecas e Colecoes</h3>
             <p>
-              Fundado na cidade de Videira, o Museu do Vinho preserva e difunde o patrimonio historico e cultural ligado
-              a vitivinicultura regional.
+              Ferramentas vinicolas, toneis historicos, fotos e documentos que testemunham a trajetoria da uva ao vinho
+              na regiao.
             </p>
-            <p class="mt-3">
-              O acervo reune ferramentas, documentos, fotografias e objetos que contam a saga dos colonizadores
-              italianos na regiao.
+            <a href="/acervo" class="button is-danger mt-4">Explorar acervo</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="column is-6-desktop">
+        <article class="card">
+          <div class="card-image">
+            <div class="has-background-grey-lighter p-6 has-text-centered has-text-grey">Imagem das Exposicoes</div>
+          </div>
+          <div class="card-content">
+            <span class="tag is-warning is-light mb-3">Exposicoes</span>
+            <h3 class="title is-4">Mostras e Galerias</h3>
+            <p>
+              Exposicoes temporarias e permanentes que contextualizam a vitivinicultura no cenario cultural e historico
+              regional.
             </p>
-            <div class="columns is-mobile mt-4">
-              <div class="column has-text-centered">
-                <p class="title is-4 mb-1">2400+</p>
-                <p class="is-size-7">Pecas no acervo</p>
-              </div>
-              <div class="column has-text-centered">
-                <p class="title is-4 mb-1">40+</p>
-                <p class="is-size-7">Anos de historia</p>
-              </div>
-              <div class="column has-text-centered">
-                <p class="title is-4 mb-1">12k</p>
-                <p class="is-size-7">Visitantes/ano</p>
-              </div>
-            </div>
+            <a href="#timeline" class="button is-outlined mt-4">Ver linha do tempo</a>
           </div>
-          <div class="column is-5-desktop">
-            <div class="box has-background-light has-text-centered">
-              <p class="has-text-grey">Imagem institucional do museu</p>
-            </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="timeline">
+  <div class="container">
+    <p class="is-size-7 has-text-weight-semibold has-text-grey mb-2">HISTORIA</p>
+    <h2 class="title is-3">Uma linha do tempo da vitivinicultura</h2>
+    <p class="mb-5">Da chegada dos imigrantes italianos ao reconhecimento do vinho catarinense.</p>
+
+    <div class="columns is-multiline">
+      <div class="column is-6-tablet is-3-desktop">
+        <div class="box">
+          <p class="tag is-dark mb-2">1875</p>
+          <p>Chegada dos primeiros imigrantes italianos ao Vale do Rio do Peixe.</p>
+        </div>
+      </div>
+      <div class="column is-6-tablet is-3-desktop">
+        <div class="box">
+          <p class="tag is-dark mb-2">1910</p>
+          <p>Primeiros vinhedos comerciais instalados na regiao de Videira.</p>
+        </div>
+      </div>
+      <div class="column is-6-tablet is-3-desktop">
+        <div class="box has-background-danger-light">
+          <p class="tag is-danger mb-2">1984</p>
+          <p>Fundacao do Museu do Vinho de Videira.</p>
+        </div>
+      </div>
+      <div class="column is-6-tablet is-3-desktop">
+        <div class="box">
+          <p class="tag is-dark mb-2">2003 e Hoje</p>
+          <p>Expansao do espaco fisico e consolidacao como referencia turistica em SC.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section has-background-dark" id="contato-link">
+  <div class="container">
+    <div class="columns is-variable is-6">
+      <div class="column is-5-desktop">
+        <div class="box has-background-dark has-text-white-ter">
+          <p class="is-size-7 has-text-weight-semibold has-text-grey-light mb-2">VENHA NOS VISITAR</p>
+          <h2 class="title is-3 has-text-white">Planeje sua visita ao Museu</h2>
+          <p>Aberto de terca a domingo, das 9h as 17h. Entrada gratuita para escolas e grupos agendados.</p>
+          <hr class="has-background-grey-dark" />
+          <p><strong class="has-text-white">Endereco:</strong> Rua XV de Novembro, Centro, Videira, SC</p>
+          <p><strong class="has-text-white">Atendimento:</strong> Terca a domingo, das 9h as 17h</p>
+          <p><strong class="has-text-white">Contato:</strong> (49) 9 9156-1089 · museudovinho@videira.sc.gov.br</p>
+          <div class="buttons mt-4">
+            <a class="button is-warning" href="https://wa.me/5549991561089" target="_blank" rel="noopener noreferrer"
+              >Agendar visita</a
+            >
+            <a class="button is-light is-outlined" href="mailto:museudovinho@videira.sc.gov.br">Fale conosco</a>
           </div>
         </div>
       </div>
-    </section>
 
-    <section id="destaques" class="section has-background-light">
-      <div class="container">
-        <p class="is-size-7 has-text-weight-semibold has-text-grey mb-2">EXPLORE</p>
-        <h2 class="title is-3">O que voce encontra aqui</h2>
-        <div class="columns is-multiline mt-4">
-          <div class="column is-6-desktop">
-            <article class="card">
-              <div class="card-image">
-                <div class="has-background-grey-lighter p-6 has-text-centered has-text-grey">Imagem do Acervo</div>
-              </div>
-              <div class="card-content">
-                <span class="tag is-danger is-light mb-3">Acervo</span>
-                <h3 class="title is-4">Pecas e Colecoes</h3>
-                <p>
-                  Ferramentas vinicolas, toneis historicos, fotos e documentos que testemunham a trajetoria da uva ao
-                  vinho na regiao.
-                </p>
-                <a href="/acervo" class="button is-danger mt-4">Explorar acervo</a>
-              </div>
-            </article>
-          </div>
-
-          <div class="column is-6-desktop">
-            <article class="card">
-              <div class="card-image">
-                <div class="has-background-grey-lighter p-6 has-text-centered has-text-grey">Imagem das Exposicoes</div>
-              </div>
-              <div class="card-content">
-                <span class="tag is-warning is-light mb-3">Exposicoes</span>
-                <h3 class="title is-4">Mostras e Galerias</h3>
-                <p>
-                  Exposicoes temporarias e permanentes que contextualizam a vitivinicultura no cenario cultural e
-                  historico regional.
-                </p>
-                <a href="#timeline" class="button is-outlined mt-4">Ver linha do tempo</a>
-              </div>
-            </article>
+      <div class="column is-7-desktop">
+        <div class="box has-background-dark">
+          <div id="museum-map" class="contact-map" aria-label="Mapa com a localizacao do Museu do Vinho"></div>
+          <div
+            class="is-flex is-justify-content-space-between is-align-items-center mt-3 is-flex-wrap-wrap"
+            style="gap: 0.75rem"
+          >
+            <p class="has-text-grey-light is-size-7">Mapa interativo com Leaflet e OpenStreetMap · Videira, SC</p>
+            <a
+              class="button is-light is-outlined is-small"
+              href="https://www.google.com/maps/search/?api=1&query=-27.0083,-51.1518"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Abrir no Google Maps</a
+            >
           </div>
         </div>
       </div>
-    </section>
-
-    <section class="section" id="timeline">
-      <div class="container">
-        <p class="is-size-7 has-text-weight-semibold has-text-grey mb-2">HISTORIA</p>
-        <h2 class="title is-3">Uma linha do tempo da vitivinicultura</h2>
-        <p class="mb-5">Da chegada dos imigrantes italianos ao reconhecimento do vinho catarinense.</p>
-
-        <div class="columns is-multiline">
-          <div class="column is-6-tablet is-3-desktop">
-            <div class="box">
-              <p class="tag is-dark mb-2">1875</p>
-              <p>Chegada dos primeiros imigrantes italianos ao Vale do Rio do Peixe.</p>
-            </div>
-          </div>
-          <div class="column is-6-tablet is-3-desktop">
-            <div class="box">
-              <p class="tag is-dark mb-2">1910</p>
-              <p>Primeiros vinhedos comerciais instalados na regiao de Videira.</p>
-            </div>
-          </div>
-          <div class="column is-6-tablet is-3-desktop">
-            <div class="box has-background-danger-light">
-              <p class="tag is-danger mb-2">1984</p>
-              <p>Fundacao do Museu do Vinho de Videira.</p>
-            </div>
-          </div>
-          <div class="column is-6-tablet is-3-desktop">
-            <div class="box">
-              <p class="tag is-dark mb-2">2003 e Hoje</p>
-              <p>Expansao do espaco fisico e consolidacao como referencia turistica em SC.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section has-background-dark" id="contato-link">
-      <div class="container">
-        <div class="columns is-variable is-6">
-          <div class="column is-5-desktop">
-            <div class="box has-background-dark has-text-white-ter">
-              <p class="is-size-7 has-text-weight-semibold has-text-grey-light mb-2">VENHA NOS VISITAR</p>
-              <h2 class="title is-3 has-text-white">Planeje sua visita ao Museu</h2>
-              <p>Aberto de terca a domingo, das 9h as 17h. Entrada gratuita para escolas e grupos agendados.</p>
-              <hr class="has-background-grey-dark" />
-              <p><strong class="has-text-white">Endereco:</strong> Rua XV de Novembro, Centro, Videira, SC</p>
-              <p><strong class="has-text-white">Atendimento:</strong> Terca a domingo, das 9h as 17h</p>
-              <p><strong class="has-text-white">Contato:</strong> (49) 9 9156-1089 · museudovinho@videira.sc.gov.br</p>
-              <div class="buttons mt-4">
-                <a
-                  class="button is-warning"
-                  href="https://wa.me/5549991561089"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Agendar visita</a
-                >
-                <a class="button is-light is-outlined" href="mailto:museudovinho@videira.sc.gov.br">Fale conosco</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="column is-7-desktop">
-            <div class="box has-background-dark">
-              <div id="museum-map" class="contact-map" aria-label="Mapa com a localizacao do Museu do Vinho"></div>
-              <div
-                class="is-flex is-justify-content-space-between is-align-items-center mt-3 is-flex-wrap-wrap"
-                style="gap: 0.75rem"
-              >
-                <p class="has-text-grey-light is-size-7">Mapa interativo com Leaflet e OpenStreetMap · Videira, SC</p>
-                <a
-                  class="button is-light is-outlined is-small"
-                  href="https://www.google.com/maps/search/?api=1&query=-27.0083,-51.1518"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Abrir no Google Maps</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <div class="container">
-        <div class="columns">
-          <div class="column is-4">
-            <h3 class="title is-5">Museu do Vinho · Videira</h3>
-            <p>Preservando a memoria e a cultura da vitivinicultura catarinense desde 1984.</p>
-          </div>
-          <div class="column">
-            <p class="has-text-weight-semibold mb-2">Navegacao</p>
-            <p><a href="#home">Pagina inicial</a></p>
-            <p><a href="#institucional">Sobre o museu</a></p>
-            <p><a href="/acervo">Acervo</a></p>
-          </div>
-          <div class="column">
-            <p class="has-text-weight-semibold mb-2">Visita</p>
-            <p>Ter-Dom: 9h-17h</p>
-            <p>Entrada gratuita</p>
-            <p>Grupos: agendar</p>
-          </div>
-          <div class="column">
-            <p class="has-text-weight-semibold mb-2">Contato</p>
-            <p>Videira - SC</p>
-            <p>museudovinho@videira.sc.gov.br</p>
-            <p>(49) 9 9156-1089</p>
-          </div>
-        </div>
-        <hr />
-        <p class="is-size-7 has-text-centered">© {{year}} Museu do Vinho de Videira · Secretaria de Cultura</p>
-      </div>
-    </footer>
-
-    <a
-      class="button is-success is-rounded whatsapp-float"
-      href="https://wa.me/5549991561089"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Falar no WhatsApp"
-    >
-      <span class="icon" aria-hidden="true"><i class="fa-brands fa-whatsapp"></i></span>
-      <span>WhatsApp</span>
-    </a>
-
-    <script
-      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-      crossorigin=""
-    ></script>
-    <script src="/public/js/main.js"></script>
-  </body>
-</html>
+    </div>
+  </div>
+</section>
+{{/base}}

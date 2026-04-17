@@ -1,4 +1,5 @@
 const path = require('node:path');
+const fs = require('node:fs');
 const Fastify = require('fastify');
 const fastifyStatic = require('@fastify/static');
 const fastifyView = require('@fastify/view');
@@ -79,6 +80,19 @@ const collectionCategories = [
             count: categoryCounts[slug],
         })),
 ];
+
+const partialsDir = path.join(__dirname, 'views', 'partials');
+const partialFiles = {
+    base: 'base.hbs',
+    navbar: 'navbar.hbs',
+    footer: 'footer.hbs',
+};
+
+Object.entries(partialFiles).forEach(([name, filename]) => {
+    const partialPath = path.join(partialsDir, filename);
+    const template = fs.readFileSync(partialPath, 'utf8');
+    handlebars.registerPartial(name, template);
+});
 
 app.register(fastifyStatic, {
     root: path.join(__dirname, 'public'),

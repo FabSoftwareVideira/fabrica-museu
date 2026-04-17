@@ -1,0 +1,22 @@
+<nav class="navbar is-light" role="navigation" aria-label="Navegacao principal">
+  <div class="container">
+    <div class="navbar-brand">
+      <a
+        class="navbar-item has-text-weight-semibold"
+        href="{{#if isHome}}#home{{else}}/#home{{/if}}"
+        aria-label="Ir para o inicio"
+      >
+        Museu do Vinho
+      </a>
+    </div>
+    <div class="navbar-menu is-active">
+      <div class="navbar-end">
+        <a class="navbar-item {{#if isHome}}is-active{{/if}}" href="{{#if isHome}}#home{{else}}/#home{{/if}}">Inicio</a>
+        <a class="navbar-item" href="{{#if isHome}}#institucional{{else}}/#institucional{{/if}}">Sobre</a>
+        <a class="navbar-item {{#if isAcervo}}is-active{{/if}}" href="/acervo">Acervo</a>
+        <a class="navbar-item" href="{{#if isHome}}#timeline{{else}}/#timeline{{/if}}">Linha do tempo</a>
+        <a class="navbar-item" href="{{#if isHome}}#contato-link{{else}}/#contato-link{{/if}}">Contato</a>
+      </div>
+    </div>
+  </div>
+</nav>
