@@ -569,11 +569,17 @@ const setupNavActiveSection = () => {
     updateFromScroll();
 };
 
-window.addEventListener('load', () => {
+const bootstrapApp = () => {
     setupNavbarMenu();
     setupTheme();
     setupMap();
     setupNavActiveSection();
     setupAcervoInfiniteScroll();
     registerServiceWorker();
-});
+};
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bootstrapApp);
+} else {
+    bootstrapApp();
+}
