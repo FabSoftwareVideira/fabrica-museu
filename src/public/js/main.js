@@ -39,6 +39,71 @@ const toText = (value, fallback = '-') => {
     return String(value);
 };
 
+const ACERVO_VIEW_MODES = ['cards', 'list-compact', 'list-detailed'];
+
+const normalizeViewMode = (mode) => (ACERVO_VIEW_MODES.includes(mode) ? mode : 'cards');
+
+const applyAcervoViewMode = (grid, mode) => {
+    const normalizedMode = normalizeViewMode(mode);
+
+    grid.classList.remove('acervo-grid--cards', 'acervo-grid--list-compact', 'acervo-grid--list-detailed');
+    grid.classList.add(`acervo-grid--${normalizedMode}`);
+
+    return normalizedMode;
+};
+
+const setupAcervoViewModes = (grid) => {
+    const controls = document.getElementById('acervo-view-controls');
+
+    if (!grid || !controls) {
+        return;
+    }
+
+    const buttons = Array.from(controls.querySelectorAll('[data-view-mode]'));
+    if (buttons.length === 0) {
+        return;
+    }
+
+    let initialMode = 'cards';
+
+    try {
+        initialMode = normalizeViewMode(window.localStorage.getItem('acervoViewMode'));
+    } catch (error) {
+        initialMode = 'cards';
+    }
+
+    const updateButtons = (activeMode) => {
+        buttons.forEach((button) => {
+            const mode = normalizeViewMode(button.dataset.viewMode || 'cards');
+            const isActive = mode === activeMode;
+
+            button.classList.toggle('is-dark', isActive);
+            button.classList.toggle('is-light', !isActive);
+            button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        });
+    };
+
+    const setMode = (mode) => {
+        const appliedMode = applyAcervoViewMode(grid, mode);
+        updateButtons(appliedMode);
+
+        try {
+            window.localStorage.setItem('acervoViewMode', appliedMode);
+        } catch (error) {
+            // Ignore storage errors (private mode / quota).
+        }
+    };
+
+    setMode(initialMode);
+
+    buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const mode = normalizeViewMode(button.dataset.viewMode || 'cards');
+            setMode(mode);
+        });
+    });
+};
+
 const buildItemCard = (item) => {
     const column = document.createElement('div');
     column.className = 'column is-4-desktop is-6-tablet';
@@ -84,12 +149,12 @@ const buildItemCard = (item) => {
     content.appendChild(detailsTags);
 
     const description = document.createElement('p');
-    description.className = 'mb-4';
+    description.className = 'mb-4 acervo-description';
     description.textContent = toText(item.description, 'Sem descricao disponivel.');
     content.appendChild(description);
 
     const categoriesTags = document.createElement('div');
-    categoriesTags.className = 'tags';
+    categoriesTags.className = 'tags acervo-category-tags';
     (Array.isArray(item.categoriesLabel) ? item.categoriesLabel : []).forEach((label) => {
         const categoryTag = document.createElement('span');
         categoryTag.className = 'tag is-info is-light';
@@ -99,17 +164,17 @@ const buildItemCard = (item) => {
     content.appendChild(categoriesTags);
 
     const people = document.createElement('p');
-    people.className = 'is-size-7 has-text-grey mt-2';
+    people.className = 'is-size-7 has-text-grey mt-2 acervo-meta-item';
     people.textContent = `Pessoas na cena: ${toText(item.peopleCount, 'Nao informado')}`;
     content.appendChild(people);
 
     const type = document.createElement('p');
-    type.className = 'is-size-7 has-text-grey';
+    type.className = 'is-size-7 has-text-grey acervo-meta-item';
     type.textContent = `Tipo: ${toText(item.documentType, 'Nao informado')}`;
     content.appendChild(type);
 
     const tags = document.createElement('p');
-    tags.className = 'is-size-7 has-text-grey';
+    tags.className = 'is-size-7 has-text-grey acervo-meta-item';
     const tagsText = Array.isArray(item.tags) ? item.tags.join(', ') : toText(item.tags, '');
     tags.textContent = `Tags: ${tagsText || 'Sem tags'}`;
     content.appendChild(tags);
@@ -169,6 +234,7 @@ const setupAcervoInfiniteScroll = () => {
     const endMessageNode = document.getElementById('acervo-end-message');
     const countStatusNode = document.getElementById('acervo-count-status');
     const skeletonNodes = [];
+    setupAcervoViewModes(grid);
 
     const getRealItemsCount = () => grid.querySelectorAll('.column:not(.acervo-skeleton-item)').length;
 

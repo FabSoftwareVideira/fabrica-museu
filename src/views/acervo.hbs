@@ -21,10 +21,30 @@
       {{/each}}
     </div>
 
-    <p id="acervo-count-status" class="is-size-7 has-text-grey mb-4">Exibindo {{items.length}} itens.</p>
+    <div
+      class="is-flex is-justify-content-space-between is-align-items-center mb-1 is-flex-wrap-wrap"
+      style="gap: 0.75rem"
+    >
+      <p id="acervo-count-status" class="is-size-7 has-text-grey mb-0">Exibindo {{items.length}} itens.</p>
+
+      <div class="buttons has-addons are-small mb-0" id="acervo-view-controls" aria-label="Modo de visualizacao">
+        <button class="button is-dark" type="button" data-view-mode="cards" aria-pressed="true">Cards</button>
+        <button class="button is-light" type="button" data-view-mode="list-compact" aria-pressed="false">
+          Lista compacta
+        </button>
+        <button class="button is-light" type="button" data-view-mode="list-detailed" aria-pressed="false">
+          Lista detalhada
+        </button>
+      </div>
+    </div>
 
     {{#if hasItems}}
-    <div id="acervo-grid" class="columns is-multiline" data-category="{{activeCategory}}" data-page-size="24">
+    <div
+      id="acervo-grid"
+      class="columns is-multiline acervo-grid acervo-grid--cards"
+      data-category="{{activeCategory}}"
+      data-page-size="24"
+    >
       {{#each items}}
       <div class="column is-4-desktop is-6-tablet">
         <article class="card h-100" aria-label="Item do acervo: {{this.description}}">
@@ -43,17 +63,17 @@
               {{/if}}
             </div>
 
-            <p class="mb-4">{{this.description}}</p>
+            <p class="mb-4 acervo-description">{{this.description}}</p>
 
-            <div class="tags">
+            <div class="tags acervo-category-tags">
               {{#each this.categoriesLabel}}
               <span class="tag is-info is-light">{{this}}</span>
               {{/each}}
             </div>
 
-            <p class="is-size-7 has-text-grey mt-2">Pessoas na cena: {{this.peopleCount}}</p>
-            <p class="is-size-7 has-text-grey">Tipo: {{this.documentType}}</p>
-            <p class="is-size-7 has-text-grey">Tags: {{this.tags}}</p>
+            <p class="is-size-7 has-text-grey mt-2 acervo-meta-item">Pessoas na cena: {{this.peopleCount}}</p>
+            <p class="is-size-7 has-text-grey acervo-meta-item">Tipo: {{this.documentType}}</p>
+            <p class="is-size-7 has-text-grey acervo-meta-item">Tags: {{this.tags}}</p>
           </div>
 
           <div class="card-footer">
@@ -72,9 +92,11 @@
     <div id="acervo-loading" class="has-text-centered is-size-7 has-text-grey my-4 is-hidden">
       Carregando mais itens...
     </div>
+    {{!--
     <div id="acervo-end-message" class="has-text-centered is-size-7 has-text-grey my-4 is-hidden">
       Voce chegou ao fim deste acervo.
     </div>
+    --}}
     <div id="acervo-sentinel" class="acervo-sentinel" aria-hidden="true"></div>
 
     <noscript>
