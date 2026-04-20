@@ -50,7 +50,7 @@ services:
       PORT: 3000
       TRUST_PROXY: 'true'
     volumes:
-      - ./src/public/photos:/app/src/public/photos:ro
+      - ${PHOTOS_HOST_PATH:-./src/public/photos}:/app/src/public/photos:ro
     command: npm start
     expose:
       - '3000'
