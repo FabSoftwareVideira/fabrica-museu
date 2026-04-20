@@ -16,6 +16,7 @@ services:
     volumes:
       - ./:/app
       - /app/node_modules
+      - ./src/public/photos:/app/src/public/photos
     command: npm run dev
     expose:
       - '3000'
@@ -48,6 +49,8 @@ services:
       HOST: 0.0.0.0
       PORT: 3000
       TRUST_PROXY: 'true'
+    volumes:
+      - ./src/public/photos:/app/src/public/photos:ro
     command: npm start
     expose:
       - '3000'
