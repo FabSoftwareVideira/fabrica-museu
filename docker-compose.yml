@@ -18,6 +18,8 @@ services:
       - /app/node_modules
       - ./src/public/photos:/app/src/public/photos
     command: npm run dev
+    ports:
+      - '3000:3000'
     expose:
       - '3000'
     restart: unless-stopped
