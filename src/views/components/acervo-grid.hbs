@@ -1,0 +1,22 @@
+{{#if hasItems}}
+<div
+  id="acervo-grid"
+  class="columns is-multiline acervo-grid acervo-grid--cards"
+  data-category="{{activeCategory}}"
+  data-page-size="24"
+>
+  {{#each items}} {{> acervo-item-card imageUrl=this.imageUrl description=this.description
+  estimatedYear=this.estimatedYear historicalPeriod=this.historicalPeriod categoriesLabel=this.categoriesLabel
+  peopleCount=this.peopleCount documentType=this.documentType tags=this.tags }} {{/each}}
+</div>
+
+<div id="acervo-loading" class="has-text-centered is-size-7 has-text-grey my-4 is-hidden">Carregando mais itens...</div>
+
+<div id="acervo-sentinel" class="acervo-sentinel" aria-hidden="true"></div>
+
+<noscript>
+  <article class="message is-info is-light mt-4">
+    <div class="message-body">Ative JavaScript para carregar o restante das imagens ao rolar a página.</div>
+  </article>
+</noscript>
+{{/if}}

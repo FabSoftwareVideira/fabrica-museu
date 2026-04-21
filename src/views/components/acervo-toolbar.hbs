@@ -1,0 +1,28 @@
+<section class="acervo-toolbar mb-4" aria-label="Filtros e visualização do acervo">
+  <div class="acervo-toolbar-row acervo-toolbar-row--categories">
+    <p class="acervo-toolbar-label">Categorias</p>
+    <div class="acervo-category-chips" role="list">
+      {{#each categories}}
+      <a
+        href="/acervo?categoria={{this.slug}}"
+        class="button is-rounded is-small acervo-category-chip {{#if this.isActive}}is-dark{{else}}is-light{{/if}}"
+        role="listitem"
+      >
+        {{this.label}} ({{this.count}})
+      </a>
+      {{/each}}
+    </div>
+  </div>
+
+  <div class="acervo-toolbar-row acervo-toolbar-row--controls pt-4">
+    <p id="acervo-count-status" class="is-size-7 has-text-grey">Exibindo {{items.length}} itens.</p>
+
+    <div class="buttons has-addons are-small" id="acervo-view-controls" aria-label="Modo de visualização">
+      <button class="button is-primary" type="button" data-view-mode="cards" aria-pressed="true">Cards</button>
+      <button class="button is-ghost" type="button" data-view-mode="list-compact" aria-pressed="false">Compacta</button>
+      <button class="button is-ghost" type="button" data-view-mode="list-detailed" aria-pressed="false">
+        Detalhada
+      </button>
+    </div>
+  </div>
+</section>

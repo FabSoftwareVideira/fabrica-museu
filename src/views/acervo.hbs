@@ -1,149 +1,17 @@
 {{#> base pageTitle=pageTitle year=year themeColor="#6d1623" isAcervo=true}}
-<header class="hero is-small is-dark acervo-hero">
-  <div class="hero-body py-4">
-    <div class="container">
-      <div class="acervo-hero-inner">
-        <div>
-          <p class="acervo-hero-kicker">Arquivo Fotográfico e Documental</p>
-          <h1 class="title is-3 has-text-white mb-2">Explorar o Acervo</h1>
-          <p class="subtitle is-6 mb-0">
-            Navegue por categorias, altere o modo de visualização e abra imagens em tamanho original.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
+
+{{> acervo-header}}
 
 <main class="section acervo-main-section p-2">
   <div class="container">
-    <section class="acervo-toolbar mb-4" aria-label="Filtros e visualização do acervo">
-      <div class="acervo-toolbar-row acervo-toolbar-row--categories">
-        <p class="acervo-toolbar-label">Categorias</p>
-        <div class="acervo-category-chips" role="list">
-          {{#each categories}}
-          <a
-            href="/acervo?categoria={{this.slug}}"
-            class="button is-rounded is-small acervo-category-chip {{#if this.isActive}}is-dark{{else}}is-light{{/if}}"
-            role="listitem"
-          >
-            {{this.label}} ({{this.count}})
-          </a>
-          {{/each}}
-        </div>
-      </div>
+    {{> acervo-toolbar categories=categories items=items activeCategory=activeCategory}}
 
-      <div class="acervo-toolbar-row acervo-toolbar-row--controls pt-4">
-        <p id="acervo-count-status" class="is-size-7 has-text-grey">Exibindo {{items.length}} itens.</p>
+    {{> acervo-grid hasItems=hasItems items=items activeCategory=activeCategory}}
 
-        <div class="buttons has-addons are-small" id="acervo-view-controls" aria-label="Modo de visualização">
-          <button class="button is-primary" type="button" data-view-mode="cards" aria-pressed="true">Cards</button>
-          <button class="button is-ghost" type="button" data-view-mode="list-compact" aria-pressed="false">
-            Compacta
-          </button>
-          <button class="button is-ghost" type="button" data-view-mode="list-detailed" aria-pressed="false">
-            Detalhada
-          </button>
-        </div>
-      </div>
-    </section>
+    {{> acervo-empty-state hasItems=hasItems}}
 
-    {{#if hasItems}}
-    <div
-      id="acervo-grid"
-      class="columns is-multiline acervo-grid acervo-grid--cards"
-      data-category="{{activeCategory}}"
-      data-page-size="24"
-    >
-      {{#each items}}
-      <div class="column is-4-desktop is-6-tablet px-2 py-2">
-        <article class="card is-radiusless m-1 h-100" aria-label="Item do acervo: {{this.description}}">
-          <div class="card-image">
-            <a
-              href="{{this.imageUrl}}"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Abrir imagem em tamanho original"
-            >
-              <figure class="image is-square has-background-grey-lighter">
-                <img src="{{this.imageUrl}}" alt="{{this.description}}" loading="lazy" />
-              </figure>
-            </a>
-          </div>
-
-          <div class="card-content">
-            <div class="tags mb-3">
-              {{#if this.estimatedYear}}
-              <span class="tag is-warning is-light">Ano estimado: {{this.estimatedYear}}</span>
-              {{/if}} {{#if this.historicalPeriod}}
-              <span class="tag is-light">{{this.historicalPeriod}}</span>
-              {{/if}}
-            </div>
-
-            <p class="mb-4 acervo-description">{{this.description}}</p>
-
-            <div class="tags acervo-category-tags">
-              {{#each this.categoriesLabel}}
-              <span class="tag is-info is-light">{{this}}</span>
-              {{/each}}
-            </div>
-
-            <p class="is-size-7 has-text-grey mt-2 acervo-meta-item">Pessoas na cena: {{this.peopleCount}}</p>
-            <p class="is-size-7 has-text-grey acervo-meta-item">Tipo: {{this.documentType}}</p>
-            <p class="is-size-7 has-text-grey acervo-meta-item">Tags: {{this.tags}}</p>
-            <span class="acervo-ai-badge icon has-text-grey-light" title="Informações geradas por IA"
-              ><i class="fa-solid fa-robot" aria-hidden="true"></i
-            ></span>
-          </div>
-
-          <div class="card-footer">
-            <p class="card-footer-item is-size-7 has-text-grey-light">
-              <span class="icon-text">
-                <span class="icon is-small"><i class="fa-solid fa-robot" aria-hidden="true"></i></span>
-                <span>Informações geradas por IA</span>
-              </span>
-            </p>
-          </div>
-        </article>
-      </div>
-      {{/each}}
-    </div>
-
-    <div id="acervo-loading" class="has-text-centered is-size-7 has-text-grey my-4 is-hidden">
-      Carregando mais itens...
-    </div>
-    {{!--
-    <div id="acervo-end-message" class="has-text-centered is-size-7 has-text-grey my-4 is-hidden">
-      Você chegou ao fim deste acervo.
-    </div>
-    --}}
-    <div id="acervo-sentinel" class="acervo-sentinel" aria-hidden="true"></div>
-
-    <noscript>
-      <article class="message is-info is-light mt-4">
-        <div class="message-body">Ative JavaScript para carregar o restante das imagens ao rolar a página.</div>
-      </article>
-    </noscript>
-    {{else}}
-    <article class="message is-warning is-light">
-      <div class="message-body">Nenhuma imagem encontrada para este filtro.</div>
-    </article>
-    {{/if}}
-
-    <article class="message is-warning is-light mb-5" aria-label="Aviso sobre uso de IA">
-      <div class="message-body">
-        <p class="has-text-weight-semibold">
-          <span class="icon-text">
-            <span class="icon is-small"><i class="fa-solid fa-robot" aria-hidden="true"></i></span>
-            <span>Metadados gerados por IA</span>
-          </span>
-        </p>
-        <p class="is-size-7 mt-1">
-          Descrições, categorias, tags e demais informações deste acervo foram geradas automaticamente por inteligência
-          artificial e podem conter imprecisões.
-        </p>
-      </div>
-    </article>
+    {{> acervo-ai-warning}}
   </div>
 </main>
+
 {{/base}}

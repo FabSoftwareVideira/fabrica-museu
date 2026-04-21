@@ -3,18 +3,23 @@ const fs = require('node:fs');
 const fastifyView = require('@fastify/view');
 const handlebars = require('handlebars');
 
-const partialsDir = path.join(__dirname, '..', 'views', 'partials');
-const partialFiles = {
-    base: 'base.hbs',
-    navbar: 'navbar.hbs',
-    footer: 'footer.hbs',
-};
+const partialsDirs = [
+    path.join(__dirname, '..', 'views', 'partials'),
+    path.join(__dirname, '..', 'views', 'components'),
+];
 
 const registerPartials = () => {
-    Object.entries(partialFiles).forEach(([name, filename]) => {
-        const partialPath = path.join(partialsDir, filename);
-        const template = fs.readFileSync(partialPath, 'utf8');
-        handlebars.registerPartial(name, template);
+    partialsDirs.forEach((dirPath) => {
+        const files = fs.readdirSync(dirPath);
+
+        files.forEach((filename) => {
+            if (filename.endsWith('.hbs')) {
+                const name = filename.replace('.hbs', '');
+                const partialPath = path.join(dirPath, filename);
+                const template = fs.readFileSync(partialPath, 'utf8');
+                handlebars.registerPartial(name, template);
+            }
+        });
     });
 };
 
