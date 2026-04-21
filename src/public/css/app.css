@@ -476,6 +476,11 @@ h3,
   background-color: var(--section-bg) !important;
 }
 
+[data-theme='light'] .section.has-background-dark,
+[data-theme='light'] main.has-background-dark {
+  background-color: var(--section-bg) !important;
+}
+
 .home-hero-highlight {
   position: relative;
   background:
