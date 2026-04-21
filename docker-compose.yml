@@ -195,9 +195,12 @@ services:
     profiles: [prod]
     depends_on:
       - fabrica-museu-prod
-    ports:
-      - '80:80'
-      - '443:443'
+    # ports:
+    #   - '80:80'
+    #   - '443:443'
+    expose:
+      - '80'
+      - '443'
     volumes:
       - ./infra/nginx/prod/http.conf:/etc/nginx/templates/http.conf:ro
       - ./infra/nginx/prod/https.conf:/etc/nginx/templates/https.conf:ro
