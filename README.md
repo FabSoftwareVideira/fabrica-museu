@@ -69,9 +69,66 @@ http://localhost:3000
 docker compose --profile dev up --build -d
 ```
 
-Acesse em: `http://localhost:3000`
+Acesse em:
+
+- `http://localhost:3000` (app Node direto)
+- `http://localhost:8080` (Nginx HTTP)
+- `https://localhost:8443` (Nginx HTTPS, quando houver certificado em `infra/certs/dev`)
 
 O hot-reload está ativo: alterações em `src/` são refletidas sem rebuild (exceto CSS que requer refresh do navegador).
+
+#### HTTPS no dev com mkcert
+
+Se voce nao consegue instalar o mkcert no Windows, use o bootstrap via Docker (recomendado):
+
+```bash
+npm run dev:ssl
+```
+
+Esse comando:
+
+- constroi uma imagem Docker local com mkcert
+- gera `infra/certs/dev/tls.crt` e `infra/certs/dev/tls.key`
+- inclui localhost e IPs locais da maquina no certificado
+- sobe o profile `dev` com Nginx + app
+
+Para gerar para prod (autoassinado para testes):
+
+```bash
+npm run ssl:bootstrap:prod
+```
+
+Voce tambem pode informar dominios/IPs extras:
+
+```bash
+node infra/scripts/bootstrap-ssl.js --profile dev --domains 192.168.1.6,meu-host.local
+```
+
+1. Instale o mkcert e a CA local:
+
+```bash
+mkcert -install
+```
+
+2. Gere certificados para localhost:
+
+```bash
+mkcert -cert-file infra/certs/dev/tls.crt -key-file infra/certs/dev/tls.key localhost 127.0.0.1 ::1
+```
+
+3. Para testar no celular (mesma rede), inclua também o IP local da máquina:
+
+```bash
+mkcert -cert-file infra/certs/dev/tls.crt -key-file infra/certs/dev/tls.key localhost 127.0.0.1 ::1 192.168.1.6
+```
+
+4. Reinicie os serviços dev:
+
+```bash
+docker compose --profile dev up -d
+```
+
+Sem `infra/certs/dev/tls.crt` e `infra/certs/dev/tls.key`, o Nginx de desenvolvimento sobe em modo HTTP automaticamente.
 
 ### Production
 
@@ -97,8 +154,24 @@ docker compose ps
 
 #### Observações
 
-- **Dev**: mapeia porta `3000:3000` no host; usa rede interna do Compose.
-- **Prod**: não expõe porta externamente; entra na rede `fabrica-network` para uso com proxy reverso.
+- **Dev**:
+  - App Node em `127.0.0.1:3000` (acesso local direto opcional)
+  - Nginx em `8080` (HTTP) e `8443` (HTTPS)
+  - Com `infra/certs/dev/tls.crt` + `infra/certs/dev/tls.key`: redireciona HTTP -> HTTPS
+  - Sem certificado: serve HTTP
+- **Prod**:
+  - App Node não é exposto no host
+  - Nginx em `80` e `443`
+  - Com `infra/certs/prod/tls.crt` + `infra/certs/prod/tls.key`: redireciona HTTP -> HTTPS
+  - Sem certificado: serve HTTP
+
+- **Certificados de produção**: coloque os arquivos em:
+
+```text
+infra/certs/prod/tls.crt
+infra/certs/prod/tls.key
+```
+
 - **Em produção com Nginx**, configure headers mínimos:
 
 ```nginx

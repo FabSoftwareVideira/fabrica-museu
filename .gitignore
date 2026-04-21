@@ -2,3 +2,7 @@ node_modules
 .env
 .DS_Store
 **/photos/*
+infra/certs/dev/*
+infra/certs/prod/*
+!infra/certs/dev/.gitkeep
+!infra/certs/prod/.gitkeep

@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "nodemon --watch src --ext js,hbs,css,json --exec node src/server.js",
     "start": "node src/server.js",
-    "test": "node --test"
+    "test": "node --test",
+    "ssl:bootstrap:dev": "node infra/scripts/bootstrap-ssl.js --profile dev",
+    "ssl:bootstrap:prod": "node infra/scripts/bootstrap-ssl.js --profile prod",
+    "dev:ssl": "npm run ssl:bootstrap:dev"
   },
   "repository": {
     "type": "git",
