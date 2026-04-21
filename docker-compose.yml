@@ -1,10 +1,3 @@
-# ============================================================
-# docker-compose.yml — Fábrica Museu
-# Uso:
-#   dev  → docker compose --profile dev up
-#   prod → docker compose --profile prod up -d
-# ============================================================
-
 services:
   # ----------------------------------------------------------
   # DESENVOLVIMENTO
@@ -60,7 +53,7 @@ services:
       start_period: 25s
       retries: 5
 
-  nginx-dev:
+  fabrica-museu-nginx-dev:
     image: nginx:1.27-alpine
     container_name: fabrica-museu-nginx-dev
     profiles: [dev]
@@ -190,7 +183,7 @@ services:
     networks:
       - fabrica-network
 
-  nginx-prod:
+  fabrica-museu-nginx-prod:
     image: nginx:1.27-alpine
     container_name: fabrica-museu-nginx-prod
     profiles: [prod]
