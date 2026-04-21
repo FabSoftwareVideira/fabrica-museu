@@ -73,6 +73,7 @@ services:
       - ./infra/nginx/dev/http.conf:/etc/nginx/templates/http.conf:ro
       - ./infra/nginx/dev/https.conf:/etc/nginx/templates/https.conf:ro
       - ./infra/certs/dev:/etc/nginx/certs:ro
+      - ./infra/nginx/errors:/etc/nginx/errors:ro
     command: >
       /bin/sh -c '
       if [ -f /etc/nginx/certs/tls.crt ] && [ -f /etc/nginx/certs/tls.key ]; then
@@ -205,6 +206,7 @@ services:
       - ./infra/nginx/prod/http.conf:/etc/nginx/templates/http.conf:ro
       - ./infra/nginx/prod/https.conf:/etc/nginx/templates/https.conf:ro
       - ./infra/certs/prod:/etc/nginx/certs:ro
+      - ./infra/nginx/errors:/etc/nginx/errors:ro
     command: >
       /bin/sh -c '
       if [ -f /etc/nginx/certs/tls.crt ] && [ -f /etc/nginx/certs/tls.key ]; then

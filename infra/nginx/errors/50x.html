@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erro interno · Museu do Vinho</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Playfair+Display:wght@400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: #f5f0e8;
+            color: #2e1f0e;
+            font-family: 'DM Sans', system-ui, sans-serif;
+        }
+
+        header {
+            background: #faf8f4;
+            border-bottom: 1px solid #c8b89a;
+            padding: 0.875rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        header .brand-text {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #2e1f0e;
+            line-height: 1.2;
+        }
+
+        header .brand-highlight {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 0.8rem;
+            color: #7b1c2e;
+            display: block;
+            font-weight: 400;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 1.5rem;
+        }
+
+        .error-card {
+            background: #faf8f4;
+            border: 1px solid #c8b89a;
+            border-radius: 8px;
+            padding: 3rem 2.5rem;
+            max-width: 540px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .error-code {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(5rem, 15vw, 8rem);
+            font-weight: 600;
+            color: #7b1c2e;
+            line-height: 1;
+            letter-spacing: -2px;
+        }
+
+        .error-divider {
+            width: 48px;
+            height: 3px;
+            background: #c9982a;
+            margin: 1.25rem auto;
+            border-radius: 2px;
+        }
+
+        .error-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2e1f0e;
+            margin-bottom: 0.75rem;
+        }
+
+        .error-message {
+            font-size: 0.95rem;
+            color: #7a5c3e;
+            line-height: 1.65;
+            margin-bottom: 2rem;
+        }
+
+        .btn-home {
+            display: inline-block;
+            background: #7b1c2e;
+            color: #faf8f4;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 0.65rem 1.75rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background 0.18s;
+        }
+
+        .btn-home:hover {
+            background: #9a2438;
+        }
+
+        footer {
+            background: #ede7d9;
+            border-top: 1px solid #c8b89a;
+            padding: 1.25rem 2rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #7a5c3e;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div>
+            <span class="brand-text">
+                Museu do Vinho
+                <span class="brand-highlight">Mario de Pellegrin</span>
+            </span>
+        </div>
+    </header>
+
+    <main>
+        <div class="error-card">
+            <div class="error-code">500</div>
+            <div class="error-divider"></div>
+            <h1 class="error-title">Erro interno do servidor</h1>
+            <p class="error-message">
+                Ocorreu um erro inesperado ao processar sua requisição.<br>
+                Se o problema persistir, entre em contato conosco.
+            </p>
+            <a class="btn-home" href="/">Voltar ao início</a>
+        </div>
+    </main>
+
+    <footer>
+        &copy; Museu do Vinho · Mario de Pellegrin &mdash; Secretaria de Cultura
+    </footer>
+</body>
+
+</html>
