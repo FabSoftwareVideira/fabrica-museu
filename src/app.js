@@ -19,7 +19,10 @@ const buildApp = () => {
         prefix: '/public/',
     });
 
-    registerViewEngine(app, { isDevelopment: env.nodeEnv === 'development' });
+    registerViewEngine(app, {
+        isDevelopment: env.nodeEnv === 'development',
+        appVersion: env.appVersion,
+    });
 
     const acervoService = createAcervoService(loadAcervoItems());
     registerRoutes(app, { acervoService });

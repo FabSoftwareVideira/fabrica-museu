@@ -18,8 +18,11 @@ const registerPartials = () => {
     });
 };
 
-const registerViewEngine = async (app, { isDevelopment }) => {
+const registerViewEngine = async (app, { isDevelopment, appVersion }) => {
     registerPartials();
+
+    // Registra helper global para versão da aplicação
+    handlebars.registerHelper('appVersion', () => appVersion);
 
     if (isDevelopment) {
         app.addHook('onRequest', async () => {

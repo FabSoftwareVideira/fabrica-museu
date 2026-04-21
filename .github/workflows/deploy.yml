@@ -18,6 +18,13 @@ jobs:
       - name: 📂 Checkout do Código
         uses: actions/checkout@v4
 
+      - name: 🏷️  Extrair versão da tag do git
+        run: |
+          TAG_NAME="${GITHUB_REF#refs/tags/}"
+          VERSION="${TAG_NAME#v}"
+          echo "Version detected: $VERSION"
+          echo "RELEASE_VERSION=$VERSION" >> $GITHUB_ENV
+
       - name: Gerar .env a partir do ENV_FILE do repositório
         env:
           ENV_FILE_SECRET: ${{ secrets.ENV_FILE }}
@@ -36,6 +43,9 @@ jobs:
           fi
 
           printf '%s' "$ENV_CONTENT" > .env
+          echo "" >> .env
+          echo "# Versão em produção (extraída da tag do git)" >> .env
+          echo "APP_VERSION=${{ env.RELEASE_VERSION }}" >> .env
 
           echo "Arquivo .env criado com sucesso para o deploy."
 
