@@ -1,13 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Museu do Vinho">
-    <defs>
-        <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
-            <stop offset="0%" stop-color="#6d1623" />
-            <stop offset="100%" stop-color="#34263c" />
-        </linearGradient>
-    </defs>
-    <rect width="512" height="512" rx="96" fill="url(#g)" />
-    <circle cx="256" cy="182" r="96" fill="#f8f1e7" opacity="0.95" />
-    <path d="M208 164h96v30c0 27-21 48-48 48s-48-21-48-48z" fill="#6d1623" />
-    <rect x="240" y="242" width="32" height="96" rx="16" fill="#f8f1e7" />
-    <rect x="198" y="336" width="116" height="28" rx="14" fill="#c58d2e" />
+<svg width="600" height="300" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Linha verde principal -->
+  <path d="M20 200 
+           C150 150, 300 50, 500 80
+           C580 100, 580 200, 450 220
+           C350 240, 250 180, 300 160" fill="none" stroke="#7FA34C" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"></path>
+
+  <!-- Espiral direita -->
+  <path d="M420 180 
+           C460 160, 500 190, 470 220
+           C440 250, 400 220, 430 200" fill="none" stroke="#7FA34C" stroke-width="12" stroke-linecap="round"></path>
+
+  <!-- Detalhe interno -->
+  <path d="M320 160 
+           C340 140, 370 150, 360 170" fill="none" stroke="#7FA34C" stroke-width="10" stroke-linecap="round"></path>
+
+  <!-- Pontos roxos -->
+  <circle cx="260" cy="230" r="8" fill="#7A4FA3"></circle>
+  <circle cx="280" cy="250" r="10" fill="#7A4FA3"></circle>
+  <circle cx="240" cy="250" r="9" fill="#7A4FA3"></circle>
 </svg>
