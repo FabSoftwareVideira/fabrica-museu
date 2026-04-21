@@ -1,4 +1,14 @@
+# ============================================================
+# docker-compose.yml — Fábrica Museu
+# Uso:
+#   dev  → docker compose --profile dev up
+#   prod → docker compose --profile prod up -d
+# ============================================================
+
 services:
+  # ----------------------------------------------------------
+  # DESENVOLVIMENTO
+  # ----------------------------------------------------------
   fabrica-museu-dev:
     build:
       context: .
@@ -6,9 +16,8 @@ services:
       target: dev
     container_name: fabrica-museu-dev
     working_dir: /app
-    profiles: ['dev']
-    env_file:
-      - .env
+    profiles: [dev]
+    env_file: .env
     environment:
       NODE_ENV: development
       HOST: 0.0.0.0
@@ -18,60 +27,156 @@ services:
       - /app/node_modules
       - ./src/public/photos:/app/src/public/photos
     command: npm run dev
+    init: true
     ports:
-      - '3000:3000'
-    expose:
-      - '3000'
+      - '127.0.0.1:3000:3000' # bind apenas em loopback — não expõe para a internet
+    deploy:
+      resources:
+        limits:
+          cpus: '1.00'
+          memory: 1536M
+          pids: 512
+        reservations:
+          memory: 768M
+    stop_grace_period: 20s
+    logging:
+      driver: json-file
+      options:
+        max-size: '15m'
+        max-file: '4'
     restart: unless-stopped
     healthcheck:
       test:
-        [
-          'CMD',
-          'node',
-          '-e',
-          'fetch("http://127.0.0.1:3000/health").then((r)=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))',
-        ]
+        - CMD
+        - node
+        - -e
+        - >
+          fetch("http://127.0.0.1:3000/health")
+            .then(r => process.exit(r.ok ? 0 : 1))
+            .catch(() => process.exit(1))
       interval: 10s
-      timeout: 3s
-      start_period: 20s
+      timeout: 5s
+      start_period: 25s
       retries: 5
 
+  # ----------------------------------------------------------
+  # PRODUÇÃO
+  # ----------------------------------------------------------
   fabrica-museu-prod:
     build:
       context: .
       dockerfile: Dockerfile
       target: prod
+      args:
+        BUILD_DATE: ${BUILD_DATE:-unknown}
+        GIT_COMMIT: ${GIT_COMMIT:-unknown}
+    image: fabrica-museu:${IMAGE_TAG:-latest}
     container_name: fabrica-museu-prod
     working_dir: /app
-    profiles: ['prod']
-    env_file:
-      - .env
+    profiles: [prod]
+    env_file: .env
     environment:
       NODE_ENV: production
       HOST: 0.0.0.0
       PORT: 3000
       TRUST_PROXY: 'true'
     volumes:
-      - ${PHOTOS_HOST_PATH:-./src/public/photos}:/app/src/public/photos:ro
+      - ${PHOTOS_HOST_PATH:-./src/public/photos}:/app/src/public/photos:ro,cached
     command: npm start
+    init: true
     expose:
       - '3000'
+
+    # --- recursos (padrão Compose v2 / Docker 25+) ---
+    deploy:
+      resources:
+        limits:
+          cpus: '2.50' # permite usar até 2.5 CPUs
+          memory: 3072M # 3GB de memória para produção
+          pids: 512 # limita a 512 processos/threads para evitar runaway
+        reservations:
+          cpus: '0.50'
+          memory: 1536M
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+
+    # --- segurança ---
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+
+    # --- sistema de arquivos temporário em RAM ---
+    # /tmp       → uso geral do Node/libs
+    # /app/tmp   → arquivos temporários da aplicação (ajuste se necessário)
+    tmpfs:
+      - /tmp:size=128M,mode=1777
+      - /app/tmp:size=64M,mode=1777
+
+    # --- limites de descritores de arquivo ---
+    # Evita "too many open files" sob alta carga (default do kernel é 1024)
+    # ulimits:
+    #   nofile:
+    #     soft: 65536
+    #     hard: 65536
+
+    # # --- ajustes de rede (úteis em VPS com tunelamento) ---
+    # sysctls:
+    #   net.ipv4.tcp_fin_timeout: 15
+    #   net.ipv4.tcp_keepalive_time: 300
+    #   net.ipv4.tcp_keepalive_intvl: 30
+    #   net.ipv4.tcp_keepalive_probes: 5
+
+    # stop_grace_period: 30s # prod precisa de mais tempo para drenar conexões
+
+    # --- observabilidade ---
+    logging:
+      driver: json-file
+      options:
+        max-size: '20m'
+        max-file: '5'
+        compress: 'true' # comprime rotações antigas — economiza disco
+
+    # --- labels para rastreamento de deploy ---
+    labels:
+      app.name: 'fabrica-museu'
+      app.version: '${IMAGE_TAG:-dev}'
+      app.build-date: '${BUILD_DATE:-unknown}'
+      app.git-commit: '${GIT_COMMIT:-unknown}'
+      traefik.enable: 'false' # mude para true se usar Traefik como proxy
+
     restart: unless-stopped
+
     healthcheck:
       test:
-        [
-          'CMD',
-          'node',
-          '-e',
-          'fetch("http://127.0.0.1:3000/health").then((r)=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))',
-        ]
-      interval: 10s
-      timeout: 3s
-      start_period: 20s
-      retries: 5
+        - CMD-SHELL
+        - |
+          node -e "fetch('http://127.0.0.1:3000/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))" \
+          || wget -qO- http://127.0.0.1:3000/health > /dev/null 2>&1
+      interval: 15s
+      timeout: 5s
+      start_period: 30s # dá tempo para o Node.js carregar em hardware modesto
+      retries: 4
+
     networks:
       - fabrica-network
 
+# ============================================================
+# REDES
+# ============================================================
 networks:
   fabrica-network:
     external: true
+    # Se ainda não existe, crie com:
+    #   docker network create \
+    #     --driver bridge \
+    #     --opt com.docker.network.driver.mtu=1450 \
+    #     fabrica-network
+    #
+    # MTU 1450 evita fragmentação em VPS com encapsulamento (Hetzner,
+    # DigitalOcean, Vultr etc. usam MTU 1500 na NIC, mas o túnel
+    # reduz o espaço útil — 1450 é um valor seguro e conservador).
