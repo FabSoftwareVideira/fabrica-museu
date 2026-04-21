@@ -656,6 +656,36 @@ h3,
   min-block-size: 80vh;
 }
 
+.acervo-item-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.acervo-item-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--text-muted, #888);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.acervo-item-back:hover {
+  color: var(--text-color, #333);
+}
+
+.acervo-item-nav .breadcrumb {
+  margin-bottom: 0;
+}
+
+.acervo-item-nav .breadcrumb ul {
+  flex-wrap: wrap;
+}
+
 .acervo-item-figure img {
   object-fit: contain;
   max-block-size: 80vh;
@@ -787,134 +817,83 @@ h3,
   height: 1px;
 }
 
-.acervo-grid--list-compact .column,
-.acervo-grid--list-detailed .column {
-  flex: 0 0 100%;
-  max-width: 100%;
+/* ============================================================
+   ACERVO ITEM CARD
+   ============================================================ */
+
+/* --- Overlay "Ver detalhes" (card mode) --- */
+.acervo-item-card {
+  border: none;
+  box-shadow: none;
+  background: transparent;
 }
 
-/* --- cards (equal height) --- */
+.acervo-item-card .card-image .image {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0;
+}
+
+.acervo-item-card .card-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  transition: transform 0.35s ease;
+}
+
+.acervo-item-card__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 1rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.55) 0%, transparent 55%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.acervo-item-card:hover .acervo-item-card__overlay,
+.acervo-item-card:focus-within .acervo-item-card__overlay {
+  opacity: 1;
+}
+
+.acervo-item-card:hover .card-image img {
+  transform: scale(1.05);
+}
+
+.acervo-item-card__detail-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 1rem;
+  border-radius: 2rem;
+  background: rgba(255, 255, 255, 0.92);
+  color: #1a1a1a;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+
+.acervo-item-card__detail-btn:hover {
+  background: #fff;
+  transform: translateY(-2px);
+  color: #1a1a1a;
+}
+
+/* --- Cards mode --- */
 .acervo-grid--cards .column {
   display: flex;
 }
 
-.acervo-grid--cards .card {
-  display: flex;
-  flex-direction: column;
+.acervo-grid--cards .acervo-item-card {
   inline-size: 100%;
-  block-size: 100%;
-}
-
-.acervo-grid--cards .card-content {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.acervo-grid--cards .acervo-category-tags {
-  margin-top: auto;
-}
-
-/* --- list-detailed --- */
-.acervo-grid--list-detailed .card {
-  display: flex;
-  flex-direction: row;
-  min-height: 190px;
-}
-
-.acervo-grid--list-detailed .card-image {
-  flex: 0 0 240px;
-}
-
-.acervo-grid--list-detailed .card-image .image {
-  height: 100%;
-}
-
-.acervo-grid--list-detailed .card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.acervo-grid--list-detailed .card-content {
-  flex: 1;
-}
-
-.acervo-grid--list-detailed .card-footer {
-  /* align-items: flex-end; */
-  display: none;
-}
-
-.acervo-grid--list-detailed .acervo-description {
-  margin-bottom: 0.75rem;
-}
-
-.acervo-grid--cards .acervo-ai-badge,
-.acervo-grid--list-detailed .acervo-ai-badge {
-  display: none;
-}
-
-/* --- list-compact --- */
-.acervo-grid--list-compact .card {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  min-height: unset;
-}
-
-.acervo-grid--list-compact .card-image {
-  flex: 0 0 72px;
-  width: 72px;
-  height: 72px;
-  overflow: hidden;
-  margin: 0.5rem;
-  border-radius: 6px;
-}
-
-.acervo-grid--list-compact .card-image .image {
-  width: 72px;
-  height: 72px;
-  aspect-ratio: 1 / 1;
-}
-
-.acervo-grid--list-compact .card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  /* border-radius: 6px; */
-}
-
-.acervo-grid--list-compact .card-content {
-  flex: 1;
-  padding: 0.5rem 0.75rem;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.25rem;
-  min-width: 0;
-}
-
-.acervo-grid--list-compact .acervo-description,
-.acervo-grid--list-compact .acervo-meta-item,
-.acervo-grid--list-compact .tags.mb-3,
-.acervo-grid--list-compact .card-footer {
-  display: none;
-}
-
-.acervo-grid--list-compact .acervo-category-tags {
-  margin-bottom: 0;
-  flex-wrap: wrap;
-}
-
-.acervo-grid--list-compact .acervo-ai-badge {
-  margin-left: auto;
-  color: #aaa;
-  flex-shrink: 0;
-}
-
-.acervo-grid--list-detailed .card-footer {
-  border-left: 1px solid var(--border-color);
-  min-width: 210px;
 }
 
 .acervo-skeleton-block {

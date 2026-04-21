@@ -1,16 +1,10 @@
-{{#> base pageTitle=pageTitle year=year themeColor="#6d1623" isAcervo=true}}
-
-{{> acervo-header}}
+{{#> base pageTitle=pageTitle year=year themeColor="#6d1623" isAcervo=true}} {{> acervo-header}}
 
 <main class="section acervo-main-section p-2">
   <div class="container">
-    {{> acervo-toolbar categories=categories items=items activeCategory=activeCategory}}
-
-    {{> acervo-grid hasItems=hasItems items=items activeCategory=activeCategory}}
-
-    {{> acervo-empty-state hasItems=hasItems}}
-
-    {{> acervo-ai-warning}}
+    {{> acervo-toolbar categories=categories items=items activeCategory=activeCategory}} {{> acervo-grid
+    hasItems=hasItems items=items activeCategory=activeCategory}} {{> acervo-empty-state hasItems=hasItems}} {{>
+    acervo-ai-warning}}
   </div>
 </main>
 

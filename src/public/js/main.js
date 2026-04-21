@@ -116,174 +116,35 @@ const toText = (value, fallback = '-') => {
     return String(value);
 };
 
-const ACERVO_VIEW_MODES = ['cards', 'list-compact', 'list-detailed'];
-
-const normalizeViewMode = (mode) => (ACERVO_VIEW_MODES.includes(mode) ? mode : 'cards');
-
-const applyAcervoViewMode = (grid, mode) => {
-    const normalizedMode = normalizeViewMode(mode);
-
-    grid.classList.remove('acervo-grid--cards', 'acervo-grid--list-compact', 'acervo-grid--list-detailed');
-    grid.classList.add(`acervo-grid--${normalizedMode}`);
-
-    return normalizedMode;
-};
-
-const setupAcervoViewModes = (grid) => {
-    const controls = document.getElementById('acervo-view-controls');
-
-    if (!grid || !controls) {
-        return;
-    }
-
-    const buttons = Array.from(controls.querySelectorAll('[data-view-mode]'));
-    if (buttons.length === 0) {
-        return;
-    }
-
-    let initialMode = 'cards';
-
-    try {
-        initialMode = normalizeViewMode(window.localStorage.getItem('acervoViewMode'));
-    } catch (error) {
-        initialMode = 'cards';
-    }
-
-    const updateButtons = (activeMode) => {
-        buttons.forEach((button) => {
-            const mode = normalizeViewMode(button.dataset.viewMode || 'cards');
-            const isActive = mode === activeMode;
-
-            button.classList.toggle('is-primary', isActive);
-            button.classList.toggle('is-ghost', !isActive);
-            button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-        });
-    };
-
-    const setMode = (mode) => {
-        const appliedMode = applyAcervoViewMode(grid, mode);
-        updateButtons(appliedMode);
-
-        try {
-            window.localStorage.setItem('acervoViewMode', appliedMode);
-        } catch (error) {
-            // Ignore storage errors (private mode / quota).
-        }
-    };
-
-    setMode(initialMode);
-
-    buttons.forEach((button) => {
-        button.addEventListener('click', () => {
-            const mode = normalizeViewMode(button.dataset.viewMode || 'cards');
-            setMode(mode);
-        });
-    });
-};
-
 const buildItemCard = (item) => {
     const column = document.createElement('div');
-    column.className = 'column is-4-desktop is-6-tablet p-2';
+    column.className = 'column is-3-desktop is-one-fifth-widescreen is-2-fullhd is-4-tablet is-6-mobile px-1 py-1';
 
-    const article = document.createElement('article');
-    article.className = 'card h-100';
-    article.setAttribute('aria-label', `Item do acervo: ${toText(item.description, 'Sem descricao')}`);
+    const safeDesc = toText(item.description, 'Imagem do acervo');
+    const id = toText(item.id, '');
 
-    const imageWrapper = document.createElement('div');
-    imageWrapper.className = 'card-image';
-
-    const figure = document.createElement('figure');
-    figure.className = 'image is-square has-background-grey-lighter';
-
-    const image = document.createElement('img');
-    image.src = item.imageUrl;
-    image.alt = toText(item.description, 'Imagem do acervo');
-    image.loading = 'lazy';
-
-    figure.appendChild(image);
-    imageWrapper.appendChild(figure);
-
-    const content = document.createElement('div');
-    content.className = 'card-content';
-
-    const detailsTags = document.createElement('div');
-    detailsTags.className = 'tags mb-3';
-
-    if (item.estimatedYear) {
-        const yearTag = document.createElement('span');
-        yearTag.className = 'tag is-warning is-light';
-        yearTag.textContent = `Ano estimado: ${item.estimatedYear}`;
-        detailsTags.appendChild(yearTag);
-    }
-
-    if (item.historicalPeriod) {
-        const periodTag = document.createElement('span');
-        periodTag.className = 'tag is-light';
-        periodTag.textContent = item.historicalPeriod;
-        detailsTags.appendChild(periodTag);
-    }
-
-    content.appendChild(detailsTags);
-
-    const description = document.createElement('p');
-    description.className = 'mb-4 acervo-description';
-    description.textContent = toText(item.description, 'Sem descricao disponivel.');
-    content.appendChild(description);
-
-    const categoriesTags = document.createElement('div');
-    categoriesTags.className = 'tags acervo-category-tags';
-    (Array.isArray(item.categoriesLabel) ? item.categoriesLabel : []).forEach((label) => {
-        const categoryTag = document.createElement('span');
-        categoryTag.className = 'tag is-info is-light';
-        categoryTag.textContent = label;
-        categoriesTags.appendChild(categoryTag);
-    });
-    content.appendChild(categoriesTags);
-
-    const people = document.createElement('p');
-    people.className = 'is-size-7 has-text-grey mt-2 acervo-meta-item';
-    people.textContent = `Pessoas na cena: ${toText(item.peopleCount, 'Nao informado')}`;
-    content.appendChild(people);
-
-    const type = document.createElement('p');
-    type.className = 'is-size-7 has-text-grey acervo-meta-item';
-    type.textContent = `Tipo: ${toText(item.documentType, 'Nao informado')}`;
-    content.appendChild(type);
-
-    const tags = document.createElement('p');
-    tags.className = 'is-size-7 has-text-grey acervo-meta-item';
-    const tagsText = Array.isArray(item.tags) ? item.tags.join(', ') : toText(item.tags, '');
-    tags.textContent = `Tags: ${tagsText || 'Sem tags'}`;
-    content.appendChild(tags);
-
-    const aiBadge = document.createElement('span');
-    aiBadge.className = 'acervo-ai-badge icon has-text-grey-light';
-    aiBadge.title = 'Informacoes geradas por IA';
-    aiBadge.innerHTML = '<i class="fa-solid fa-robot" aria-hidden="true"></i>';
-    content.appendChild(aiBadge);
-
-    const footer = document.createElement('div');
-    footer.className = 'card-footer';
-    footer.innerHTML = `
-        <p class="card-footer-item is-size-7 has-text-grey-light">
-            <span class="icon-text">
-                <span class="icon is-small"><i class="fa-solid fa-robot" aria-hidden="true"></i></span>
-                <span>Informacoes geradas por IA</span>
-            </span>
-        </p>
+    column.innerHTML = `
+        <article class="card acervo-item-card" aria-label="Item do acervo: ${safeDesc.replace(/"/g, '&quot;')}">
+            <div class="card-image">
+                <figure class="image is-square">
+                    <img src="${item.imageUrl}" alt="${safeDesc.replace(/"/g, '&quot;')}" loading="lazy" />
+                    <div class="acervo-item-card__overlay" aria-hidden="true">
+                        <a href="/acervo/${id}" class="acervo-item-card__detail-btn" tabindex="-1">
+                            <span class="icon is-small"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                            <span>Ver detalhes</span>
+                        </a>
+                    </div>
+                </figure>
+            </div>
+        </article>
     `;
-
-    article.appendChild(imageWrapper);
-    article.appendChild(content);
-    article.appendChild(footer);
-    column.appendChild(article);
 
     return column;
 };
 
 const buildSkeletonCard = () => {
     const column = document.createElement('div');
-    column.className = 'column is-4-desktop is-6-tablet acervo-skeleton-item';
+    column.className = 'column is-3-desktop is-one-fifth-widescreen is-2-fullhd is-4-tablet is-6-mobile px-1 py-1 acervo-skeleton-item';
 
     const article = document.createElement('article');
     article.className = 'card h-100';
@@ -317,7 +178,6 @@ const setupAcervoInfiniteScroll = () => {
     const endMessageNode = document.getElementById('acervo-end-message');
     const countStatusNode = document.getElementById('acervo-count-status');
     const skeletonNodes = [];
-    setupAcervoViewModes(grid);
 
     const getRealItemsCount = () => grid.querySelectorAll('.column:not(.acervo-skeleton-item)').length;
 

@@ -1,22 +1,15 @@
-<div class="column is-4-desktop is-6-tablet px-2 py-2">
-  <article class="card is-radiusless m-1" aria-label="Item do acervo: {{description}}">
+<div class="column is-3-desktop is-one-fifth-widescreen is-2-fullhd is-4-tablet is-6-mobile px-1 py-1">
+  <article class="card acervo-item-card" aria-label="Item do acervo: {{description}}">
     <div class="card-image">
-      <a href="/acervo/{{id}}" aria-label="Ver detalhes do item">
-        <figure class="image is-square has-background-grey-lighter">
-          <img src="{{imageUrl}}" alt="{{description}}" loading="lazy" />
-        </figure>
-      </a>
+      <figure class="image is-square">
+        <img src="{{imageUrl}}" alt="{{description}}" loading="lazy" />
+        <div class="acervo-item-card__overlay" aria-hidden="true">
+          <a href="/acervo/{{id}}" class="acervo-item-card__detail-btn" tabindex="-1">
+            <span class="icon is-small"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+            <span>Ver detalhes</span>
+          </a>
+        </div>
+      </figure>
     </div>
-
-    {{#if estimatedYear}}
-    <div class="card-content p-2">
-      <div class="tags mb-0">
-        <span class="tag is-warning is-light">{{estimatedYear}}</span>
-        {{#if historicalPeriod}}
-        <span class="tag is-light">{{historicalPeriod}}</span>
-        {{/if}}
-      </div>
-    </div>
-    {{/if}}
   </article>
 </div>
