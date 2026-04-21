@@ -284,6 +284,128 @@ h3,
   display: none;
 }
 
+/* ============================================================
+   HOME ACERVO MOSAIC
+   ============================================================ */
+.home-acervo-showcase {
+  position: relative;
+  overflow: clip;
+  content-visibility: auto;
+  contain-intrinsic-size: 900px;
+  inline-size: 100vw;
+  margin-inline: calc(50% - 50vw);
+  padding: 0;
+  background: transparent;
+}
+
+.home-acervo-showcase__header {
+  padding: 3rem 1.5rem 2rem;
+}
+
+.home-acervo-mosaic {
+  position: relative;
+  inline-size: 100%;
+}
+
+.home-acervo-mosaic__grid {
+  display: grid;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+  gap: 0;
+}
+
+.home-acervo-mosaic__item {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 0;
+  background: var(--card-bg);
+  isolation: isolate;
+}
+
+.home-acervo-mosaic__item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.home-acervo-mosaic__frame,
+.home-acervo-mosaic__image {
+  width: 100%;
+  height: 100%;
+}
+
+.home-acervo-mosaic__frame {
+  background: linear-gradient(120deg, var(--skeleton-c1), var(--skeleton-c2), var(--skeleton-c1));
+  background-size: 200% 100%;
+  animation: home-acervo-shimmer 1.8s linear infinite;
+}
+
+.home-acervo-mosaic__image {
+  display: block;
+  object-fit: cover;
+  transform: scale(1.001);
+  transition:
+    transform 0.6s ease,
+    filter 0.4s ease,
+    opacity 0.45s ease;
+  opacity: 0;
+}
+
+.home-acervo-mosaic__item.is-loaded .home-acervo-mosaic__image,
+.home-acervo-mosaic__item.is-visible .home-acervo-mosaic__image {
+  opacity: 1;
+}
+
+/* .home-acervo-mosaic__item:hover .home-acervo-mosaic__image,
+.home-acervo-mosaic__item:focus-within .home-acervo-mosaic__image {
+  transform: scale(1.08);
+  filter: saturate(1.06);
+} */
+
+.home-acervo-mosaic__link {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  color: inherit;
+}
+
+.home-acervo-mosaic__item.is-loading::after {
+  opacity: 0;
+}
+
+.home-acervo-mosaic__item.is-swapping .home-acervo-mosaic__image {
+  opacity: 0;
+}
+
+@keyframes home-acervo-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@media (max-width: 1023px) {
+  .home-acervo-mosaic__grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .home-acervo-mosaic__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .home-acervo-mosaic__item {
+    border-radius: 0;
+  }
+}
+
 @media (max-width: 1023px) {
   .navbar-brand-logo {
     inline-size: 30px;

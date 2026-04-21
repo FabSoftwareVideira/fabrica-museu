@@ -552,11 +552,217 @@ const setupNavActiveSection = () => {
     updateFromScroll();
 };
 
+const shuffleItems = (items) => {
+    const shuffled = [...items];
+
+    for (let index = shuffled.length - 1; index > 0; index -= 1) {
+        const swapIndex = Math.floor(Math.random() * (index + 1));
+        [shuffled[index], shuffled[swapIndex]] = [shuffled[swapIndex], shuffled[index]];
+    }
+
+    return shuffled;
+};
+
+const setupHomeAcervoShowcase = () => {
+    const showcase = document.querySelector('[data-home-acervo-showcase]');
+
+    if (!showcase) {
+        return;
+    }
+
+    const slots = Array.from(showcase.querySelectorAll('.home-acervo-mosaic__item'));
+    if (slots.length === 0) {
+        return;
+    }
+
+    const gridSize = Number(showcase.dataset.gridSize || slots.length);
+    const rotateCount = Math.max(1, Number(showcase.dataset.rotateCount || 3));
+    const rotateInterval = Math.max(2000, Number(showcase.dataset.rotateInterval || 3200));
+    const loadedKeys = new Set();
+    let hasBootstrapped = false;
+    let rotationTimer = null;
+    let activeItems = [];
+    let pool = [];
+    let showcaseObserver = null;
+
+    const normalizeItem = (item) => {
+        if (!item || !item.imageUrl) {
+            return null;
+        }
+
+        return {
+            imageUrl: item.imageUrl,
+            description: toText(item.description, 'Imagem do acervo'),
+        };
+    };
+
+    const renderSlot = (slot, item, { swapping = false } = {}) => {
+        if (!slot || !item) {
+            return;
+        }
+
+        if (swapping) {
+            slot.classList.add('is-swapping');
+        }
+
+        window.setTimeout(() => {
+            const safeAlt = item.description.replace(/"/g, '&quot;');
+
+            slot.innerHTML = `
+                <a class="home-acervo-mosaic__link" href="/acervo" aria-label="Abrir acervo a partir da imagem ${safeAlt}">
+                    <img
+                        class="home-acervo-mosaic__image"
+                        src="${item.imageUrl}"
+                        alt="${safeAlt}"
+                        loading="lazy"
+                        decoding="async"
+                        fetchpriority="low"
+                    />
+                </a>
+            `;
+
+            const image = slot.querySelector('.home-acervo-mosaic__image');
+            if (image) {
+                image.addEventListener('load', () => {
+                    slot.classList.remove('is-loading', 'is-swapping');
+                    slot.classList.add('is-loaded', 'is-visible');
+                }, { once: true });
+
+                if (image.complete) {
+                    slot.classList.remove('is-loading', 'is-swapping');
+                    slot.classList.add('is-loaded', 'is-visible');
+                }
+            }
+        }, swapping ? 220 : 0);
+    };
+
+    const pickNextItem = () => {
+        const usedUrls = new Set(activeItems.map((item) => item?.imageUrl).filter(Boolean));
+        const available = pool.filter((item) => !usedUrls.has(item.imageUrl));
+        const source = available.length > 0 ? available : pool;
+
+        if (source.length === 0) {
+            return null;
+        }
+
+        return source[Math.floor(Math.random() * source.length)];
+    };
+
+    const startRotation = () => {
+        if (pool.length <= slots.length) {
+            return;
+        }
+
+        rotationTimer = window.setInterval(() => {
+            const shuffledSlots = shuffleItems(slots).slice(0, Math.min(rotateCount, slots.length));
+
+            shuffledSlots.forEach((slot) => {
+                const slotIndex = slots.indexOf(slot);
+                const nextItem = pickNextItem();
+
+                if (!nextItem) {
+                    return;
+                }
+
+                activeItems[slotIndex] = nextItem;
+                renderSlot(slot, nextItem, { swapping: true });
+            });
+        }, rotateInterval);
+    };
+
+    const stopRotation = () => {
+        if (rotationTimer) {
+            window.clearInterval(rotationTimer);
+            rotationTimer = null;
+        }
+    };
+
+    const bootstrap = async () => {
+        if (hasBootstrapped) {
+            return;
+        }
+
+        hasBootstrapped = true;
+
+        try {
+            const poolSize = Math.max(gridSize + 8, 20);
+            const response = await fetch(`/api/acervo?categoria=todos&page=1&limit=${poolSize}`);
+            if (!response.ok) {
+                throw new Error(`Erro HTTP ${response.status}`);
+            }
+
+            const payload = await response.json();
+            const items = (Array.isArray(payload.items) ? payload.items : [])
+                .map(normalizeItem)
+                .filter(Boolean)
+                .filter((item) => {
+                    if (loadedKeys.has(item.imageUrl)) {
+                        return false;
+                    }
+
+                    loadedKeys.add(item.imageUrl);
+                    return true;
+                });
+
+            if (items.length === 0) {
+                return;
+            }
+
+            pool = shuffleItems(items);
+            activeItems = pool.slice(0, slots.length);
+
+            slots.forEach((slot, index) => {
+                const item = activeItems[index];
+                if (item) {
+                    renderSlot(slot, item);
+                }
+            });
+
+            startRotation();
+        } catch (error) {
+            console.warn('Falha ao carregar vitrine aleatoria do acervo:', error);
+        }
+    };
+
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            stopRotation();
+            return;
+        }
+
+        if (!rotationTimer && hasBootstrapped) {
+            startRotation();
+        }
+    });
+
+    showcaseObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) {
+                return;
+            }
+
+            bootstrap();
+
+            if (showcaseObserver) {
+                showcaseObserver.disconnect();
+                showcaseObserver = null;
+            }
+        });
+    }, {
+        root: null,
+        threshold: 0.15,
+        rootMargin: '200px 0px',
+    });
+
+    showcaseObserver.observe(showcase);
+};
+
 const bootstrapApp = () => {
     setupNavbarMenu();
     setupTheme();
     setupMap();
     setupNavActiveSection();
+    setupHomeAcervoShowcase();
     setupAcervoInfiniteScroll();
     registerServiceWorker();
 };
