@@ -5,8 +5,8 @@ const OFFLINE_ASSETS = [
     '/public/css/app.css',
     '/public/js/main.js',
     '/public/manifest.webmanifest',
-    '/public/icons/icon-192.svg',
-    '/public/icons/icon-512.svg',
+    '/public/icons/icon-192.jpeg',
+    '/public/icons/icon-512.jpeg',
 ];
 
 self.addEventListener('install', (event) => {

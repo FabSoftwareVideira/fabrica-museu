@@ -29,7 +29,7 @@ services:
     command: npm run dev
     init: true
     ports:
-      - '127.0.0.1:3000:3000' # bind apenas em loopback — não expõe para a internet
+      - '3000:3000'
     deploy:
       resources:
         limits:
