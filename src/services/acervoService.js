@@ -128,10 +128,13 @@ const createAcervoService = (rawItems) => {
         };
     };
 
+    const getItemById = (id) => collectionItems.find((item) => item.id === id) || null;
+
     return {
         getCollectionCategories,
         getAcervoPageData,
         getAcervoApiData,
+        getItemById,
     };
 };
 

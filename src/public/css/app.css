@@ -651,6 +651,23 @@ h3,
   background-color: var(--section-bg);
 }
 
+.acervo-item-section {
+  background-color: var(--section-bg);
+  min-block-size: 80vh;
+}
+
+.acervo-item-figure img {
+  object-fit: contain;
+  max-block-size: 80vh;
+  inline-size: 100%;
+}
+
+.acervo-item-meta th {
+  white-space: nowrap;
+  padding-inline-end: 1rem;
+  font-weight: 600;
+}
+
 .acervo-hero {
   background:
     linear-gradient(120deg, rgba(46, 31, 14, 0.88), rgba(123, 28, 46, 0.72)),

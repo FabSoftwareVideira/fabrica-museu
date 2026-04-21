@@ -1,45 +1,22 @@
 <div class="column is-4-desktop is-6-tablet px-2 py-2">
-  <article class="card is-radiusless m-1 h-100" aria-label="Item do acervo: {{description}}">
+  <article class="card is-radiusless m-1" aria-label="Item do acervo: {{description}}">
     <div class="card-image">
-      <a href="{{imageUrl}}" target="_blank" rel="noopener noreferrer" aria-label="Abrir imagem em tamanho original">
+      <a href="/acervo/{{id}}" aria-label="Ver detalhes do item">
         <figure class="image is-square has-background-grey-lighter">
           <img src="{{imageUrl}}" alt="{{description}}" loading="lazy" />
         </figure>
       </a>
     </div>
 
-    <div class="card-content">
-      <div class="tags mb-1">
-        {{#if estimatedYear}}
-        <span class="tag is-warning is-light">Ano estimado: {{estimatedYear}}</span>
-        {{/if}} {{#if historicalPeriod}}
+    {{#if estimatedYear}}
+    <div class="card-content p-2">
+      <div class="tags mb-0">
+        <span class="tag is-warning is-light">{{estimatedYear}}</span>
+        {{#if historicalPeriod}}
         <span class="tag is-light">{{historicalPeriod}}</span>
         {{/if}}
       </div>
-
-      <p class="mb-4 acervo-description">{{description}}</p>
-
-      <div class="tags acervo-category-tags">
-        {{#each categoriesLabel}}
-        <span class="tag is-info is-light">{{this}}</span>
-        {{/each}}
-      </div>
-
-      <p class="is-size-7 has-text-grey mt-2 acervo-meta-item">Pessoas na cena: {{peopleCount}}</p>
-      <p class="is-size-7 has-text-grey acervo-meta-item">Tipo: {{documentType}}</p>
-      <p class="is-size-7 has-text-grey acervo-meta-item">Tags: {{tags}}</p>
-      <span class="acervo-ai-badge icon has-text-grey-light" title="Informações geradas por IA"
-        ><i class="fa-solid fa-robot" aria-hidden="true"></i
-      ></span>
     </div>
-
-    <div class="card-footer">
-      <p class="card-footer-item is-size-7 has-text-grey-light">
-        <span class="icon-text">
-          <span class="icon is-small"><i class="fa-solid fa-robot" aria-hidden="true"></i></span>
-          <span>Informações geradas por IA</span>
-        </span>
-      </p>
-    </div>
+    {{/if}}
   </article>
 </div>

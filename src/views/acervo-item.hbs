@@ -1,0 +1,64 @@
+{{#> base pageTitle=pageTitle year=year themeColor="#6d1623" isAcervo=true}}
+
+<main class="section acervo-item-section">
+  <div class="container">
+    <nav class="breadcrumb mb-5" aria-label="Navegação">
+      <ul>
+        <li><a href="/acervo">Acervo</a></li>
+        <li class="is-active"><a aria-current="page">Detalhes</a></li>
+      </ul>
+    </nav>
+
+    <div class="columns is-variable is-6">
+      <div class="column is-7-desktop">
+        <figure class="image acervo-item-figure">
+          <img src="{{item.imageUrl}}" alt="{{item.description}}" />
+        </figure>
+      </div>
+
+      <div class="column is-5-desktop">
+        <div class="tags mb-3">
+          {{#if item.estimatedYear}}
+          <span class="tag is-warning is-light">Ano estimado: {{item.estimatedYear}}</span>
+          {{/if}} {{#if item.historicalPeriod}}
+          <span class="tag is-light">{{item.historicalPeriod}}</span>
+          {{/if}}
+        </div>
+
+        <p class="mb-5">{{item.description}}</p>
+
+        <div class="tags mb-4">
+          {{#each item.categoriesLabel}}
+          <span class="tag is-info is-light">{{this}}</span>
+          {{/each}}
+        </div>
+
+        <table class="table is-fullwidth is-narrow is-borderless acervo-item-meta">
+          <tbody>
+            <tr>
+              <th class="is-size-7 has-text-grey">Pessoas na cena</th>
+              <td class="is-size-7">{{item.peopleCount}}</td>
+            </tr>
+            <tr>
+              <th class="is-size-7 has-text-grey">Tipo</th>
+              <td class="is-size-7">{{item.documentType}}</td>
+            </tr>
+            <tr>
+              <th class="is-size-7 has-text-grey">Tags</th>
+              <td class="is-size-7">{{item.tags}}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="is-size-7 has-text-grey-light mt-5">
+          <span class="icon-text">
+            <span class="icon is-small"><i class="fa-solid fa-robot" aria-hidden="true"></i></span>
+            <span>Informações geradas por IA</span>
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+</main>
+
+{{/base}}
