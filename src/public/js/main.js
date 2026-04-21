@@ -154,12 +154,6 @@ const buildSkeletonCard = () => {
         <div class="card-image">
             <div class="acervo-skeleton-block acervo-skeleton-image"></div>
         </div>
-        <div class="card-content">
-            <div class="acervo-skeleton-block acervo-skeleton-line acervo-skeleton-line-short"></div>
-            <div class="acervo-skeleton-block acervo-skeleton-line"></div>
-            <div class="acervo-skeleton-block acervo-skeleton-line"></div>
-            <div class="acervo-skeleton-block acervo-skeleton-line acervo-skeleton-line-short"></div>
-        </div>
     `;
 
     column.appendChild(article);
@@ -179,15 +173,15 @@ const setupAcervoInfiniteScroll = () => {
     const countStatusNode = document.getElementById('acervo-count-status');
     const skeletonNodes = [];
 
-    const getRealItemsCount = () => grid.querySelectorAll('.column:not(.acervo-skeleton-item)').length;
+    const initialLoadedItems = grid.querySelectorAll('.column:not(.acervo-skeleton-item)').length;
 
     const state = {
         category: grid.dataset.category || 'todos',
         nextPage: 2,
         totalPages: 1,
         pageSize: Number(grid.dataset.pageSize || 24),
-        totalItems: getRealItemsCount(),
-        loadedItems: getRealItemsCount(),
+        totalItems: initialLoadedItems,
+        loadedItems: initialLoadedItems,
         hasNext: false,
         loading: false,
     };
@@ -262,13 +256,18 @@ const setupAcervoInfiniteScroll = () => {
 
             const payload = await response.json();
             const items = Array.isArray(payload.items) ? payload.items : [];
+            const fragment = document.createDocumentFragment();
 
             items.forEach((item) => {
-                grid.appendChild(buildItemCard(item));
+                fragment.appendChild(buildItemCard(item));
             });
 
+            if (items.length > 0) {
+                grid.appendChild(fragment);
+            }
+
             clearSkeletons();
-            state.loadedItems = getRealItemsCount();
+            state.loadedItems += items.length;
             state.totalItems = payload.pagination?.totalItems || state.totalItems;
 
             const currentPage = payload.pagination?.page || state.nextPage;

@@ -832,6 +832,7 @@ h3,
   position: relative;
   overflow: hidden;
   border-radius: 0;
+  contain: paint;
 }
 
 .acervo-item-card .card-image img {
@@ -840,7 +841,7 @@ h3,
   height: 100%;
   object-fit: cover;
   border-radius: 0;
-  transition: transform 0.35s ease;
+  transform: translateZ(0);
 }
 
 .acervo-item-card__overlay {
@@ -853,15 +854,13 @@ h3,
   background: linear-gradient(to top, rgba(0, 0, 0, 0.55) 0%, transparent 55%);
   opacity: 0;
   transition: opacity 0.3s ease;
+  will-change: opacity;
+  pointer-events: none;
 }
 
 .acervo-item-card:hover .acervo-item-card__overlay,
 .acervo-item-card:focus-within .acervo-item-card__overlay {
   opacity: 1;
-}
-
-.acervo-item-card:hover .card-image img {
-  transform: scale(1.05);
 }
 
 .acervo-item-card__detail-btn {
@@ -879,6 +878,7 @@ h3,
   transition:
     background 0.2s,
     transform 0.2s;
+  pointer-events: auto;
 }
 
 .acervo-item-card__detail-btn:hover {
@@ -905,11 +905,17 @@ h3,
     var(--skeleton-c1) 63%
   );
   background-size: 400% 100%;
-  animation: acervo-shimmer 1.2s ease-in-out infinite;
+  animation: acervo-shimmer 1.6s linear infinite;
 }
 
 .acervo-skeleton-image {
   aspect-ratio: 1 / 1;
+}
+
+.acervo-skeleton-item .card {
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 .acervo-skeleton-line {
@@ -1008,6 +1014,17 @@ h3,
     border-left: 0;
     border-top: 1px solid var(--border-color);
     min-width: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .acervo-skeleton-block {
+    animation: none;
+  }
+
+  .acervo-item-card__overlay,
+  .acervo-item-card__detail-btn {
+    transition: none;
   }
 }
 
