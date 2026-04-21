@@ -89,11 +89,22 @@ const partialFiles = {
     footer: 'footer.hbs',
 };
 
-Object.entries(partialFiles).forEach(([name, filename]) => {
-    const partialPath = path.join(partialsDir, filename);
-    const template = fs.readFileSync(partialPath, 'utf8');
-    handlebars.registerPartial(name, template);
-});
+const registerPartials = () => {
+    Object.entries(partialFiles).forEach(([name, filename]) => {
+        const partialPath = path.join(partialsDir, filename);
+        const template = fs.readFileSync(partialPath, 'utf8');
+        handlebars.registerPartial(name, template);
+    });
+};
+
+registerPartials();
+
+if ((process.env.NODE_ENV || '').toLowerCase() === 'development') {
+    app.addHook('onRequest', async () => {
+        // Em dev, recarrega os parciais para refletir mudancas sem rebuild.
+        registerPartials();
+    });
+}
 
 app.register(fastifyStatic, {
     root: path.join(__dirname, 'public'),
