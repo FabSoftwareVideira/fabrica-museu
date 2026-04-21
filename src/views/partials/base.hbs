@@ -39,15 +39,16 @@
 
   <body>
     {{> navbar}} {{> @partial-block}} {{> footer}}
-
     <a
-      class="button is-success is-rounded whatsapp-float"
+      class="button is-success whatsapp-float"
       href="https://wa.me/5549991561089"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Falar no WhatsApp"
     >
-      <span class="" aria-hidden="true"><i class="fa-brands fa-whatsapp fa-xl"></i></span>
+      <span class="icon">
+        <i class="fa-brands fa-whatsapp fa-xl"></i>
+      </span>
     </a>
 
     {{#if loadLeaflet}}
