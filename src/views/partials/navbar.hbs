@@ -36,13 +36,29 @@
     </div>
     <div class="navbar-menu" id="main-navbar-menu">
       <div class="navbar-end">
-        <a class="navbar-item {{#if isHome}}is-active{{/if}}" href="{{#if isHome}}#home{{else}}/#home{{/if}}">Início</a>
-        <a class="navbar-item" href="{{#if isHome}}#institucional{{else}}/#institucional{{/if}}">Sobre</a>
-        <a class="navbar-item" href="{{#if isHome}}#timeline{{else}}/#timeline{{/if}}">Linha do tempo</a>
-        <a class="navbar-item" href="{{#if isHome}}#contato-link{{else}}/#contato-link{{/if}}">Contato</a>
-        <a class="navbar-item {{#if isAcervo}}is-active{{/if}}" href="/acervo">Acervo</a>
+        <a class="navbar-item {{#if isHome}}is-active{{/if}}" href="{{#if isHome}}#home{{else}}/#home{{/if}}">
+          <i class="fa-solid fa-house" aria-hidden="true"></i>
+          Início
+        </a>
+        <a class="navbar-item" href="{{#if isHome}}#institucional{{else}}/#institucional{{/if}}">
+          <i class="fa-solid fa-building-columns" aria-hidden="true"></i>
+          Sobre
+        </a>
+        <a class="navbar-item" href="{{#if isHome}}#timeline{{else}}/#timeline{{/if}}">
+          <i class="fa-solid fa-history" aria-hidden="true"></i>
+          Linha do tempo
+        </a>
+        <a class="navbar-item" href="{{#if isHome}}#contato-link{{else}}/#contato-link{{/if}}">
+          <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+          Contato
+        </a>
+        <a class="navbar-item {{#if isAcervo}}is-active{{/if}}" href="/acervo">
+          <i class="fa-solid fa-book" aria-hidden="true"></i>
+          Acervo
+        </a>
+
         <button
-          class="button is-ghost navbar-item theme-toggle theme-toggle--desktop"
+          class="button is-ghost navbar-item theme-toggle theme-toggle--desktop ml-3"
           data-theme-toggle
           type="button"
           title="Alternar tema claro/escuro"
