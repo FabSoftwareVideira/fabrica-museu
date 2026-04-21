@@ -609,31 +609,32 @@ const setupHomeAcervoShowcase = () => {
             const safeAlt = item.description.replace(/"/g, '&quot;');
 
             slot.innerHTML = `
-                <a class="home-acervo-mosaic__link" href="/acervo" aria-label="Abrir acervo a partir da imagem ${safeAlt}">
-                    <img
-                        class="home-acervo-mosaic__image"
-                        src="${item.imageUrl}"
-                        alt="${safeAlt}"
-                        loading="lazy"
-                        decoding="async"
-                        fetchpriority="low"
-                    />
-                </a>
+                <img
+                    class="home-acervo-mosaic__image"
+                    src="${item.imageUrl}"
+                    alt="${safeAlt}"
+                    loading="lazy"
+                    decoding="async"
+                    fetchpriority="low"
+                    draggable="false"
+                />
             `;
 
             const image = slot.querySelector('.home-acervo-mosaic__image');
             if (image) {
-                image.addEventListener('load', () => {
+                const revealSlot = () => {
+                    void slot.offsetWidth; // força reflow para iniciar transição do opacity
                     slot.classList.remove('is-loading', 'is-swapping');
                     slot.classList.add('is-loaded', 'is-visible');
-                }, { once: true });
+                };
 
                 if (image.complete) {
-                    slot.classList.remove('is-loading', 'is-swapping');
-                    slot.classList.add('is-loaded', 'is-visible');
+                    revealSlot();
+                } else {
+                    image.addEventListener('load', revealSlot, { once: true });
                 }
             }
-        }, swapping ? 220 : 0);
+        }, swapping ? 280 : 0);
     };
 
     const pickNextItem = () => {

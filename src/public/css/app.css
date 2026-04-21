@@ -365,19 +365,13 @@ h3,
   filter: saturate(1.06);
 } */
 
-.home-acervo-mosaic__link {
-  display: block;
-  inline-size: 100%;
-  block-size: 100%;
-  color: inherit;
-}
-
 .home-acervo-mosaic__item.is-loading::after {
   opacity: 0;
 }
 
 .home-acervo-mosaic__item.is-swapping .home-acervo-mosaic__image {
   opacity: 0;
+  transition: opacity 0.25s ease;
 }
 
 @keyframes home-acervo-shimmer {
