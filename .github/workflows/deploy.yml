@@ -48,6 +48,16 @@ jobs:
           echo "Validando sintaxe do Docker Compose de Produção..."
           docker compose -f docker-compose.yml --profile prod config -q
 
+      - name: ✅ Testes de Qualidade
+        run: |
+          echo "Instalando dependências..."
+          npm install --prefer-offline --no-audit
+
+          echo "Executando suite de testes..."
+          npm test || (echo "❌ ERRO: Testes falharam. Deploy abortado." && exit 1)
+
+          echo "✅ Todos os testes passaram com sucesso!"
+
       # ── 2. EXECUÇÃO ─────────────────────────────────────────────────────────
       - name: Atualizar e Subir Containers
         run: |
