@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon --watch src --ext js,hbs,css,json --exec node src/server.js",
     "start": "node src/server.js",
-    "test": "echo \"Sem testes automatizados ainda\""
+    "test": "node --test"
   },
   "repository": {
     "type": "git",

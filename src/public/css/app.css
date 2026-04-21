@@ -406,6 +406,37 @@ h3,
   color: var(--text-color);
 }
 
+.timeline-highlight-card {
+  background: linear-gradient(135deg, #7b1c2e, #5d1624) !important;
+  border: 1px solid rgba(123, 28, 46, 0.5);
+  box-shadow: 0 10px 22px rgba(46, 31, 14, 0.2);
+}
+
+.timeline-highlight-text {
+  color: #fff4f5;
+}
+
+.timeline-highlight-year {
+  background-color: #fff4d5 !important;
+  color: #6b1a26 !important;
+  font-weight: 700;
+}
+
+[data-theme='dark'] .timeline-highlight-card {
+  background: linear-gradient(135deg, var(--bg), var(--bg)) !important;
+  border-color: var(--gold);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme='dark'] .timeline-highlight-text {
+  color: var(--text-color);
+}
+
+[data-theme='dark'] .timeline-highlight-year {
+  background-color: var(--wire);
+  color: var(--accent);
+}
+
 /* ============================================================
    BUTTONS
    ============================================================ */
