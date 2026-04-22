@@ -1,40 +1,5 @@
 [
     {
-        "path": "photos/parte-1/Caixa azul 02/A23 Feira Parque da Uva/img478.jpg",
-        "filename": "img478.jpg",
-        "file_hash": "d91202ae0ade075e3d79b884037e1910",
-        "file_size": 1839729,
-        "provider": "gemini",
-        "model": "gemini/gemini-3.1-flash-lite-preview",
-        "description": "Uma decoração temática de exposição agrícola ou cultural, provavelmente em Videira, Santa Catarina, exibindo uvas artificiais, produtos coloniais e um cartaz do Festival Estadual do Vinho. A cena inclui elementos rurais como terra no chão, milho e uma réplica de um porco, datada de setembro de 1991.",
-        "categories": [
-            "event",
-            "architecture"
-        ],
-        "tags": [
-            "videira",
-            "vinho",
-            "agricultura",
-            "decada de 90",
-            "exposicao"
-        ],
-        "dominant_colors": [
-            "marrom",
-            "verde",
-            "vermelho"
-        ],
-        "people_count": 0,
-        "scene_type": "indoor",
-        "quality_score": 7,
-        "historical_period": "década de 1990",
-        "location_type": "comércio",
-        "document_type": "outro",
-        "text_present": true,
-        "legibility_score": 6,
-        "estimated_year": 1991,
-        "processed_at": "2026-04-16T13:13:23.616639"
-    },
-    {
         "path": "photos/parte-1/Colonização, Vitivinicultura/img785.jpg",
         "filename": "img785.jpg",
         "file_hash": "667be0ad494218cec48666edd26ee4d1",
@@ -64333,15 +64298,626 @@
         "processed_at": "2026-04-22T12:29:48.026840"
     },
     {
-        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A34 4 FECAVI E jantares/img782.jpg",
-        "filename": "img782.jpg",
+        "path": "photos/parte-1/Cevi reforma 1999/cevi._07302024_101323.png",
+        "filename": "cevi._07302024_101323.png",
+        "file_hash": "18a58f5222636449d7d2d88e942a80a8",
+        "file_size": 1984290,
         "provider": "gemini",
-        "model": "gemini/gemini-3.1-flash-lite-preview",
-        "error": "Limite diário de 500 requisições (--rpd) atingido para gemini-3.1-flash-lite-preview. Aguarde o próximo dia UTC ou aumente --rpd.",
-        "error_type": "DailyLimitExceeded",
-        "attempts": 3,
-        "requests_made": 0,
-        "retry_count": 2,
-        "duration_sec": 15.06
+        "model": "gemini/gemini-2.5-flash-lite",
+        "description": "Fachada de um edifício moderno com elementos arquitetônicos ousados em vermelho e azul, contrastando com a parede externa em tom creme. Há vegetação exuberante com flores coloridas em primeiro plano, e bandeiras hasteadas na entrada principal. A arquitetura sugere um espaço público ou comercial, possivelmente construído nas últimas décadas do século XX.",
+        "categories": [
+            "architecture",
+            "travel"
+        ],
+        "tags": [
+            "arquitetura moderna",
+            "fachada",
+            "cores vibrantes",
+            "paisagismo",
+            "edifício"
+        ],
+        "dominant_colors": [
+            "creme",
+            "vermelho",
+            "verde"
+        ],
+        "people_count": 0,
+        "scene_type": "architecture",
+        "quality_score": 7,
+        "historical_period": "final do século XX",
+        "location_type": "prédio público",
+        "document_type": "fotografia",
+        "text_present": false,
+        "legibility_score": 0,
+        "estimated_year": 1990,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 2.51,
+        "processed_at": "2026-04-22T19:34:22.349312"
+    },
+    {
+        "path": "photos/parte-1/Cevi reforma 1999/cevi_07302024_101256.png",
+        "filename": "cevi_07302024_101256.png",
+        "file_hash": "e1ca8b5347d7cb3dbd118dd9c03401e9",
+        "file_size": 1591158,
+        "provider": "gemini",
+        "model": "gemini/gemini-2.5-flash-lite",
+        "description": "Vista interna de um edifício com uma escadaria central em tons de azul claro e detalhes em preto. Há plantas em vasos decorando o ambiente e luminárias pendentes no teto. A arquitetura sugere um espaço moderno, possivelmente um hall de entrada ou área comum de um prédio residencial ou comercial.",
+        "categories": [
+            "architecture",
+            "interior"
+        ],
+        "tags": [
+            "escadaria",
+            "moderno",
+            "interior",
+            "arquitetura",
+            "luminárias"
+        ],
+        "dominant_colors": [
+            "branco",
+            "azul",
+            "amarelo"
+        ],
+        "people_count": 0,
+        "scene_type": "interior",
+        "quality_score": 7,
+        "historical_period": "desconhecido",
+        "location_type": "residência|comércio",
+        "document_type": "fotografia",
+        "text_present": false,
+        "legibility_score": 0,
+        "estimated_year": 0,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 2.28,
+        "processed_at": "2026-04-22T19:34:24.629740"
+    },
+    {
+        "path": "photos/parte-1/Cevi reforma 1999/cevireforma_07302024_101226.png",
+        "filename": "cevireforma_07302024_101226.png",
+        "file_hash": "cd7c5fe6157ccf88fed0313d4182a9e2",
+        "file_size": 2748978,
+        "provider": "gemini",
+        "model": "gemini/gemini-2.5-flash-lite",
+        "description": "A construção de um prédio público, possivelmente a prefeitura ou um centro de eventos, está em andamento. Andaimes cobrem parte da fachada amarela, enquanto uma nova estrutura branca é erguida. Há materiais de construção espalhados, como pedras e uma betoneira, indicando uma obra ativa. A presença de placas com o nome \"Prefeitura de Videira\" sugere que o local é em Videira, Santa Catarina.",
+        "categories": [
+            "architecture",
+            "event"
+        ],
+        "tags": [
+            "construção",
+            "prédio público",
+            "Videira",
+            "obra",
+            "arquitetura"
+        ],
+        "dominant_colors": [
+            "amarelo",
+            "branco",
+            "cinza"
+        ],
+        "people_count": 0,
+        "scene_type": "architecture",
+        "quality_score": 6,
+        "historical_period": "desconhecido",
+        "location_type": "prédio público",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 7,
+        "estimated_year": 0,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 2.58,
+        "processed_at": "2026-04-22T19:34:27.205256"
+    },
+    {
+        "path": "photos/parte-1/Feroviario/Antonio/Jornal.png",
+        "filename": "Jornal.png",
+        "file_hash": "cc5e01131c74aabd0fe784a6daabda36",
+        "file_size": 7361470,
+        "provider": "gemini",
+        "model": "gemini/gemini-2.5-flash-lite",
+        "description": "Este é um documento antigo, possivelmente um jornal ou folheto publicitário, com vários anúncios e textos em alemão. A impressão é em preto e branco e o papel apresenta sinais de envelhecimento e desgaste. Os anúncios parecem ser de serviços médicos e produtos farmacêuticos, com datas e locais que sugerem um contexto histórico do início do século XX.",
+        "categories": [
+            "document",
+            "event"
+        ],
+        "tags": [
+            "antigo",
+            "jornal",
+            "anúncios",
+            "médico",
+            "século XX"
+        ],
+        "dominant_colors": [
+            "preto",
+            "branco",
+            "cinza"
+        ],
+        "people_count": 0,
+        "scene_type": "document",
+        "quality_score": 6,
+        "historical_period": "início do século XX",
+        "location_type": "outro",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 7,
+        "estimated_year": 1900,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 3.18,
+        "processed_at": "2026-04-22T19:34:30.381120"
+    },
+    {
+        "path": "photos/parte-1/Feroviario/Antonio/Quadro geral.png",
+        "filename": "Quadro geral.png",
+        "file_hash": "1728cc34c154cead4150252dc1a58973",
+        "file_size": 4859350,
+        "provider": "gemini",
+        "model": "gemini/gemini-2.5-flash-lite",
+        "description": "Quadro geral do resultado dos exames da Escola Isolada Estadual, simples de Marechal Hindenburgo, distrito de Liberata, município de Curitibanos, realizado em 28 de Novembro de 1937. A professora era Aracy Tarias, provisória, interina, com exercício na mesma escola desde 10 de Outubro de 1937. O documento lista os nomes dos alunos matriculados, suas presenças, notas em diversas provas e observações.",
+        "categories": [
+            "document",
+            "event"
+        ],
+        "tags": [
+            "antigo",
+            "escola",
+            "exames",
+            "1937",
+            "curitibanos"
+        ],
+        "dominant_colors": [
+            "preto",
+            "cinza",
+            "bege"
+        ],
+        "people_count": 0,
+        "scene_type": "document",
+        "quality_score": 6,
+        "historical_period": "década de 1930",
+        "location_type": "outro",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 8,
+        "estimated_year": 1937,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 2.77,
+        "processed_at": "2026-04-22T19:34:33.155840"
+    },
+    {
+        "path": "photos/parte-1/Feroviario/Antonio/certificado.png",
+        "filename": "certificado.png",
+        "file_hash": "3c2388d051de32043c0d57c48e8278a9",
+        "file_size": 5797623,
+        "provider": "gemini",
+        "model": "gemini/gemini-2.5-flash-lite",
+        "description": "Documento antigo, possivelmente um certificado de confirmação religiosa, com texto em alemão e ilustrações simbólicas como uma cruz com serpente, espigas de trigo, flores e um cálice. Há anotações manuscritas no topo com datas, indicando um contexto histórico do final do século XIX. O papel está rasgado e amarelado pelo tempo.",
+        "categories": [
+            "document",
+            "event"
+        ],
+        "tags": [
+            "religioso",
+            "antigo",
+            "século XIX",
+            "confirmação",
+            "alemanha"
+        ],
+        "dominant_colors": [
+            "preto",
+            "branco",
+            "cinza"
+        ],
+        "people_count": 0,
+        "scene_type": "document",
+        "quality_score": 4,
+        "historical_period": "final do século XIX",
+        "location_type": "outro",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 6,
+        "estimated_year": 1887,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 2.8,
+        "processed_at": "2026-04-22T19:34:35.956107"
+    },
+    {
+        "path": "photos/parte-1/Feroviario/Antonio/img187.jpg",
+        "filename": "img187.jpg",
+        "file_hash": "46df06a55b9c712ccf163ac9d04310db",
+        "file_size": 2212887,
+        "provider": "gemini",
+        "model": "gemini/gemini-2.5-flash-lite",
+        "description": "Este documento parece ser um registro histórico, possivelmente uma carteira ou certificado, com várias datas e selos. As informações escritas e impressas sugerem um contexto administrativo ou de filiação, com menções a \"Ordem\", \"Mestre\", \"Loja Simb.\", e datas que remetem a meados do século XX. A presença de selos e carimbos, incluindo um do \"GR. DO BRASIL\", indica uma formalidade e um período histórico específico.",
+        "categories": [
+            "document",
+            "event"
+        ],
+        "tags": [
+            "documento antigo",
+            "registro",
+            "histórico",
+            "selos",
+            "datas"
+        ],
+        "dominant_colors": [
+            "preto",
+            "branco",
+            "cinza"
+        ],
+        "people_count": 0,
+        "scene_type": "document",
+        "quality_score": 6,
+        "historical_period": "meados do século XX",
+        "location_type": "outro",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 7,
+        "estimated_year": 1971,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 2.67,
+        "processed_at": "2026-04-22T19:34:38.630902"
+    },
+    {
+        "path": "photos/parte-1/Feroviario/Antonio/img187B.jpg",
+        "filename": "img187B.jpg",
+        "file_hash": "2570984a4ca56d5955a57ef698264c31",
+        "file_size": 1955600,
+        "provider": "gemini",
+        "model": "gemini/gemini-2.5-flash-lite",
+        "description": "Documento oficial com o título 'CADASTRO GERAL DA ORDEM'. Contém decretos e regulamentos datados de 1914, 1918 e 1943, com artigos detalhando regras para inscrição, cadernetas e procedimentos. O documento parece ser um registro formal de uma ordem ou instituição, possivelmente maçônica, com um selo em relevo na parte inferior.",
+        "categories": [
+            "document",
+            "event"
+        ],
+        "tags": [
+            "maçonaria",
+            "documento oficial",
+            "regulamento",
+            "histórico",
+            "brasil"
+        ],
+        "dominant_colors": [
+            "preto",
+            "branco",
+            "cinza"
+        ],
+        "people_count": 0,
+        "scene_type": "document",
+        "quality_score": 6,
+        "historical_period": "início do século XX",
+        "location_type": "outro",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 8,
+        "estimated_year": 1943,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 2.21,
+        "processed_at": "2026-04-22T19:34:40.844531"
+    },
+    {
+        "path": "photos/parte-1/Feroviario/Antonio/img189.jpg",
+        "filename": "img189.jpg",
+        "file_hash": "e353ac92e7b6b8fff924b6f1091cb5d7",
+        "file_size": 2110178,
+        "provider": "gemini",
+        "model": "gemini/gemini-2.5-flash-lite",
+        "description": "Este é um cartão de identificação do Instituto Nacional de Previdência Social, emitido em Videira. O documento contém informações pessoais como nome, matrícula, documento de identidade, data de nascimento e tipo sanguíneo, além de uma fotografia do beneficiário. O estado de conservação sugere que seja um documento antigo, possivelmente da segunda metade do século XX.",
+        "categories": [
+            "document",
+            "portrait"
+        ],
+        "tags": [
+            "previdência social",
+            "identificação",
+            "documento antigo",
+            "videira",
+            "beneficiário"
+        ],
+        "dominant_colors": [
+            "marrom",
+            "bege",
+            "preto"
+        ],
+        "people_count": 1,
+        "scene_type": "document",
+        "quality_score": 6,
+        "historical_period": "meados do século XX",
+        "location_type": "outro",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 8,
+        "estimated_year": 1960,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 2.67,
+        "processed_at": "2026-04-22T19:34:43.513777"
+    },
+    {
+        "path": "photos/parte-1/Feroviario/Antonio/img189B.jpg",
+        "filename": "img189B.jpg",
+        "file_hash": "09a3e9c5034db301a13066435762d6e4",
+        "file_size": 2378689,
+        "provider": "gemini",
+        "model": "gemini/gemini-2.5-flash-lite",
+        "description": "Este é um documento antigo, possivelmente uma carteira de identidade ou benefício, com texto em português e carimbos. A cor amarelada do papel, a tipografia e o estilo dos carimbos sugerem que o documento é da metade do século XX. O texto indica campos para informações como 'Segurado', 'Prot.', 'Empreg.', 'válido até', e 'Revalidada até', além de um número de registro NB/42-7395075. A presença de carimbos em azul e vermelho, um deles com a inscrição 'INETERMINADO', sugere que o documento foi utilizado e validado em algum momento.",
+        "categories": [
+            "document"
+        ],
+        "tags": [
+            "documento antigo",
+            "identidade",
+            "benefício",
+            "carimbo",
+            "histórico"
+        ],
+        "dominant_colors": [
+            "amarelo",
+            "marrom",
+            "cinza"
+        ],
+        "people_count": 0,
+        "scene_type": "document",
+        "quality_score": 6,
+        "historical_period": "meados do século XX",
+        "location_type": "outro",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 7,
+        "estimated_year": 1950,
+        "attempts": 5,
+        "requests_made": 1,
+        "retry_count": 4,
+        "duration_sec": 71.4,
+        "processed_at": "2026-04-22T19:35:54.913049"
+    },
+    {
+        "path": "photos/parte-1/Feroviario/Antonio/img191.jpg",
+        "filename": "img191.jpg",
+        "file_hash": "178c9690dd9eb45ee26f557be4a4c8ba",
+        "file_size": 3383201,
+        "provider": "gemini",
+        "model": "gemini/gemini-2.5-flash-lite",
+        "description": "Este documento apresenta duas partes de uma Carteira Nacional de Habilitação (CNH) do Brasil, emitidas pelo Departamento de Trânsito de Santa Catarina. A parte superior detalha a emissão de uma carteira em 1959, com validade até 1983, para conduzir automóvel particular. A parte inferior exibe os dados de uma pessoa, incluindo nome, naturalidade, nacionalidade e uma fotografia, com data de nascimento em 1959. Ambos os documentos são de natureza oficial.",
+        "categories": [
+            "document",
+            "portrait"
+        ],
+        "tags": [
+            "carteira de motorista",
+            "documento antigo",
+            "brasil",
+            "transito",
+            "santacatarina"
+        ],
+        "dominant_colors": [
+            "amarelo",
+            "azul",
+            "branco"
+        ],
+        "people_count": 1,
+        "scene_type": "document",
+        "quality_score": 7,
+        "historical_period": "meados do século XX",
+        "location_type": "outro",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 8,
+        "estimated_year": 1959,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 2.78,
+        "processed_at": "2026-04-22T19:35:57.693197"
+    },
+    {
+        "path": "photos/parte-1/Feroviario/Antonio/img192.jpg",
+        "filename": "img192.jpg",
+        "file_hash": "41b0b2ca48651e374f7b720c0d8fc01c",
+        "file_size": 1373691,
+        "provider": "gemini",
+        "model": "gemini/gemini-2.5-flash-lite",
+        "description": "Este é um documento de identificação com uma fotografia em preto e branco de um homem vestindo terno e gravata. O documento parece ser antigo, com marcas de uso e carimbos. Há texto em português e um número de identificação visível. O contexto é provavelmente um documento oficial brasileiro.",
+        "categories": [
+            "document",
+            "portrait"
+        ],
+        "tags": [
+            "identidade",
+            "documento antigo",
+            "brasileiro",
+            "retrato",
+            "documento oficial"
+        ],
+        "dominant_colors": [
+            "preto",
+            "branco",
+            "cinza"
+        ],
+        "people_count": 1,
+        "scene_type": "document",
+        "quality_score": 6,
+        "historical_period": "meados do século XX",
+        "location_type": "outro",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 7,
+        "estimated_year": 1974,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 2.74,
+        "processed_at": "2026-04-22T19:36:00.433069"
+    },
+    {
+        "path": "photos/parte-1/Feroviario/Antonio/img192B.jpg",
+        "filename": "img192B.jpg",
+        "file_hash": "7f755f2fcc97f8e2fa8043c9e0944b36",
+        "file_size": 1582258,
+        "provider": "gemini",
+        "model": "gemini/gemini-2.5-flash-lite",
+        "description": "Este é um cartão de pagamento de benefício do Instituto Nacional de Previdência Social (INPS). O documento, datado de uma época em que o INPS era a entidade responsável pela previdência social no Brasil, contém informações sobre o órgão local, um número de identificação e o nome do recebedor. A aparência envelhecida sugere que é um documento histórico.",
+        "categories": [
+            "document",
+            "event"
+        ],
+        "tags": [
+            "previdência social",
+            "benefício",
+            "documento antigo",
+            "INPS",
+            "pagamento"
+        ],
+        "dominant_colors": [
+            "amarelo",
+            "azul",
+            "preto"
+        ],
+        "people_count": 0,
+        "scene_type": "document",
+        "quality_score": 6,
+        "historical_period": "meados do século XX",
+        "location_type": "outro",
+        "document_type": "cartão",
+        "text_present": true,
+        "legibility_score": 8,
+        "estimated_year": 1970,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 2.89,
+        "processed_at": "2026-04-22T19:36:03.322498"
+    },
+    {
+        "path": "photos/parte-1/Feroviario/Antonio/img194.jpg",
+        "filename": "img194.jpg",
+        "file_hash": "018f5973ccbf237b812a556d542d5077",
+        "file_size": 2335451,
+        "provider": "gemini",
+        "model": "gemini/gemini-2.5-flash-lite",
+        "description": "Este documento parece ser um registro de identidade ou certidão, possivelmente emitido em Videira, Santa Catarina. Contém informações pessoais como nome, nacionalidade, naturalidade, data de nascimento e filiação, além de uma fotografia em preto e branco do titular e uma assinatura com carimbo de \"Juiz de Direito\". A aparência do papel e a fotografia sugerem que o documento é da segunda metade do século XX.",
+        "categories": [
+            "document",
+            "portrait"
+        ],
+        "tags": [
+            "identidade",
+            "documento antigo",
+            "videira",
+            "juiz de direito",
+            "anos 70"
+        ],
+        "dominant_colors": [
+            "bege",
+            "preto",
+            "branco"
+        ],
+        "people_count": 1,
+        "scene_type": "document",
+        "quality_score": 6,
+        "historical_period": "década de 1970",
+        "location_type": "outro",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 9,
+        "estimated_year": 1975,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 3.64,
+        "processed_at": "2026-04-22T19:36:06.958110"
+    },
+    {
+        "path": "photos/parte-1/Feroviario/Antonio/img194B.jpg",
+        "filename": "img194B.jpg",
+        "file_hash": "758f48ae71a4cf6c77bf4350e5eac245",
+        "file_size": 1933772,
+        "provider": "gemini",
+        "model": "gemini/gemini-2.5-flash-lite",
+        "description": "Este documento é a capa de uma Carteira de Identidade de Comissário de Menores, emitida pelo Juízo de Direito da Comarca de Videira, Estado de Santa Catarina. O brasão da República Federativa do Brasil está presente no topo. O papel amarelado e as dobras indicam que é um documento antigo, possivelmente da segunda metade do século XX.",
+        "categories": [
+            "document",
+            "architecture"
+        ],
+        "tags": [
+            "identidade",
+            "videira",
+            "santa catarina",
+            "documento antigo",
+            "comissário de menores"
+        ],
+        "dominant_colors": [
+            "amarelo",
+            "preto",
+            "cinza"
+        ],
+        "people_count": 0,
+        "scene_type": "document",
+        "quality_score": 6,
+        "historical_period": "meados do século XX",
+        "location_type": "prédio público",
+        "document_type": "certidão",
+        "text_present": true,
+        "legibility_score": 9,
+        "estimated_year": 0,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 2.25,
+        "processed_at": "2026-04-22T19:36:09.212472"
+    },
+    {
+        "path": "photos/parte-1/Feroviario/Antonio/img197.jpg",
+        "filename": "img197.jpg",
+        "file_hash": "0ba62798ca4c274bb4915422fbb7321c",
+        "file_size": 1303175,
+        "provider": "gemini",
+        "model": "gemini/gemini-2.5-flash-lite",
+        "description": "Este é um documento de identidade social da União dos Ferroviários do Brasil, emitido pela Diretoria Regional da Rede Viação Paraná-Santa Catarina. A fotografia em preto e branco mostra um homem com traje social, e as datas indicam que o documento é da segunda metade do século XX, provavelmente relacionado a um evento ou registro de associação.",
+        "categories": [
+            "document",
+            "portrait"
+        ],
+        "tags": [
+            "ferroviários",
+            "identidade",
+            "antigo",
+            "documento",
+            "anos 50"
+        ],
+        "dominant_colors": [
+            "azul",
+            "branco",
+            "preto"
+        ],
+        "people_count": 1,
+        "scene_type": "document",
+        "quality_score": 6,
+        "historical_period": "década de 1950",
+        "location_type": "outro",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 9,
+        "estimated_year": 1957,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 3.09,
+        "processed_at": "2026-04-22T19:36:12.305911"
     }
 ]
