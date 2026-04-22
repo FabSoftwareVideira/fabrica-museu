@@ -5,4 +5,4 @@ node_modules
 infra/certs/dev/*
 infra/certs/prod/*
 !infra/certs/dev/.gitkeep
-!infra/certs/prod/.gitkeep
+!infra/certs/prod/.gitkeepscripts/.env
