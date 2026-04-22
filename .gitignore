@@ -6,3 +6,4 @@ infra/certs/dev/*
 infra/certs/prod/*
 !infra/certs/dev/.gitkeep
 !infra/certs/prod/.gitkeepscripts/.env
+logs/*
