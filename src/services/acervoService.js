@@ -1,16 +1,29 @@
 const { toSlug, toLabel } = require('../utils/slug');
 const { buildPublicPath } = require('../utils/publicPath');
 
+const toThumbPath = (imagePath) => {
+    if (!imagePath || typeof imagePath !== 'string') {
+        return imagePath;
+    }
+
+    const withoutExt = imagePath.replace(/\.[^/.]+$/, '');
+    return `photos/thumbs/${withoutExt}.webp`;
+};
+
 const mapCollectionItems = (rawItems) => rawItems.map((item, index) => {
     const categories = Array.isArray(item.categories)
         ? item.categories.map((category) => toSlug(category)).filter(Boolean)
         : [];
 
+    const originalImagePath = item.path;
+    const thumbImagePath = toThumbPath(originalImagePath);
+
     return {
         id: item.file_hash || `${index}`,
         filename: item.filename,
-        imagePath: item.path,
-        imageUrl: buildPublicPath(item.path),
+        imagePath: originalImagePath,
+        imageUrl: buildPublicPath(thumbImagePath),
+        originalImageUrl: buildPublicPath(originalImagePath),
         fileSize: item.file_size,
         description: item.description,
         tags: Array.isArray(item.tags) ? item.tags : [],

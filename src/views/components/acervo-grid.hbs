@@ -5,7 +5,7 @@
   data-category="{{activeCategory}}"
   data-page-size="24"
 >
-  {{#each items}} {{> acervo-item-card imageUrl=this.imageUrl description=this.description
+  {{#each items}} {{> acervo-item-card imageUrl=this.imageUrl originalImageUrl=this.originalImageUrl description=this.description
   estimatedYear=this.estimatedYear historicalPeriod=this.historicalPeriod categoriesLabel=this.categoriesLabel
   peopleCount=this.peopleCount documentType=this.documentType tags=this.tags }} {{/each}}
 </div>

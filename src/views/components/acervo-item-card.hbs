@@ -2,7 +2,7 @@
   <article class="card acervo-item-card" aria-label="Item do acervo: {{description}}">
     <div class="card-image">
       <figure class="image is-square">
-        <img src="{{imageUrl}}" alt="{{description}}" loading="lazy" />
+        <img src="{{imageUrl}}" data-fallback-src="{{originalImageUrl}}" alt="{{description}}" loading="lazy" onerror="if (this.dataset.fallbackSrc && this.src !== this.dataset.fallbackSrc) { this.src = this.dataset.fallbackSrc; }" />
         <div class="acervo-item-card__overlay" aria-hidden="true">
           <a href="/acervo/{{id}}" class="acervo-item-card__detail-btn" tabindex="-1">
             <span class="icon is-small"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
