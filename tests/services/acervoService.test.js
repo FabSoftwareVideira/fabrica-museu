@@ -88,25 +88,43 @@ test('acervoService monta dados da API com limite maximo de 100', () => {
 });
 
 test('mapCollectionItems monta imageUrl com sufixo _thumb.webp e originalImageUrl', () => {
-    const mapped = mapCollectionItems([
-        {
-            file_hash: 'abc123',
-            filename: 'img478.jpg',
-            path: 'photos/parte-1/Caixa azul 02/A23 Feira Parque da Uva/img478.jpg',
-            categories: ['Evento'],
-            tags: ['vinho'],
-        },
-    ]);
+    const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'acervo-map-thumb-'));
+    const previousPhotosHostPath = process.env.PHOTOS_HOST_PATH;
+    process.env.PHOTOS_HOST_PATH = tempDir;
 
-    assert.equal(mapped.length, 1);
-    assert.equal(
-        mapped[0].imageUrl,
-        '/public/photos/parte-1/Caixa%20azul%2002/A23%20Feira%20Parque%20da%20Uva/img478_thumb.webp',
-    );
-    assert.equal(
-        mapped[0].originalImageUrl,
-        '/public/photos/parte-1/Caixa%20azul%2002/A23%20Feira%20Parque%20da%20Uva/img478.jpg',
-    );
+    try {
+        const relDir = path.join(tempDir, 'parte-1', 'Caixa azul 02', 'A23 Feira Parque da Uva');
+        fs.mkdirSync(relDir, { recursive: true });
+        fs.writeFileSync(path.join(relDir, 'img478_thumb.webp'), 'thumb');
+        fs.writeFileSync(path.join(relDir, 'img478.jpg'), 'original');
+
+        const mapped = mapCollectionItems([
+            {
+                file_hash: 'abc123',
+                filename: 'img478.jpg',
+                path: 'photos/parte-1/Caixa azul 02/A23 Feira Parque da Uva/img478.jpg',
+                categories: ['Evento'],
+                tags: ['vinho'],
+            },
+        ]);
+
+        assert.equal(mapped.length, 1);
+        assert.equal(
+            mapped[0].imageUrl,
+            '/public/photos/parte-1/Caixa%20azul%2002/A23%20Feira%20Parque%20da%20Uva/img478_thumb.webp',
+        );
+        assert.equal(
+            mapped[0].originalImageUrl,
+            '/public/photos/parte-1/Caixa%20azul%2002/A23%20Feira%20Parque%20da%20Uva/img478.jpg',
+        );
+    } finally {
+        fs.rmSync(tempDir, { recursive: true, force: true });
+        if (previousPhotosHostPath === undefined) {
+            delete process.env.PHOTOS_HOST_PATH;
+        } else {
+            process.env.PHOTOS_HOST_PATH = previousPhotosHostPath;
+        }
+    }
 });
 
 test('acervoService mantem mapeamento por path do JSON mesmo com PHOTOS_HOST_PATH definido', () => {
