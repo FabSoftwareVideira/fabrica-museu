@@ -8,9 +8,9 @@ let resolvedPhotosBasePathSignature = null;
 
 const resolvePhotosBasePath = () => {
     const candidates = [
-        process.env.PHOTOS_HOST_PATH,
+        // process.env.PHOTOS_HOST_PATH,
         '/app/src/public/photos',
-        path.join(__dirname, '..', 'public', 'photos'),
+        // path.join(__dirname, '..', 'public', 'photos'),
     ].filter(Boolean);
 
     const signature = candidates.join('|');
