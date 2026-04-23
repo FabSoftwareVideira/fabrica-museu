@@ -6251,33 +6251,38 @@
         "file_hash": "46df06a55b9c712ccf163ac9d04310db",
         "file_size": 2212887,
         "provider": "gemini",
-        "model": "gemini/gemini-3.1-flash-lite-preview",
-        "description": "Este documento é uma carteira de identificação maçônica pertencente a Sebastião Xavier de Oliveira, emitida pela Loja Acácia do Sul em Videira, Santa Catarina. O documento contém registros históricos de filiação e cargos ocupados entre as décadas de 1940 e 1970, apresentando selos oficiais e assinaturas manuscritas.",
+        "model": "gemini/gemini-2.5-flash-lite",
+        "description": "Este documento parece ser um registro histórico, possivelmente uma carteira ou certificado, com várias datas e selos. As informações escritas e impressas sugerem um contexto administrativo ou de filiação, com menções a \"Ordem\", \"Mestre\", \"Loja Simb.\", e datas que remetem a meados do século XX. A presença de selos e carimbos, incluindo um do \"GR. DO BRASIL\", indica uma formalidade e um período histórico específico.",
         "categories": [
-            "document"
+            "document",
+            "event"
         ],
         "tags": [
-            "maçonaria",
-            "videira",
-            "documento",
+            "documento antigo",
+            "registro",
             "histórico",
-            "santa catarina"
+            "selos",
+            "datas"
         ],
         "dominant_colors": [
+            "preto",
             "branco",
-            "bege",
-            "azul"
+            "cinza"
         ],
         "people_count": 0,
         "scene_type": "document",
-        "quality_score": 8,
-        "historical_period": "década de 1970",
+        "quality_score": 6,
+        "historical_period": "meados do século XX",
         "location_type": "outro",
-        "document_type": "certidão",
+        "document_type": "fotografia",
         "text_present": true,
-        "legibility_score": 9,
-        "estimated_year": 1972,
-        "processed_at": "2026-04-16T13:25:16.025292"
+        "legibility_score": 7,
+        "estimated_year": 1971,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 2.67,
+        "processed_at": "2026-04-22T19:34:38.630902"
     },
     {
         "path": "photos/parte-1/Computador 3/Erminda Eli - 1942 - Festa da Uva.jpg",
@@ -6390,33 +6395,38 @@
         "file_hash": "2570984a4ca56d5955a57ef698264c31",
         "file_size": 1955600,
         "provider": "gemini",
-        "model": "gemini/gemini-3.1-flash-lite-preview",
-        "description": "Este documento é um extrato do Cadastro Geral da Ordem Maçônica no Brasil, contendo regulamentos e decretos que datam desde 1914 até 1968. O texto impresso detalha normas administrativas e procedimentos de registro para membros da instituição, apresentando um carimbo oficial na parte inferior.",
+        "model": "gemini/gemini-2.5-flash-lite",
+        "description": "Documento oficial com o título 'CADASTRO GERAL DA ORDEM'. Contém decretos e regulamentos datados de 1914, 1918 e 1943, com artigos detalhando regras para inscrição, cadernetas e procedimentos. O documento parece ser um registro formal de uma ordem ou instituição, possivelmente maçônica, com um selo em relevo na parte inferior.",
         "categories": [
-            "document"
+            "document",
+            "event"
         ],
         "tags": [
             "maçonaria",
-            "documento",
+            "documento oficial",
+            "regulamento",
             "histórico",
-            "administrativo",
             "brasil"
         ],
         "dominant_colors": [
+            "preto",
             "branco",
-            "bege",
-            "preto"
+            "cinza"
         ],
         "people_count": 0,
         "scene_type": "document",
-        "quality_score": 8,
-        "historical_period": "século XX",
+        "quality_score": 6,
+        "historical_period": "início do século XX",
         "location_type": "outro",
-        "document_type": "certidão",
+        "document_type": "fotografia",
         "text_present": true,
-        "legibility_score": 9,
-        "estimated_year": 1968,
-        "processed_at": "2026-04-16T13:25:28.565774"
+        "legibility_score": 8,
+        "estimated_year": 1943,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 2.21,
+        "processed_at": "2026-04-22T19:34:40.844531"
     },
     {
         "path": "photos/parte-1/Caixa azul 05/A85 - Encontros Culturais/img483.jpg",
@@ -6529,33 +6539,38 @@
         "file_hash": "e353ac92e7b6b8fff924b6f1091cb5d7",
         "file_size": 2110178,
         "provider": "gemini",
-        "model": "gemini/gemini-3.1-flash-lite-preview",
-        "description": "Este documento é um cartão de identificação do Instituto Nacional de Previdência Social (INPS) pertencente a um cidadão chamado Zuir de Oliveira, emitido na cidade de Videira. O cartão apresenta sinais de desgaste pelo tempo, incluindo dobras e amarelamento do papel, contendo uma fotografia 3x4 em preto e branco do beneficiário e carimbos oficiais.",
+        "model": "gemini/gemini-2.5-flash-lite",
+        "description": "Este é um cartão de identificação do Instituto Nacional de Previdência Social, emitido em Videira. O documento contém informações pessoais como nome, matrícula, documento de identidade, data de nascimento e tipo sanguíneo, além de uma fotografia do beneficiário. O estado de conservação sugere que seja um documento antigo, possivelmente da segunda metade do século XX.",
         "categories": [
-            "document"
+            "document",
+            "portrait"
         ],
         "tags": [
-            "documento",
-            "histórico",
-            "INPS",
+            "previdência social",
+            "identificação",
+            "documento antigo",
             "videira",
-            "identificação"
+            "beneficiário"
         ],
         "dominant_colors": [
-            "bege",
             "marrom",
+            "bege",
             "preto"
         ],
         "people_count": 1,
         "scene_type": "document",
-        "quality_score": 8,
-        "historical_period": "década de 1970",
+        "quality_score": 6,
+        "historical_period": "meados do século XX",
         "location_type": "outro",
-        "document_type": "certidão",
+        "document_type": "fotografia",
         "text_present": true,
-        "legibility_score": 9,
-        "estimated_year": 1970,
-        "processed_at": "2026-04-16T13:25:42.453901"
+        "legibility_score": 8,
+        "estimated_year": 1960,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 2.67,
+        "processed_at": "2026-04-22T19:34:43.513777"
     },
     {
         "path": "photos/parte-1/Computador 3/img281.jpg",
@@ -6632,33 +6647,37 @@
         "file_hash": "09a3e9c5034db301a13066435762d6e4",
         "file_size": 2378689,
         "provider": "gemini",
-        "model": "gemini/gemini-3.1-flash-lite-preview",
-        "description": "Este documento é um cartão de identificação de beneficiário, possivelmente relacionado à RFFSA (Rede Ferroviária Federal S.A.). O papel apresenta sinais de envelhecimento, com coloração amarelada, carimbos e preenchimentos datilografados, indicando um uso administrativo ou previdenciário comum em meados do século XX.",
+        "model": "gemini/gemini-2.5-flash-lite",
+        "description": "Este é um documento antigo, possivelmente uma carteira de identidade ou benefício, com texto em português e carimbos. A cor amarelada do papel, a tipografia e o estilo dos carimbos sugerem que o documento é da metade do século XX. O texto indica campos para informações como 'Segurado', 'Prot.', 'Empreg.', 'válido até', e 'Revalidada até', além de um número de registro NB/42-7395075. A presença de carimbos em azul e vermelho, um deles com a inscrição 'INETERMINADO', sugere que o documento foi utilizado e validado em algum momento.",
         "categories": [
             "document"
         ],
         "tags": [
-            "documento",
-            "antigo",
-            "ferroviario",
-            "rffsa",
-            "administrativo"
+            "documento antigo",
+            "identidade",
+            "benefício",
+            "carimbo",
+            "histórico"
         ],
         "dominant_colors": [
-            "bege",
+            "amarelo",
             "marrom",
-            "azul"
+            "cinza"
         ],
         "people_count": 0,
         "scene_type": "document",
-        "quality_score": 8,
+        "quality_score": 6,
         "historical_period": "meados do século XX",
         "location_type": "outro",
-        "document_type": "certidão",
+        "document_type": "fotografia",
         "text_present": true,
-        "legibility_score": 8,
-        "estimated_year": 1960,
-        "processed_at": "2026-04-16T13:25:54.301891"
+        "legibility_score": 7,
+        "estimated_year": 1950,
+        "attempts": 5,
+        "requests_made": 1,
+        "retry_count": 4,
+        "duration_sec": 71.4,
+        "processed_at": "2026-04-22T19:35:54.913049"
     },
     {
         "path": "photos/parte-1/Computador 3/img284.jpg",
@@ -6701,17 +6720,18 @@
         "file_hash": "178c9690dd9eb45ee26f557be4a4c8ba",
         "file_size": 3383201,
         "provider": "gemini",
-        "model": "gemini/gemini-3.1-flash-lite-preview",
-        "description": "Trata-se de uma Carteira Nacional de Habilitação (CNH) brasileira emitida no estado de Santa Catarina, datada de 1959. O documento apresenta informações datilografadas e manuscritas, incluindo a foto do portador, carimbos oficiais e o brasão da República Federativa do Brasil, refletindo o padrão burocrático da época.",
+        "model": "gemini/gemini-2.5-flash-lite",
+        "description": "Este documento apresenta duas partes de uma Carteira Nacional de Habilitação (CNH) do Brasil, emitidas pelo Departamento de Trânsito de Santa Catarina. A parte superior detalha a emissão de uma carteira em 1959, com validade até 1983, para conduzir automóvel particular. A parte inferior exibe os dados de uma pessoa, incluindo nome, naturalidade, nacionalidade e uma fotografia, com data de nascimento em 1959. Ambos os documentos são de natureza oficial.",
         "categories": [
-            "document"
+            "document",
+            "portrait"
         ],
         "tags": [
-            "documento",
-            "historico",
-            "habilitacao",
-            "santa catarina",
-            "anos 50"
+            "carteira de motorista",
+            "documento antigo",
+            "brasil",
+            "transito",
+            "santacatarina"
         ],
         "dominant_colors": [
             "amarelo",
@@ -6720,14 +6740,18 @@
         ],
         "people_count": 1,
         "scene_type": "document",
-        "quality_score": 8,
-        "historical_period": "década de 1950",
+        "quality_score": 7,
+        "historical_period": "meados do século XX",
         "location_type": "outro",
-        "document_type": "certidão",
+        "document_type": "fotografia",
         "text_present": true,
-        "legibility_score": 9,
+        "legibility_score": 8,
         "estimated_year": 1959,
-        "processed_at": "2026-04-16T13:26:01.182918"
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 2.78,
+        "processed_at": "2026-04-22T19:35:57.693197"
     },
     {
         "path": "photos/parte-1/Caixa azul 05/A85 - Encontros Culturais/img487.jpg",
@@ -6805,34 +6829,38 @@
         "file_hash": "41b0b2ca48651e374f7b720c0d8fc01c",
         "file_size": 1373691,
         "provider": "gemini",
-        "model": "gemini/gemini-3.1-flash-lite-preview",
-        "description": "Documento de identificação oficial brasileiro, especificamente uma carteira de trabalho ou previdência social do INPS. O documento apresenta uma fotografia em preto e branco de um homem de meia-idade vestindo terno e gravata, com carimbos oficiais sobrepostos e data de emissão de 1974.",
+        "model": "gemini/gemini-2.5-flash-lite",
+        "description": "Este é um documento de identificação com uma fotografia em preto e branco de um homem vestindo terno e gravata. O documento parece ser antigo, com marcas de uso e carimbos. Há texto em português e um número de identificação visível. O contexto é provavelmente um documento oficial brasileiro.",
         "categories": [
             "document",
             "portrait"
         ],
         "tags": [
-            "documento",
-            "inps",
-            "identificacao",
-            "historico",
-            "decada de 70"
+            "identidade",
+            "documento antigo",
+            "brasileiro",
+            "retrato",
+            "documento oficial"
         ],
         "dominant_colors": [
-            "amarelo",
+            "preto",
             "branco",
-            "preto"
+            "cinza"
         ],
         "people_count": 1,
         "scene_type": "document",
         "quality_score": 6,
-        "historical_period": "década de 1970",
+        "historical_period": "meados do século XX",
         "location_type": "outro",
-        "document_type": "certidão",
+        "document_type": "fotografia",
         "text_present": true,
-        "legibility_score": 8,
+        "legibility_score": 7,
         "estimated_year": 1974,
-        "processed_at": "2026-04-16T13:26:17.002773"
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 2.74,
+        "processed_at": "2026-04-22T19:36:00.433069"
     },
     {
         "path": "photos/parte-1/Computador 3/img287.jpg",
@@ -6909,33 +6937,38 @@
         "file_hash": "7f755f2fcc97f8e2fa8043c9e0944b36",
         "file_size": 1582258,
         "provider": "gemini",
-        "model": "gemini/gemini-3.1-flash-lite-preview",
-        "description": "Este documento é um cartão de pagamento de benefício do Instituto Nacional de Previdência Social (INPS), órgão brasileiro que operou entre as décadas de 1960 e 1990. O papel apresenta marcas de grampos, desgaste pelo tempo e o nome do beneficiário, Zuir de Oliveira, datilografado, refletindo a burocracia previdenciária da época.",
+        "model": "gemini/gemini-2.5-flash-lite",
+        "description": "Este é um cartão de pagamento de benefício do Instituto Nacional de Previdência Social (INPS). O documento, datado de uma época em que o INPS era a entidade responsável pela previdência social no Brasil, contém informações sobre o órgão local, um número de identificação e o nome do recebedor. A aparência envelhecida sugere que é um documento histórico.",
         "categories": [
-            "document"
+            "document",
+            "event"
         ],
         "tags": [
-            "inps",
-            "previdencia",
-            "documento",
-            "antigo",
-            "burocracia"
+            "previdência social",
+            "benefício",
+            "documento antigo",
+            "INPS",
+            "pagamento"
         ],
         "dominant_colors": [
-            "bege",
+            "amarelo",
             "azul",
-            "marrom"
+            "preto"
         ],
         "people_count": 0,
         "scene_type": "document",
-        "quality_score": 8,
-        "historical_period": "década de 1970",
+        "quality_score": 6,
+        "historical_period": "meados do século XX",
         "location_type": "outro",
-        "document_type": "certidão",
+        "document_type": "cartão",
         "text_present": true,
-        "legibility_score": 9,
-        "estimated_year": 1975,
-        "processed_at": "2026-04-16T13:26:32.309993"
+        "legibility_score": 8,
+        "estimated_year": 1970,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 2.89,
+        "processed_at": "2026-04-22T19:36:03.322498"
     },
     {
         "path": "photos/parte-1/Caixa azul 05/A85 - Encontros Culturais/img489.jpg",
@@ -7013,18 +7046,18 @@
         "file_hash": "018f5973ccbf237b812a556d542d5077",
         "file_size": 2335451,
         "provider": "gemini",
-        "model": "gemini/gemini-3.1-flash-lite-preview",
-        "description": "Este documento é uma cédula de identidade ou registro civil brasileiro datado de 1975, emitido na cidade de Videira. O documento contém informações datilografadas sobre um indivíduo chamado Zuir de Oliveira, incluindo uma fotografia em preto e branco e a assinatura de um juiz de direito.",
+        "model": "gemini/gemini-2.5-flash-lite",
+        "description": "Este documento parece ser um registro de identidade ou certidão, possivelmente emitido em Videira, Santa Catarina. Contém informações pessoais como nome, nacionalidade, naturalidade, data de nascimento e filiação, além de uma fotografia em preto e branco do titular e uma assinatura com carimbo de \"Juiz de Direito\". A aparência do papel e a fotografia sugerem que o documento é da segunda metade do século XX.",
         "categories": [
             "document",
             "portrait"
         ],
         "tags": [
-            "documento",
             "identidade",
+            "documento antigo",
             "videira",
-            "historico",
-            "brasil"
+            "juiz de direito",
+            "anos 70"
         ],
         "dominant_colors": [
             "bege",
@@ -7033,14 +7066,18 @@
         ],
         "people_count": 1,
         "scene_type": "document",
-        "quality_score": 8,
+        "quality_score": 6,
         "historical_period": "década de 1970",
-        "location_type": "prédio público",
-        "document_type": "certidão",
+        "location_type": "outro",
+        "document_type": "fotografia",
         "text_present": true,
         "legibility_score": 9,
         "estimated_year": 1975,
-        "processed_at": "2026-04-16T13:26:41.368262"
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 3.64,
+        "processed_at": "2026-04-22T19:36:06.958110"
     },
     {
         "path": "photos/parte-1/Computador 3/img299.jpg",
@@ -7118,33 +7155,38 @@
         "file_hash": "758f48ae71a4cf6c77bf4350e5eac245",
         "file_size": 1933772,
         "provider": "gemini",
-        "model": "gemini/gemini-3.1-flash-lite-preview",
-        "description": "Documento oficial de identificação, especificamente uma carteira de identidade de Comissário de Menores da Comarca de Videira, Santa Catarina. O papel apresenta marcas de dobras e envelhecimento, exibindo o brasão da República Federativa do Brasil e tipografia clássica de documentos públicos brasileiros de meados do século XX.",
+        "model": "gemini/gemini-2.5-flash-lite",
+        "description": "Este documento é a capa de uma Carteira de Identidade de Comissário de Menores, emitida pelo Juízo de Direito da Comarca de Videira, Estado de Santa Catarina. O brasão da República Federativa do Brasil está presente no topo. O papel amarelado e as dobras indicam que é um documento antigo, possivelmente da segunda metade do século XX.",
         "categories": [
-            "document"
+            "document",
+            "architecture"
         ],
         "tags": [
-            "documento",
-            "videira",
-            "historico",
             "identidade",
-            "comissario"
+            "videira",
+            "santa catarina",
+            "documento antigo",
+            "comissário de menores"
         ],
         "dominant_colors": [
-            "bege",
+            "amarelo",
             "preto",
-            "branco"
+            "cinza"
         ],
         "people_count": 0,
         "scene_type": "document",
-        "quality_score": 8,
+        "quality_score": 6,
         "historical_period": "meados do século XX",
         "location_type": "prédio público",
         "document_type": "certidão",
         "text_present": true,
-        "legibility_score": 10,
-        "estimated_year": 1960,
-        "processed_at": "2026-04-16T13:26:51.309361"
+        "legibility_score": 9,
+        "estimated_year": 0,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 2.25,
+        "processed_at": "2026-04-22T19:36:09.212472"
     },
     {
         "path": "photos/parte-1/Caixa azul 05/A85 - Encontros Culturais/img491.jpg",
@@ -7222,33 +7264,38 @@
         "file_hash": "0ba62798ca4c274bb4915422fbb7321c",
         "file_size": 1303175,
         "provider": "gemini",
-        "model": "gemini/gemini-3.1-flash-lite-preview",
-        "description": "Este documento é uma carteira de identidade social da União dos Ferroviários do Brasil, datada de 1957. O cartão apresenta o nome do associado, Zuir de Oliveira, acompanhado de uma fotografia em preto e branco do indivíduo vestindo terno e gravata, refletindo a formalidade da época.",
+        "model": "gemini/gemini-2.5-flash-lite",
+        "description": "Este é um documento de identidade social da União dos Ferroviários do Brasil, emitido pela Diretoria Regional da Rede Viação Paraná-Santa Catarina. A fotografia em preto e branco mostra um homem com traje social, e as datas indicam que o documento é da segunda metade do século XX, provavelmente relacionado a um evento ou registro de associação.",
         "categories": [
-            "document"
+            "document",
+            "portrait"
         ],
         "tags": [
-            "ferroviario",
-            "documento",
+            "ferroviários",
             "identidade",
-            "decada de 50",
-            "historico"
+            "antigo",
+            "documento",
+            "anos 50"
         ],
         "dominant_colors": [
-            "branco",
             "azul",
+            "branco",
             "preto"
         ],
         "people_count": 1,
         "scene_type": "document",
-        "quality_score": 8,
+        "quality_score": 6,
         "historical_period": "década de 1950",
         "location_type": "outro",
-        "document_type": "certidão",
+        "document_type": "fotografia",
         "text_present": true,
-        "legibility_score": 10,
+        "legibility_score": 9,
         "estimated_year": 1957,
-        "processed_at": "2026-04-16T13:27:03.330248"
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 3.09,
+        "processed_at": "2026-04-22T19:36:12.305911"
     },
     {
         "path": "photos/parte-1/Caixa azul 05/A85 - Encontros Culturais/img492.jpg",
@@ -64532,343 +64579,3494 @@
         "processed_at": "2026-04-22T19:34:35.956107"
     },
     {
-        "path": "photos/parte-1/Feroviario/Antonio/img187.jpg",
-        "filename": "img187.jpg",
-        "file_hash": "46df06a55b9c712ccf163ac9d04310db",
-        "file_size": 2212887,
+        "path": "photos/parte-1/Caixa azul 02/A23 Feira Parque da Uva/img478.jpg",
+        "filename": "img478.jpg",
+        "file_hash": "d91202ae0ade075e3d79b884037e1910",
+        "file_size": 1839729,
         "provider": "gemini",
-        "model": "gemini/gemini-2.5-flash-lite",
-        "description": "Este documento parece ser um registro histórico, possivelmente uma carteira ou certificado, com várias datas e selos. As informações escritas e impressas sugerem um contexto administrativo ou de filiação, com menções a \"Ordem\", \"Mestre\", \"Loja Simb.\", e datas que remetem a meados do século XX. A presença de selos e carimbos, incluindo um do \"GR. DO BRASIL\", indica uma formalidade e um período histórico específico.",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma decoração temática de exposição agrícola ou cultural, provavelmente em Videira, Santa Catarina, exibindo uvas artificiais, produtos rurais como milho e alho, e um cartaz do Festival Estadual do Vinho. A cena inclui uma representação de solo com miniaturas de animais, sugerindo uma celebração da colheita e da identidade local em setembro de 1991.",
         "categories": [
-            "document",
-            "event"
+            "event",
+            "architecture"
         ],
         "tags": [
-            "documento antigo",
-            "registro",
-            "histórico",
-            "selos",
-            "datas"
-        ],
-        "dominant_colors": [
-            "preto",
-            "branco",
-            "cinza"
-        ],
-        "people_count": 0,
-        "scene_type": "document",
-        "quality_score": 6,
-        "historical_period": "meados do século XX",
-        "location_type": "outro",
-        "document_type": "fotografia",
-        "text_present": true,
-        "legibility_score": 7,
-        "estimated_year": 1971,
-        "attempts": 1,
-        "requests_made": 1,
-        "retry_count": 0,
-        "duration_sec": 2.67,
-        "processed_at": "2026-04-22T19:34:38.630902"
-    },
-    {
-        "path": "photos/parte-1/Feroviario/Antonio/img187B.jpg",
-        "filename": "img187B.jpg",
-        "file_hash": "2570984a4ca56d5955a57ef698264c31",
-        "file_size": 1955600,
-        "provider": "gemini",
-        "model": "gemini/gemini-2.5-flash-lite",
-        "description": "Documento oficial com o título 'CADASTRO GERAL DA ORDEM'. Contém decretos e regulamentos datados de 1914, 1918 e 1943, com artigos detalhando regras para inscrição, cadernetas e procedimentos. O documento parece ser um registro formal de uma ordem ou instituição, possivelmente maçônica, com um selo em relevo na parte inferior.",
-        "categories": [
-            "document",
-            "event"
-        ],
-        "tags": [
-            "maçonaria",
-            "documento oficial",
-            "regulamento",
-            "histórico",
-            "brasil"
-        ],
-        "dominant_colors": [
-            "preto",
-            "branco",
-            "cinza"
-        ],
-        "people_count": 0,
-        "scene_type": "document",
-        "quality_score": 6,
-        "historical_period": "início do século XX",
-        "location_type": "outro",
-        "document_type": "fotografia",
-        "text_present": true,
-        "legibility_score": 8,
-        "estimated_year": 1943,
-        "attempts": 1,
-        "requests_made": 1,
-        "retry_count": 0,
-        "duration_sec": 2.21,
-        "processed_at": "2026-04-22T19:34:40.844531"
-    },
-    {
-        "path": "photos/parte-1/Feroviario/Antonio/img189.jpg",
-        "filename": "img189.jpg",
-        "file_hash": "e353ac92e7b6b8fff924b6f1091cb5d7",
-        "file_size": 2110178,
-        "provider": "gemini",
-        "model": "gemini/gemini-2.5-flash-lite",
-        "description": "Este é um cartão de identificação do Instituto Nacional de Previdência Social, emitido em Videira. O documento contém informações pessoais como nome, matrícula, documento de identidade, data de nascimento e tipo sanguíneo, além de uma fotografia do beneficiário. O estado de conservação sugere que seja um documento antigo, possivelmente da segunda metade do século XX.",
-        "categories": [
-            "document",
-            "portrait"
-        ],
-        "tags": [
-            "previdência social",
-            "identificação",
-            "documento antigo",
             "videira",
-            "beneficiário"
+            "festival do vinho",
+            "agricultura",
+            "decada de 90",
+            "exposicao"
         ],
         "dominant_colors": [
             "marrom",
-            "bege",
-            "preto"
+            "verde",
+            "vermelho"
         ],
-        "people_count": 1,
-        "scene_type": "document",
-        "quality_score": 6,
-        "historical_period": "meados do século XX",
-        "location_type": "outro",
-        "document_type": "fotografia",
+        "people_count": 0,
+        "scene_type": "indoor",
+        "quality_score": 7,
+        "historical_period": "década de 1990",
+        "location_type": "comércio",
+        "document_type": "outro",
         "text_present": true,
-        "legibility_score": 8,
-        "estimated_year": 1960,
+        "legibility_score": 6,
+        "estimated_year": 1991,
         "attempts": 1,
         "requests_made": 1,
         "retry_count": 0,
-        "duration_sec": 2.67,
-        "processed_at": "2026-04-22T19:34:43.513777"
+        "duration_sec": 36.23,
+        "processed_at": "2026-04-23T12:06:10.450514"
     },
     {
-        "path": "photos/parte-1/Feroviario/Antonio/img189B.jpg",
-        "filename": "img189B.jpg",
-        "file_hash": "09a3e9c5034db301a13066435762d6e4",
-        "file_size": 2378689,
+        "path": "photos/parte-1/Feroviario/Braziliano/ficha financeira.png",
+        "filename": "ficha financeira.png",
+        "file_hash": "c8d10cf5241783c53547c18053755d58",
+        "file_size": 3887562,
         "provider": "gemini",
-        "model": "gemini/gemini-2.5-flash-lite",
-        "description": "Este é um documento antigo, possivelmente uma carteira de identidade ou benefício, com texto em português e carimbos. A cor amarelada do papel, a tipografia e o estilo dos carimbos sugerem que o documento é da metade do século XX. O texto indica campos para informações como 'Segurado', 'Prot.', 'Empreg.', 'válido até', e 'Revalidada até', além de um número de registro NB/42-7395075. A presença de carimbos em azul e vermelho, um deles com a inscrição 'INETERMINADO', sugere que o documento foi utilizado e validado em algum momento.",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Este documento é uma ficha financeira de funcionário público, datada do final da década de 1960, contendo registros detalhados de vencimentos, frequência e vantagens. O formulário apresenta preenchimento manuscrito e impresso, refletindo a burocracia administrativa brasileira da época.",
         "categories": [
             "document"
         ],
         "tags": [
-            "documento antigo",
-            "identidade",
-            "benefício",
-            "carimbo",
-            "histórico"
+            "documento",
+            "financeiro",
+            "decada de 60",
+            "administrativo",
+            "historico"
         ],
         "dominant_colors": [
-            "amarelo",
-            "marrom",
-            "cinza"
+            "branco",
+            "bege",
+            "preto"
         ],
         "people_count": 0,
         "scene_type": "document",
-        "quality_score": 6,
-        "historical_period": "meados do século XX",
+        "quality_score": 8,
+        "historical_period": "década de 1960",
         "location_type": "outro",
-        "document_type": "fotografia",
-        "text_present": true,
-        "legibility_score": 7,
-        "estimated_year": 1950,
-        "attempts": 5,
-        "requests_made": 1,
-        "retry_count": 4,
-        "duration_sec": 71.4,
-        "processed_at": "2026-04-22T19:35:54.913049"
-    },
-    {
-        "path": "photos/parte-1/Feroviario/Antonio/img191.jpg",
-        "filename": "img191.jpg",
-        "file_hash": "178c9690dd9eb45ee26f557be4a4c8ba",
-        "file_size": 3383201,
-        "provider": "gemini",
-        "model": "gemini/gemini-2.5-flash-lite",
-        "description": "Este documento apresenta duas partes de uma Carteira Nacional de Habilitação (CNH) do Brasil, emitidas pelo Departamento de Trânsito de Santa Catarina. A parte superior detalha a emissão de uma carteira em 1959, com validade até 1983, para conduzir automóvel particular. A parte inferior exibe os dados de uma pessoa, incluindo nome, naturalidade, nacionalidade e uma fotografia, com data de nascimento em 1959. Ambos os documentos são de natureza oficial.",
-        "categories": [
-            "document",
-            "portrait"
-        ],
-        "tags": [
-            "carteira de motorista",
-            "documento antigo",
-            "brasil",
-            "transito",
-            "santacatarina"
-        ],
-        "dominant_colors": [
-            "amarelo",
-            "azul",
-            "branco"
-        ],
-        "people_count": 1,
-        "scene_type": "document",
-        "quality_score": 7,
-        "historical_period": "meados do século XX",
-        "location_type": "outro",
-        "document_type": "fotografia",
+        "document_type": "certidão",
         "text_present": true,
         "legibility_score": 8,
-        "estimated_year": 1959,
+        "estimated_year": 1969,
         "attempts": 1,
         "requests_made": 1,
         "retry_count": 0,
-        "duration_sec": 2.78,
-        "processed_at": "2026-04-22T19:35:57.693197"
+        "duration_sec": 21.26,
+        "processed_at": "2026-04-23T12:06:31.714341"
     },
     {
-        "path": "photos/parte-1/Feroviario/Antonio/img192.jpg",
-        "filename": "img192.jpg",
-        "file_hash": "41b0b2ca48651e374f7b720c0d8fc01c",
-        "file_size": 1373691,
+        "path": "photos/parte-1/Feroviario/Braziliano/ficha financeira2.png",
+        "filename": "ficha financeira2.png",
+        "file_hash": "58f323ae5c85fbc7c95cc7d17cfdde12",
+        "file_size": 2945718,
         "provider": "gemini",
-        "model": "gemini/gemini-2.5-flash-lite",
-        "description": "Este é um documento de identificação com uma fotografia em preto e branco de um homem vestindo terno e gravata. O documento parece ser antigo, com marcas de uso e carimbos. Há texto em português e um número de identificação visível. O contexto é provavelmente um documento oficial brasileiro.",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Este documento é um formulário de 'Registro de Descontos' utilizado por uma rede ferroviária brasileira, contendo campos para seguros, associações e empréstimos. O papel apresenta preenchimentos manuscritos e carimbos, datando provavelmente da década de 1960, refletindo a burocracia administrativa da época.",
         "categories": [
-            "document",
+            "document"
+        ],
+        "tags": [
+            "documento",
+            "ferroviario",
+            "administrativo",
+            "decada de 60",
+            "historico"
+        ],
+        "dominant_colors": [
+            "branco",
+            "bege",
+            "preto"
+        ],
+        "people_count": 0,
+        "scene_type": "document",
+        "quality_score": 8,
+        "historical_period": "década de 1960",
+        "location_type": "outro",
+        "document_type": "certidão",
+        "text_present": true,
+        "legibility_score": 8,
+        "estimated_year": 1968,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 9.71,
+        "processed_at": "2026-04-23T12:06:41.423164"
+    },
+    {
+        "path": "photos/parte-1/fotos escaneadas- 2024/Ferroviários - Doador Alvadi Picolé/ferroviário esporte.png",
+        "filename": "ferroviário esporte.png",
+        "file_hash": "caf9e928551ee785e6d9c38513a06cfd",
+        "file_size": 4591683,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Fotografia histórica do time de futebol Ferroviário Esporte Clube de Videira, Santa Catarina, datada de 1957. A imagem mostra os jogadores uniformizados e membros da comissão técnica posando em um campo, com legendas explicativas sobre os nomes dos integrantes e o contexto do registro.",
+        "categories": [
+            "event",
             "portrait"
         ],
         "tags": [
-            "identidade",
-            "documento antigo",
-            "brasileiro",
-            "retrato",
-            "documento oficial"
+            "videira",
+            "futebol",
+            "decada de 50",
+            "esporte",
+            "historico"
         ],
         "dominant_colors": [
             "preto",
             "branco",
             "cinza"
         ],
-        "people_count": 1,
-        "scene_type": "document",
-        "quality_score": 6,
-        "historical_period": "meados do século XX",
-        "location_type": "outro",
+        "people_count": 14,
+        "scene_type": "portrait",
+        "quality_score": 8,
+        "historical_period": "década de 1950",
+        "location_type": "campo",
         "document_type": "fotografia",
         "text_present": true,
-        "legibility_score": 7,
-        "estimated_year": 1974,
+        "legibility_score": 10,
+        "estimated_year": 1957,
         "attempts": 1,
         "requests_made": 1,
         "retry_count": 0,
-        "duration_sec": 2.74,
-        "processed_at": "2026-04-22T19:36:00.433069"
+        "duration_sec": 9.6,
+        "processed_at": "2026-04-23T12:06:51.021000"
     },
     {
-        "path": "photos/parte-1/Feroviario/Antonio/img192B.jpg",
-        "filename": "img192B.jpg",
-        "file_hash": "7f755f2fcc97f8e2fa8043c9e0944b36",
-        "file_size": 1582258,
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A34 4 FECAVI E jantares/img782.jpg",
+        "filename": "img782.jpg",
+        "file_hash": "a02d6f2ced791bd63da4610df9cf2351",
+        "file_size": 2017698,
         "provider": "gemini",
-        "model": "gemini/gemini-2.5-flash-lite",
-        "description": "Este é um cartão de pagamento de benefício do Instituto Nacional de Previdência Social (INPS). O documento, datado de uma época em que o INPS era a entidade responsável pela previdência social no Brasil, contém informações sobre o órgão local, um número de identificação e o nome do recebedor. A aparência envelhecida sugere que é um documento histórico.",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia colorida que registra uma apresentação musical em um palco, possivelmente em um evento cultural ou festival municipal como a FECAVI. A imagem mostra músicos com instrumentos, incluindo um teclado Yamaha DX7, sugerindo uma data em meados da década de 1980.",
         "categories": [
-            "document",
-            "event"
-        ],
-        "tags": [
-            "previdência social",
-            "benefício",
-            "documento antigo",
-            "INPS",
-            "pagamento"
-        ],
-        "dominant_colors": [
-            "amarelo",
-            "azul",
-            "preto"
-        ],
-        "people_count": 0,
-        "scene_type": "document",
-        "quality_score": 6,
-        "historical_period": "meados do século XX",
-        "location_type": "outro",
-        "document_type": "cartão",
-        "text_present": true,
-        "legibility_score": 8,
-        "estimated_year": 1970,
-        "attempts": 1,
-        "requests_made": 1,
-        "retry_count": 0,
-        "duration_sec": 2.89,
-        "processed_at": "2026-04-22T19:36:03.322498"
-    },
-    {
-        "path": "photos/parte-1/Feroviario/Antonio/img194.jpg",
-        "filename": "img194.jpg",
-        "file_hash": "018f5973ccbf237b812a556d542d5077",
-        "file_size": 2335451,
-        "provider": "gemini",
-        "model": "gemini/gemini-2.5-flash-lite",
-        "description": "Este documento parece ser um registro de identidade ou certidão, possivelmente emitido em Videira, Santa Catarina. Contém informações pessoais como nome, nacionalidade, naturalidade, data de nascimento e filiação, além de uma fotografia em preto e branco do titular e uma assinatura com carimbo de \"Juiz de Direito\". A aparência do papel e a fotografia sugerem que o documento é da segunda metade do século XX.",
-        "categories": [
-            "document",
+            "event",
             "portrait"
         ],
         "tags": [
-            "identidade",
-            "documento antigo",
-            "videira",
-            "juiz de direito",
-            "anos 70"
+            "musica",
+            "fecavi",
+            "anos 80",
+            "palco",
+            "evento"
+        ],
+        "dominant_colors": [
+            "amarelo",
+            "verde",
+            "azul"
+        ],
+        "people_count": 4,
+        "scene_type": "portrait",
+        "quality_score": 6,
+        "historical_period": "década de 1980",
+        "location_type": "prédio público",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 5,
+        "estimated_year": 1985,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 12.79,
+        "processed_at": "2026-04-23T12:07:03.815826"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A34 4 FECAVI E jantares/img784.jpg",
+        "filename": "img784.jpg",
+        "file_hash": "5faddd8cc6a7473cb3afee20e818ba36",
+        "file_size": 2144675,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia de um encontro social ou reunião informal em um ambiente fechado, possivelmente um salão ou bar. Os participantes, predominantemente homens vestindo roupas casuais típicas das décadas de 1980 ou 1990, parecem estar interagindo e conversando em um clima descontraído.",
+        "categories": [
+            "event",
+            "portrait"
+        ],
+        "tags": [
+            "reuniao",
+            "social",
+            "decada de 80",
+            "homens",
+            "encontro"
+        ],
+        "dominant_colors": [
+            "amarelo",
+            "marrom",
+            "azul"
+        ],
+        "people_count": 10,
+        "scene_type": "indoor",
+        "quality_score": 6,
+        "historical_period": "década de 1980",
+        "location_type": "comércio",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 2,
+        "estimated_year": 1985,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 18.75,
+        "processed_at": "2026-04-23T12:07:22.565961"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A34 4 FECAVI E jantares/img785.jpg",
+        "filename": "img785.jpg",
+        "file_hash": "c274c4f091583009a39c3c6e088d807f",
+        "file_size": 2143879,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia colorida que retrata um grupo de homens reunidos em um ambiente interno, possivelmente um evento social ou comunitário. As vestimentas, incluindo jaquetas jeans e suéteres, sugerem um contexto brasileiro das décadas de 1980 ou 1990.",
+        "categories": [
+            "event",
+            "portrait"
+        ],
+        "tags": [
+            "reuniao",
+            "decada de 80",
+            "homens",
+            "social",
+            "cotidiano"
+        ],
+        "dominant_colors": [
+            "azul",
+            "bege",
+            "marrom"
+        ],
+        "people_count": 12,
+        "scene_type": "indoor",
+        "quality_score": 6,
+        "historical_period": "década de 1980",
+        "location_type": "interior",
+        "document_type": "fotografia",
+        "text_present": false,
+        "legibility_score": 0,
+        "estimated_year": 1985,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 6.91,
+        "processed_at": "2026-04-23T12:07:29.480626"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A34 4 FECAVI E jantares/img786.jpg",
+        "filename": "img786.jpg",
+        "file_hash": "2e8a2d73be181ae470c8d36ad5e77f33",
+        "file_size": 2164407,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia de um encontro social ou confraternização em ambiente interno, possivelmente um clube ou salão comunitário, com um grupo de homens usando medalhas comemorativas. A vestimenta, incluindo jaquetas jeans e camisas polo, sugere uma estética típica das décadas de 1980 ou 1990.",
+        "categories": [
+            "event",
+            "portrait"
+        ],
+        "tags": [
+            "confraternizacao",
+            "decada de 80",
+            "homens",
+            "social",
+            "antigo"
         ],
         "dominant_colors": [
             "bege",
-            "preto",
+            "azul",
             "branco"
         ],
-        "people_count": 1,
-        "scene_type": "document",
+        "people_count": 12,
+        "scene_type": "indoor",
         "quality_score": 6,
-        "historical_period": "década de 1970",
+        "historical_period": "década de 1980",
+        "location_type": "interior",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 2,
+        "estimated_year": 1985,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 22.52,
+        "processed_at": "2026-04-23T12:07:51.998642"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A34 4 FECAVI E jantares/img787.jpg",
+        "filename": "img787.jpg",
+        "file_hash": "54049ac31c08f43a3786fc26032fd437",
+        "file_size": 1900688,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia de um encontro social ou confraternização em ambiente interno, possivelmente em um clube ou salão comunitário. O grupo de homens, vestindo roupas casuais típicas das décadas de 1980 ou 1990, parece estar interagindo de forma descontraída, com alguns abraçados, sugerindo um evento de celebração ou reunião de amigos.",
+        "categories": [
+            "event",
+            "portrait"
+        ],
+        "tags": [
+            "confraternizacao",
+            "anos 80",
+            "reuniao",
+            "social",
+            "homens"
+        ],
+        "dominant_colors": [
+            "azul",
+            "cinza",
+            "marrom"
+        ],
+        "people_count": 10,
+        "scene_type": "indoor",
+        "quality_score": 6,
+        "historical_period": "década de 1980",
+        "location_type": "interior",
+        "document_type": "fotografia",
+        "text_present": false,
+        "legibility_score": 0,
+        "estimated_year": 1985,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 15.44,
+        "processed_at": "2026-04-23T12:08:07.441122"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A34 4 FECAVI E jantares/img788.jpg",
+        "filename": "img788.jpg",
+        "file_hash": "218b2d210c9abcf72811bc189db2bb28",
+        "file_size": 1980743,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Fotografia de um evento social ou jantar comunitário, possivelmente em Videira, onde pessoas estão reunidas em mesas longas. A imagem apresenta elementos típicos da década de 1990, como vestimentas e garrafas de refrigerante, com um folheto promocional da cidade visível na mesa.",
+        "categories": [
+            "event",
+            "portrait"
+        ],
+        "tags": [
+            "videira",
+            "evento",
+            "social",
+            "decada de 90",
+            "comunidade"
+        ],
+        "dominant_colors": [
+            "branco",
+            "marrom",
+            "verde"
+        ],
+        "people_count": 15,
+        "scene_type": "indoor",
+        "quality_score": 7,
+        "historical_period": "década de 1990",
+        "location_type": "comércio",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 5,
+        "estimated_year": 1991,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 15.5,
+        "processed_at": "2026-04-23T12:08:22.937999"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A34 4 FECAVI E jantares/img789.jpg",
+        "filename": "img789.jpg",
+        "file_hash": "54a3b67325cfd86bd5dfa242656cf371",
+        "file_size": 2041375,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia de um jantar ou evento social em um ambiente fechado, provavelmente nas décadas de 1980 ou 1990. Várias pessoas estão sentadas ao redor de mesas longas cobertas com toalhas brancas, compartilhando refeições e bebidas, em um clima de confraternização típico de reuniões familiares ou comunitárias.",
+        "categories": [
+            "event",
+            "portrait"
+        ],
+        "tags": [
+            "confraternizacao",
+            "decada de 80",
+            "jantar",
+            "social",
+            "reuniao"
+        ],
+        "dominant_colors": [
+            "branco",
+            "marrom",
+            "azul"
+        ],
+        "people_count": 12,
+        "scene_type": "indoor",
+        "quality_score": 6,
+        "historical_period": "década de 1980",
+        "location_type": "interior",
+        "document_type": "fotografia",
+        "text_present": false,
+        "legibility_score": 0,
+        "estimated_year": 1985,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 18.33,
+        "processed_at": "2026-04-23T12:08:41.265001"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A34 4 FECAVI E jantares/img790.jpg",
+        "filename": "img790.jpg",
+        "file_hash": "49e1e1147ee0937cbaf80b390e94e4d9",
+        "file_size": 2203601,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia que registra uma cerimônia de entrega de troféus em um ambiente interno, possivelmente um clube ou associação esportiva. Homens vestindo roupas casuais da década de 1980 estão reunidos, com destaque para a entrega de um troféu dourado, sugerindo um evento de confraternização ou premiação local.",
+        "categories": [
+            "event",
+            "portrait"
+        ],
+        "tags": [
+            "premiacao",
+            "decada de 80",
+            "confraternizacao",
+            "esporte",
+            "comunidade"
+        ],
+        "dominant_colors": [
+            "azul",
+            "bege",
+            "marrom"
+        ],
+        "people_count": 10,
+        "scene_type": "indoor",
+        "quality_score": 6,
+        "historical_period": "década de 1980",
         "location_type": "outro",
         "document_type": "fotografia",
         "text_present": true,
-        "legibility_score": 9,
+        "legibility_score": 3,
+        "estimated_year": 1985,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 21.29,
+        "processed_at": "2026-04-23T12:09:02.555523"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A34 4 FECAVI E jantares/img791.jpg",
+        "filename": "img791.jpg",
+        "file_hash": "f13dbc40160dbb7553e9f57f4ba71e0b",
+        "file_size": 2053195,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia de um grupo de homens reunidos em um ambiente interno, possivelmente um salão de festas ou clube, durante uma celebração ou premiação. O grupo parece estar participando de um evento social informal, com a presença de um troféu, sugerindo uma comemoração esportiva ou associativa típica de pequenas comunidades brasileiras nas décadas de 1980 ou 1990.",
+        "categories": [
+            "event",
+            "portrait"
+        ],
+        "tags": [
+            "confraternizacao",
+            "trofeu",
+            "decada de 80",
+            "evento social",
+            "reuniao"
+        ],
+        "dominant_colors": [
+            "marrom",
+            "azul",
+            "branco"
+        ],
+        "people_count": 12,
+        "scene_type": "indoor",
+        "quality_score": 6,
+        "historical_period": "década de 1980",
+        "location_type": "interior",
+        "document_type": "fotografia",
+        "text_present": false,
+        "legibility_score": 0,
+        "estimated_year": 1985,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 14.01,
+        "processed_at": "2026-04-23T12:09:16.561884"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A34 4 FECAVI E jantares/img792.jpg",
+        "filename": "img792.jpg",
+        "file_hash": "4c0b4de617792209d7511d4aac5b93c9",
+        "file_size": 1545260,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia colorida que registra um evento social ou reunião formal em um ambiente interno, possivelmente um restaurante ou salão de festas. Homens vestindo blazers e suéteres interagem em torno de mesas postas, sugerindo um contexto de confraternização ou encontro profissional típico das décadas de 1980 ou 1990.",
+        "categories": [
+            "event",
+            "portrait"
+        ],
+        "tags": [
+            "confraternizacao",
+            "decada de 80",
+            "evento social",
+            "reuniao",
+            "formal"
+        ],
+        "dominant_colors": [
+            "azul",
+            "branco",
+            "marrom"
+        ],
+        "people_count": 6,
+        "scene_type": "portrait",
+        "quality_score": 7,
+        "historical_period": "década de 1980",
+        "location_type": "comércio",
+        "document_type": "fotografia",
+        "text_present": false,
+        "legibility_score": 0,
+        "estimated_year": 1985,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 11.26,
+        "processed_at": "2026-04-23T12:09:27.821304"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A34 4 FECAVI E jantares/img793.jpg",
+        "filename": "img793.jpg",
+        "file_hash": "4ef3726bbbd4be5e1cfc00d2ed54006e",
+        "file_size": 2041055,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma reunião de trabalho ou assembleia ocorrendo em um ambiente interno com mesas de madeira dispostas em formato de U. Os participantes, vestindo roupas formais típicas das décadas de 1980 ou 1990, estão sentados em cadeiras de escritório, com uma vista externa de uma área urbana através de grandes janelas com persianas verticais.",
+        "categories": [
+            "event",
+            "architecture"
+        ],
+        "tags": [
+            "reuniao",
+            "escritorio",
+            "decada de 90",
+            "trabalho",
+            "urbano"
+        ],
+        "dominant_colors": [
+            "marrom",
+            "branco",
+            "azul"
+        ],
+        "people_count": 6,
+        "scene_type": "indoor",
+        "quality_score": 8,
+        "historical_period": "década de 1990",
+        "location_type": "prédio público",
+        "document_type": "fotografia",
+        "text_present": false,
+        "legibility_score": 0,
+        "estimated_year": 1990,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 12.9,
+        "processed_at": "2026-04-23T12:09:40.722438"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A34 4 FECAVI E jantares/img794.jpg",
+        "filename": "img794.jpg",
+        "file_hash": "36dc0983bbd0b97c73fe15e6fcd1255a",
+        "file_size": 2197122,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia de um jantar ou evento social em um ambiente fechado, com pessoas sentadas em mesas dispostas em fila. O estilo das roupas e a qualidade da imagem sugerem um evento ocorrido entre as décadas de 1970 e 1980, possivelmente em um salão comunitário ou clube social.",
+        "categories": [
+            "event",
+            "portrait"
+        ],
+        "tags": [
+            "evento",
+            "social",
+            "decada de 80",
+            "confraternizacao",
+            "antigo"
+        ],
+        "dominant_colors": [
+            "branco",
+            "marrom",
+            "vermelho"
+        ],
+        "people_count": 12,
+        "scene_type": "indoor",
+        "quality_score": 6,
+        "historical_period": "década de 1980",
+        "location_type": "interior",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 2,
+        "estimated_year": 1985,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 13.86,
+        "processed_at": "2026-04-23T12:09:54.584253"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A39 Concurso do Vinho - Reuniões/img881.jpg",
+        "filename": "img881.jpg",
+        "file_hash": "859db6ca62f6029d499a484afd9ab957",
+        "file_size": 958363,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Fotografia em preto e branco capturando um momento de confraternização ou encontro social entre homens, possivelmente em um ambiente interno ou entrada de prédio. Os indivíduos vestem roupas típicas de meados do século XX, como suéteres e camisas, e um deles parece usar um capacete ou acessório de uniforme, sugerindo um evento formal ou comemorativo.",
+        "categories": [
+            "event",
+            "portrait"
+        ],
+        "tags": [
+            "confraternizacao",
+            "antigo",
+            "encontro",
+            "masculino",
+            "social"
+        ],
+        "dominant_colors": [
+            "preto",
+            "branco",
+            "cinza"
+        ],
+        "people_count": 7,
+        "scene_type": "portrait",
+        "quality_score": 6,
+        "historical_period": "década de 1970",
+        "location_type": "interior",
+        "document_type": "fotografia",
+        "text_present": false,
+        "legibility_score": 0,
         "estimated_year": 1975,
         "attempts": 1,
         "requests_made": 1,
         "retry_count": 0,
-        "duration_sec": 3.64,
-        "processed_at": "2026-04-22T19:36:06.958110"
+        "duration_sec": 23.41,
+        "processed_at": "2026-04-23T12:10:17.995688"
     },
     {
-        "path": "photos/parte-1/Feroviario/Antonio/img194B.jpg",
-        "filename": "img194B.jpg",
-        "file_hash": "758f48ae71a4cf6c77bf4350e5eac245",
-        "file_size": 1933772,
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A39 Concurso do Vinho - Reuniões/img882.jpg",
+        "filename": "img882.jpg",
+        "file_hash": "737174d74ee9f0a3001e1e479418fd01",
+        "file_size": 1053664,
         "provider": "gemini",
-        "model": "gemini/gemini-2.5-flash-lite",
-        "description": "Este documento é a capa de uma Carteira de Identidade de Comissário de Menores, emitida pelo Juízo de Direito da Comarca de Videira, Estado de Santa Catarina. O brasão da República Federativa do Brasil está presente no topo. O papel amarelado e as dobras indicam que é um documento antigo, possivelmente da segunda metade do século XX.",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Fotografia em preto e branco registrando um brinde formal com canecas de chope, provavelmente em um evento social ou festividade na cidade de Videira, Santa Catarina. Os homens vestem trajes sociais, sugerindo uma celebração oficial ou empresarial ocorrida possivelmente entre as décadas de 1970 e 1980.",
         "categories": [
-            "document",
+            "event",
+            "portrait"
+        ],
+        "tags": [
+            "videira",
+            "brinde",
+            "evento",
+            "antigo",
+            "social"
+        ],
+        "dominant_colors": [
+            "preto",
+            "branco",
+            "cinza"
+        ],
+        "people_count": 4,
+        "scene_type": "portrait",
+        "quality_score": 6,
+        "historical_period": "década de 1970",
+        "location_type": "comércio",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 5,
+        "estimated_year": 1975,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 13.27,
+        "processed_at": "2026-04-23T12:10:31.270378"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A39 Concurso do Vinho - Reuniões/img883.jpg",
+        "filename": "img883.jpg",
+        "file_hash": "87beb1d3bf0fba00f41cab2a99296eef",
+        "file_size": 939980,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Fotografia em preto e branco registrando um evento formal ou cerimônia, possivelmente em um ambiente interno. Vários homens vestindo ternos e gravatas estão reunidos, com um deles falando ao microfone, sugerindo uma solenidade ou discurso público típico de meados da década de 1980.",
+        "categories": [
+            "event",
+            "portrait"
+        ],
+        "tags": [
+            "solenidade",
+            "decada de 80",
+            "formal",
+            "discurso",
+            "antigo"
+        ],
+        "dominant_colors": [
+            "preto",
+            "branco",
+            "cinza"
+        ],
+        "people_count": 7,
+        "scene_type": "portrait",
+        "quality_score": 6,
+        "historical_period": "década de 1980",
+        "location_type": "interior",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 2,
+        "estimated_year": 1985,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 11.46,
+        "processed_at": "2026-04-23T12:10:42.734588"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A39 Concurso do Vinho - Reuniões/img889.jpg",
+        "filename": "img889.jpg",
+        "file_hash": "3502e5ba1ddfdb4b6e5f08b8e96fd3b8",
+        "file_size": 1032922,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "A imagem apresenta a palavra 'Reuniões' escrita à mão com uma caneta ou marcador de cor vermelha sobre um fundo branco liso. O estilo da caligrafia é cursivo e simples, sugerindo uma anotação ou etiqueta de organização.",
+        "categories": [
+            "document"
+        ],
+        "tags": [
+            "escrita",
+            "manual",
+            "vermelho",
+            "anotacao",
+            "organizacao"
+        ],
+        "dominant_colors": [
+            "branco",
+            "vermelho"
+        ],
+        "people_count": 0,
+        "scene_type": "document",
+        "quality_score": 10,
+        "historical_period": "desconhecido",
+        "location_type": "outro",
+        "document_type": "outro",
+        "text_present": true,
+        "legibility_score": 10,
+        "estimated_year": 0,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 16.53,
+        "processed_at": "2026-04-23T12:10:59.265215"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A39 Concurso do Vinho - Reuniões/img890.jpg",
+        "filename": "img890.jpg",
+        "file_hash": "5182b80a9cecb839410f82dca326388a",
+        "file_size": 1099628,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Fotografia em preto e branco registrando um evento formal ou cerimônia com um grupo de homens vestindo ternos e gravatas. O contexto sugere uma solenidade oficial, possivelmente em um ambiente público ou corporativo, com a presença de microfones e documentos, típica de meados do século XX.",
+        "categories": [
+            "event",
+            "portrait"
+        ],
+        "tags": [
+            "solenidade",
+            "antigo",
+            "homens",
+            "formal",
+            "cerimonia"
+        ],
+        "dominant_colors": [
+            "preto",
+            "branco",
+            "cinza"
+        ],
+        "people_count": 7,
+        "scene_type": "portrait",
+        "quality_score": 6,
+        "historical_period": "década de 1970",
+        "location_type": "prédio público",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 2,
+        "estimated_year": 1975,
+        "attempts": 2,
+        "requests_made": 1,
+        "retry_count": 1,
+        "duration_sec": 23.38,
+        "processed_at": "2026-04-23T12:11:22.645540"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A39 Concurso do Vinho - Reuniões/img891.jpg",
+        "filename": "img891.jpg",
+        "file_hash": "e38f2ef6318f8bdd3f4f297c7ac76fd3",
+        "file_size": 1030568,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia em preto e branco que retrata um grupo de pessoas reunidas em torno de mesas compridas em um ambiente interno simples, possivelmente um salão comunitário ou espaço de eventos. As vestimentas e o estilo da imagem sugerem uma cena cotidiana das décadas de 1980 ou 1990, com pessoas conversando e interagindo em um contexto social ou de reunião.",
+        "categories": [
+            "event",
+            "portrait"
+        ],
+        "tags": [
+            "reuniao",
+            "decada de 80",
+            "social",
+            "grupo",
+            "antigo"
+        ],
+        "dominant_colors": [
+            "preto",
+            "branco",
+            "cinza"
+        ],
+        "people_count": 13,
+        "scene_type": "indoor",
+        "quality_score": 6,
+        "historical_period": "década de 1980",
+        "location_type": "interior",
+        "document_type": "fotografia",
+        "text_present": false,
+        "legibility_score": 0,
+        "estimated_year": 1985,
+        "attempts": 2,
+        "requests_made": 1,
+        "retry_count": 1,
+        "duration_sec": 19.96,
+        "processed_at": "2026-04-23T12:11:42.607130"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A39 Concurso do Vinho - Reuniões/img892.jpg",
+        "filename": "img892.jpg",
+        "file_hash": "23538590f31aebd36517f44138db4fb6",
+        "file_size": 1070111,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia em preto e branco que retrata um grupo de homens reunidos em torno de uma mesa em um ambiente interno, possivelmente um salão comunitário ou garagem. As vestimentas e o estilo da imagem sugerem um contexto social ou informal típico das décadas de 1980 ou 1990 em uma cidade brasileira.",
+        "categories": [
+            "event",
+            "portrait"
+        ],
+        "tags": [
+            "reuniao",
+            "decada de 80",
+            "social",
+            "grupo",
+            "antigo"
+        ],
+        "dominant_colors": [
+            "preto",
+            "branco",
+            "cinza"
+        ],
+        "people_count": 13,
+        "scene_type": "indoor",
+        "quality_score": 6,
+        "historical_period": "década de 1980",
+        "location_type": "interior",
+        "document_type": "fotografia",
+        "text_present": false,
+        "legibility_score": 0,
+        "estimated_year": 1985,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 15.71,
+        "processed_at": "2026-04-23T12:11:58.314896"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A39 Concurso do Vinho - Reuniões/img893.jpg",
+        "filename": "img893.jpg",
+        "file_hash": "b70f90ad1045bf6a6d40ae0ef719c81a",
+        "file_size": 1039518,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia em preto e branco que retrata um grupo de pessoas reunidas ao redor de uma mesa longa em um ambiente interno, possivelmente um salão comunitário ou escola. A cena sugere uma reunião social ou evento informal, com os participantes sentados e interagindo, refletindo costumes de meados do século XX.",
+        "categories": [
+            "event",
+            "portrait"
+        ],
+        "tags": [
+            "reuniao",
+            "antigo",
+            "social",
+            "coletividade",
+            "interior"
+        ],
+        "dominant_colors": [
+            "preto",
+            "branco",
+            "cinza"
+        ],
+        "people_count": 10,
+        "scene_type": "indoor",
+        "quality_score": 5,
+        "historical_period": "década de 1970",
+        "location_type": "interior",
+        "document_type": "fotografia",
+        "text_present": false,
+        "legibility_score": 0,
+        "estimated_year": 1975,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 21.74,
+        "processed_at": "2026-04-23T12:12:20.052153"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A39 Concurso do Vinho - Reuniões/img894.jpg",
+        "filename": "img894.jpg",
+        "file_hash": "52e03f86ece65d484d737ad4b301f7af",
+        "file_size": 1009974,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Fotografia em preto e branco capturando um momento de interação social em um ambiente interno, possivelmente um bar ou restaurante. Três homens aparecem na cena, com destaque para dois deles sentados à mesa, sugerindo um encontro casual ou reunião informal típica de meados da década de 1970 ou 1980.",
+        "categories": [
+            "portrait",
+            "event"
+        ],
+        "tags": [
+            "antigo",
+            "social",
+            "homens",
+            "decada de 80",
+            "cotidiano"
+        ],
+        "dominant_colors": [
+            "preto",
+            "branco",
+            "cinza"
+        ],
+        "people_count": 3,
+        "scene_type": "portrait",
+        "quality_score": 6,
+        "historical_period": "década de 1980",
+        "location_type": "comércio",
+        "document_type": "fotografia",
+        "text_present": false,
+        "legibility_score": 0,
+        "estimated_year": 1980,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 24.29,
+        "processed_at": "2026-04-23T12:12:44.347122"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A39 Concurso do Vinho - Reuniões/img895.jpg",
+        "filename": "img895.jpg",
+        "file_hash": "ef95ac3c89ea26a4e0b38584c9a304c6",
+        "file_size": 1120212,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Fotografia em preto e branco capturando uma reunião social ou confraternização em um ambiente interno, possivelmente um salão comunitário. Várias pessoas estão sentadas ao redor de mesas longas, sugerindo um evento informal ou refeição coletiva, com vestimentas que remetem às décadas de 1970 ou 1980.",
+        "categories": [
+            "event",
+            "portrait"
+        ],
+        "tags": [
+            "confraternizacao",
+            "antigo",
+            "reuniao",
+            "social",
+            "decada de 80"
+        ],
+        "dominant_colors": [
+            "preto",
+            "branco",
+            "cinza"
+        ],
+        "people_count": 12,
+        "scene_type": "indoor",
+        "quality_score": 6,
+        "historical_period": "década de 1980",
+        "location_type": "interior",
+        "document_type": "fotografia",
+        "text_present": false,
+        "legibility_score": 0,
+        "estimated_year": 1980,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 7.65,
+        "processed_at": "2026-04-23T12:12:51.998339"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A39 Concurso do Vinho - Reuniões/img896.jpg",
+        "filename": "img896.jpg",
+        "file_hash": "8b08f5575c6f74e6b7b057102c1ae6a5",
+        "file_size": 1811329,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia de um grupo de pessoas sentadas em cadeiras de madeira em um ambiente interno, possivelmente um salão comunitário ou igreja, durante um evento social ou palestra. As vestimentas e o estilo da foto sugerem o início da década de 1990, com pessoas usando jaquetas, blusas de lã e botas, típicas de um clima mais frio.",
+        "categories": [
+            "event",
+            "portrait"
+        ],
+        "tags": [
+            "decada de 90",
+            "evento",
+            "reuniao",
+            "social",
+            "interior"
+        ],
+        "dominant_colors": [
+            "marrom",
+            "branco",
+            "vermelho"
+        ],
+        "people_count": 20,
+        "scene_type": "indoor",
+        "quality_score": 8,
+        "historical_period": "início da década de 1990",
+        "location_type": "interior",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 2,
+        "estimated_year": 1991,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 11.07,
+        "processed_at": "2026-04-23T12:13:03.065035"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A46 X Festival do Vinho, equipe de apoio, jantares/img021.jpg",
+        "filename": "img021.jpg",
+        "file_hash": "53192f4b16b5288c43f5c13302c76396",
+        "file_size": 1662916,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia de um veículo Fiat Uno caracterizado como viatura policial, estacionado em uma via de terra ou cascalho. O carro apresenta um emblema oficial na porta e o número 627, sugerindo um contexto de serviço público ou patrulhamento em uma região possivelmente rural ou de pequena cidade brasileira.",
+        "categories": [
+            "vehicle",
+            "event"
+        ],
+        "tags": [
+            "viatura",
+            "policia",
+            "fiat uno",
+            "antigo",
+            "transporte"
+        ],
+        "dominant_colors": [
+            "branco",
+            "cinza",
+            "verde"
+        ],
+        "people_count": 1,
+        "scene_type": "outdoor",
+        "quality_score": 7,
+        "historical_period": "década de 1990",
+        "location_type": "rua",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 5,
+        "estimated_year": 1995,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 19.45,
+        "processed_at": "2026-04-23T12:13:22.517247"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A46 X Festival do Vinho, equipe de apoio, jantares/img022.jpg",
+        "filename": "img022.jpg",
+        "file_hash": "5c445c19d229d70940fe5f5bfaff18d4",
+        "file_size": 2103870,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia de um policial militar brasileiro em serviço, utilizando um rádio comunicador portátil em uma área externa com terreno de cascalho. O uniforme e o equipamento sugerem um contexto de segurança pública ou policiamento de eventos, possivelmente nas décadas de 1980 ou 1990.",
+        "categories": [
+            "portrait",
+            "event"
+        ],
+        "tags": [
+            "policial",
+            "militar",
+            "seguranca",
+            "decada de 90",
+            "uniforme"
+        ],
+        "dominant_colors": [
+            "bege",
+            "verde",
+            "cinza"
+        ],
+        "people_count": 3,
+        "scene_type": "portrait",
+        "quality_score": 7,
+        "historical_period": "década de 1990",
+        "location_type": "outro",
+        "document_type": "fotografia",
+        "text_present": false,
+        "legibility_score": 0,
+        "estimated_year": 1990,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 20.15,
+        "processed_at": "2026-04-23T12:13:42.670658"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A46 X Festival do Vinho, equipe de apoio, jantares/img023.jpg",
+        "filename": "img023.jpg",
+        "file_hash": "6de081744b99f7506b54fefe894ddb3e",
+        "file_size": 1670633,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma cena de um almoço ou jantar comunitário, provavelmente em um ambiente de salão de festas ou restaurante, onde pessoas se servem em um buffet. A imagem apresenta pratos típicos brasileiros, como frango frito, polenta e embutidos, sugerindo um evento social ou familiar comum em cidades como Videira.",
+        "categories": [
+            "food",
+            "event"
+        ],
+        "tags": [
+            "buffet",
+            "comida",
+            "evento",
+            "social",
+            "almoço"
+        ],
+        "dominant_colors": [
+            "branco",
+            "marrom",
+            "cinza"
+        ],
+        "people_count": 3,
+        "scene_type": "indoor",
+        "quality_score": 6,
+        "historical_period": "década de 1990",
+        "location_type": "comércio",
+        "document_type": "outro",
+        "text_present": false,
+        "legibility_score": 0,
+        "estimated_year": 1995,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 17.52,
+        "processed_at": "2026-04-23T12:14:00.188591"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A46 X Festival do Vinho, equipe de apoio, jantares/img024.jpg",
+        "filename": "img024.jpg",
+        "file_hash": "c89dce577c21fb3de3aab583c23f4e9a",
+        "file_size": 1576256,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma cena de confraternização ao ar livre, provavelmente um churrasco comunitário ou familiar, com pessoas sentadas em longas mesas de madeira. O ambiente sugere um evento social típico de cidades do interior brasileiro, com vestimentas casuais que indicam o final do século XX, possivelmente décadas de 1980 ou 1990.",
+        "categories": [
+            "event",
             "architecture"
         ],
         "tags": [
-            "identidade",
+            "churrasco",
+            "confraternizacao",
+            "interior",
+            "decada de 90",
+            "social"
+        ],
+        "dominant_colors": [
+            "marrom",
+            "branco",
+            "azul"
+        ],
+        "people_count": 15,
+        "scene_type": "outdoor",
+        "quality_score": 7,
+        "historical_period": "final do século XX",
+        "location_type": "outro",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 3,
+        "estimated_year": 1990,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 10.56,
+        "processed_at": "2026-04-23T12:14:10.751964"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A46 X Festival do Vinho, equipe de apoio, jantares/img025.jpg",
+        "filename": "img025.jpg",
+        "file_hash": "031867b97222c8a14113d143befbd69f",
+        "file_size": 2013701,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia que retrata um homem preparando um churrasco de animais inteiros em espetos de madeira sobre brasas, uma prática comum em eventos rurais ou festas comunitárias no Brasil. A cena sugere um ambiente de confraternização ao ar livre, possivelmente em uma região com tradição gaúcha ou de colonização europeia, datada provavelmente entre as décadas de 1980 e 1990.",
+        "categories": [
+            "event",
+            "food"
+        ],
+        "tags": [
+            "churrasco",
+            "tradicao",
+            "rural",
+            "festa",
+            "assado"
+        ],
+        "dominant_colors": [
+            "vermelho",
+            "marrom",
+            "cinza"
+        ],
+        "people_count": 5,
+        "scene_type": "outdoor",
+        "quality_score": 7,
+        "historical_period": "década de 1990",
+        "location_type": "campo",
+        "document_type": "fotografia",
+        "text_present": false,
+        "legibility_score": 0,
+        "estimated_year": 1990,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 22.64,
+        "processed_at": "2026-04-23T12:14:33.389805"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A46 X Festival do Vinho, equipe de apoio, jantares/img026.jpg",
+        "filename": "img026.jpg",
+        "file_hash": "8225dc6d94894aea4973c9b667659ad1",
+        "file_size": 1843072,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma cena ao ar livre mostrando um grupo de homens preparando churrasco de ovelha no fogo de chão, possivelmente em um evento tradicionalista gaúcho. Os homens vestem trajes típicos, incluindo chapéus e bombachas, em um ambiente rural ou de centro de tradições, sugerindo uma celebração cultural comum no sul do Brasil.",
+        "categories": [
+            "event",
+            "architecture"
+        ],
+        "tags": [
+            "churrasco",
+            "tradicionalismo",
+            "gaucho",
+            "rural",
+            "cultura"
+        ],
+        "dominant_colors": [
+            "marrom",
+            "verde",
+            "branco"
+        ],
+        "people_count": 5,
+        "scene_type": "outdoor",
+        "quality_score": 8,
+        "historical_period": "final do século XX",
+        "location_type": "campo",
+        "document_type": "fotografia",
+        "text_present": false,
+        "legibility_score": 0,
+        "estimated_year": 1990,
+        "attempts": 2,
+        "requests_made": 1,
+        "retry_count": 1,
+        "duration_sec": 28.07,
+        "processed_at": "2026-04-23T12:15:01.459401"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A46 X Festival do Vinho, equipe de apoio, jantares/img027.jpg",
+        "filename": "img027.jpg",
+        "file_hash": "5b8cdd2a9f862c85f03a14e245b8b460",
+        "file_size": 1596627,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia que captura uma confraternização ou evento social em um salão de festas com estrutura de madeira aparente. As pessoas estão sentadas em longas mesas, sugerindo um ambiente comunitário típico de festas tradicionais ou eventos de clubes em cidades brasileiras, possivelmente na década de 1980 ou 1990.",
+        "categories": [
+            "event",
+            "architecture"
+        ],
+        "tags": [
+            "confraternizacao",
+            "evento",
+            "social",
+            "decada de 80",
+            "comunitario"
+        ],
+        "dominant_colors": [
+            "branco",
+            "marrom",
+            "vermelho"
+        ],
+        "people_count": 15,
+        "scene_type": "indoor",
+        "quality_score": 6,
+        "historical_period": "década de 1980",
+        "location_type": "outro",
+        "document_type": "fotografia",
+        "text_present": false,
+        "legibility_score": 0,
+        "estimated_year": 1985,
+        "attempts": 3,
+        "requests_made": 1,
+        "retry_count": 2,
+        "duration_sec": 30.05,
+        "processed_at": "2026-04-23T12:15:31.514345"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A46 X Festival do Vinho, equipe de apoio, jantares/img028.jpg",
+        "filename": "img028.jpg",
+        "file_hash": "cab353ea26ef9c36248aa1adfa15d6bf",
+        "file_size": 1854841,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia ao ar livre capturando um evento comunitário organizado pelo CTG Pioneiros do Vale, possivelmente relacionado a um festival de vinho. A cena mostra pessoas reunidas em uma estrutura de madeira rústica, com fumaça de churrasco e uma faixa comemorativa, sugerindo um contexto cultural regional brasileiro, provavelmente na década de 1990.",
+        "categories": [
+            "event",
+            "architecture"
+        ],
+        "tags": [
+            "ctg",
+            "festival",
+            "cultura",
+            "comunidade",
+            "tradicao"
+        ],
+        "dominant_colors": [
+            "marrom",
+            "verde",
+            "branco"
+        ],
+        "people_count": 25,
+        "scene_type": "outdoor",
+        "quality_score": 7,
+        "historical_period": "década de 1990",
+        "location_type": "outro",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 6,
+        "estimated_year": 1995,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 20.46,
+        "processed_at": "2026-04-23T12:15:51.974260"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A46 X Festival do Vinho, equipe de apoio, jantares/img029.jpg",
+        "filename": "img029.jpg",
+        "file_hash": "432fad24949cd4eec1b318b626b65ec6",
+        "file_size": 1590231,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia de uma rua de terra ou cascalho em uma área possivelmente rural ou de pequena cidade, com veículos estacionados ao lado de construções simples. A imagem sugere um ambiente de evento ou feira, com a presença de uma tenda azul ao fundo e vegetação densa, típica de regiões do interior brasileiro.",
+        "categories": [
+            "architecture",
+            "event"
+        ],
+        "tags": [
+            "interior",
+            "estrada",
+            "veiculos",
+            "evento",
+            "paisagem"
+        ],
+        "dominant_colors": [
+            "cinza",
+            "verde",
+            "branco"
+        ],
+        "people_count": 1,
+        "scene_type": "landscape",
+        "quality_score": 6,
+        "historical_period": "década de 1990",
+        "location_type": "rua",
+        "document_type": "fotografia",
+        "text_present": false,
+        "legibility_score": 0,
+        "estimated_year": 1995,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 18.27,
+        "processed_at": "2026-04-23T12:16:10.241807"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A46 X Festival do Vinho, equipe de apoio, jantares/img030.jpg",
+        "filename": "img030.jpg",
+        "file_hash": "e5a0f1fc64878ee014f9ee825ee39067",
+        "file_size": 1840608,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia de um evento ao ar livre, possivelmente uma festa comunitária ou feira rural, com uma grande multidão caminhando por um caminho de terra. Observam-se tendas, estruturas cobertas e uma atmosfera de confraternização típica de eventos regionais brasileiros, com vestimentas que sugerem o final do século XX.",
+        "categories": [
+            "event",
+            "travel"
+        ],
+        "tags": [
+            "evento",
+            "comunitario",
+            "rural",
+            "multidao",
+            "festividade"
+        ],
+        "dominant_colors": [
+            "verde",
+            "azul",
+            "cinza"
+        ],
+        "people_count": 50,
+        "scene_type": "landscape",
+        "quality_score": 6,
+        "historical_period": "década de 1990",
+        "location_type": "campo",
+        "document_type": "fotografia",
+        "text_present": false,
+        "legibility_score": 0,
+        "estimated_year": 1995,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 20.07,
+        "processed_at": "2026-04-23T12:16:30.312355"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A46 X Festival do Vinho, equipe de apoio, jantares/img035.jpg",
+        "filename": "img035.jpg",
+        "file_hash": "fd5126a75053d7a2f56dc6ceabf4e139",
+        "file_size": 2040453,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia ao ar livre capturando um evento comunitário ou desfile, possivelmente em Videira, com pessoas caminhando ao lado de um trator Valmet que puxa um reboque com passageiros. A cena apresenta elementos típicos de festividades rurais ou cívicas, com faixas comemorativas e vestimentas que sugerem o final do século XX, provavelmente entre as décadas de 1980 e 1990.",
+        "categories": [
+            "event",
+            "architecture"
+        ],
+        "tags": [
+            "evento",
+            "rural",
             "videira",
-            "santa catarina",
-            "documento antigo",
-            "comissário de menores"
+            "trator",
+            "comunidade"
+        ],
+        "dominant_colors": [
+            "azul",
+            "verde",
+            "marrom"
+        ],
+        "people_count": 25,
+        "scene_type": "outdoor",
+        "quality_score": 7,
+        "historical_period": "década de 1980",
+        "location_type": "campo",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 4,
+        "estimated_year": 1985,
+        "attempts": 2,
+        "requests_made": 1,
+        "retry_count": 1,
+        "duration_sec": 30.73,
+        "processed_at": "2026-04-23T12:17:01.040873"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A46 X Festival do Vinho, equipe de apoio, jantares/img036.jpg",
+        "filename": "img036.jpg",
+        "file_hash": "f55e3783c0c8b53ee00aa334e7cfd5fe",
+        "file_size": 1899840,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia colorida que mostra um trator agrícola adaptado como um 'trenzinho' de passeio, transportando várias pessoas em um ambiente ao ar livre, possivelmente em um parque ou evento recreativo. O veículo possui a inscrição 'VIDEIRA' e o número '118', sugerindo um contexto de lazer ou turismo local em uma cidade do interior brasileiro, provavelmente nas décadas de 1980 ou 1990.",
+        "categories": [
+            "event",
+            "vehicle"
+        ],
+        "tags": [
+            "passeio",
+            "trator",
+            "lazer",
+            "videira",
+            "turismo"
         ],
         "dominant_colors": [
             "amarelo",
+            "azul",
+            "verde"
+        ],
+        "people_count": 10,
+        "scene_type": "outdoor",
+        "quality_score": 8,
+        "historical_period": "década de 1990",
+        "location_type": "outro",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 5,
+        "estimated_year": 1990,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 13.44,
+        "processed_at": "2026-04-23T12:17:14.478028"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A46 X Festival do Vinho, equipe de apoio, jantares/img037.jpg",
+        "filename": "img037.jpg",
+        "file_hash": "3ca52da00d88dd32bf74dddc47aeafed",
+        "file_size": 1749186,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia colorida de um ambiente de restaurante ou bar, possivelmente em uma área rural ou pequena cidade brasileira, decorado com trepadeiras e mesas postas com toalhas azuis. A presença de placas de marcas como Guaraná Brahma e Pepsi sugere um estabelecimento comercial popular, provavelmente datado entre as décadas de 1980 e 1990.",
+        "categories": [
+            "architecture",
+            "travel"
+        ],
+        "tags": [
+            "restaurante",
+            "comercio",
+            "decada de 90",
+            "interior",
+            "brasil"
+        ],
+        "dominant_colors": [
+            "branco",
+            "azul",
+            "vermelho"
+        ],
+        "people_count": 0,
+        "scene_type": "indoor",
+        "quality_score": 8,
+        "historical_period": "década de 1990",
+        "location_type": "comércio",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 8,
+        "estimated_year": 1995,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 15.96,
+        "processed_at": "2026-04-23T12:17:30.442544"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A46 X Festival do Vinho, equipe de apoio, jantares/img038.jpg",
+        "filename": "img038.jpg",
+        "file_hash": "06ae294cb448828ea530148e26004023",
+        "file_size": 1475205,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "A imagem mostra a preparação de um salão para um evento, com mesas postas com toalhas azuis e cadeiras de madeira. Em primeiro plano, há uma placa decorativa com a inscrição '10ª Festa Estadual do Vinho', sugerindo um evento comemorativo tradicional, possivelmente em Videira, Santa Catarina.",
+        "categories": [
+            "event",
+            "architecture"
+        ],
+        "tags": [
+            "festa do vinho",
+            "videira",
+            "evento",
+            "comemoracao",
+            "antigo"
+        ],
+        "dominant_colors": [
+            "azul",
+            "vermelho",
+            "branco"
+        ],
+        "people_count": 0,
+        "scene_type": "indoor",
+        "quality_score": 8,
+        "historical_period": "década de 1980",
+        "location_type": "comércio",
+        "document_type": "outro",
+        "text_present": true,
+        "legibility_score": 9,
+        "estimated_year": 1980,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 11.52,
+        "processed_at": "2026-04-23T12:17:41.959053"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A46 X Festival do Vinho, equipe de apoio, jantares/img039.jpg",
+        "filename": "img039.jpg",
+        "file_hash": "a652deb2ba71d81b92b84d6afd82629b",
+        "file_size": 1393130,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia colorida que mostra uma grande tenda de lona verde montada ao lado de uma residência de alvenaria. A estrutura parece ser utilizada para fins de armazenamento ou abrigo temporário em um ambiente residencial, possivelmente em uma área urbana ou suburbana brasileira.",
+        "categories": [
+            "architecture"
+        ],
+        "tags": [
+            "tenda",
+            "residencial",
+            "lona",
+            "abrigo",
+            "externo"
+        ],
+        "dominant_colors": [
+            "verde",
+            "branco",
+            "bege"
+        ],
+        "people_count": 0,
+        "scene_type": "outdoor",
+        "quality_score": 6,
+        "historical_period": "final do século XX",
+        "location_type": "residência",
+        "document_type": "fotografia",
+        "text_present": false,
+        "legibility_score": 0,
+        "estimated_year": 1990,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 10.12,
+        "processed_at": "2026-04-23T12:17:52.080995"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A46 X Festival do Vinho, equipe de apoio, jantares/img040.jpg",
+        "filename": "img040.jpg",
+        "file_hash": "5fcf9b8f74b3e86e73bd14e2ea7207eb",
+        "file_size": 1626163,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia colorida que mostra um veículo Fiat Uno, possivelmente uma viatura policial ou de serviço, estacionado em uma área externa com cascalho. Ao fundo, pessoas caminham em um ambiente que parece ser um evento ao ar livre ou uma área pública, com bandeiras hasteadas e vegetação, sugerindo um contexto brasileiro das décadas de 1980 ou 1990.",
+        "categories": [
+            "vehicle",
+            "event"
+        ],
+        "tags": [
+            "fiat uno",
+            "viatura",
+            "decada de 90",
+            "evento",
+            "urbano"
+        ],
+        "dominant_colors": [
+            "branco",
+            "cinza",
+            "verde"
+        ],
+        "people_count": 3,
+        "scene_type": "outdoor",
+        "quality_score": 7,
+        "historical_period": "década de 1990",
+        "location_type": "rua",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 8,
+        "estimated_year": 1995,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 7.98,
+        "processed_at": "2026-04-23T12:18:00.059372"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A47 Vitrines e artesanatos/img041.jpg",
+        "filename": "img041.jpg",
+        "file_hash": "2f0aa95b0f9aed8447a90babd277b16c",
+        "file_size": 1691351,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia de uma vitrine de loja, possivelmente uma sapataria ou comércio local, decorada com elementos rústicos como barris de madeira e cestos de vime. A imagem reflete o estilo de vitrinismo comercial de meados da década de 1990, com manequins e calçados expostos em prateleiras de vidro.",
+        "categories": [
+            "architecture",
+            "product"
+        ],
+        "tags": [
+            "vitrine",
+            "comercio",
+            "decada de 90",
+            "sapataria",
+            "urbano"
+        ],
+        "dominant_colors": [
+            "branco",
+            "marrom",
+            "verde"
+        ],
+        "people_count": 0,
+        "scene_type": "indoor",
+        "quality_score": 6,
+        "historical_period": "década de 1990",
+        "location_type": "comércio",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 3,
+        "estimated_year": 1995,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 15.59,
+        "processed_at": "2026-04-23T12:18:15.654074"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A47 Vitrines e artesanatos/img042.jpg",
+        "filename": "img042.jpg",
+        "file_hash": "301ae11a046cb945913e20be6b63052e",
+        "file_size": 1779317,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma mesa coberta com uma toalha xadrez vermelha exibe elementos típicos da cultura colonial italiana, como um garrafão de vinho revestido de vime, queijo e uma faca. A cena evoca tradições rurais e gastronômicas comuns em regiões de colonização europeia no Brasil, como Videira, possivelmente em um contexto de celebração ou degustação.",
+        "categories": [
+            "food",
+            "event"
+        ],
+        "tags": [
+            "vinho",
+            "queijo",
+            "colonial",
+            "tradição",
+            "gastronomia"
+        ],
+        "dominant_colors": [
+            "vermelho",
+            "branco",
+            "marrom"
+        ],
+        "people_count": 0,
+        "scene_type": "indoor",
+        "quality_score": 6,
+        "historical_period": "década de 1980",
+        "location_type": "residência",
+        "document_type": "outro",
+        "text_present": false,
+        "legibility_score": 0,
+        "estimated_year": 1985,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 12.57,
+        "processed_at": "2026-04-23T12:18:28.227270"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A47 Vitrines e artesanatos/img043.jpg",
+        "filename": "img043.jpg",
+        "file_hash": "89e5692facc3bcb11e64d81a3acf72f1",
+        "file_size": 1668314,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma composição que exibe ferramentas agrícolas rústicas, como enxadas, machados e uma panela de ferro, dispostas contra uma parede com pintura decorativa. A cena evoca a vida rural e o trabalho no campo, possivelmente em um contexto de museu ou exposição cultural que preserva a história da colonização.",
+        "categories": [
+            "architecture",
+            "event"
+        ],
+        "tags": [
+            "rural",
+            "ferramentas",
+            "antigo",
+            "agricultura",
+            "colonizacao"
+        ],
+        "dominant_colors": [
+            "marrom",
+            "azul",
+            "bege"
+        ],
+        "people_count": 1,
+        "scene_type": "indoor",
+        "quality_score": 8,
+        "historical_period": "desconhecido",
+        "location_type": "outro",
+        "document_type": "outro",
+        "text_present": false,
+        "legibility_score": 0,
+        "estimated_year": 0,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 6.85,
+        "processed_at": "2026-04-23T12:18:35.074933"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A47 Vitrines e artesanatos/img044.jpg",
+        "filename": "img044.jpg",
+        "file_hash": "eee7e17e2ccf358e9e6275e6f69f2135",
+        "file_size": 1489164,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia de interior que captura uma cena doméstica com uma mesa posta, adornada com uma toalha bordada com motivos de frutas e garrafas de vinho. Um chapéu repousa sobre a mesa, sugerindo uma atmosfera de pausa ou espera, em um ambiente decorado com móveis de madeira e quadros, possivelmente em uma residência de estilo tradicional.",
+        "categories": [
+            "architecture",
+            "event"
+        ],
+        "tags": [
+            "interior",
+            "vinho",
+            "antigo",
+            "residencial",
+            "decoração"
+        ],
+        "dominant_colors": [
+            "marrom",
+            "branco",
+            "vermelho"
+        ],
+        "people_count": 0,
+        "scene_type": "indoor",
+        "quality_score": 6,
+        "historical_period": "final do século XX",
+        "location_type": "residência",
+        "document_type": "fotografia",
+        "text_present": false,
+        "legibility_score": 0,
+        "estimated_year": 1990,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 10.02,
+        "processed_at": "2026-04-23T12:18:45.090089"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A47 Vitrines e artesanatos/img045.jpg",
+        "filename": "img045.jpg",
+        "file_hash": "4864667464322ca072ae9a4dadf6299d",
+        "file_size": 1644114,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia interna de uma ótica, exibindo balcões de madeira com diversas armações de óculos organizadas. Sobre uma pequena mesa com toalha xadrez, há pães e uma garrafa de vinho, sugerindo uma celebração ou evento promocional em um estabelecimento comercial, possivelmente nas décadas de 1980 ou 1990.",
+        "categories": [
+            "architecture",
+            "product"
+        ],
+        "tags": [
+            "otica",
+            "comercio",
+            "vintage",
+            "oculos",
+            "decada de 90"
+        ],
+        "dominant_colors": [
+            "bege",
+            "marrom",
+            "branco"
+        ],
+        "people_count": 0,
+        "scene_type": "indoor",
+        "quality_score": 8,
+        "historical_period": "década de 1990",
+        "location_type": "comércio",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 5,
+        "estimated_year": 1995,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 10.86,
+        "processed_at": "2026-04-23T12:18:55.947681"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A47 Vitrines e artesanatos/img046.jpg",
+        "filename": "img046.jpg",
+        "file_hash": "8731782c7287c47530301b3496190a26",
+        "file_size": 1534132,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma cena de interior que retrata uma pessoa sentada à mesa, vestindo um chapéu e uma jaqueta rosa, em um ambiente decorado com estilo clássico ou rústico. O espaço apresenta elementos como um biombo de bambu com fotografias antigas, uma toalha de mesa bordada e um relógio de parede, sugerindo um ambiente de memória ou um espaço cultural.",
+        "categories": [
+            "portrait",
+            "architecture"
+        ],
+        "tags": [
+            "interior",
+            "antigo",
+            "memoria",
+            "decoracao",
+            "cotidiano"
+        ],
+        "dominant_colors": [
+            "marrom",
+            "rosa",
+            "branco"
+        ],
+        "people_count": 1,
+        "scene_type": "indoor",
+        "quality_score": 6,
+        "historical_period": "final do século XX",
+        "location_type": "residência",
+        "document_type": "outro",
+        "text_present": false,
+        "legibility_score": 0,
+        "estimated_year": 1990,
+        "attempts": 2,
+        "requests_made": 1,
+        "retry_count": 1,
+        "duration_sec": 14.94,
+        "processed_at": "2026-04-23T12:19:10.887997"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A47 Vitrines e artesanatos/img047.jpg",
+        "filename": "img047.jpg",
+        "file_hash": "f66b7ad6708961cf8d486142fcb4e856",
+        "file_size": 1673454,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma vitrine de loja que exibe uma decoração rústica com elementos que remetem à vida rural e à colonização, incluindo rodas de carroça, ferramentas agrícolas antigas, lanternas e calçados. A cena sugere um estabelecimento comercial em uma cidade do interior, possivelmente com o objetivo de evocar tradições locais.",
+        "categories": [
+            "architecture",
+            "product"
+        ],
+        "tags": [
+            "vitrine",
+            "rural",
+            "antigo",
+            "comercio",
+            "tradicao"
+        ],
+        "dominant_colors": [
+            "marrom",
+            "branco",
+            "cinza"
+        ],
+        "people_count": 1,
+        "scene_type": "indoor",
+        "quality_score": 8,
+        "historical_period": "final do século XX",
+        "location_type": "comércio",
+        "document_type": "outro",
+        "text_present": true,
+        "legibility_score": 3,
+        "estimated_year": 1990,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 14.03,
+        "processed_at": "2026-04-23T12:19:24.916268"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A47 Vitrines e artesanatos/img048.jpg",
+        "filename": "img048.jpg",
+        "file_hash": "499fd075d42c26e50841d3e67a72ab0e",
+        "file_size": 1429081,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma vitrine ou exposição temática que remete à cultura colonial italiana, possivelmente em Videira, Santa Catarina. O cenário inclui um manequim vestido com avental e camisa xadrez, acompanhado de barris de madeira, uma garrafa de vinho e um chapéu de palha, sugerindo uma celebração da vitivinicultura local.",
+        "categories": [
+            "event",
+            "product"
+        ],
+        "tags": [
+            "vitivinicultura",
+            "colonial",
+            "cultura",
+            "exposicao",
+            "tradicao"
+        ],
+        "dominant_colors": [
+            "marrom",
+            "branco",
+            "vermelho"
+        ],
+        "people_count": 0,
+        "scene_type": "indoor",
+        "quality_score": 7,
+        "historical_period": "final do século XX",
+        "location_type": "comércio",
+        "document_type": "outro",
+        "text_present": true,
+        "legibility_score": 3,
+        "estimated_year": 1990,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 10.13,
+        "processed_at": "2026-04-23T12:19:35.043272"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A47 Vitrines e artesanatos/img049.jpg",
+        "filename": "img049.jpg",
+        "file_hash": "9710eb16dc09019d29ce8d894558726f",
+        "file_size": 1858408,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia interna de uma ótica, exibindo prateleiras de madeira com diversos modelos de óculos e expositores de parede. O ambiente apresenta elementos típicos de um estabelecimento comercial brasileiro das décadas de 1990 ou 2000, incluindo adesivos da Caixa Econômica Federal e garrafas de vinho sobre o balcão.",
+        "categories": [
+            "architecture",
+            "product"
+        ],
+        "tags": [
+            "otica",
+            "comercio",
+            "decada de 90",
+            "oculos",
+            "varejo"
+        ],
+        "dominant_colors": [
+            "marrom",
+            "branco",
+            "preto"
+        ],
+        "people_count": 0,
+        "scene_type": "indoor",
+        "quality_score": 6,
+        "historical_period": "década de 1990",
+        "location_type": "comércio",
+        "document_type": "outro",
+        "text_present": true,
+        "legibility_score": 5,
+        "estimated_year": 1995,
+        "attempts": 2,
+        "requests_made": 1,
+        "retry_count": 1,
+        "duration_sec": 17.69,
+        "processed_at": "2026-04-23T12:19:52.731844"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A47 Vitrines e artesanatos/img050.jpg",
+        "filename": "img050.jpg",
+        "file_hash": "eb701ea39ce6b24e4aa81eb9e275d21d",
+        "file_size": 1728007,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia interna mostrando um balcão de atendimento, possivelmente de uma cooperativa ou banco, decorado com elementos rústicos como trepadeiras, cestas de frutas e toalhas xadrez. O ambiente sugere uma celebração cultural ou temática em um espaço comercial, provavelmente nas décadas de 1980 ou 1990.",
+        "categories": [
+            "architecture",
+            "event"
+        ],
+        "tags": [
+            "decoracao",
+            "rustico",
+            "comercio",
+            "decada de 90",
+            "interior"
+        ],
+        "dominant_colors": [
+            "marrom",
+            "branco",
+            "azul"
+        ],
+        "people_count": 2,
+        "scene_type": "indoor",
+        "quality_score": 6,
+        "historical_period": "década de 1990",
+        "location_type": "comércio",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 5,
+        "estimated_year": 1995,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 22.59,
+        "processed_at": "2026-04-23T12:20:15.318105"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A47 Vitrines e artesanatos/img051.jpg",
+        "filename": "img051.jpg",
+        "file_hash": "60c6e5762a422a8d063e209c1f64a676",
+        "file_size": 1751140,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia interna de uma ótica, exibindo diversas armações de óculos organizadas em prateleiras de parede e balcões de madeira. O ambiente apresenta elementos decorativos como um pequeno barril de madeira e uma garrafa, sugerindo uma possível conexão com a cultura vitivinícola local, comum em cidades como Videira.",
+        "categories": [
+            "architecture",
+            "product"
+        ],
+        "tags": [
+            "otica",
+            "comercio",
+            "oculos",
+            "vitivinicultura",
+            "interior"
+        ],
+        "dominant_colors": [
+            "bege",
+            "branco",
+            "preto"
+        ],
+        "people_count": 0,
+        "scene_type": "indoor",
+        "quality_score": 7,
+        "historical_period": "década de 1990",
+        "location_type": "comércio",
+        "document_type": "fotografia",
+        "text_present": false,
+        "legibility_score": 0,
+        "estimated_year": 1995,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 15.21,
+        "processed_at": "2026-04-23T12:20:30.528953"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A47 Vitrines e artesanatos/img057.jpg",
+        "filename": "img057.jpg",
+        "file_hash": "350ade39b6bb278321871d7588b7f4d8",
+        "file_size": 1433369,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma cena interna que evoca a vida rural tradicional, possivelmente em um contexto de colonização italiana no sul do Brasil. Destacam-se elementos como espigas de milho penduradas, um cesto de vime, uma panela de ferro e uma pequena mesa feita de barril com garrafas de vinho e copos, sugerindo um ambiente de hospitalidade rústica.",
+        "categories": [
+            "architecture",
+            "travel"
+        ],
+        "tags": [
+            "rural",
+            "colonizacao",
+            "vinho",
+            "tradicao",
+            "antigo"
+        ],
+        "dominant_colors": [
+            "marrom",
+            "bege",
+            "verde"
+        ],
+        "people_count": 0,
+        "scene_type": "indoor",
+        "quality_score": 6,
+        "historical_period": "final do século XX",
+        "location_type": "residência",
+        "document_type": "outro",
+        "text_present": false,
+        "legibility_score": 0,
+        "estimated_year": 1980,
+        "attempts": 2,
+        "requests_made": 1,
+        "retry_count": 1,
+        "duration_sec": 12.71,
+        "processed_at": "2026-04-23T12:20:43.243537"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A47 Vitrines e artesanatos/img058.jpg",
+        "filename": "img058.jpg",
+        "file_hash": "dd5c89e323a60c451e0b75a4f482d029",
+        "file_size": 1374934,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma cena interna que retrata um ambiente doméstico rústico, possivelmente uma casa de colonos ou museu histórico, com móveis de madeira, utensílios antigos e decoração tradicional. Elementos como espigas de milho, uma foice e um rádio antigo sugerem um contexto rural brasileiro, possivelmente preservado para fins de memória histórica.",
+        "categories": [
+            "architecture",
+            "event"
+        ],
+        "tags": [
+            "rustico",
+            "historico",
+            "rural",
+            "colonizacao",
+            "antigo"
+        ],
+        "dominant_colors": [
+            "marrom",
+            "bege",
+            "branco"
+        ],
+        "people_count": 0,
+        "scene_type": "indoor",
+        "quality_score": 6,
+        "historical_period": "desconhecido",
+        "location_type": "residência",
+        "document_type": "outro",
+        "text_present": false,
+        "legibility_score": 0,
+        "estimated_year": 0,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 10.99,
+        "processed_at": "2026-04-23T12:20:54.236897"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A47 Vitrines e artesanatos/img059.jpg",
+        "filename": "img059.jpg",
+        "file_hash": "68a192c9fcadc793edec10942bb43d4c",
+        "file_size": 1539897,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "A imagem mostra uma parede de madeira rústica onde estão pendurados diversos arreios, selas e cordas de couro, típicos de atividades rurais e tropeiras. O cenário sugere um ambiente de galpão ou celeiro, possivelmente em uma região de colonização agrícola, refletindo costumes tradicionais do interior brasileiro.",
+        "categories": [
+            "architecture",
+            "product"
+        ],
+        "tags": [
+            "rural",
+            "arreios",
+            "couro",
+            "tradicao",
+            "antigo"
+        ],
+        "dominant_colors": [
+            "marrom",
+            "bege",
+            "cinza"
+        ],
+        "people_count": 0,
+        "scene_type": "indoor",
+        "quality_score": 7,
+        "historical_period": "desconhecido",
+        "location_type": "outro",
+        "document_type": "outro",
+        "text_present": false,
+        "legibility_score": 0,
+        "estimated_year": 0,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 19.82,
+        "processed_at": "2026-04-23T12:21:14.060808"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A47 Vitrines e artesanatos/img060.jpg",
+        "filename": "img060.jpg",
+        "file_hash": "6d70b5d40d7a20ffadd804f8e5e87dc1",
+        "file_size": 1677060,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma vitrine decorada com temática nostálgica, contendo uma boneca de porcelana sentada em uma cadeira de vime, fotografias antigas em porta-retratos e elementos que remetem à cultura da uva e do vinho. O cenário sugere uma exposição comemorativa ou histórica, possivelmente em um estabelecimento comercial ou museu local, com elementos decorativos como plantas trepadeiras e uma toalha de crochê.",
+        "categories": [
+            "architecture",
+            "event"
+        ],
+        "tags": [
+            "vitrine",
+            "nostalgia",
+            "fotografia antiga",
+            "decoração",
+            "histórico"
+        ],
+        "dominant_colors": [
+            "roxo",
+            "marrom",
+            "branco"
+        ],
+        "people_count": 0,
+        "scene_type": "indoor",
+        "quality_score": 6,
+        "historical_period": "final do século XX",
+        "location_type": "comércio",
+        "document_type": "outro",
+        "text_present": true,
+        "legibility_score": 3,
+        "estimated_year": 1995,
+        "attempts": 3,
+        "requests_made": 1,
+        "retry_count": 2,
+        "duration_sec": 24.03,
+        "processed_at": "2026-04-23T12:21:38.093573"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A47 Vitrines e artesanatos/img061.jpg",
+        "filename": "img061.jpg",
+        "file_hash": "f10013a5b462421328a639b922679977",
+        "file_size": 1498644,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma cena interna que retrata um ambiente rústico, possivelmente uma cozinha ou sala de estar típica de uma casa de colonização no interior do Brasil. O espaço apresenta elementos tradicionais como um fogão a lenha, uma sanfona, um rádio antigo e utensílios domésticos, evocando uma atmosfera de nostalgia e vida rural.",
+        "categories": [
+            "architecture",
+            "product"
+        ],
+        "tags": [
+            "rústico",
+            "antigo",
+            "colonização",
+            "interior",
+            "tradição"
+        ],
+        "dominant_colors": [
+            "marrom",
+            "branco",
+            "azul"
+        ],
+        "people_count": 0,
+        "scene_type": "indoor",
+        "quality_score": 6,
+        "historical_period": "final do século XX",
+        "location_type": "residência",
+        "document_type": "outro",
+        "text_present": false,
+        "legibility_score": 0,
+        "estimated_year": 1990,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 12.95,
+        "processed_at": "2026-04-23T12:21:51.042233"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A47 Vitrines e artesanatos/img062.jpg",
+        "filename": "img062.jpg",
+        "file_hash": "70f0bea90277805f5e926590bc3ebebd",
+        "file_size": 1454166,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia de interior que exibe uma decoração rústica com cortinas cor-de-rosa, cadeiras de madeira com estofado floral e uma pintura decorativa de uvas. O ambiente sugere um espaço de convivência ou restaurante temático, possivelmente relacionado à cultura da viticultura, comum em regiões como Videira.",
+        "categories": [
+            "architecture",
+            "travel"
+        ],
+        "tags": [
+            "rustico",
+            "decoracao",
+            "uvas",
+            "interior",
+            "tradicao"
+        ],
+        "dominant_colors": [
+            "rosa",
+            "marrom",
+            "branco"
+        ],
+        "people_count": 0,
+        "scene_type": "indoor",
+        "quality_score": 6,
+        "historical_period": "década de 1980",
+        "location_type": "residência",
+        "document_type": "fotografia",
+        "text_present": false,
+        "legibility_score": 0,
+        "estimated_year": 1985,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 12.23,
+        "processed_at": "2026-04-23T12:22:03.271974"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A47 Vitrines e artesanatos/img065.jpg",
+        "filename": "img065.jpg",
+        "file_hash": "24c22f34ac304a012a7b96aa4d3a89cd",
+        "file_size": 1715398,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia colorida que retrata um estande promocional da Prefeitura Municipal de Videira em um evento, possivelmente o Festival do Vinho. Várias pessoas, algumas vestidas com trajes típicos, estão posicionadas atrás de uma mesa repleta de garrafas de vinho e produtos locais, com cartazes informativos ao fundo.",
+        "categories": [
+            "event",
+            "architecture"
+        ],
+        "tags": [
+            "videira",
+            "festival do vinho",
+            "cultura",
+            "estande",
+            "antigo"
+        ],
+        "dominant_colors": [
+            "branco",
+            "vermelho",
+            "azul"
+        ],
+        "people_count": 6,
+        "scene_type": "indoor",
+        "quality_score": 8,
+        "historical_period": "década de 1980",
+        "location_type": "comércio",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 8,
+        "estimated_year": 1985,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 22.23,
+        "processed_at": "2026-04-23T12:22:25.500805"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A47 Vitrines e artesanatos/img066.jpg",
+        "filename": "img066.jpg",
+        "file_hash": "2c3ded06f7a9b2c0ee67ba565f0fc60b",
+        "file_size": 2130709,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia de uma barraca de lona montada ao ar livre, possivelmente em um evento escolar ou comunitário, com uma placa indicando 'E.B. Padre Bruno'. Pessoas estão posicionadas sob a tenda, onde há freezers de sorvete, sugerindo uma atividade de venda ou confraternização em um ambiente rural ou escolar.",
+        "categories": [
+            "event",
+            "architecture"
+        ],
+        "tags": [
+            "escola",
+            "evento",
+            "barraca",
+            "comunidade",
+            "ao ar livre"
+        ],
+        "dominant_colors": [
+            "verde",
+            "branco",
+            "azul"
+        ],
+        "people_count": 3,
+        "scene_type": "outdoor",
+        "quality_score": 6,
+        "historical_period": "década de 1990",
+        "location_type": "campo",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 7,
+        "estimated_year": 1995,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 12.14,
+        "processed_at": "2026-04-23T12:22:37.643937"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A47 Vitrines e artesanatos/img067.jpg",
+        "filename": "img067.jpg",
+        "file_hash": "e89585803d1884c17e3900639928cc5b",
+        "file_size": 1770888,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma televisão de tubo antiga com antenas telescópicas está montada em uma estrutura de madeira fixada em uma parede branca com uma faixa vertical vermelha. O ambiente parece ser uma instalação artística ou um espaço de exposição, possivelmente datado entre as décadas de 1980 e 1990.",
+        "categories": [
+            "architecture",
+            "art"
+        ],
+        "tags": [
+            "televisao",
+            "instalacao",
+            "arte",
+            "vintage",
+            "interior"
+        ],
+        "dominant_colors": [
+            "branco",
+            "vermelho",
+            "preto"
+        ],
+        "people_count": 0,
+        "scene_type": "indoor",
+        "quality_score": 8,
+        "historical_period": "década de 1990",
+        "location_type": "interior",
+        "document_type": "outro",
+        "text_present": false,
+        "legibility_score": 0,
+        "estimated_year": 1990,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 14.04,
+        "processed_at": "2026-04-23T12:22:51.679746"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 02/A47 Vitrines e artesanatos/img068.jpg",
+        "filename": "img068.jpg",
+        "file_hash": "9ad4bb0e19e2468b435ea3c47ae8f4d0",
+        "file_size": 1630274,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia que mostra um estande de madeira em uma feira ou evento, possivelmente em Videira, Santa Catarina, devido à presença da bandeira municipal. Pessoas estão presentes, incluindo um cinegrafista registrando o local, sugerindo uma cobertura jornalística ou documental de um evento regional.",
+        "categories": [
+            "event",
+            "architecture"
+        ],
+        "tags": [
+            "videira",
+            "evento",
+            "feira",
+            "bandeira",
+            "histórico"
+        ],
+        "dominant_colors": [
+            "bege",
+            "branco",
+            "verde"
+        ],
+        "people_count": 8,
+        "scene_type": "indoor",
+        "quality_score": 7,
+        "historical_period": "década de 1990",
+        "location_type": "comércio",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 3,
+        "estimated_year": 1995,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 7.89,
+        "processed_at": "2026-04-23T12:22:59.567758"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 04/DC17- Desfile Cinquentenário- 1° Festa Da Uva/img306.jpg",
+        "filename": "img306.jpg",
+        "file_hash": "a0c2a2e0c367a883658bc7ebe27409d8",
+        "file_size": 1873287,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia colorida mostrando um carro alegórico decorado com folhagens, participando de um desfile da Festa da Uva. O veículo possui uma estrutura arquitetônica estilizada e pessoas observando do alto, com bandeiras do Brasil e do município visíveis, sugerindo um evento cultural típico de cidades como Videira.",
+        "categories": [
+            "event",
+            "architecture"
+        ],
+        "tags": [
+            "festa da uva",
+            "desfile",
+            "carro alegórico",
+            "cultura",
+            "evento"
+        ],
+        "dominant_colors": [
+            "branco",
+            "verde",
+            "marrom"
+        ],
+        "people_count": 5,
+        "scene_type": "outdoor",
+        "quality_score": 8,
+        "historical_period": "década de 1990",
+        "location_type": "rua",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 6,
+        "estimated_year": 1995,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 19.0,
+        "processed_at": "2026-04-23T12:23:18.570912"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 04/DC17- Desfile Cinquentenário- 1° Festa Da Uva/img307.jpg",
+        "filename": "img307.jpg",
+        "file_hash": "2971075aef3e6e39e4afa57841959491",
+        "file_size": 2132221,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Fotografia colorida de um grupo de jovens mulheres vestidas com trajes típicos, possivelmente de influência europeia, em um carro alegórico ou estrutura decorada com a inscrição 'GRANDE EXPOSIÇÃO'. A imagem, datada de agosto de 1994, sugere um evento cultural ou festividade municipal, comum em cidades com forte colonização europeia no Brasil.",
+        "categories": [
+            "event",
+            "architecture"
+        ],
+        "tags": [
+            "anos 90",
+            "festividade",
+            "traje tipico",
+            "exposicao",
+            "cultura"
+        ],
+        "dominant_colors": [
+            "branco",
+            "vermelho",
+            "marrom"
+        ],
+        "people_count": 7,
+        "scene_type": "event",
+        "quality_score": 8,
+        "historical_period": "década de 1990",
+        "location_type": "outro",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 8,
+        "estimated_year": 1994,
+        "attempts": 2,
+        "requests_made": 1,
+        "retry_count": 1,
+        "duration_sec": 34.1,
+        "processed_at": "2026-04-23T12:23:52.673657"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 04/DC17- Desfile Cinquentenário- 1° Festa Da Uva/img308.jpg",
+        "filename": "img308.jpg",
+        "file_hash": "8bf79f51fa005bcbde26594db64f3f53",
+        "file_size": 1960750,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia colorida capturada em ângulo inclinado mostrando um grupo de jovens em uma sacada de um edifício com arquitetura geométrica. O prédio exibe a inscrição 'GRANDE EXPOSIÇÃO' e bandeiras do Brasil, sugerindo um evento cívico ou escolar ocorrido em 1994, conforme indicado pela data no canto superior esquerdo.",
+        "categories": [
+            "architecture",
+            "event"
+        ],
+        "tags": [
+            "decada de 90",
+            "estudantes",
+            "arquitetura",
+            "evento civico",
+            "brasil"
+        ],
+        "dominant_colors": [
+            "branco",
+            "marrom",
+            "azul"
+        ],
+        "people_count": 6,
+        "scene_type": "outdoor",
+        "quality_score": 8,
+        "historical_period": "década de 1990",
+        "location_type": "prédio público",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 8,
+        "estimated_year": 1994,
+        "attempts": 3,
+        "requests_made": 1,
+        "retry_count": 2,
+        "duration_sec": 26.69,
+        "processed_at": "2026-04-23T12:24:19.367880"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 04/DC17- Desfile Cinquentenário- 1° Festa Da Uva/img309.jpg",
+        "filename": "img309.jpg",
+        "file_hash": "25d883cb7059b70a5ab4a10b06363f87",
+        "file_size": 2072897,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia de um desfile ou evento público em uma rua urbana, datada de agosto de 1994. A imagem mostra um caminhão Mercedes-Benz da empresa 'Mecânica Atlas Ltda' passando por uma multidão de espectadores, com um grande edifício ao fundo.",
+        "categories": [
+            "event",
+            "architecture"
+        ],
+        "tags": [
+            "desfile",
+            "anos 90",
+            "urbano",
+            "caminhao",
+            "evento"
+        ],
+        "dominant_colors": [
+            "branco",
+            "bege",
+            "azul"
+        ],
+        "people_count": 50,
+        "scene_type": "outdoor",
+        "quality_score": 8,
+        "historical_period": "década de 1990",
+        "location_type": "rua",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 8,
+        "estimated_year": 1994,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 19.35,
+        "processed_at": "2026-04-23T12:24:38.713948"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 04/DC17- Desfile Cinquentenário- 1° Festa Da Uva/img310.jpg",
+        "filename": "img310.jpg",
+        "file_hash": "3667edfb5c32c06280f8ae315bf1a8c8",
+        "file_size": 2173569,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia de um desfile público, provavelmente em Videira, Santa Catarina, durante a '1ª Festa da Uva' em agosto de 1994. A imagem mostra uma multidão acompanhando um caminhão decorado, com pessoas vestindo roupas típicas da década de 1990, em um cenário urbano com arquitetura comercial ao fundo.",
+        "categories": [
+            "event",
+            "architecture"
+        ],
+        "tags": [
+            "videira",
+            "festa da uva",
+            "desfile",
+            "decada de 90",
+            "urbano"
+        ],
+        "dominant_colors": [
+            "bege",
+            "azul",
+            "branco"
+        ],
+        "people_count": 100,
+        "scene_type": "outdoor",
+        "quality_score": 8,
+        "historical_period": "década de 1990",
+        "location_type": "rua",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 8,
+        "estimated_year": 1994,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 11.67,
+        "processed_at": "2026-04-23T12:24:50.379154"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 06/E01 - Foto artística/Por do sol.jpg",
+        "filename": "Por do sol.jpg",
+        "file_hash": "e33a85fdcbb5a4569fdc161ca85beedb",
+        "file_size": 8343319,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia de paisagem capturando o momento do nascer ou pôr do sol, com o brilho intenso do astro filtrado pelas silhuetas de árvores. A imagem apresenta um forte contraste entre a luz solar e as sombras da vegetação, sugerindo um ambiente rural ou natural, possivelmente em uma região como Videira.",
+        "categories": [
+            "nature",
+            "travel"
+        ],
+        "tags": [
+            "natureza",
+            "por-do-sol",
+            "paisagem",
+            "rural",
+            "luz"
+        ],
+        "dominant_colors": [
+            "preto",
+            "laranja",
+            "amarelo"
+        ],
+        "people_count": 0,
+        "scene_type": "landscape",
+        "quality_score": 6,
+        "historical_period": "desconhecido",
+        "location_type": "campo",
+        "document_type": "fotografia",
+        "text_present": false,
+        "legibility_score": 0,
+        "estimated_year": 0,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 11.57,
+        "processed_at": "2026-04-23T12:25:01.946945"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 06/E11 - Gincana de Vinho - Tarefas/img002.jpg",
+        "filename": "img002.jpg",
+        "file_hash": "94fec83ec034b951639903f06234a67f",
+        "file_size": 2823689,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia que mostra pessoas sentadas em arquibancadas de madeira em um pavilhão coberto, possivelmente durante a Festa Estadual da Uva em Videira. O ambiente é decorado com bandeirinhas e cartazes publicitários, indicando um evento público ou festividade regional ocorrida no final do século XX.",
+        "categories": [
+            "event",
+            "architecture"
+        ],
+        "tags": [
+            "festa da uva",
+            "videira",
+            "arquibancada",
+            "evento",
+            "decada de 80"
+        ],
+        "dominant_colors": [
+            "marrom",
+            "branco",
+            "azul"
+        ],
+        "people_count": 11,
+        "scene_type": "indoor",
+        "quality_score": 8,
+        "historical_period": "década de 1980",
+        "location_type": "outro",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 9,
+        "estimated_year": 1987,
+        "attempts": 2,
+        "requests_made": 1,
+        "retry_count": 1,
+        "duration_sec": 12.71,
+        "processed_at": "2026-04-23T12:25:14.655725"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 06/E11 - Gincana de Vinho - Tarefas/img003.jpg",
+        "filename": "img003.jpg",
+        "file_hash": "7a3fb4dacbc8e2cb1a0c86fa164b8a37",
+        "file_size": 3061389,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma cena de um estande promocional de vinhos da região de Tangará, provavelmente em uma feira agropecuária ou evento local. O estande exibe fotografias aéreas da cidade, garrafas de vinho, um barril de madeira e conta com a presença de atendentes, refletindo a cultura vitivinícola da região sul do Brasil.",
+        "categories": [
+            "event",
+            "commerce"
+        ],
+        "tags": [
+            "tangara",
+            "vinho",
+            "feira",
+            "vitivinicultura",
+            "antigo"
+        ],
+        "dominant_colors": [
+            "branco",
+            "azul",
+            "vermelho"
+        ],
+        "people_count": 4,
+        "scene_type": "indoor",
+        "quality_score": 7,
+        "historical_period": "década de 1990",
+        "location_type": "comércio",
+        "document_type": "outro",
+        "text_present": true,
+        "legibility_score": 8,
+        "estimated_year": 1995,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 7.75,
+        "processed_at": "2026-04-23T12:25:22.403170"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 06/E11 - Gincana de Vinho - Tarefas/img004.jpg",
+        "filename": "img004.jpg",
+        "file_hash": "bd79532d76cd44a29c125a8fa0954e6c",
+        "file_size": 2775678,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia de um estande de exposição em uma feira agropecuária ou evento regional, possivelmente na região de Santa Catarina, destacando os municípios de Tangará e Rio das Antas. O local apresenta balcões com vinhos e produtos locais, com pessoas atendendo ao público em um ambiente coberto, sugerindo uma feira de negócios ou exposição de produtores rurais típica das décadas de 1980 ou 1990.",
+        "categories": [
+            "event",
+            "architecture"
+        ],
+        "tags": [
+            "feira",
+            "exposicao",
+            "vinho",
+            "agricultura",
+            "regional"
+        ],
+        "dominant_colors": [
+            "branco",
+            "azul",
+            "marrom"
+        ],
+        "people_count": 5,
+        "scene_type": "indoor",
+        "quality_score": 8,
+        "historical_period": "década de 1990",
+        "location_type": "comércio",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 9,
+        "estimated_year": 1990,
+        "attempts": 2,
+        "requests_made": 1,
+        "retry_count": 1,
+        "duration_sec": 34.18,
+        "processed_at": "2026-04-23T12:25:56.581319"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 06/E13 - Reunião da gincana do vinho/reunião da gincana do vinho - 1985.jpg",
+        "filename": "reunião da gincana do vinho - 1985.jpg",
+        "file_hash": "1e73bcd623a9cf1397a5c77e505a9a5a",
+        "file_size": 1575313,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia em preto e branco que retrata um grupo de oito homens reunidos em um ambiente interno, possivelmente um escritório ou sala de reuniões. As vestimentas, incluindo suéteres e jaquetas, sugerem um contexto de trabalho ou reunião formal típico da década de 1980.",
+        "categories": [
+            "event",
+            "portrait"
+        ],
+        "tags": [
+            "reuniao",
+            "decada de 80",
+            "homens",
+            "escritorio",
+            "antigo"
+        ],
+        "dominant_colors": [
+            "preto",
+            "branco",
+            "cinza"
+        ],
+        "people_count": 8,
+        "scene_type": "indoor",
+        "quality_score": 6,
+        "historical_period": "década de 1980",
+        "location_type": "interior",
+        "document_type": "fotografia",
+        "text_present": false,
+        "legibility_score": 0,
+        "estimated_year": 1985,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 22.0,
+        "processed_at": "2026-04-23T12:26:18.581990"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 06/E14 - Baile do Vinho - XI concurso de vinhos/2003 - Consurso e Baile do Vinho.jpg",
+        "filename": "2003 - Consurso e Baile do Vinho.jpg",
+        "file_hash": "0ec9f62af9a1c60abb50c34e69430461",
+        "file_size": 12781856,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma folha de contato fotográfico contendo diversas miniaturas de um evento social, provavelmente um jantar ou confraternização formal. As imagens mostram pessoas em mesas, pratos de comida e decorações, sugerindo um evento corporativo ou de celebração ocorrido no final do século XX ou início do XXI.",
+        "categories": [
+            "event",
+            "document"
+        ],
+        "tags": [
+            "fotografia",
+            "evento",
+            "contato",
+            "social",
+            "confraternizacao"
+        ],
+        "dominant_colors": [
+            "preto",
+            "branco",
+            "cinza"
+        ],
+        "people_count": 50,
+        "scene_type": "document",
+        "quality_score": 8,
+        "historical_period": "final do século XX",
+        "location_type": "interior",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 8,
+        "estimated_year": 1995,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 8.0,
+        "processed_at": "2026-04-23T12:26:26.581916"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 06/E14 - Baile do Vinho - XI concurso de vinhos/Baile e concurso do vinho - 2003.jpg",
+        "filename": "Baile e concurso do vinho - 2003.jpg",
+        "file_hash": "c1db7291f6ad5ef2edc02fcb042e1e75",
+        "file_size": 13237899,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma folha de contato fotográfico contendo diversas miniaturas de fotos de um evento social, provavelmente uma premiação ou jantar comemorativo relacionado à vitivinicultura. As imagens mostram pessoas em trajes formais, mesas decoradas com garrafas de vinho e barris, sugerindo um contexto de celebração ou feira de vinhos em uma região produtora.",
+        "categories": [
+            "event",
+            "architecture"
+        ],
+        "tags": [
+            "fotografia",
+            "evento",
+            "vinho",
+            "contato",
+            "social"
+        ],
+        "dominant_colors": [
+            "branco",
+            "preto",
+            "azul"
+        ],
+        "people_count": 150,
+        "scene_type": "event",
+        "quality_score": 8,
+        "historical_period": "início do século XXI",
+        "location_type": "comércio",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 5,
+        "estimated_year": 2005,
+        "attempts": 4,
+        "requests_made": 1,
+        "retry_count": 3,
+        "duration_sec": 22.01,
+        "processed_at": "2026-04-23T12:26:48.589383"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 06/E14 - Baile do Vinho - XI concurso de vinhos/Concurso e Baile do Vinho - 2003.jpg",
+        "filename": "Concurso e Baile do Vinho - 2003.jpg",
+        "file_hash": "c355825c6866c73f852620469c4e5c53",
+        "file_size": 12641987,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma folha de contato fotográfico contendo diversas imagens de um evento formal, provavelmente um concurso ou premiação de vinhos, com a presença de autoridades e participantes. As fotos mostram discursos, entrega de troféus e interações sociais, sugerindo um contexto institucional ou regional, possivelmente em Videira, Santa Catarina, dada a referência a 'Epagri' e 'Concurso Estadual de Vinhos'.",
+        "categories": [
+            "event",
+            "architecture"
+        ],
+        "tags": [
+            "evento",
+            "vinho",
+            "epagri",
+            "premio",
+            "fotografia"
+        ],
+        "dominant_colors": [
+            "branco",
+            "preto",
+            "azul"
+        ],
+        "people_count": 80,
+        "scene_type": "document",
+        "quality_score": 6,
+        "historical_period": "década de 1990",
+        "location_type": "prédio público",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 5,
+        "estimated_year": 1995,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 11.23,
+        "processed_at": "2026-04-23T12:26:59.821627"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 06/E14 - Baile do Vinho - XI concurso de vinhos/Festival do Vinho e Baile - 2003.jpg",
+        "filename": "Festival do Vinho e Baile - 2003.jpg",
+        "file_hash": "5cc87009ea7ee81538876fb7d0f066d4",
+        "file_size": 13258832,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma folha de contato fotográfico contendo diversas miniaturas de fotos de um evento social ou corporativo, possivelmente um jantar ou celebração. As imagens mostram pessoas em trajes formais, mesas decoradas, discursos ao microfone e uma estatueta decorativa, sugerindo um contexto de confraternização em um ambiente fechado.",
+        "categories": [
+            "event",
+            "architecture"
+        ],
+        "tags": [
+            "evento",
+            "confraternizacao",
+            "fotografia",
+            "social",
+            "corporativo"
+        ],
+        "dominant_colors": [
+            "branco",
+            "preto",
+            "azul"
+        ],
+        "people_count": 80,
+        "scene_type": "event",
+        "quality_score": 8,
+        "historical_period": "início do século XXI",
+        "location_type": "interior",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 5,
+        "estimated_year": 2005,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 15.64,
+        "processed_at": "2026-04-23T12:27:15.464439"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 06/E17 - 73 anos de Casa Canônica - 2004/73 anos Casa Canônica.jpg",
+        "filename": "73 anos Casa Canônica.jpg",
+        "file_hash": "98be93aba3e3f6ff5624c158dab8d0c9",
+        "file_size": 3896548,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia de um evento social em um ambiente interno com paredes de madeira, possivelmente uma exposição ou celebração cultural. As pessoas estão reunidas ao redor de uma mesa com um bolo, em um espaço que parece ser um museu ou centro histórico, sugerindo um contexto de preservação da memória local.",
+        "categories": [
+            "event",
+            "architecture"
+        ],
+        "tags": [
+            "evento",
+            "social",
+            "memoria",
+            "interior",
+            "comemoracao"
+        ],
+        "dominant_colors": [
+            "marrom",
+            "branco",
+            "preto"
+        ],
+        "people_count": 5,
+        "scene_type": "indoor",
+        "quality_score": 8,
+        "historical_period": "início dos anos 2000",
+        "location_type": "interior",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 3,
+        "estimated_year": 2005,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 8.78,
+        "processed_at": "2026-04-23T12:27:24.240479"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 06/E17 - 73 anos de Casa Canônica - 2004/73 anos da Casa Canônica - Ubirajara e Aymoré.jpg",
+        "filename": "73 anos da Casa Canônica - Ubirajara e Aymoré.jpg",
+        "file_hash": "6e6db333e2f6801dd50fe84ede905320",
+        "file_size": 2055824,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Dois jovens músicos tocam violino em um ambiente interno com paredes de madeira, possivelmente um museu ou centro cultural relacionado à viticultura. O cenário apresenta elementos decorativos como chapéus de palha, cestas e painéis fotográficos sobre uvas, sugerindo um contexto de celebração ou evento cultural em uma região de colonização italiana, como Videira.",
+        "categories": [
+            "portrait",
+            "event"
+        ],
+        "tags": [
+            "musicos",
+            "violino",
+            "cultura",
+            "madeira",
+            "viticultura"
+        ],
+        "dominant_colors": [
+            "marrom",
+            "bege",
+            "preto"
+        ],
+        "people_count": 2,
+        "scene_type": "portrait",
+        "quality_score": 8,
+        "historical_period": "início do século XXI",
+        "location_type": "interior",
+        "document_type": "outro",
+        "text_present": true,
+        "legibility_score": 3,
+        "estimated_year": 2005,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 26.64,
+        "processed_at": "2026-04-23T12:27:50.881394"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 06/E17 - 73 anos de Casa Canônica - 2004/Gema Lima e Sonia Huf - 73 anos da Casa Canônica.jpg",
+        "filename": "Gema Lima e Sonia Huf - 73 anos da Casa Canônica.jpg",
+        "file_hash": "8a0d5c675126d5294aa74f38c495fce8",
+        "file_size": 3970218,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma cena de confraternização social em um ambiente interno, possivelmente um salão comunitário ou residência, com pessoas vestidas com roupas de inverno. O grupo parece participar de um evento social ou recepção, com mesas servidas com alimentos e bebidas, sugerindo um contexto de reunião familiar ou comunitária típica de meados da década de 1990 ou início dos anos 2000.",
+        "categories": [
+            "event",
+            "portrait"
+        ],
+        "tags": [
+            "confraternização",
+            "evento",
+            "social",
+            "inverno",
+            "reunião"
+        ],
+        "dominant_colors": [
+            "preto",
+            "marrom",
+            "vermelho"
+        ],
+        "people_count": 9,
+        "scene_type": "indoor",
+        "quality_score": 6,
+        "historical_period": "década de 1990",
+        "location_type": "residência",
+        "document_type": "fotografia",
+        "text_present": false,
+        "legibility_score": 0,
+        "estimated_year": 1995,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 15.98,
+        "processed_at": "2026-04-23T12:28:06.863791"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 06/E17 - 73 anos de Casa Canônica - 2004/Judith Marmentini, Nadir Strugik, Gema Lima, Leoni Soares e Munira Jacó.jpg",
+        "filename": "Judith Marmentini, Nadir Strugik, Gema Lima, Leoni Soares e Munira Jacó.jpg",
+        "file_hash": "f3379a86dd1006514e70c3f74977eafa",
+        "file_size": 3869916,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia colorida mostrando cinco mulheres sentadas lado a lado em um ambiente interno com paredes de madeira, possivelmente durante um evento cultural ou histórico relacionado à viticultura. Ao fundo, há painéis informativos sobre o 'Vale da Uva e do Vinho', sugerindo um contexto de preservação da memória regional, possivelmente em uma cidade como Videira.",
+        "categories": [
+            "event",
+            "portrait"
+        ],
+        "tags": [
+            "mulheres",
+            "evento",
+            "viticultura",
+            "memoria",
+            "interior"
+        ],
+        "dominant_colors": [
+            "marrom",
+            "preto",
+            "branco"
+        ],
+        "people_count": 5,
+        "scene_type": "portrait",
+        "quality_score": 8,
+        "historical_period": "início do século XXI",
+        "location_type": "interior",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 5,
+        "estimated_year": 2005,
+        "attempts": 3,
+        "requests_made": 1,
+        "retry_count": 2,
+        "duration_sec": 34.64,
+        "processed_at": "2026-04-23T12:28:41.501582"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 06/E17 - 73 anos de Casa Canônica - 2004/Luiz Alberto Menegazzo (Sec. Educação), Maria Salete Bragalia e Terezinha Crestani.jpg",
+        "filename": "Luiz Alberto Menegazzo (Sec. Educação), Maria Salete Bragalia e Terezinha Crestani.jpg",
+        "file_hash": "c931af7202bc2f58c6d6e2ec504222e0",
+        "file_size": 4019222,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma cena interna que mostra um grupo de pessoas socializando em um ambiente com decoração rústica de madeira, possivelmente uma vinícola ou restaurante temático. O espaço apresenta elementos como um barril decorativo servindo de prateleira e janelas com cortinas de renda, sugerindo um contexto cultural ligado à colonização europeia, comum na região de Videira.",
+        "categories": [
+            "event",
+            "architecture"
+        ],
+        "tags": [
+            "vinicola",
+            "social",
+            "rustico",
+            "madeira",
+            "videira"
+        ],
+        "dominant_colors": [
+            "marrom",
+            "branco",
+            "vermelho"
+        ],
+        "people_count": 7,
+        "scene_type": "indoor",
+        "quality_score": 7,
+        "historical_period": "início do século XXI",
+        "location_type": "comércio",
+        "document_type": "outro",
+        "text_present": true,
+        "legibility_score": 3,
+        "estimated_year": 2005,
+        "attempts": 2,
+        "requests_made": 1,
+        "retry_count": 1,
+        "duration_sec": 20.69,
+        "processed_at": "2026-04-23T12:29:02.192480"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 06/E17 - 73 anos de Casa Canônica - 2004/Rita Sinzker, Juarez Codagnoni, fundo Leoni Soares - aniver da Casa Canônica -2004.jpg",
+        "filename": "Rita Sinzker, Juarez Codagnoni, fundo Leoni Soares - aniver da Casa Canônica -2004.jpg",
+        "file_hash": "3d1d78d6a8d0a625493fdede3b2667ac",
+        "file_size": 3687880,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia de um evento comemorativo em ambiente interno, onde um casal corta um bolo decorado com uma imagem impressa. Ao fundo, painéis informativos sugerem um contexto de exposição cultural ou histórica, possivelmente relacionada à vitivinicultura, com uma estátua de madeira de Baco ao lado.",
+        "categories": [
+            "event",
+            "portrait"
+        ],
+        "tags": [
+            "comemoracao",
+            "evento",
+            "cultura",
+            "vinho",
+            "exposicao"
+        ],
+        "dominant_colors": [
+            "marrom",
+            "branco",
+            "preto"
+        ],
+        "people_count": 3,
+        "scene_type": "indoor",
+        "quality_score": 8,
+        "historical_period": "início dos anos 2000",
+        "location_type": "comércio",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 3,
+        "estimated_year": 2005,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 11.84,
+        "processed_at": "2026-04-23T12:29:14.037327"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Caixa azul 06/E17 - 73 anos de Casa Canônica - 2004/bolo dos 73 anos da Casa Conônica.jpg",
+        "filename": "bolo dos 73 anos da Casa Conônica.jpg",
+        "file_hash": "00d07a03ca99ba0a279c9d7497a64183",
+        "file_size": 2295997,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma fotografia de um bolo de aniversário decorado com uma imagem impressa de uma casa antiga, possivelmente uma residência histórica ou marco local. O bolo está sobre uma mesa coberta por uma toalha branca, com pessoas sentadas ao fundo, sugerindo uma celebração ou evento comemorativo.",
+        "categories": [
+            "event",
+            "food"
+        ],
+        "tags": [
+            "bolo",
+            "comemoracao",
+            "arquitetura",
+            "festa",
+            "fotografia"
+        ],
+        "dominant_colors": [
+            "branco",
+            "bege",
+            "azul"
+        ],
+        "people_count": 2,
+        "scene_type": "indoor",
+        "quality_score": 6,
+        "historical_period": "início do século XXI",
+        "location_type": "residência",
+        "document_type": "outro",
+        "text_present": false,
+        "legibility_score": 0,
+        "estimated_year": 2000,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 9.41,
+        "processed_at": "2026-04-23T12:29:23.450859"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Feroviario/Antonia/img167.jpg",
+        "filename": "img167.jpg",
+        "file_hash": "4f0a37a5b6a26806479e17e6f65f4713",
+        "file_size": 4055293,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Documento oficial datado de 1940, emitido pelo Grupo Escolar Prof. Adelina Regis em Perdizes, Campos Novos. Trata-se de uma circular administrativa solicitando informações funcionais aos professores, com caligrafia cursiva bem preservada em papel envelhecido.",
+        "categories": [
+            "document"
+        ],
+        "tags": [
+            "documento",
+            "educacao",
+            "historia",
+            "manuscrito",
+            "anos 40"
+        ],
+        "dominant_colors": [
+            "bege",
             "preto",
             "cinza"
         ],
         "people_count": 0,
         "scene_type": "document",
-        "quality_score": 6,
+        "quality_score": 8,
+        "historical_period": "década de 1940",
+        "location_type": "prédio público",
+        "document_type": "carta",
+        "text_present": true,
+        "legibility_score": 9,
+        "estimated_year": 1940,
+        "attempts": 3,
+        "requests_made": 1,
+        "retry_count": 2,
+        "duration_sec": 29.79,
+        "processed_at": "2026-04-23T12:29:53.240722"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Feroviario/Antonia/img168.jpg",
+        "filename": "img168.jpg",
+        "file_hash": "e0a2015a5fd6c7857bd2eee2ef6ee3f4",
+        "file_size": 1893518,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Uma carta manuscrita datada de 20 de abril de 1942, escrita em papel pautado com sinais de envelhecimento. O texto trata de questões administrativas escolares, mencionando o envio de boletins de estatística e a falta de formulários para o ano letivo corrente.",
+        "categories": [
+            "document"
+        ],
+        "tags": [
+            "manuscrito",
+            "documento",
+            "educacao",
+            "1942",
+            "historico"
+        ],
+        "dominant_colors": [
+            "bege",
+            "azul",
+            "branco"
+        ],
+        "people_count": 0,
+        "scene_type": "document",
+        "quality_score": 8,
+        "historical_period": "década de 1940",
+        "location_type": "outro",
+        "document_type": "carta",
+        "text_present": true,
+        "legibility_score": 8,
+        "estimated_year": 1942,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 10.01,
+        "processed_at": "2026-04-23T12:30:03.251086"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Feroviario/Antonia/img169.jpg",
+        "filename": "img169.jpg",
+        "file_hash": "b68e29807a6f632ff16ade4161bdca72",
+        "file_size": 2730972,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Documento manuscrito datado de 15 de outubro de 1941, redigido em papel pautado com sinais de envelhecimento e manchas de oxidação. O texto é uma comunicação oficial de uma professora estadual sobre o envio de boletins estatísticos para departamentos de inspeção em Perdizes e Curitibanos.",
+        "categories": [
+            "document"
+        ],
+        "tags": [
+            "manuscrito",
+            "documento",
+            "histórico",
+            "educação",
+            "1941"
+        ],
+        "dominant_colors": [
+            "bege",
+            "azul",
+            "marrom"
+        ],
+        "people_count": 0,
+        "scene_type": "document",
+        "quality_score": 8,
+        "historical_period": "década de 1940",
+        "location_type": "outro",
+        "document_type": "carta",
+        "text_present": true,
+        "legibility_score": 8,
+        "estimated_year": 1941,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 31.73,
+        "processed_at": "2026-04-23T12:30:34.978998"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Feroviario/Antonia/img170.jpg",
+        "filename": "img170.jpg",
+        "file_hash": "5fbdbac5154dc6afb3d03c9373ddf66a",
+        "file_size": 3340883,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Documento oficial datado de 1940, emitido pelo Grupo Escolar Prof. Adelina Regis em Perdizes, Campos Novos. Trata-se de um convite manuscrito para reuniões pedagógicas em diversas escolas da região, apresentando o brasão da República e uma assinatura formal.",
+        "categories": [
+            "document",
+            "event"
+        ],
+        "tags": [
+            "documento",
+            "educacao",
+            "historia",
+            "manuscrito",
+            "campos novos"
+        ],
+        "dominant_colors": [
+            "bege",
+            "preto",
+            "azul"
+        ],
+        "people_count": 0,
+        "scene_type": "document",
+        "quality_score": 9,
+        "historical_period": "década de 1940",
+        "location_type": "prédio público",
+        "document_type": "carta",
+        "text_present": true,
+        "legibility_score": 9,
+        "estimated_year": 1940,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 10.18,
+        "processed_at": "2026-04-23T12:30:45.163353"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Feroviario/Antonia/img175.jpg",
+        "filename": "img175.jpg",
+        "file_hash": "1246375bfec2c1025206e6ca8bb3ae09",
+        "file_size": 3024294,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Documento oficial do Cartório Eleitoral da 6ª Zona de Santa Catarina, datilografado com preenchimento manual em tinta azul. O documento nomeia Aracy Schuler Farias como 1º Secretário da 30ª Seção Eleitoral em Gramado, Rio das Antas, datado para o dia 3 de outubro.",
+        "categories": [
+            "document"
+        ],
+        "tags": [
+            "documento",
+            "eleitoral",
+            "santa catarina",
+            "histórico",
+            "rio das antas"
+        ],
+        "dominant_colors": [
+            "branco",
+            "bege",
+            "azul"
+        ],
+        "people_count": 0,
+        "scene_type": "document",
+        "quality_score": 8,
         "historical_period": "meados do século XX",
         "location_type": "prédio público",
         "document_type": "certidão",
@@ -64878,46 +68076,427 @@
         "attempts": 1,
         "requests_made": 1,
         "retry_count": 0,
-        "duration_sec": 2.25,
-        "processed_at": "2026-04-22T19:36:09.212472"
+        "duration_sec": 12.6,
+        "processed_at": "2026-04-23T12:30:57.766557"
     },
     {
-        "path": "photos/parte-1/Feroviario/Antonio/img197.jpg",
-        "filename": "img197.jpg",
-        "file_hash": "0ba62798ca4c274bb4915422fbb7321c",
-        "file_size": 1303175,
+        "path": "photos/parte-2/fotos escaneadas- 2024/Feroviario/Antonia/img176.jpg",
+        "filename": "img176.jpg",
+        "file_hash": "9347bad877412d7eb33caa59da056d49",
+        "file_size": 2751432,
         "provider": "gemini",
-        "model": "gemini/gemini-2.5-flash-lite",
-        "description": "Este é um documento de identidade social da União dos Ferroviários do Brasil, emitido pela Diretoria Regional da Rede Viação Paraná-Santa Catarina. A fotografia em preto e branco mostra um homem com traje social, e as datas indicam que o documento é da segunda metade do século XX, provavelmente relacionado a um evento ou registro de associação.",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Este documento é uma biografia datilografada de Araci Schüler Farias, detalhando sua trajetória de vida, carreira como professora e homenagens familiares. O texto contém anotações manuscritas à caneta e parece ser um registro histórico ou informativo de caráter pessoal ou genealógico.",
         "categories": [
-            "document",
-            "portrait"
+            "document"
         ],
         "tags": [
-            "ferroviários",
-            "identidade",
-            "antigo",
+            "biografia",
+            "historia",
+            "familia",
             "documento",
-            "anos 50"
+            "professor"
         ],
         "dominant_colors": [
-            "azul",
             "branco",
-            "preto"
+            "preto",
+            "azul"
         ],
-        "people_count": 1,
+        "people_count": 0,
         "scene_type": "document",
-        "quality_score": 6,
-        "historical_period": "década de 1950",
+        "quality_score": 8,
+        "historical_period": "século XX",
         "location_type": "outro",
-        "document_type": "fotografia",
+        "document_type": "carta",
         "text_present": true,
         "legibility_score": 9,
-        "estimated_year": 1957,
+        "estimated_year": 0,
         "attempts": 1,
         "requests_made": 1,
         "retry_count": 0,
-        "duration_sec": 3.09,
-        "processed_at": "2026-04-22T19:36:12.305911"
+        "duration_sec": 10.97,
+        "processed_at": "2026-04-23T12:31:08.736465"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Feroviario/Antonia/img177.jpg",
+        "filename": "img177.jpg",
+        "file_hash": "0a1d01593ea09dbefc04e94d3a010ad7",
+        "file_size": 3198643,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Certidão de casamento emitida pela Comarca de Cruz Alta, Rio Grande do Sul, datada de 1972, referente a um matrimônio ocorrido em 1926. O documento apresenta marcas de dobras e desgaste do papel, contendo informações datilografadas sobre os contraentes e seus pais.",
+        "categories": [
+            "document"
+        ],
+        "tags": [
+            "certidão",
+            "genealogia",
+            "histórico",
+            "documento",
+            "cartório"
+        ],
+        "dominant_colors": [
+            "branco",
+            "bege",
+            "cinza"
+        ],
+        "people_count": 0,
+        "scene_type": "document",
+        "quality_score": 6,
+        "historical_period": "década de 1970",
+        "location_type": "outro",
+        "document_type": "certidão",
+        "text_present": true,
+        "legibility_score": 8,
+        "estimated_year": 1972,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 8.95,
+        "processed_at": "2026-04-23T12:31:17.689863"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Feroviario/Antonia/img178.jpg",
+        "filename": "img178.jpg",
+        "file_hash": "a231853ea3564fc01fae6691be6ec35d",
+        "file_size": 3635855,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Documento oficial datilografado da Secretaria do Interior e Justiça de Santa Catarina, datado de 1939, comunicando a nomeação de uma professora em Caçador. O texto menciona a exoneração de uma professora estrangeira, refletindo o contexto político da época, e apresenta marcas de dobras e manchas de envelhecimento típicas de papéis históricos.",
+        "categories": [
+            "document"
+        ],
+        "tags": [
+            "documento",
+            "histórico",
+            "educação",
+            "Santa Catarina",
+            "1939"
+        ],
+        "dominant_colors": [
+            "bege",
+            "preto",
+            "cinza"
+        ],
+        "people_count": 0,
+        "scene_type": "document",
+        "quality_score": 8,
+        "historical_period": "década de 1930",
+        "location_type": "outro",
+        "document_type": "carta",
+        "text_present": true,
+        "legibility_score": 9,
+        "estimated_year": 1939,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 11.2,
+        "processed_at": "2026-04-23T12:31:28.887339"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Feroviario/Antonia/img179.jpg",
+        "filename": "img179.jpg",
+        "file_hash": "3cc4a196ca069a7f7894172489a7c0e0",
+        "file_size": 3886389,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Documento oficial datado de 1940, emitido pelo Grupo Escolar Prof. Adelina Regis, em Perdizes, Campos Novos. O texto manuscrito em papel envelhecido contém instruções administrativas sobre matrículas escolares, incluindo normas para organização de turmas e exigências de documentação.",
+        "categories": [
+            "document"
+        ],
+        "tags": [
+            "documento",
+            "educacao",
+            "manuscrito",
+            "historia",
+            "1940"
+        ],
+        "dominant_colors": [
+            "bege",
+            "marrom",
+            "branco"
+        ],
+        "people_count": 0,
+        "scene_type": "document",
+        "quality_score": 8,
+        "historical_period": "década de 1940",
+        "location_type": "prédio público",
+        "document_type": "carta",
+        "text_present": true,
+        "legibility_score": 9,
+        "estimated_year": 1940,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 13.27,
+        "processed_at": "2026-04-23T12:31:42.152755"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Feroviario/Antonia/img180.jpg",
+        "filename": "img180.jpg",
+        "file_hash": "8491b9dbff3ecd343c9d347d951ad105",
+        "file_size": 3822951,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Documento oficial datilografado e manuscrito em papel timbrado do Grupo Escolar Prof. Adelina Regis, localizado em Perdizes, Campos Novos. O texto é uma comunicação administrativa datada de 1 de julho de 1940, solicitando com urgência boletins de estatística educacional referentes ao ano de 1939.",
+        "categories": [
+            "document"
+        ],
+        "tags": [
+            "documento",
+            "educacao",
+            "historia",
+            "manuscrito",
+            "campos novos"
+        ],
+        "dominant_colors": [
+            "bege",
+            "preto",
+            "branco"
+        ],
+        "people_count": 0,
+        "scene_type": "document",
+        "quality_score": 9,
+        "historical_period": "década de 1940",
+        "location_type": "prédio público",
+        "document_type": "carta",
+        "text_present": true,
+        "legibility_score": 9,
+        "estimated_year": 1940,
+        "attempts": 5,
+        "requests_made": 1,
+        "retry_count": 4,
+        "duration_sec": 48.63,
+        "processed_at": "2026-04-23T12:32:30.785707"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Feroviario/Antonia/img181.jpg",
+        "filename": "img181.jpg",
+        "file_hash": "430d9c40853ff815cf35cfbe648ba38c",
+        "file_size": 4719872,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Documento oficial datado de 1949, emitido pela Inspetoria Escolar de Videira, Santa Catarina. Trata-se de uma comunicação administrativa sobre a jurisdição escolar entre os municípios de Videira e Caçador, apresentando um carimbo oficial e assinatura manuscrita em papel envelhecido.",
+        "categories": [
+            "document"
+        ],
+        "tags": [
+            "documento",
+            "histórico",
+            "educação",
+            "videira",
+            "santa catarina"
+        ],
+        "dominant_colors": [
+            "bege",
+            "marrom",
+            "preto"
+        ],
+        "people_count": 0,
+        "scene_type": "document",
+        "quality_score": 8,
+        "historical_period": "década de 1940",
+        "location_type": "prédio público",
+        "document_type": "carta",
+        "text_present": true,
+        "legibility_score": 9,
+        "estimated_year": 1949,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 24.75,
+        "processed_at": "2026-04-23T12:32:55.536876"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Feroviario/Antonia/img182.jpg",
+        "filename": "img182.jpg",
+        "file_hash": "b71fb54896d178048f7493f274dcf580",
+        "file_size": 4068818,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Documento oficial datilografado da Secretaria do Interior e Justiça do Estado de Santa Catarina, datado de 1939. O texto comunica a nomeação de uma professora para uma escola na Colônia Marechal Hindenburgo, em Curitibanos, refletindo a estrutura administrativa educacional da época.",
+        "categories": [
+            "document"
+        ],
+        "tags": [
+            "documento",
+            "educacao",
+            "santa catarina",
+            "historico",
+            "curitibanos"
+        ],
+        "dominant_colors": [
+            "bege",
+            "preto",
+            "branco"
+        ],
+        "people_count": 0,
+        "scene_type": "document",
+        "quality_score": 8,
+        "historical_period": "década de 1930",
+        "location_type": "prédio público",
+        "document_type": "carta",
+        "text_present": true,
+        "legibility_score": 9,
+        "estimated_year": 1939,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 20.16,
+        "processed_at": "2026-04-23T12:33:15.696070"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Feroviario/Antonia/img183.jpg",
+        "filename": "img183.jpg",
+        "file_hash": "241efc98c4e480dca0ffc9c1ba302e3d",
+        "file_size": 3721334,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Documento oficial datilografado em papel envelhecido, contendo carimbos e anotações manuscritas à tinta. O texto refere-se a registros administrativos e nomeações escolares, datado de 1939, possivelmente relacionado à administração pública em Santa Catarina.",
+        "categories": [
+            "document"
+        ],
+        "tags": [
+            "documento",
+            "historico",
+            "datilografado",
+            "administracao",
+            "decada de 30"
+        ],
+        "dominant_colors": [
+            "bege",
+            "marrom",
+            "preto"
+        ],
+        "people_count": 0,
+        "scene_type": "document",
+        "quality_score": 6,
+        "historical_period": "década de 1930",
+        "location_type": "prédio público",
+        "document_type": "certidão",
+        "text_present": true,
+        "legibility_score": 6,
+        "estimated_year": 1939,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 16.25,
+        "processed_at": "2026-04-23T12:33:31.949054"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Feroviario/Antonia/img184.jpg",
+        "filename": "img184.jpg",
+        "file_hash": "601d0c2b966c65c1ba82beb99c841e4c",
+        "file_size": 1328871,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Fotografia em preto e branco de um cemitério com lápides de estilo europeu, contendo inscrições em alemão. A imagem sugere um contexto de imigração, possivelmente em uma comunidade rural do sul do Brasil, datada provavelmente de meados do século XX.",
+        "categories": [
+            "architecture",
+            "document"
+        ],
+        "tags": [
+            "cemiterio",
+            "imigracao",
+            "antigo",
+            "lapide",
+            "historico"
+        ],
+        "dominant_colors": [
+            "preto",
+            "branco",
+            "cinza"
+        ],
+        "people_count": 0,
+        "scene_type": "landscape",
+        "quality_score": 6,
+        "historical_period": "meados do século XX",
+        "location_type": "outro",
+        "document_type": "fotografia",
+        "text_present": true,
+        "legibility_score": 8,
+        "estimated_year": 1946,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 23.32,
+        "processed_at": "2026-04-23T12:33:55.271459"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Feroviario/Antonia/img185.jpg",
+        "filename": "img185.jpg",
+        "file_hash": "77c1a6bb726b3680771c1b5fb761105f",
+        "file_size": 1847075,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "O verso de uma fotografia antiga contendo uma dedicatória manuscrita em papel envelhecido e amarelado. O texto, escrito em caligrafia cursiva, expressa uma lembrança carinhosa, possivelmente de um contexto familiar ou de amizade, comum em registros fotográficos do século XX.",
+        "categories": [
+            "document"
+        ],
+        "tags": [
+            "manuscrito",
+            "antigo",
+            "dedicatoria",
+            "fotografia",
+            "memoria"
+        ],
+        "dominant_colors": [
+            "bege",
+            "marrom",
+            "cinza"
+        ],
+        "people_count": 0,
+        "scene_type": "document",
+        "quality_score": 5,
+        "historical_period": "meados do século XX",
+        "location_type": "outro",
+        "document_type": "carta",
+        "text_present": true,
+        "legibility_score": 4,
+        "estimated_year": 0,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 12.93,
+        "processed_at": "2026-04-23T12:34:08.200198"
+    },
+    {
+        "path": "photos/parte-2/fotos escaneadas- 2024/Feroviario/Antonia/img186.jpg",
+        "filename": "img186.jpg",
+        "file_hash": "44114277bb2e6da2c135bfeaa72dcc37",
+        "file_size": 12151916,
+        "provider": "gemini",
+        "model": "gemini/gemini-3.1-flash-lite-preview",
+        "description": "Este documento é um certificado oficial emitido pela Câmara Municipal de Fraiburgo, Santa Catarina, concedendo o título de 'Colonizador Emérito' a Iraci Farias. O certificado celebra o cinquentenário da colonização alemã na localidade de Dez de Novembro, datado de 1982, e apresenta o brasão do município e assinaturas oficiais.",
+        "categories": [
+            "document",
+            "event"
+        ],
+        "tags": [
+            "fraiburgo",
+            "colonizacao",
+            "certificado",
+            "historia",
+            "1982"
+        ],
+        "dominant_colors": [
+            "branco",
+            "preto",
+            "verde"
+        ],
+        "people_count": 0,
+        "scene_type": "document",
+        "quality_score": 9,
+        "historical_period": "década de 1980",
+        "location_type": "prédio público",
+        "document_type": "certidão",
+        "text_present": true,
+        "legibility_score": 10,
+        "estimated_year": 1982,
+        "attempts": 1,
+        "requests_made": 1,
+        "retry_count": 0,
+        "duration_sec": 12.91,
+        "processed_at": "2026-04-23T12:34:21.110370"
     }
 ]

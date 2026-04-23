@@ -10,5 +10,5 @@ CMD ["python", "/opt/thumbs/gerar_thumbs.py"]
 # docker build -f scripts/Dockerfile -t gerador-thumbs .
 # 2. Execute com .env do diretório atual (Windows Git Bash):
 # MSYS_NO_PATHCONV=1 docker run --rm -v "$(pwd)":/workspace --env-file scripts/.env gerador-thumbs
-# 3. Na VPS (Linux), com paths absolutos:
-# docker run --rm -v /srv/fabrica-museu:/workspace --env-file /srv/fabrica-museu/scripts/.env gerador-thumbs
+# 3. Copiar as imagens geradas para a pasta de destino na VPS (ajustar caminho e porta conforme necessário):
+# rsync -avz -e "ssh -p 22" --ignore-existing photos usuario@ip-da-vps:/srv/fabrica-museu
