@@ -5,3 +5,8 @@ npm-debug.log
 .env
 Dockerfile*
 README.md
+**/photos/*
+infra/certs/dev/*
+infra/certs/prod/*
+!infra/certs/dev/.gitkeep
+!infra/certs/prod/.gitkeepscripts/.env
