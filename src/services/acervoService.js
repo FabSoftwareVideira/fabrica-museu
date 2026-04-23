@@ -3,7 +3,16 @@ const path = require('node:path');
 const { toSlug, toLabel } = require('../utils/slug');
 const { buildPublicPath } = require('../utils/publicPath');
 
-const resolvePhotosBasePath = () => process.env.PHOTOS_HOST_PATH || path.join(__dirname, '..', 'public', 'photos');
+const resolvePhotosBasePath = () => {
+    const candidates = [
+        process.env.PHOTOS_HOST_PATH,
+        '/app/src/public/photos',
+        path.join(__dirname, '..', 'public', 'photos'),
+    ].filter(Boolean);
+
+    const existingPath = candidates.find((candidate) => fs.existsSync(candidate));
+    return existingPath || candidates[0];
+};
 
 const toDiskPhotoPath = (publicRelativePath) => {
     const normalized = String(publicRelativePath || '').replace(/\\/g, '/').replace(/^\/+/, '');
