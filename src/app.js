@@ -15,8 +15,15 @@ const buildApp = () => {
     });
 
     app.register(fastifyStatic, {
+        root: env.photosHostPath,
+        prefix: '/public/photos/',
+        decorateReply: false,
+    });
+
+    app.register(fastifyStatic, {
         root: path.join(__dirname, 'public'),
         prefix: '/public/',
+        decorateReply: false,
     });
 
     registerViewEngine(app, { isDevelopment: env.nodeEnv === 'development' });
