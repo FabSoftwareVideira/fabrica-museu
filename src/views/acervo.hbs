@@ -2,9 +2,46 @@
 
 <main class="section acervo-main-section p-2">
   <div class="container">
-    {{> acervo-toolbar categories=categories items=items activeCategory=activeCategory}} {{> acervo-grid
-    hasItems=hasItems items=items activeCategory=activeCategory}} {{> acervo-empty-state hasItems=hasItems}} {{>
-    acervo-ai-warning}}
+    <div class="acervo-shell is-filters-open" data-acervo-shell>
+      <section class="acervo-content">
+        <div class="acervo-content-bar mb-4">
+          <div>
+            <p class="acervo-content-kicker">Navegação do Acervo</p>
+            <h2 class="title is-5 mb-1">Coleção Digital</h2>
+          </div>
+          <button
+            type="button"
+            class="button is-light is-small acervo-filters-toggle"
+            data-acervo-filters-toggle
+            aria-controls="acervo-filters-sidebar"
+            aria-expanded="true"
+          >
+            <span class="icon is-small"><i class="fa-solid fa-sliders"></i></span>
+            <span data-acervo-filters-toggle-label>Ocultar filtros</span>
+          </button>
+        </div>
+
+        {{> acervo-grid hasItems=hasItems items=items activeCategory=activeCategory}} {{> acervo-empty-state
+        hasItems=hasItems}} {{> acervo-ai-warning}}
+      </section>
+
+      <aside
+        id="acervo-filters-sidebar"
+        class="acervo-sidebar"
+        aria-label="Filtros do acervo"
+        data-acervo-filters-sidebar
+      >
+        {{> acervo-toolbar categories=categories items=items activeCategory=activeCategory}}
+      </aside>
+
+      <button
+        type="button"
+        class="acervo-sidebar-backdrop"
+        data-acervo-filters-backdrop
+        aria-label="Fechar filtros"
+        tabindex="-1"
+      ></button>
+    </div>
   </div>
 </main>
 

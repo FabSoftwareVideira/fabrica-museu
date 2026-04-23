@@ -1,6 +1,25 @@
-<section class="acervo-toolbar mb-4" aria-label="Filtros e visualização do acervo">
+<section class="acervo-toolbar" aria-label="Filtros e visualização do acervo">
+  <div class="acervo-toolbar-header">
+    <div>
+      <p class="acervo-toolbar-kicker">Filtros</p>
+      <h2 class="acervo-toolbar-title">Categorias</h2>
+    </div>
+
+    <button
+      type="button"
+      class="button is-white is-small acervo-toolbar-close"
+      data-acervo-filters-toggle
+      aria-controls="acervo-filters-sidebar"
+      aria-expanded="true"
+    >
+      <span class="icon is-small"><i class="fa-solid fa-xmark"></i></span>
+      <span>Fechar</span>
+    </button>
+  </div>
+
+  <p id="acervo-count-status" class="is-size-7 has-text-grey mb-1">Exibindo {{items.length}} itens.</p>
+
   <div class="acervo-toolbar-row acervo-toolbar-row--categories">
-    <p class="acervo-toolbar-label">Categorias</p>
     <div class="acervo-category-chips" role="list">
       {{#each categories}}
       <a
@@ -8,13 +27,10 @@
         class="button is-rounded is-small acervo-category-chip {{#if this.isActive}}is-dark{{else}}is-light{{/if}}"
         role="listitem"
       >
-        {{this.label}} ({{this.count}})
+        <span>{{this.label}}</span>
+        <span class="acervo-category-chip-count">{{this.count}}</span>
       </a>
       {{/each}}
     </div>
-  </div>
-
-  <div class="acervo-toolbar-row acervo-toolbar-row--controls pt-4">
-    <p id="acervo-count-status" class="is-size-7 has-text-grey">Exibindo {{items.length}} itens.</p>
   </div>
 </section>

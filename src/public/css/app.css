@@ -656,6 +656,81 @@ h3,
   background-color: var(--section-bg);
 }
 
+.acervo-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.acervo-shell:not(.is-filters-open) {
+  grid-template-columns: minmax(0, 1fr) 0;
+}
+
+.acervo-content {
+  min-inline-size: 0;
+}
+
+.acervo-content-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.95rem 1rem;
+  border: 1px solid rgba(138, 110, 78, 0.18);
+  background: linear-gradient(135deg, rgba(250, 248, 244, 0.72), rgba(237, 231, 217, 0.94));
+  box-shadow: 0 14px 32px rgba(46, 31, 14, 0.06);
+}
+
+[data-theme='dark'] .acervo-content-bar {
+  border-color: rgba(212, 168, 58, 0.14);
+  background: linear-gradient(135deg, rgba(42, 30, 14, 0.92), rgba(30, 21, 8, 0.96));
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.22);
+}
+
+.acervo-content-kicker {
+  margin-block-end: 0.2rem;
+  color: var(--accent2);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.acervo-content-copy {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+
+.acervo-filters-toggle {
+  flex-shrink: 0;
+  min-block-size: 2.35rem;
+  padding-inline: 0.85rem;
+}
+
+.acervo-sidebar {
+  position: sticky;
+  inset-block-start: 5rem;
+  min-inline-size: 0;
+  overflow: hidden;
+  z-index: 20;
+  transition:
+    opacity 0.24s ease,
+    transform 0.24s ease,
+    visibility 0.24s ease;
+}
+
+.acervo-sidebar-backdrop {
+  display: none;
+}
+
+.acervo-shell:not(.is-filters-open) .acervo-sidebar {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(18px);
+}
+
 .acervo-item-section {
   background-color: var(--section-bg);
   min-block-size: 80vh;
@@ -736,46 +811,105 @@ h3,
 
 .acervo-toolbar {
   display: grid;
-  gap: 0.7rem;
-  padding: 0.85rem;
+  gap: 1rem;
+  padding: 1rem;
   border: 1px solid var(--border-color);
-  /* border-radius: 12px; */
   background: var(--card-bg);
+  box-shadow: 0 20px 40px rgba(46, 31, 14, 0.08);
+}
+
+[data-theme='dark'] .acervo-toolbar {
+  box-shadow: 0 22px 40px rgba(0, 0, 0, 0.24);
+}
+
+.acervo-toolbar-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.acervo-toolbar-kicker {
+  margin: 0 0 0.22rem;
+  color: var(--accent2);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.acervo-toolbar-title {
+  margin: 0;
+  color: var(--text-color);
+  font-family: var(--ff-display);
+  font-size: 1.2rem;
+  line-height: 1.1;
+}
+
+.acervo-toolbar-close {
+  flex-shrink: 0;
+}
+
+.acervo-toolbar-meta {
+  padding: 0.8rem 0.9rem;
+  border: 1px solid rgba(138, 110, 78, 0.18);
+  background: rgba(201, 152, 42, 0.08);
+}
+
+[data-theme='dark'] .acervo-toolbar-meta {
+  border-color: rgba(212, 168, 58, 0.16);
+  background: rgba(212, 168, 58, 0.08);
+}
+
+.acervo-toolbar-hint {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  line-height: 1.45;
 }
 
 .acervo-toolbar-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
+  display: block;
 }
 
 .acervo-toolbar-row--categories {
   align-items: flex-start;
 }
 
-.acervo-toolbar-label {
-  margin: 0;
-  min-width: 82px;
-  color: var(--text-muted);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
 .acervo-category-chips {
-  display: flex;
-  flex: 1;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-  overflow-x: visible;
-  padding-bottom: 0;
-  scrollbar-width: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
 }
 
 .acervo-category-chip {
-  flex-shrink: 0;
+  justify-content: space-between;
+  inline-size: 100%;
+  min-block-size: 2.4rem;
+  padding-inline: 0.8rem;
+  border-color: rgba(138, 110, 78, 0.22);
+  text-decoration: none;
+}
+
+.acervo-category-chip-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-inline-size: 2rem;
+  padding-inline: 0.45rem;
+  border-radius: 999px;
+  background: rgba(46, 31, 14, 0.08);
+  color: inherit;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.acervo-category-chip.is-dark .acervo-category-chip-count {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+[data-theme='dark'] .acervo-category-chip-count {
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .acervo-toolbar #acervo-view-controls {
@@ -942,6 +1076,59 @@ h3,
 }
 
 @media (max-width: 768px) {
+  .acervo-shell,
+  .acervo-shell:not(.is-filters-open) {
+    grid-template-columns: 1fr;
+  }
+
+  .acervo-content-bar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .acervo-sidebar {
+    position: fixed;
+    inset-block: 0;
+    inset-inline-end: 0;
+    z-index: 45;
+    inline-size: min(88vw, 360px);
+    max-inline-size: 100%;
+    block-size: 100dvh;
+    padding: 0.75rem;
+    overflow-y: auto;
+    background: color-mix(in srgb, var(--site-bg) 82%, transparent);
+    backdrop-filter: blur(10px);
+    box-shadow: -18px 0 40px rgba(0, 0, 0, 0.22);
+    transform: translateX(0);
+  }
+
+  .acervo-shell:not(.is-filters-open) .acervo-sidebar {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateX(110%);
+  }
+
+  .acervo-sidebar-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    display: block;
+    border: 0;
+    background: rgba(20, 12, 5, 0.52);
+    opacity: 1;
+    visibility: visible;
+    transition:
+      opacity 0.24s ease,
+      visibility 0.24s ease;
+  }
+
+  .acervo-shell:not(.is-filters-open) .acervo-sidebar-backdrop {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
   .acervo-hero-inner {
     flex-direction: column;
     align-items: flex-start;
@@ -953,29 +1140,26 @@ h3,
   }
 
   .acervo-toolbar {
+    min-block-size: calc(100dvh - 1.5rem);
     padding: 0.75rem;
   }
 
-  .acervo-toolbar-row,
-  .acervo-toolbar-row--categories {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .acervo-toolbar-label {
-    min-width: 0;
+  .acervo-toolbar-header {
+    align-items: center;
   }
 
   .acervo-category-chips {
-    width: 100%;
-    overflow-x: visible;
-    flex-wrap: wrap;
+    inline-size: 100%;
     gap: 0.35rem;
   }
 
   .acervo-category-chip {
-    min-height: 1.9rem;
+    min-block-size: 1.9rem;
     font-size: 0.72rem;
+  }
+
+  body.acervo-filters-locked {
+    overflow: hidden;
   }
 
   .acervo-toolbar-row--controls {

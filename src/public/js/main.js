@@ -353,6 +353,112 @@ const setupAcervoInfiniteScroll = () => {
     bootstrapFromApi();
 };
 
+const setupAcervoFiltersPanel = () => {
+    const shell = document.querySelector('[data-acervo-shell]');
+
+    if (!shell) {
+        return;
+    }
+
+    const toggleButtons = Array.from(document.querySelectorAll('[data-acervo-filters-toggle]'));
+    const toggleLabel = document.querySelector('[data-acervo-filters-toggle-label]');
+    const backdrop = document.querySelector('[data-acervo-filters-backdrop]');
+    const storageKey = 'acervoFiltersPanelOpen';
+    const mediaQuery = window.matchMedia('(max-inline-size: 768px)');
+
+    if (toggleButtons.length === 0) {
+        return;
+    }
+
+    const readStoredState = () => {
+        try {
+            const stored = localStorage.getItem(storageKey);
+            if (stored === 'open') {
+                return true;
+            }
+            if (stored === 'closed') {
+                return false;
+            }
+        } catch (error) {
+            return null;
+        }
+
+        return null;
+    };
+
+    const persistState = (isOpen) => {
+        try {
+            localStorage.setItem(storageKey, isOpen ? 'open' : 'closed');
+        } catch (error) {
+        }
+    };
+
+    const syncPageLock = (isOpen) => {
+        document.body.classList.toggle('acervo-filters-locked', mediaQuery.matches && isOpen);
+    };
+
+    const applyState = (isOpen) => {
+        shell.classList.toggle('is-filters-open', isOpen);
+        shell.setAttribute('data-filters-open', isOpen ? 'true' : 'false');
+
+        toggleButtons.forEach((button) => {
+            button.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+
+        if (backdrop) {
+            backdrop.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+        }
+
+        if (toggleLabel) {
+            toggleLabel.textContent = isOpen ? 'Ocultar filtros' : 'Mostrar filtros';
+        }
+
+        syncPageLock(isOpen);
+    };
+
+    const storedState = readStoredState();
+    const defaultOpen = mediaQuery.matches ? false : true;
+    applyState(storedState === null ? defaultOpen : storedState);
+
+    toggleButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const nextState = !shell.classList.contains('is-filters-open');
+            applyState(nextState);
+            persistState(nextState);
+        });
+    });
+
+    if (backdrop) {
+        backdrop.addEventListener('click', () => {
+            applyState(false);
+            persistState(false);
+        });
+    }
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key !== 'Escape') {
+            return;
+        }
+
+        if (!shell.classList.contains('is-filters-open')) {
+            return;
+        }
+
+        applyState(false);
+        persistState(false);
+    });
+
+    const handleViewportChange = () => {
+        syncPageLock(shell.classList.contains('is-filters-open'));
+    };
+
+    if (typeof mediaQuery.addEventListener === 'function') {
+        mediaQuery.addEventListener('change', handleViewportChange);
+    } else if (typeof mediaQuery.addListener === 'function') {
+        mediaQuery.addListener(handleViewportChange);
+    }
+};
+
 const setupNavActiveSection = () => {
     // Only applies on pages with anchor sections in the navbar (home)
     const navLinks = Array.from(
@@ -632,6 +738,7 @@ const bootstrapApp = () => {
     setupMap();
     setupNavActiveSection();
     setupHomeAcervoShowcase();
+    setupAcervoFiltersPanel();
     setupAcervoInfiniteScroll();
     registerServiceWorker();
 };
