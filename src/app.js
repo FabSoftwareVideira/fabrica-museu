@@ -14,6 +14,15 @@ const buildApp = () => {
         trustProxy: env.trustProxy,
     });
 
+    app.log.info({
+        event: 'app.startup',
+        nodeEnv: env.nodeEnv,
+        host: env.host,
+        port: env.port,
+        trustProxy: env.trustProxy,
+        photosHostPath: env.photosHostPath,
+    }, 'Inicializando aplicacao');
+
     app.register(fastifyStatic, {
         root: env.photosHostPath,
         prefix: '/public/photos/',
@@ -29,6 +38,13 @@ const buildApp = () => {
     registerViewEngine(app, { isDevelopment: env.nodeEnv === 'development' });
 
     const acervoService = createAcervoService(loadAcervoItems());
+    if (typeof acervoService.getDiagnostics === 'function') {
+        app.log.info({
+            event: 'acervo.loaded',
+            ...acervoService.getDiagnostics(),
+        }, 'Acervo carregado');
+    }
+
     registerRoutes(app, { acervoService });
 
     return app;

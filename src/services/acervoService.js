@@ -3,6 +3,9 @@ const path = require('node:path');
 const { toSlug, toLabel } = require('../utils/slug');
 const { buildPublicPath } = require('../utils/publicPath');
 
+let resolvedPhotosBasePathCache = null;
+let resolvedPhotosBasePathSignature = null;
+
 const resolvePhotosBasePath = () => {
     const candidates = [
         process.env.PHOTOS_HOST_PATH,
@@ -10,15 +13,27 @@ const resolvePhotosBasePath = () => {
         path.join(__dirname, '..', 'public', 'photos'),
     ].filter(Boolean);
 
+    const signature = candidates.join('|');
+    if (resolvedPhotosBasePathCache && resolvedPhotosBasePathSignature === signature) {
+        return resolvedPhotosBasePathCache;
+    }
+
     const existingPath = candidates.find((candidate) => fs.existsSync(candidate));
-    return existingPath || candidates[0];
+    const resolvedPath = existingPath || candidates[0];
+
+    console.info('[acervoService] resolvePhotosBasePath', {
+        candidates,
+        resolvedPath,
+    });
+
+    resolvedPhotosBasePathCache = resolvedPath;
+    resolvedPhotosBasePathSignature = signature;
+    return resolvedPhotosBasePathCache;
 };
 
 const toDiskPhotoPath = (publicRelativePath) => {
     const normalized = String(publicRelativePath || '').replace(/\\/g, '/').replace(/^\/+/, '');
     const withoutPhotosPrefix = normalized.startsWith('photos/') ? normalized.slice('photos/'.length) : normalized;
-    // log
-    console.log(`Resolving disk path for public path "${publicRelativePath}": "${withoutPhotosPrefix}"`);
     return path.join(resolvePhotosBasePath(), withoutPhotosPrefix);
 };
 
@@ -129,6 +144,7 @@ const createAcervoService = (rawItems) => {
     const collectionItems = mapCollectionItems(rawItems);
     const visibleItems = collectionItems.filter((item) => item.hasImage);
     const collectionCategories = buildCollectionCategories(visibleItems);
+    const missingItemsCount = collectionItems.length - visibleItems.length;
 
     const getCollectionCategories = () => collectionCategories;
 
@@ -179,11 +195,19 @@ const createAcervoService = (rawItems) => {
 
     const getItemById = (id) => collectionItems.find((item) => item.id === id) || null;
 
+    const getDiagnostics = () => ({
+        totalItemsFromJson: collectionItems.length,
+        visibleItems: visibleItems.length,
+        missingItems: missingItemsCount,
+        categoriesVisible: collectionCategories.length,
+    });
+
     return {
         getCollectionCategories,
         getAcervoPageData,
         getAcervoApiData,
         getItemById,
+        getDiagnostics,
     };
 };
 
