@@ -5,9 +5,10 @@
   data-category="{{activeCategory}}"
   data-page-size="24"
 >
-  {{#each items}} {{> acervo-item-card imageUrl=this.imageUrl originalImageUrl=this.originalImageUrl description=this.description
-  estimatedYear=this.estimatedYear historicalPeriod=this.historicalPeriod categoriesLabel=this.categoriesLabel
-  peopleCount=this.peopleCount documentType=this.documentType tags=this.tags }} {{/each}}
+  {{#each items}} {{> acervo-item-card imageUrl=this.imageUrl originalImageUrl=this.originalImageUrl
+  description=this.description estimatedYear=this.estimatedYear historicalPeriod=this.historicalPeriod
+  categoriesLabel=this.categoriesLabel peopleCount=this.peopleCount documentType=this.documentType tags=this.tags }}
+  {{/each}}
 </div>
 
 <div id="acervo-loading" class="has-text-centered is-size-7 has-text-grey my-4 is-hidden">Carregando mais itens...</div>

@@ -21,16 +21,26 @@
               {{/if}} {{/each}}
             </div>
           </div>
-          <button
-            type="button"
-            class="button is-light is-small acervo-filters-toggle"
-            data-acervo-filters-toggle
-            aria-controls="acervo-filters-sidebar"
-            aria-expanded="true"
-          >
-            <span class="icon is-small"><i class="fa-solid fa-sliders"></i></span>
-            <span data-acervo-filters-toggle-label>Ocultar filtros</span>
-          </button>
+          <div class="acervo-content-actions">
+            <button
+              type="button"
+              class="button is-light is-small acervo-filters-toggle"
+              data-acervo-filters-toggle
+              aria-controls="acervo-filters-sidebar"
+              aria-expanded="true"
+            >
+              <span class="icon is-small"><i class="fa-solid fa-sliders"></i></span>
+              <span data-acervo-filters-toggle-label>Ocultar filtros</span>
+            </button>
+            <a
+              href="/acervo?categoria=todos"
+              class="button is-small is-light acervo-clear-filters-btn"
+              aria-label="Limpar filtros"
+              title="Limpar filtros"
+            >
+              <span class="icon is-small"><i class="fa-solid fa-filter-circle-xmark"></i></span>
+            </a>
+          </div>
         </div>
 
         {{> acervo-grid hasItems=hasItems items=items activeCategory=activeCategory}} {{> acervo-empty-state

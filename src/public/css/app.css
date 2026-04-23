@@ -762,11 +762,19 @@ h3,
   padding-inline: 0.85rem;
 }
 
+.acervo-content-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .acervo-sidebar {
   position: sticky;
   inset-block-start: 5rem;
   min-inline-size: 0;
-  overflow: hidden;
+  max-block-size: calc(100vh - 5rem);
+  overflow-y: auto;
+  overflow-x: hidden;
   z-index: 20;
   transition:
     opacity 0.24s ease,
@@ -865,8 +873,12 @@ h3,
 
 .acervo-toolbar {
   display: grid;
+  position: sticky;
+  inset-block-start: 0;
+  grid-template-rows: auto auto minmax(0, 1fr);
   gap: 1rem;
   padding: 1rem;
+  max-block-size: calc(100vh - 5rem);
   border: 1px solid var(--border-color);
   background: var(--card-bg);
   box-shadow: 0 20px 40px rgba(46, 31, 14, 0.08);
@@ -904,6 +916,11 @@ h3,
   flex-shrink: 0;
 }
 
+.acervo-clear-filters-btn {
+  min-block-size: 2rem;
+  border-color: rgba(138, 110, 78, 0.28);
+}
+
 .acervo-toolbar-meta {
   padding: 0.8rem 0.9rem;
   border: 1px solid rgba(138, 110, 78, 0.18);
@@ -928,6 +945,10 @@ h3,
 
 .acervo-toolbar-row--categories {
   align-items: flex-start;
+  min-block-size: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-inline-end: 0.25rem;
 }
 
 .acervo-category-chips {
@@ -943,6 +964,21 @@ h3,
   padding-inline: 0.8rem;
   border-color: rgba(138, 110, 78, 0.22);
   text-decoration: none;
+}
+
+.acervo-category-chips .acervo-category-chip:first-child {
+  border-color: rgba(181, 69, 27, 0.45);
+  background: color-mix(in srgb, var(--accent2) 12%, var(--white));
+  font-weight: 700;
+}
+
+.acervo-category-chips .acervo-category-chip:first-child .acervo-category-chip-count {
+  background: rgba(181, 69, 27, 0.16);
+}
+
+[data-theme='dark'] .acervo-category-chips .acervo-category-chip:first-child {
+  border-color: rgba(212, 168, 58, 0.42);
+  background: color-mix(in srgb, var(--accent2) 26%, transparent);
 }
 
 .acervo-category-chip-count {
@@ -1140,6 +1176,11 @@ h3,
     flex-direction: column;
   }
 
+  .acervo-content-actions {
+    inline-size: 100%;
+    justify-content: space-between;
+  }
+
   .acervo-content-context {
     flex-wrap: wrap;
     row-gap: 0.35rem;
@@ -1202,7 +1243,9 @@ h3,
   }
 
   .acervo-toolbar {
+    position: static;
     min-block-size: calc(100dvh - 1.5rem);
+    max-block-size: none;
     padding: 0.75rem;
   }
 
