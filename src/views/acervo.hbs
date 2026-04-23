@@ -8,6 +8,16 @@
           <div>
             <p class="acervo-content-kicker">Navegação do Acervo</p>
             <h2 class="title is-5 mb-1">Coleção Digital</h2>
+            <div class="acervo-content-context" aria-live="polite">
+              <span class="acervo-content-context-label">Categoria ativa</span>
+              {{#each categories}} {{#if this.isActive}}
+              <span class="acervo-active-category-pill">
+                <span class="icon is-small"><i class="fa-solid fa-folder-open"></i></span>
+                <strong>{{this.label}}</strong>
+                <span class="acervo-active-category-count">{{this.count}}</span>
+              </span>
+              {{/if}} {{/each}}
+            </div>
           </div>
           <button
             type="button"

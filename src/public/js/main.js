@@ -363,8 +363,9 @@ const setupAcervoFiltersPanel = () => {
     const toggleButtons = Array.from(document.querySelectorAll('[data-acervo-filters-toggle]'));
     const toggleLabel = document.querySelector('[data-acervo-filters-toggle-label]');
     const backdrop = document.querySelector('[data-acervo-filters-backdrop]');
+    const categoryLinks = Array.from(document.querySelectorAll('.acervo-category-chip[href]'));
     const storageKey = 'acervoFiltersPanelOpen';
-    const mediaQuery = window.matchMedia('(max-inline-size: 768px)');
+    const isMobileViewport = () => window.innerWidth <= 768;
 
     if (toggleButtons.length === 0) {
         return;
@@ -394,7 +395,7 @@ const setupAcervoFiltersPanel = () => {
     };
 
     const syncPageLock = (isOpen) => {
-        document.body.classList.toggle('acervo-filters-locked', mediaQuery.matches && isOpen);
+        document.body.classList.toggle('acervo-filters-locked', isMobileViewport() && isOpen);
     };
 
     const applyState = (isOpen) => {
@@ -417,7 +418,7 @@ const setupAcervoFiltersPanel = () => {
     };
 
     const storedState = readStoredState();
-    const defaultOpen = mediaQuery.matches ? false : true;
+    const defaultOpen = isMobileViewport() ? false : true;
     applyState(storedState === null ? defaultOpen : storedState);
 
     toggleButtons.forEach((button) => {
@@ -434,6 +435,17 @@ const setupAcervoFiltersPanel = () => {
             persistState(false);
         });
     }
+
+    categoryLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+            if (!isMobileViewport()) {
+                return;
+            }
+
+            applyState(false);
+            persistState(false);
+        });
+    });
 
     document.addEventListener('keydown', (event) => {
         if (event.key !== 'Escape') {
@@ -452,11 +464,7 @@ const setupAcervoFiltersPanel = () => {
         syncPageLock(shell.classList.contains('is-filters-open'));
     };
 
-    if (typeof mediaQuery.addEventListener === 'function') {
-        mediaQuery.addEventListener('change', handleViewportChange);
-    } else if (typeof mediaQuery.addListener === 'function') {
-        mediaQuery.addListener(handleViewportChange);
-    }
+    window.addEventListener('resize', handleViewportChange, { passive: true });
 };
 
 const setupNavActiveSection = () => {

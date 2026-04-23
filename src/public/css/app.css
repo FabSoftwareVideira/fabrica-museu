@@ -702,6 +702,60 @@ h3,
   font-size: 0.92rem;
 }
 
+.acervo-content-context {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.acervo-content-context-label {
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.acervo-active-category-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-block-size: 2rem;
+  padding-inline: 0.65rem;
+  border: 1px solid rgba(138, 110, 78, 0.25);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 10%, var(--white));
+  color: var(--text-color);
+  font-size: 0.82rem;
+  line-height: 1;
+}
+
+.acervo-active-category-pill .icon {
+  color: var(--accent2);
+}
+
+.acervo-active-category-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-inline-size: 1.8rem;
+  min-block-size: 1.3rem;
+  padding-inline: 0.4rem;
+  border-radius: 999px;
+  background: rgba(46, 31, 14, 0.12);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+[data-theme='dark'] .acervo-active-category-pill {
+  border-color: rgba(212, 168, 58, 0.25);
+  background: color-mix(in srgb, var(--accent2) 20%, transparent);
+}
+
+[data-theme='dark'] .acervo-active-category-count {
+  background: rgba(255, 255, 255, 0.14);
+}
+
 .acervo-filters-toggle {
   flex-shrink: 0;
   min-block-size: 2.35rem;
@@ -1086,14 +1140,20 @@ h3,
     flex-direction: column;
   }
 
+  .acervo-content-context {
+    flex-wrap: wrap;
+    row-gap: 0.35rem;
+  }
+
   .acervo-sidebar {
     position: fixed;
-    inset-block: 0;
+    inset-block-start: 3.25rem;
+    inset-block-end: 0;
     inset-inline-end: 0;
-    z-index: 45;
+    z-index: 1001;
     inline-size: min(88vw, 360px);
     max-inline-size: 100%;
-    block-size: 100dvh;
+    block-size: calc(100dvh - 3.25rem);
     padding: 0.75rem;
     overflow-y: auto;
     background: color-mix(in srgb, var(--site-bg) 82%, transparent);
@@ -1111,8 +1171,10 @@ h3,
 
   .acervo-sidebar-backdrop {
     position: fixed;
-    inset: 0;
-    z-index: 40;
+    inset-block-start: 3.25rem;
+    inset-block-end: 0;
+    inset-inline: 0;
+    z-index: 1000;
     display: block;
     border: 0;
     background: rgba(20, 12, 5, 0.52);
