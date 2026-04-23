@@ -18,9 +18,20 @@
 
     <div class="columns is-variable is-6">
       <div class="column is-7-desktop">
+        {{#if item.imageUrl}}
         <figure class="image acervo-item-figure">
-          <img src="{{item.originalImageUrl}}" data-fallback-src="{{item.imageUrl}}" alt="{{item.description}}" onerror="if (this.dataset.fallbackSrc && this.src !== this.dataset.fallbackSrc) { this.src = this.dataset.fallbackSrc; }" />
+          <img
+            src="{{item.originalImageUrl}}"
+            data-fallback-src="{{item.imageUrl}}"
+            alt="{{item.description}}"
+            onerror="
+              if (this.dataset.fallbackSrc && this.src !== this.dataset.fallbackSrc) {
+                this.src = this.dataset.fallbackSrc;
+              }
+            "
+          />
         </figure>
+        {{/if}}
       </div>
 
       <div class="column is-5-desktop">

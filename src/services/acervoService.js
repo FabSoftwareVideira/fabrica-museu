@@ -1,5 +1,15 @@
+const fs = require('node:fs');
+const path = require('node:path');
 const { toSlug, toLabel } = require('../utils/slug');
 const { buildPublicPath } = require('../utils/publicPath');
+
+const resolvePhotosBasePath = () => process.env.PHOTOS_HOST_PATH || path.join(__dirname, '..', 'public', 'photos');
+
+const toDiskPhotoPath = (publicRelativePath) => {
+    const normalized = String(publicRelativePath || '').replace(/\\/g, '/').replace(/^\/+/, '');
+    const withoutPhotosPrefix = normalized.startsWith('photos/') ? normalized.slice('photos/'.length) : normalized;
+    return path.join(resolvePhotosBasePath(), withoutPhotosPrefix);
+};
 
 const toThumbPath = (imagePath) => {
     if (!imagePath || typeof imagePath !== 'string') {
@@ -17,13 +27,27 @@ const mapCollectionItems = (rawItems) => rawItems.map((item, index) => {
 
     const originalImagePath = item.path;
     const thumbImagePath = toThumbPath(originalImagePath);
+    const thumbExists = fs.existsSync(toDiskPhotoPath(thumbImagePath));
+    const originalExists = fs.existsSync(toDiskPhotoPath(originalImagePath));
+
+    let imageUrl = null;
+    let originalImageUrl = null;
+
+    if (thumbExists) {
+        imageUrl = buildPublicPath(thumbImagePath);
+        originalImageUrl = originalExists ? buildPublicPath(originalImagePath) : null;
+    } else if (originalExists) {
+        imageUrl = buildPublicPath(originalImagePath);
+        originalImageUrl = buildPublicPath(originalImagePath);
+    }
 
     return {
         id: item.file_hash || `${index}`,
         filename: item.filename,
         imagePath: originalImagePath,
-        imageUrl: buildPublicPath(thumbImagePath),
-        originalImageUrl: buildPublicPath(originalImagePath),
+        imageUrl,
+        originalImageUrl,
+        hasImage: Boolean(imageUrl),
         fileSize: item.file_size,
         description: item.description,
         tags: Array.isArray(item.tags) ? item.tags : [],
@@ -92,13 +116,14 @@ const paginateItems = (items, page, limit) => {
 
 const createAcervoService = (rawItems) => {
     const collectionItems = mapCollectionItems(rawItems);
-    const collectionCategories = buildCollectionCategories(collectionItems);
+    const visibleItems = collectionItems.filter((item) => item.hasImage);
+    const collectionCategories = buildCollectionCategories(visibleItems);
 
     const getCollectionCategories = () => collectionCategories;
 
     const getAcervoPageData = ({ categoria, pageSize = 24 } = {}) => {
         const activeCategory = resolveCategory(categoria, collectionCategories);
-        const filteredItems = filterItemsByCategory(collectionItems, activeCategory);
+        const filteredItems = filterItemsByCategory(visibleItems, activeCategory);
         const pagination = paginateItems(filteredItems, 1, pageSize);
 
         return {
@@ -125,7 +150,7 @@ const createAcervoService = (rawItems) => {
         const safePage = toPositiveInteger(page, 1);
         const safeLimit = Math.min(toPositiveInteger(limit, 24), 100);
 
-        const filteredItems = filterItemsByCategory(collectionItems, activeCategory);
+        const filteredItems = filterItemsByCategory(visibleItems, activeCategory);
         const pagination = paginateItems(filteredItems, safePage, safeLimit);
 
         return {

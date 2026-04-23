@@ -117,6 +117,10 @@ const toText = (value, fallback = '-') => {
 };
 
 const buildItemCard = (item) => {
+    if (!item || !item.imageUrl) {
+        return null;
+    }
+
     const column = document.createElement('div');
     column.className = 'column is-3-desktop is-one-fifth-widescreen is-2-fullhd is-4-tablet is-6-mobile px-1 py-1';
 
@@ -257,17 +261,22 @@ const setupAcervoInfiniteScroll = () => {
             const payload = await response.json();
             const items = Array.isArray(payload.items) ? payload.items : [];
             const fragment = document.createDocumentFragment();
+            let renderedItems = 0;
 
             items.forEach((item) => {
-                fragment.appendChild(buildItemCard(item));
+                const card = buildItemCard(item);
+                if (card) {
+                    fragment.appendChild(card);
+                    renderedItems += 1;
+                }
             });
 
-            if (items.length > 0) {
+            if (renderedItems > 0) {
                 grid.appendChild(fragment);
             }
 
             clearSkeletons();
-            state.loadedItems += items.length;
+            state.loadedItems += renderedItems;
             state.totalItems = payload.pagination?.totalItems || state.totalItems;
 
             const currentPage = payload.pagination?.page || state.nextPage;
