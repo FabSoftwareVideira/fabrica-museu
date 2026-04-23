@@ -25,6 +25,7 @@ const createAcervoController = ({ acervoService }) => {
             categoria: request.query.categoria,
             page: request.query.page,
             limit: request.query.limit,
+            q: request.query.q,
         });
 
         request.log.info({

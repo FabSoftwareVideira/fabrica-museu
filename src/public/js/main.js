@@ -169,7 +169,7 @@ const setupAcervoInfiniteScroll = () => {
     const sentinel = document.getElementById('acervo-sentinel');
 
     if (!grid || !sentinel) {
-        return;
+        return { reloadWithQuery: null };
     }
 
     const loadingNode = document.getElementById('acervo-loading');
@@ -181,6 +181,7 @@ const setupAcervoInfiniteScroll = () => {
 
     const state = {
         category: grid.dataset.category || 'todos',
+        q: '',
         nextPage: 2,
         totalPages: 1,
         pageSize: Number(grid.dataset.pageSize || 24),
@@ -189,6 +190,8 @@ const setupAcervoInfiniteScroll = () => {
         hasNext: false,
         loading: false,
     };
+
+    const SCROLL_LOAD_AHEAD_PX = 420;
 
     const updateStatusText = () => {
         if (!countStatusNode) {
@@ -251,6 +254,9 @@ const setupAcervoInfiniteScroll = () => {
                 page: String(state.nextPage),
                 limit: String(state.pageSize),
             });
+            if (state.q) {
+                query.set('q', state.q);
+            }
 
             const response = await fetch(`/api/acervo?${query.toString()}`);
 
@@ -297,7 +303,42 @@ const setupAcervoInfiniteScroll = () => {
             clearSkeletons();
             state.loading = false;
             setLoading(false);
+            window.requestAnimationFrame(maybeLoadMoreOnScroll);
         }
+    };
+
+    const isNearPageBottom = () => {
+        const scrollTop = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+        const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
+        const documentHeight = Math.max(
+            document.body.scrollHeight,
+            document.documentElement.scrollHeight
+        );
+
+        return (scrollTop + viewportHeight) >= (documentHeight - SCROLL_LOAD_AHEAD_PX);
+    };
+
+    const maybeLoadMoreOnScroll = () => {
+        if (!state.hasNext || state.loading) {
+            return;
+        }
+
+        if (isNearPageBottom()) {
+            fetchNextPage();
+        }
+    };
+
+    let scrollCheckScheduled = false;
+    const scheduleScrollCheck = () => {
+        if (scrollCheckScheduled) {
+            return;
+        }
+
+        scrollCheckScheduled = true;
+        window.requestAnimationFrame(() => {
+            scrollCheckScheduled = false;
+            maybeLoadMoreOnScroll();
+        });
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -311,6 +352,75 @@ const setupAcervoInfiniteScroll = () => {
         threshold: 0,
         rootMargin: '300px 0px',
     });
+
+    const reloadWithQuery = async (newQ) => {
+        const trimmed = String(newQ || '').trim();
+        state.q = trimmed;
+        state.loading = false;
+
+        Array.from(grid.querySelectorAll('.column:not(.acervo-skeleton-item)')).forEach((el) => el.remove());
+        clearSkeletons();
+        hideEndMessage();
+        observer.disconnect();
+        setLoading(true);
+
+        try {
+            const query = new URLSearchParams({
+                categoria: state.category,
+                page: '1',
+                limit: String(state.pageSize),
+            });
+            if (trimmed) {
+                query.set('q', trimmed);
+            }
+
+            const response = await fetch(`/api/acervo?${query.toString()}`);
+            if (!response.ok) {
+                throw new Error(`Erro HTTP ${response.status}`);
+            }
+
+            const payload = await response.json();
+            const items = Array.isArray(payload.items) ? payload.items : [];
+            const fragment = document.createDocumentFragment();
+            let rendered = 0;
+
+            items.forEach((item) => {
+                const card = buildItemCard(item);
+                if (card) {
+                    fragment.appendChild(card);
+                    rendered += 1;
+                }
+            });
+
+            if (rendered > 0) {
+                grid.appendChild(fragment);
+            }
+
+            const currentPage = payload.pagination?.page || 1;
+            const totalPages = payload.pagination?.totalPages || 1;
+            state.loadedItems = rendered;
+            state.totalItems = payload.pagination?.totalItems || 0;
+            state.totalPages = totalPages;
+            state.nextPage = currentPage + 1;
+            state.hasNext = currentPage < totalPages;
+
+            updateStatusText();
+
+            if (!state.hasNext) {
+                showEndMessage();
+                return;
+            }
+
+            hideEndMessage();
+            observer.observe(sentinel);
+            scheduleScrollCheck();
+        } catch (error) {
+            console.warn('Falha ao recarregar acervo com filtro:', error);
+            updateStatusText();
+        } finally {
+            setLoading(false);
+        }
+    };
 
     const bootstrapFromApi = async () => {
         try {
@@ -343,6 +453,7 @@ const setupAcervoInfiniteScroll = () => {
 
             hideEndMessage();
             observer.observe(sentinel);
+            scheduleScrollCheck();
         } catch (error) {
             console.warn('Falha ao inicializar metadados do acervo:', error);
             updateStatusText();
@@ -350,7 +461,12 @@ const setupAcervoInfiniteScroll = () => {
         }
     };
 
+    window.addEventListener('scroll', scheduleScrollCheck, { passive: true });
+    window.addEventListener('resize', scheduleScrollCheck, { passive: true });
+
     bootstrapFromApi();
+
+    return { reloadWithQuery };
 };
 
 const setupAcervoFiltersPanel = () => {
@@ -740,6 +856,27 @@ const setupHomeAcervoShowcase = () => {
     showcaseObserver.observe(showcase);
 };
 
+const setupDescriptionFilter = (reloadWithQuery) => {
+    const input = document.getElementById('acervo-description-filter');
+
+    if (!input) {
+        return;
+    }
+
+    if (!reloadWithQuery || typeof reloadWithQuery !== 'function') {
+        return;
+    }
+
+    let debounceTimer = null;
+
+    input.addEventListener('input', (e) => {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => {
+            reloadWithQuery(e.target.value);
+        }, 350);
+    });
+};
+
 const bootstrapApp = () => {
     setupNavbarMenu();
     setupTheme();
@@ -747,7 +884,8 @@ const bootstrapApp = () => {
     setupNavActiveSection();
     setupHomeAcervoShowcase();
     setupAcervoFiltersPanel();
-    setupAcervoInfiniteScroll();
+    const acervoScroll = setupAcervoInfiniteScroll();
+    setupDescriptionFilter(acervoScroll?.reloadWithQuery);
     registerServiceWorker();
 };
 

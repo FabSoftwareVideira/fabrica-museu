@@ -145,6 +145,14 @@ const filterItemsByCategory = (items, activeCategory) => {
     return items.filter((item) => item.categories.includes(activeCategory));
 };
 
+const filterItemsByQuery = (items, q) => {
+    if (!q) {
+        return items;
+    }
+    const needle = q.toLowerCase();
+    return items.filter((item) => item.description && item.description.toLowerCase().includes(needle));
+};
+
 const filterVisibleItemsByCategory = (items, activeCategory) => filterItemsByCategory(
     items.filter((item) => item.hasImage),
     activeCategory,
@@ -201,16 +209,19 @@ const createAcervoService = (rawItems) => {
         };
     };
 
-    const getAcervoApiData = ({ categoria, page = 1, limit = 24 } = {}) => {
+    const getAcervoApiData = ({ categoria, page = 1, limit = 24, q = '' } = {}) => {
         const activeCategory = resolveCategory(categoria, collectionCategories);
         const safePage = toPositiveInteger(page, 1);
         const safeLimit = Math.min(toPositiveInteger(limit, 24), 100);
+        const safeQ = String(q || '').trim().slice(0, 200);
 
-        const filteredItems = filterVisibleItemsByCategory(collectionItems, activeCategory);
+        let filteredItems = filterVisibleItemsByCategory(collectionItems, activeCategory);
+        filteredItems = filterItemsByQuery(filteredItems, safeQ);
         const pagination = paginateItems(filteredItems, safePage, safeLimit);
 
         return {
             category: activeCategory,
+            q: safeQ,
             pagination: {
                 page: pagination.page,
                 limit: safeLimit,
@@ -245,6 +256,7 @@ module.exports = {
     buildCollectionCategories,
     resolveCategory,
     filterItemsByCategory,
+    filterItemsByQuery,
     paginateItems,
     createAcervoService,
 };

@@ -19,6 +19,24 @@
 
   <p id="acervo-count-status" class="is-size-7 has-text-grey mb-1">Exibindo {{items.length}} itens.</p>
 
+  <div class="acervo-toolbar-row acervo-toolbar-row--search">
+    <div class="field mb-0">
+      <div class="control has-icons-right">
+        <input
+          id="acervo-description-filter"
+          type="search"
+          class="input is-small"
+          placeholder="Filtrar por descrição..."
+          aria-label="Filtrar itens por descrição"
+          autocomplete="off"
+        />
+        <span class="icon is-small is-right" aria-hidden="true">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+
   <div class="acervo-toolbar-row acervo-toolbar-row--categories">
     <div class="acervo-category-chips" role="list">
       {{#each categories}}
