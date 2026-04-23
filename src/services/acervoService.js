@@ -17,6 +17,8 @@ const resolvePhotosBasePath = () => {
 const toDiskPhotoPath = (publicRelativePath) => {
     const normalized = String(publicRelativePath || '').replace(/\\/g, '/').replace(/^\/+/, '');
     const withoutPhotosPrefix = normalized.startsWith('photos/') ? normalized.slice('photos/'.length) : normalized;
+    // log
+    console.log(`Resolving disk path for public path "${publicRelativePath}": "${withoutPhotosPrefix}"`);
     return path.join(resolvePhotosBasePath(), withoutPhotosPrefix);
 };
 
