@@ -13,6 +13,7 @@ except ImportError:
     pass  # python-dotenv opcional; variáveis de ambiente do sistema ainda funcionam
 
 EXTENSOES_IMAGEM = {".jpg", ".jpeg", ".png", ".webp", ".bmp", ".tiff"}
+SUFIXO_THUMB = "_thumb"
 
 
 def exibir_progresso(atual, total, prefixo="Progresso"):
@@ -32,6 +33,11 @@ def exibir_progresso(atual, total, prefixo="Progresso"):
 
 def thumb_ja_gerada(caminho_thumb):
     return os.path.exists(caminho_thumb)
+
+
+def eh_thumb_gerada(caminho_arquivo):
+    nome = os.path.basename(caminho_arquivo)
+    return nome.lower().endswith(f"{SUFIXO_THUMB}.webp")
 
 
 def inicializar_log_erros(caminho_log):
@@ -62,6 +68,11 @@ def criar_thumb(caminho_original, caminho_thumb, largura_max):
         img_thumb.save(caminho_thumb, "WEBP", quality=75)
 
 
+def caminho_thumb_mesma_pasta(caminho_original):
+    base_sem_ext = os.path.splitext(caminho_original)[0]
+    return f"{base_sem_ext}{SUFIXO_THUMB}.webp"
+
+
 def processar_por_json(arquivo_json, pasta_base_origem, pasta_destino, largura_max=200, caminho_log_erros=None):
     with open(arquivo_json, 'r', encoding='utf-8') as f:
         dados = json.load(f)
@@ -86,8 +97,7 @@ def processar_por_json(arquivo_json, pasta_base_origem, pasta_destino, largura_m
             continue
 
         caminho_original = os.path.join(pasta_base_origem, caminho_relativo)
-        caminho_rel_sem_ext = os.path.splitext(caminho_relativo)[0]
-        caminho_thumb = os.path.join(pasta_destino, f"{caminho_rel_sem_ext}.webp")
+        caminho_thumb = caminho_thumb_mesma_pasta(caminho_original)
 
         try:
             if thumb_ja_gerada(caminho_thumb):
@@ -128,8 +138,9 @@ def processar_por_pasta(pasta_base_origem, pasta_destino, largura_max=200, camin
     for raiz, _, arquivos in os.walk(pasta_fotos):
         for nome_arquivo in arquivos:
             ext = os.path.splitext(nome_arquivo)[1].lower()
-            if ext in EXTENSOES_IMAGEM:
-                arquivos_imagem.append(os.path.join(raiz, nome_arquivo))
+            caminho_arquivo = os.path.join(raiz, nome_arquivo)
+            if ext in EXTENSOES_IMAGEM and not eh_thumb_gerada(caminho_arquivo):
+                arquivos_imagem.append(caminho_arquivo)
 
     total = len(arquivos_imagem)
 
@@ -138,8 +149,7 @@ def processar_por_pasta(pasta_base_origem, pasta_destino, largura_max=200, camin
 
     for caminho_original in arquivos_imagem:
         rel = os.path.relpath(caminho_original, pasta_base_origem)
-        rel_sem_ext = os.path.splitext(rel)[0]
-        caminho_thumb = os.path.join(pasta_destino, f"{rel_sem_ext}.webp")
+        caminho_thumb = caminho_thumb_mesma_pasta(caminho_original)
 
         try:
             if thumb_ja_gerada(caminho_thumb):
@@ -162,7 +172,7 @@ def processar_por_pasta(pasta_base_origem, pasta_destino, largura_max=200, camin
 # --- CONFIGURAÇÕES ---
 ARQUIVO_JSON = os.environ.get("ARQUIVO_JSON", "src/data/acervo-index.json")
 PASTA_RAIZ = os.environ.get("PASTA_RAIZ", "src/public")
-PASTA_THUMBS = os.environ.get("PASTA_THUMBS", "src/public/photos/thumbs")
+PASTA_THUMBS = os.environ.get("PASTA_THUMBS", PASTA_RAIZ)
 LARGURA_THUMB = int(os.environ.get("LARGURA_THUMB", "250"))
 USAR_JSON = os.environ.get("USAR_JSON", "1") != "0"
 ARQUIVO_LOG_ERROS = os.environ.get("ARQUIVO_LOG_ERROS", "logs/thumbs-erros.log")
@@ -172,8 +182,8 @@ if __name__ == "__main__":
     print(f"Tentando abrir JSON em: {os.path.abspath(ARQUIVO_JSON)}")
     print(f"Log de erros em: {os.path.abspath(ARQUIVO_LOG_ERROS)}")
 
-    os.makedirs(PASTA_THUMBS, exist_ok=True)
-    print(f"Pasta de destino: {os.path.abspath(PASTA_THUMBS)}")
+    print(f"Pasta base de processamento: {os.path.abspath(PASTA_RAIZ)}")
+    print("Destino das thumbs: mesma pasta do arquivo original")
 
     inicializar_log_erros(ARQUIVO_LOG_ERROS)
 

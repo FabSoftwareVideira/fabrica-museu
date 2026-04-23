@@ -7,7 +7,7 @@ const toThumbPath = (imagePath) => {
     }
 
     const withoutExt = imagePath.replace(/\.[^/.]+$/, '');
-    return `photos/thumbs/${withoutExt}.webp`;
+    return `${withoutExt}_thumb.webp`;
 };
 
 const mapCollectionItems = (rawItems) => rawItems.map((item, index) => {
