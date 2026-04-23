@@ -11,8 +11,8 @@ let resolvedPhotosBasePathSignature = null;
 
 const buildPhotosBasePathCandidates = () => [
     process.env.PHOTOS_HOST_PATH,
-    // CONTAINER_PHOTOS_PATH,
-    // LOCAL_PHOTOS_PATH,
+    CONTAINER_PHOTOS_PATH,
+    LOCAL_PHOTOS_PATH,
 ].filter(Boolean);
 
 const resolvePhotosBasePath = () => {
