@@ -30,6 +30,43 @@ export const createGrid = (config = {}) => {
     const SCROLL_LOAD_AHEAD_PX = 420;
     const skeletonNodes = [];
 
+    const wait = (ms) => new Promise((resolve) => window.setTimeout(resolve, ms));
+
+    const shouldRetryStatus = (status) => [404, 429, 500, 502, 503, 504].includes(Number(status));
+
+    const fetchApiWithRetry = async (url, { attempts = 3 } = {}) => {
+        let lastError = null;
+
+        for (let attempt = 1; attempt <= attempts; attempt += 1) {
+            try {
+                const response = await fetch(url, {
+                    cache: 'no-store',
+                    credentials: 'same-origin',
+                });
+
+                if (!response.ok) {
+                    const retryable = shouldRetryStatus(response.status);
+                    if (retryable && attempt < attempts) {
+                        await wait(120 * attempt);
+                        continue;
+                    }
+
+                    throw new Error(`Erro HTTP ${response.status}`);
+                }
+
+                return response;
+            } catch (error) {
+                lastError = error;
+                if (attempt < attempts) {
+                    await wait(120 * attempt);
+                    continue;
+                }
+            }
+        }
+
+        throw lastError || new Error('Falha de rede ao carregar o acervo');
+    };
+
     const updateStatusText = () => {
         if (countStatusNode)
             countStatusNode.textContent = `Exibindo ${state.loadedItems} de ${state.totalItems} itens.`;
@@ -99,8 +136,7 @@ export const createGrid = (config = {}) => {
             });
             if (state.q) params.set('q', state.q);
 
-            const response = await fetch(`${apiUrl}?${params.toString()}`);
-            if (!response.ok) throw new Error(`Erro HTTP ${response.status}`);
+            const response = await fetchApiWithRetry(`${apiUrl}?${params.toString()}`);
 
             const payload = await response.json();
             const items = Array.isArray(payload.items) ? payload.items : [];
@@ -156,8 +192,7 @@ export const createGrid = (config = {}) => {
             });
             if (trimmed) params.set('q', trimmed);
 
-            const response = await fetch(`${apiUrl}?${params.toString()}`);
-            if (!response.ok) throw new Error(`Erro HTTP ${response.status}`);
+            const response = await fetchApiWithRetry(`${apiUrl}?${params.toString()}`);
 
             const payload = await response.json();
             const items = Array.isArray(payload.items) ? payload.items : [];
@@ -202,8 +237,7 @@ export const createGrid = (config = {}) => {
                 limit: String(state.pageSize),
             });
 
-            const response = await fetch(`${apiUrl}?${params.toString()}`);
-            if (!response.ok) throw new Error(`Erro HTTP ${response.status}`);
+            const response = await fetchApiWithRetry(`${apiUrl}?${params.toString()}`);
 
             const payload = await response.json();
             const currentPage = payload.pagination?.page || 1;
