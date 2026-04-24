@@ -1,6 +1,4 @@
-const path = require('node:path');
 const Fastify = require('fastify');
-const fastifyStatic = require('@fastify/static');
 
 const { env } = require('./config/env');
 const { loadAcervoItems } = require('./repositories/acervoRepository');
@@ -8,49 +6,25 @@ const { createAcervoService } = require('./services/acervoService');
 const { registerRoutes } = require('./routes');
 const { registerViewEngine } = require('./plugins/viewEngine');
 
+// Bibliotecas adicionais
+const securityPlugin = require('./plugins/security');
+const staticPlugin = require('./plugins/static');
+
 const buildApp = () => {
     const app = Fastify({
         logger: true,
         trustProxy: env.trustProxy,
     });
 
-    app.log.info({
-        event: 'app.startup',
-        nodeEnv: env.nodeEnv,
-        host: env.host,
-        port: env.port,
-        trustProxy: env.trustProxy,
-        photosHostPath: env.photosHostPath,
-    }, 'Inicializando aplicacao');
+    // 1. Plugins
+    app.register(securityPlugin);
+    app.register(staticPlugin, { env });
+    app.register(registerViewEngine, { isDevelopment: env.nodeEnv === 'development' });
 
-    app.register(fastifyStatic, {
-        root: env.photosHostPath,
-        prefix: '/public/photos/',
-        decorateReply: false,
-    });
-
-    app.register(fastifyStatic, {
-        root: path.join(__dirname, 'public'),
-        prefix: '/public/',
-        decorateReply: false,
-    });
-
-    app.register(fastifyStatic, {
-        root: path.join(__dirname, 'ui'),
-        prefix: '/public/js/ui/',
-        decorateReply: false,
-    });
-
-    registerViewEngine(app, { isDevelopment: env.nodeEnv === 'development' });
-
+    // 2. Serviços e Repositórios
     const acervoService = createAcervoService(loadAcervoItems());
-    if (typeof acervoService.getDiagnostics === 'function') {
-        app.log.info({
-            event: 'acervo.loaded',
-            ...acervoService.getDiagnostics(),
-        }, 'Acervo carregado');
-    }
 
+    // 3. Rotas
     registerRoutes(app, { acervoService });
 
     return app;

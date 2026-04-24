@@ -1,6 +1,7 @@
 const path = require('node:path');
 const fs = require('node:fs');
 const fastifyView = require('@fastify/view');
+const fp = require('fastify-plugin');
 const handlebars = require('handlebars');
 
 const partialsDirs = [
@@ -23,7 +24,7 @@ const registerPartials = () => {
     });
 };
 
-const registerViewEngine = async (app, { isDevelopment }) => {
+const registerViewEngine = fp(async (app, { isDevelopment }) => {
     registerPartials();
 
     if (isDevelopment) {
@@ -33,12 +34,12 @@ const registerViewEngine = async (app, { isDevelopment }) => {
         });
     }
 
-    app.register(fastifyView, {
+    await app.register(fastifyView, {
         engine: {
             handlebars,
         },
         root: path.join(__dirname, '..', 'views'),
     });
-};
+});
 
 module.exports = { registerViewEngine };
