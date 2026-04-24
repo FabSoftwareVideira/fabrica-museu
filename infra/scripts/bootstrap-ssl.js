@@ -106,7 +106,7 @@ const main = () => {
     run('docker', ['compose', '--profile', profile, 'up', '-d'], `docker compose --profile ${profile} up -d`);
 
     // Recria o nginx para garantir que ele releia o fallback HTTP/HTTPS apos gerar certificados.
-    const nginxService = profile === 'dev' ? 'nginx-dev' : 'nginx-prod';
+    const nginxService = profile === 'dev' ? 'fabrica-museu-nginx-dev' : 'fabrica-museu-nginx-prod';
     run(
         'docker',
         ['compose', '--profile', profile, 'up', '-d', '--force-recreate', '--no-deps', nginxService],

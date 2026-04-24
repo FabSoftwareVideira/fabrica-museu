@@ -119,7 +119,7 @@ mkcert -cert-file infra/certs/dev/tls.crt -key-file infra/certs/dev/tls.key loca
 3. Para testar no celular (mesma rede), inclua também o IP local da máquina:
 
 ```bash
-mkcert -cert-file infra/certs/dev/tls.crt -key-file infra/certs/dev/tls.key localhost 127.0.0.1 ::1 192.168.1.6
+mkcert -cert-file infra/certs/dev/tls.crt -key-file infra/certs/dev/tls.key localhost 127.0.0.1 ::1
 ```
 
 4. Reinicie os serviços dev:
