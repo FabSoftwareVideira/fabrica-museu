@@ -10,7 +10,10 @@ export const createShowcase = (config = {}) => {
     const apiUrl = config.apiUrl || '/api/acervo';
     const gridSize = Number(config.gridSize || showcase.dataset.gridSize || slots.length);
     const rotateCount = Math.max(1, Number(config.rotateCount || showcase.dataset.rotateCount || 3));
-    const rotateInterval = Math.max(2000, Number(config.rotateInterval || showcase.dataset.rotateInterval || 3200));
+    const rotateInterval = Math.max(
+        2000,
+        Number(config.rotateInterval ?? showcase.dataset.rotateInterval ?? 3200)
+    );
 
     const loadedKeys = new Set();
     let hasBootstrapped = false;
