@@ -975,7 +975,7 @@ h3,
 
 .acervo-category-chips .acervo-category-chip:first-child {
   border-color: rgba(181, 69, 27, 0.45);
-  background: color-mix(in srgb, var(--accent2) 12%, var(--white));
+  background: color-mix(in srgb, var(--accent2) 12%, var(--accent));
   font-weight: 700;
 }
 
