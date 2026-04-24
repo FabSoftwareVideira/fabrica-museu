@@ -1,4 +1,4 @@
-const CACHE_NAME = 'museu-vinho-v12';
+const CACHE_NAME = 'museu-vinho-v13';
 const OFFLINE_ASSETS = [
     '/',
     '/acervo',
@@ -38,9 +38,31 @@ self.addEventListener('fetch', (event) => {
     const isSameOrigin = requestUrl.origin === self.location.origin;
     const isApiRequest = isSameOrigin && requestUrl.pathname.startsWith('/api/');
     const isServiceWorkerScript = isSameOrigin && requestUrl.pathname === '/public/service-worker.js';
+    const isPhotoRequest = isSameOrigin && requestUrl.pathname.startsWith('/public/photos/');
 
     if (isApiRequest || isServiceWorkerScript) {
         event.respondWith(fetch(event.request));
+        return;
+    }
+
+    if (isPhotoRequest) {
+        event.respondWith(
+            fetch(event.request)
+                .then((networkResponse) => {
+                    if (networkResponse.ok) {
+                        const responseClone = networkResponse.clone();
+                        caches.open(CACHE_NAME).then((cache) => {
+                            cache.put(event.request, responseClone);
+                        });
+                    }
+
+                    return networkResponse;
+                })
+                .catch(async () => {
+                    const cachedResponse = await caches.match(event.request);
+                    return cachedResponse || Response.error();
+                })
+        );
         return;
     }
 
