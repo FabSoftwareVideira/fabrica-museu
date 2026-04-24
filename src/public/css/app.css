@@ -4,7 +4,7 @@
 :root,
 [data-theme='light'] {
   /* Brand palette */
-  --bg: #f5f0e8;
+  --bg: #fefcf7;
   --surface: #ede7d9;
   --wire: #c8b89a;
   --wire-dk: #8a6e4e;
@@ -19,11 +19,6 @@
   --bulma-family-primary: 'DM Sans', sans-serif;
   --ff-display: 'Playfair Display', Georgia, serif;
   --ff-body: 'DM Sans', sans-serif;
-  /* ── Bulma color overrides ──────────────────────────────────
-     Bulma 1.0 derives ALL shades/inverts from h/s/l triplets.
-     Overriding just these cascades to buttons, tags, tabs,
-     links, focus rings, pagination, hero, navbar, etc.
-  ──────────────────────────────────────────────────────────── */
 
   /* Primary → accent #7b1c2e (bordeaux) */
   --bulma-primary-h: 349deg;
@@ -81,6 +76,12 @@
   --skeleton-c2: var(--bg);
   --card-footer-bg: var(--surface);
   --card-footer-border: var(--wire);
+  --map-border: color-mix(in srgb, var(--wire) 55%, transparent);
+  --map-control-bg: #fffdf9;
+  --map-control-ink: #2e1f0e;
+  --map-popup-bg: #fffdf9;
+  --map-popup-ink: #2e1f0e;
+  --map-popup-link: #8f2f16;
 }
 
 [data-theme='dark'] {
@@ -116,6 +117,12 @@
   --skeleton-c2: #38280f;
   --card-footer-bg: #1e1508;
   --card-footer-border: var(--wire);
+  --map-border: color-mix(in srgb, var(--wire) 75%, transparent);
+  --map-control-bg: #231607;
+  --map-control-ink: #f0e8d8;
+  --map-popup-bg: #231607;
+  --map-popup-ink: #f0e8d8;
+  --map-popup-link: #f3a17f;
 
   /* ── Bulma dark overrides ──────────────────────────────────
      Lighten primary/link/warning so they read on dark canvas.
@@ -1012,10 +1019,157 @@ h3,
   padding-right: 0.7rem;
 }
 
+#contato-link .columns {
+  align-items: stretch;
+}
+
+#contato-link .column {
+  display: flex;
+}
+
+.contact-panel,
+.contact-map-box {
+  block-size: 100%;
+  inline-size: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-panel {
+  border: 1px solid color-mix(in srgb, var(--border-color) 65%, transparent);
+  background: linear-gradient(
+    160deg,
+    color-mix(in srgb, var(--card-bg) 86%, #fff 14%),
+    var(--card-bg)
+  );
+  box-shadow: 0 14px 30px rgba(46, 31, 14, 0.08);
+}
+
+[data-theme='dark'] .contact-panel {
+  background: linear-gradient(
+    160deg,
+    color-mix(in srgb, var(--card-bg) 90%, #000 10%),
+    var(--card-bg)
+  );
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.3);
+}
+
+.contact-panel__kicker {
+  margin: 0 0 0.5rem;
+  color: var(--accent2);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.contact-panel__lead {
+  margin-bottom: 1.1rem;
+  color: var(--text-muted);
+  max-inline-size: 52ch;
+}
+
+.contact-info-list {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.contact-info-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 0.8rem;
+  border: 1px solid color-mix(in srgb, var(--border-color) 62%, transparent);
+  background: color-mix(in srgb, var(--section-bg) 72%, transparent);
+}
+
+.contact-info-item__icon {
+  inline-size: 2rem;
+  block-size: 2rem;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--accent2) 14%, transparent);
+  color: var(--accent2);
+}
+
+.contact-info-item__label {
+  margin: 0 0 0.25rem;
+  color: var(--text-color);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.contact-info-item__text {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.contact-hours-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.24rem;
+  color: var(--text-muted);
+  font-size: 0.86rem;
+}
+
+.contact-map-box {
+  border: 1px solid color-mix(in srgb, var(--border-color) 65%, transparent);
+  gap: 0.8rem;
+}
+
+.contact-map-caption {
+  margin-top: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--text-muted);
+  font-size: 0.86rem;
+}
+
 .contact-map {
-  width: 100%;
+  inline-size: 100%;
+  flex: 1;
   min-height: 360px;
-  /* border-radius: 10px; */
+  border: 1px solid var(--map-border);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+}
+
+.contact-map.leaflet-container {
+  background: color-mix(in srgb, var(--site-bg) 86%, #000 14%);
+}
+
+.contact-map .leaflet-control-zoom a,
+.contact-map .leaflet-control-attribution {
+  background: var(--map-control-bg);
+  color: var(--map-control-ink);
+  border-color: color-mix(in srgb, var(--map-border) 80%, transparent);
+}
+
+.contact-map .leaflet-control-zoom a:hover,
+.contact-map .leaflet-control-attribution a:hover {
+  color: var(--accent2);
+}
+
+.contact-map .leaflet-popup-content-wrapper,
+.contact-map .leaflet-popup-tip {
+  background: var(--map-popup-bg);
+  color: var(--map-popup-ink);
+}
+
+.contact-map .leaflet-popup-content a {
+  color: var(--map-popup-link);
+  font-weight: 700;
+}
+
+[data-theme='dark'] .contact-map .leaflet-control-attribution {
+  background: color-mix(in srgb, var(--map-control-bg) 85%, #000 15%);
 }
 
 .whatsapp-float {
@@ -1290,6 +1444,14 @@ h3,
 
   .contact-map {
     min-height: 300px;
+  }
+
+  .contact-info-item {
+    padding: 0.7rem;
+  }
+
+  .contact-hours-list {
+    font-size: 0.82rem;
   }
 
   .acervo-grid--list-compact .card {

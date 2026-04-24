@@ -8,6 +8,10 @@ export const applyTheme = (theme) => {
         btn.setAttribute('title', label);
         btn.setAttribute('aria-label', label);
     });
+
+    document.dispatchEvent(new CustomEvent('site-theme-changed', {
+        detail: { theme },
+    }));
 };
 
 export const setupTheme = () => {

@@ -112,7 +112,7 @@
   </div>
 </section>
 
-<section class="home-acervo-showcase" id="acervo-aleatorio">
+<section class="section home-acervo-showcase" id="acervo-aleatorio">
   <div class="home-acervo-showcase__header">
     <div class="container">
       <p class="is-size-7 has-text-weight-semibold has-text-grey mb-2">ACERVO</p>
@@ -190,7 +190,7 @@
   </section>
 </section>
 
-<section class="section" id="timeline">
+<section class="section has-background-light" id="timeline">
   <div class="container">
     <p class="is-size-7 has-text-weight-semibold has-text-grey mb-2">HISTÓRIA</p>
     <h2 class="title is-3">Uma linha do tempo da vitivinicultura</h2>
@@ -229,35 +229,68 @@
   <div class="container">
     <div class="columns is-variable is-6">
       <div class="column is-5-desktop">
-        <div class="box has-background-dark has-text-white-ter">
-          <p class="is-size-7 has-text-weight-semibold has-text-grey-light mb-2">VENHA NOS VISITAR</p>
-          <h2 class="title is-3 has-text-white">Planeje sua visita ao Museu</h2>
-          <p>Aberto de terça a domingo, das 9h às 17h. Entrada gratuita para escolas e grupos agendados.</p>
-          <hr class="has-background-grey-lighter" />
-          <p><strong class="has-text-white">Endereço:</strong> Rua Padre Anchieta n° 334, Matriz, Videira, SC</p>
-          <div>
-            <p><strong class="has-text-white">Atendimento:</strong></p>
-            <p class="is-size-7">Terça a Sexta: 08h00 - 12h00 | 13h00 - 17h00.</p>
-            <p class="is-size-7">Sábado e Domingo: 14h00 - 17h30.</p>
-            <p class="is-size-7">Segunda-feira: Fechado.</p>
+        <div class="box contact-panel">
+          <p class="contact-panel__kicker">VENHA NOS VISITAR</p>
+          <h2 class="title is-3 mb-2">Planeje sua visita ao Museu</h2>
+          <p class="contact-panel__lead">
+            Aberto de terça a domingo, com entrada gratuita para escolas e grupos agendados.
+          </p>
+
+          <div class="contact-info-list">
+            <article class="contact-info-item">
+              <span class="icon contact-info-item__icon" aria-hidden="true">
+                <i class="fa-solid fa-location-dot"></i>
+              </span>
+              <div>
+                <p class="contact-info-item__label">Endereço</p>
+                <p class="contact-info-item__text">Rua Padre Anchieta n° 334, Matriz, Videira, SC</p>
+              </div>
+            </article>
+
+            <article class="contact-info-item">
+              <span class="icon contact-info-item__icon" aria-hidden="true">
+                <i class="fa-solid fa-clock"></i>
+              </span>
+              <div>
+                <p class="contact-info-item__label">Horários</p>
+                <ul class="contact-hours-list">
+                  <li><strong>Terça a Sexta:</strong> 08h00 - 12h00 | 13h00 - 17h00</li>
+                  <li><strong>Sábado e Domingo:</strong> 14h00 - 17h30</li>
+                  <li><strong>Segunda-feira:</strong> Fechado</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="contact-info-item">
+              <span class="icon contact-info-item__icon" aria-hidden="true">
+                <i class="fa-solid fa-address-book"></i>
+              </span>
+              <div>
+                <p class="contact-info-item__label">Contato</p>
+                <p class="contact-info-item__text">(49) 3566-6133</p>
+                <p class="contact-info-item__text">museudovinho@videira.sc.gov.br</p>
+              </div>
+            </article>
           </div>
-          <p><strong class="has-text-white">Contato:</strong> (49) 3566-6133 · museudovinho@videira.sc.gov.br</p>
-          <div class="buttons mt-4">
-            <a class="button is-warning" href="https://wa.me/5549991561089" target="_blank" rel="noopener noreferrer"
-              >Agendar visita</a
+
+          <div class="buttons mt-5">
+            <a
+              class="button is-warning is-outlined"
+              href="https://wa.me/5549991561089"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><span class="icon is-small"><i class="fa-brands fa-whatsapp"></i></span><span>Agendar visita</span></a
             >
-            <a class="button is-light is-outlined" href="mailto:museudovinho@videira.sc.gov.br">Fale conosco</a>
+            <a class="button is-light is-outlined" href="mailto:museudovinho@videira.sc.gov.br"
+              ><span class="icon is-small"><i class="fa-solid fa-envelope"></i></span><span>Fale conosco</span></a
+            >
           </div>
         </div>
       </div>
 
       <div class="column is-7-desktop">
-        <div class="box">
+        <div class="box contact-map-box">
           <div id="museum-map" class="contact-map" aria-label="Mapa com a localização do Museu do Vinho"></div>
-          <div
-            class="is-flex is-justify-content-space-between is-align-items-center mt-3 is-flex-wrap-wrap"
-            style="gap: 0.75rem"
-          ></div>
         </div>
       </div>
     </div>
