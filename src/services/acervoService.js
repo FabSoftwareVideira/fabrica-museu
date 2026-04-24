@@ -251,6 +251,24 @@ const createAcervoService = (rawItems) => {
     };
 };
 
+const fetchAcervo = async ({ categoria, page, limit, q }) => {
+    const params = new URLSearchParams({
+        categoria,
+        page: String(page),
+        limit: String(limit),
+    });
+
+    if (q) params.set('q', q);
+
+    const response = await fetch(`/api/acervo?${params.toString()}`);
+
+    if (!response.ok) {
+        throw new Error(`Erro HTTP ${response.status}`);
+    }
+
+    return response.json();
+};
+
 module.exports = {
     mapCollectionItems,
     buildCollectionCategories,
@@ -259,4 +277,5 @@ module.exports = {
     filterItemsByQuery,
     paginateItems,
     createAcervoService,
+    fetchAcervo,
 };

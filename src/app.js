@@ -35,6 +35,12 @@ const buildApp = () => {
         decorateReply: false,
     });
 
+    app.register(fastifyStatic, {
+        root: path.join(__dirname, 'ui'),
+        prefix: '/public/js/ui/',
+        decorateReply: false,
+    });
+
     registerViewEngine(app, { isDevelopment: env.nodeEnv === 'development' });
 
     const acervoService = createAcervoService(loadAcervoItems());
