@@ -1,4 +1,4 @@
-const CACHE_NAME = 'museu-vinho-v10';
+const CACHE_NAME = 'museu-vinho-v12';
 const OFFLINE_ASSETS = [
     '/',
     '/acervo',
@@ -34,6 +34,16 @@ self.addEventListener('fetch', (event) => {
         return;
     }
 
+    const requestUrl = new URL(event.request.url);
+    const isSameOrigin = requestUrl.origin === self.location.origin;
+    const isApiRequest = isSameOrigin && requestUrl.pathname.startsWith('/api/');
+    const isServiceWorkerScript = isSameOrigin && requestUrl.pathname === '/public/service-worker.js';
+
+    if (isApiRequest || isServiceWorkerScript) {
+        event.respondWith(fetch(event.request));
+        return;
+    }
+
     event.respondWith(
         caches.match(event.request).then((cachedResponse) => {
             if (cachedResponse) {
@@ -42,13 +52,22 @@ self.addEventListener('fetch', (event) => {
 
             return fetch(event.request)
                 .then((networkResponse) => {
-                    const responseClone = networkResponse.clone();
-                    caches.open(CACHE_NAME).then((cache) => {
-                        cache.put(event.request, responseClone);
-                    });
+                    if (networkResponse.ok && isSameOrigin) {
+                        const responseClone = networkResponse.clone();
+                        caches.open(CACHE_NAME).then((cache) => {
+                            cache.put(event.request, responseClone);
+                        });
+                    }
+
                     return networkResponse;
                 })
-                .catch(() => caches.match('/'));
+                .catch(() => {
+                    if (event.request.mode === 'navigate') {
+                        return caches.match('/');
+                    }
+
+                    return Response.error();
+                });
         })
     );
 });
