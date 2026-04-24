@@ -9,6 +9,7 @@ const { registerViewEngine } = require('./plugins/viewEngine');
 // Bibliotecas adicionais
 const securityPlugin = require('./plugins/security');
 const staticPlugin = require('./plugins/static');
+const limitPlugin = require('./plugins/limit');
 
 const buildApp = () => {
     const app = Fastify({
@@ -19,13 +20,16 @@ const buildApp = () => {
     // 1. Plugins
     app.register(securityPlugin);
     app.register(staticPlugin, { env });
+    app.register(limitPlugin);
     app.register(registerViewEngine, { isDevelopment: env.nodeEnv === 'development' });
 
     // 2. Serviços e Repositórios
     const acervoService = createAcervoService(loadAcervoItems());
 
     // 3. Rotas
-    registerRoutes(app, { acervoService });
+    app.after(() => {
+        registerRoutes(app, { acervoService });
+    });
 
     return app;
 };
