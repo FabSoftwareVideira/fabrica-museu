@@ -13,7 +13,7 @@ export const buildItemCard = (item) => {
         <article class="card acervo-item-card" aria-label="Item do acervo: ${safeDesc.replace(/"/g, '&quot;')}">
             <div class="card-image">
                 <figure class="image is-square">
-                    <img src="${item.imageUrl}" data-fallback-src="${item.originalImageUrl || item.imageUrl}" alt="${safeDesc.replace(/"/g, '&quot;')}" loading="lazy" onerror="if (this.dataset.fallbackSrc && this.src !== this.dataset.fallbackSrc) { this.src = this.dataset.fallbackSrc; }" />
+                    <img src="${item.imageUrl}" data-fallback-src="${item.originalImageUrl || ''}" alt="${safeDesc.replace(/"/g, '&quot;')}" loading="lazy" onerror="const f=this.dataset.fallbackSrc;if(f){this.removeAttribute('data-fallback-src');this.src=f;}" />
                     <div class="acervo-item-card__overlay" aria-hidden="true">
                         <a href="/acervo/${id}" class="acervo-item-card__detail-btn" tabindex="-1">
                             <span class="icon is-small"><i class="fa-solid fa-magnifying-glass-plus"></i></span>

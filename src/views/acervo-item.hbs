@@ -25,8 +25,10 @@
             data-fallback-src="{{item.imageUrl}}"
             alt="{{item.description}}"
             onerror="
-              if (this.dataset.fallbackSrc && this.src !== this.dataset.fallbackSrc) {
-                this.src = this.dataset.fallbackSrc;
+              const f = this.dataset.fallbackSrc;
+              if (f) {
+                this.removeAttribute('data-fallback-src');
+                this.src = f;
               }
             "
           />
