@@ -19,7 +19,7 @@ const buildApp = () => {
 
     // 1. Plugins
     app.register(staticPlugin, { env });
-    app.register(securityPlugin);
+    // app.register(securityPlugin);
     app.register(limitPlugin);
     app.register(registerViewEngine, { isDevelopment: env.nodeEnv === 'development' });
 
