@@ -104,8 +104,6 @@ services:
     init: true
     expose:
       - '3000'
-    labels:
-      - 'app.url=https://museudovinho.fsw-ifc.brdrive.cloud'
 
     # --- recursos (padrão Compose v2 / Docker 25+) ---
     deploy:
@@ -188,6 +186,11 @@ services:
   fabrica-museu-nginx-prod:
     image: nginx:1.27-alpine
     container_name: fabrica-museu-nginx-prod
+    labels:
+      app.name: 'fabrica-museu'
+      app.role: 'frontend'
+      app.url: 'https://museudovinho.fsw-ifc.brdrive.cloud'
+      app.environment: 'production'
     profiles: [prod]
     depends_on:
       - fabrica-museu-prod
