@@ -21,6 +21,12 @@ const buildApp = () => {
     app.register(staticPlugin, { env });
     app.register(securityPlugin);
     app.register(limitPlugin);
+    app.decorate('appMetadata', {
+        appVersion: env.appVersion,
+        appCommit: env.appCommit,
+        appBuildDate: env.appBuildDate,
+        appImage: env.appImage,
+    });
     app.register(registerViewEngine, { isDevelopment: env.nodeEnv === 'development' });
 
     // 2. Serviços e Repositórios

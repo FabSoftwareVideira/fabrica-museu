@@ -66,6 +66,13 @@ test('static plugin serve fotos, assets publicos e modulos da UI', async () => {
 test('view engine plugin disponibiliza reply.view para renderizar templates', async () => {
     const app = createApp();
 
+    app.decorate('appMetadata', {
+        appVersion: '1.2.3',
+        appCommit: 'abc1234',
+        appBuildDate: '2026-04-27T10:00:00Z',
+        appImage: 'fabrica-museu:1.2.3',
+    });
+
     await app.register(registerViewEngine, { isDevelopment: false });
     app.get('/page', async (_request, reply) => {
         return reply.view('index.hbs', {
@@ -79,6 +86,7 @@ test('view engine plugin disponibiliza reply.view para renderizar templates', as
     assert.equal(response.statusCode, 200);
     assert.match(response.headers['content-type'], /text\/html/);
     assert.match(response.payload, /<title>Teste Museu<\/title>/);
+    assert.match(response.payload, /Versão 1\.2\.3 \(abc1234\) - Build em 2026-04-27T10:00:00Z/);
 
     await app.close();
 });

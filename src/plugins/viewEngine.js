@@ -38,6 +38,12 @@ const registerViewEngine = fp(async (app, { isDevelopment }) => {
         engine: {
             handlebars,
         },
+        defaultContext: {
+            appVersion: app.appMetadata.appVersion,
+            appCommit: app.appMetadata.appCommit,
+            appBuildDate: app.appMetadata.appBuildDate,
+            appImage: app.appMetadata.appImage,
+        },
         root: path.join(__dirname, '..', 'views'),
     });
 });

@@ -21,6 +21,12 @@ jobs:
       - name: 📂 Checkout do Código
         uses: actions/checkout@v4
 
+      - name: 🏷️ Definir versão do build
+        run: |
+          echo "IMAGE_TAG=${GITHUB_REF_NAME}" >> $GITHUB_ENV
+          echo "GIT_COMMIT=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+          echo "BUILD_DATE=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> $GITHUB_ENV
+
       - name: Gerar .env a partir do ENV_FILE do repositório
         env:
           ENV_FILE_SECRET: ${{ secrets.ENV_FILE }}
