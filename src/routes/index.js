@@ -1,26 +1,17 @@
 const { homeController } = require('../controllers/homeController');
 const { healthController } = require('../controllers/healthController');
 const { createAcervoController } = require('../controllers/acervoController');
+const { buildRateLimitConfig, createRouteRateLimiters, withRateLimit } = require('./rateLimitConfig');
 
 const registerRoutes = (app, { acervoService }) => {
     const { acervoPageController, acervoApiController, acervoItemController } = createAcervoController({ acervoService });
+    const rateLimitConfig = buildRateLimitConfig();
+    const { pageRateLimit, apiRateLimit } = createRouteRateLimiters(app, rateLimitConfig);
 
-    const pageRateLimit = app.rateLimit({
-        max: 120,
-        timeWindow: '1 minute',
-        groupId: 'public-pages',
-    });
-
-    const apiRateLimit = app.rateLimit({
-        max: 80,
-        timeWindow: '1 minute',
-        groupId: 'acervo-api',
-    });
-
-    app.get('/', { preHandler: pageRateLimit }, homeController);
-    app.get('/acervo', { preHandler: pageRateLimit }, acervoPageController);
-    app.get('/acervo/:id', { preHandler: pageRateLimit }, acervoItemController);
-    app.get('/api/acervo', { preHandler: apiRateLimit }, acervoApiController);
+    app.get('/', withRateLimit(pageRateLimit), homeController);
+    app.get('/acervo', withRateLimit(pageRateLimit), acervoPageController);
+    app.get('/acervo/:id', withRateLimit(pageRateLimit), acervoItemController);
+    app.get('/api/acervo', withRateLimit(apiRateLimit), acervoApiController);
     app.get('/health', healthController);
 };
 
