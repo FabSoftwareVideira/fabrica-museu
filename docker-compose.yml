@@ -86,6 +86,8 @@ services:
       dockerfile: Dockerfile
       target: prod
       args:
+        IMAGE_TAG: ${IMAGE_TAG:-dev}
+        IMAGE_NAME: ${IMAGE_NAME:-fabrica-museu:${IMAGE_TAG:-latest}}
         BUILD_DATE: ${BUILD_DATE:-unknown}
         GIT_COMMIT: ${GIT_COMMIT:-unknown}
     image: fabrica-museu:${IMAGE_TAG:-latest}
@@ -98,6 +100,10 @@ services:
       HOST: 0.0.0.0
       PORT: 3000
       TRUST_PROXY: 'true'
+      IMAGE_TAG: ${IMAGE_TAG:-dev}
+      IMAGE_NAME: ${IMAGE_NAME:-fabrica-museu:${IMAGE_TAG:-latest}}
+      GIT_COMMIT: ${GIT_COMMIT:-unknown}
+      BUILD_DATE: ${BUILD_DATE:-unknown}
     volumes:
       - ${PHOTOS_HOST_PATH:-./src/public/photos}:/app/src/public/photos:ro,cached
     command: npm start

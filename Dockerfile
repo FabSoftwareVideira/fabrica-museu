@@ -5,12 +5,16 @@ FROM node:25.9-bookworm-slim AS base
 
 # Recebe metadados de build passados pelo docker-compose
 # (silenciosamente ignorados se não declarados aqui)
+ARG IMAGE_TAG=dev
+ARG IMAGE_NAME=
 ARG BUILD_DATE=unknown
 ARG GIT_COMMIT=unknown
 
 # Expõe como variáveis de ambiente dentro da imagem
 # (útil para endpoints de /health ou /version na app)
-ENV BUILD_DATE=$BUILD_DATE \
+ENV IMAGE_TAG=$IMAGE_TAG \
+  IMAGE_NAME=$IMAGE_NAME \
+  BUILD_DATE=$BUILD_DATE \
     GIT_COMMIT=$GIT_COMMIT
 
 WORKDIR /app
