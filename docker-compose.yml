@@ -104,6 +104,8 @@ services:
     init: true
     expose:
       - '3000'
+    labels:
+      - 'app.url=https://museudovinho.fsw-ifc.brdrive.cloud'
 
     # --- recursos (padrão Compose v2 / Docker 25+) ---
     deploy:
