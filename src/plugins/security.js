@@ -6,6 +6,11 @@ const fp = require('fastify-plugin');
 module.exports = fp(async (app) => {
 
     app.register(helmet, {
+        // OSM/CARTO podem exigir Referer para anti-abuso; strict-origin-when-cross-origin
+        // envia apenas a origem em chamadas cross-origin, sem expor path/query.
+        referrerPolicy: {
+            policy: 'strict-origin-when-cross-origin',
+        },
         contentSecurityPolicy: {
             directives: {
                 defaultSrc: ["'self'"],

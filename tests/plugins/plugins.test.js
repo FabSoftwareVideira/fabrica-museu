@@ -26,6 +26,7 @@ test('security plugin adiciona headers de seguranca e CSP esperada', async () =>
     assert.match(response.headers['content-security-policy'], /https:\/\/\*\.tile\.openstreetmap\.org/);
     assert.equal(response.headers['cross-origin-embedder-policy'], undefined);
     assert.equal(response.headers['x-frame-options'], 'SAMEORIGIN');
+    assert.equal(response.headers['referrer-policy'], 'strict-origin-when-cross-origin');
 
     await app.close();
 });
