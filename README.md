@@ -1,15 +1,85 @@
 # Museu do Vinho Mario Pellegrin
 
-Aplicacao web em Node.js com Fastify, Handlebars e Bulma.
+![Node.js](https://img.shields.io/badge/-Node.js-339933?logo=node.js&logoColor=white)
+![Fastify](https://img.shields.io/badge/-Fastify-000000?logo=fastify&logoColor=white)
+![Handlebars](https://img.shields.io/badge/-Handlebars-f0772b?logo=handlebarsdotjs&logoColor=white)
+![Bulma](https://img.shields.io/badge/-Bulma-00d1b2?logo=bulma&logoColor=white)
+![Docker](https://img.shields.io/badge/-Docker-2496ED?logo=docker&logoColor=white)
 
-## Stack atual
+## Sobre o projeto
 
-- Node.js 20+
-- Fastify (framework HTTP)
-- Handlebars (template engine)
-- Bulma CSS (CDN)
-- Docker Compose (dev e prod)
-- Testes unitários com `node:test` (runner nativo)
+O **Museu do Vinho Mário Pellegrin** possui atualmente sua presença digital limitada a uma página estática dentro do portal oficial de turismo da prefeitura de Videira.
+
+Este projeto tem como objetivo desenvolver uma **plataforma web responsiva**, que substitua essa página estática por uma aplicação completa, permitindo não apenas a apresentação institucional do museu, mas também a exploração digital do seu acervo histórico.
+
+Além de centralizar informações institucionais (história, visitação e contato), o sistema será preparado para:
+
+- Exibir e organizar o acervo digital do museu (≈3000 imagens)
+- Permitir navegação por categorias e filtros
+- Descrever o contexto histórico e cultural de cada item do acervo, usando inteligência artificial para enriquecer as descrições
+- Funcionar como um **PWA (Progressive Web App)** instalável
+
+A iniciativa contribui diretamente para a **preservação da memória cultural regional**, ampliando o acesso público ao patrimônio histórico da vitivinicultura catarinense.
+
+## 🚧 Roadmap
+
+### 🟢 1. Estrutura e Setup
+
+- [x] Criar projeto com Node.js + Express + Handlebars + Bulma
+- [x] Organizar estrutura (rotas, views, public)
+- [x] Configurar variáveis de ambiente
+- [x] Configurar Docker (dev e produção)
+
+---
+
+### 🎨 2. Interface e Página Inicial
+
+- [x] Implementar layout responsivo (mobile-first)
+- [x] Criar página inicial com seções:
+  - Hero (CTA para acervo)
+  - O Museu (texto + imagens)
+  - Destaques e linha do tempo
+  - Contato com mapa (Leaflet)
+- [x] Adicionar botão flutuante de WhatsApp
+- [x] Implementar modo dark/light
+
+### 🖼️ 3. Página de Acervo (MVP)
+
+- [x] Criar página `/acervo`
+- [x] Exibir imagens em grid
+- [x] Implementar categorias e filtros
+- [x] Criar endpoint JSON para acervo
+
+### ☁️ 4. Imagens e Infraestrutura
+
+- [x] Armazenar imagens localmente (dev) e em VPS (prod)
+- [x] Gerar thumbnails menores para otimização em formato WebP
+- [x] Configurar Nginx para servir imagens otimizadas
+
+### 📱 5. PWA, Acessibilidade e Performance
+
+- [x] Configurar manifest e service worker
+- [x] Permitir instalação (PWA)
+- [x] Garantir acessibilidade básica (alt, contraste)
+- [ ] Melhorar performance (Lighthouse)
+
+### 🚀 6. Evolução do Sistema
+
+- [x] Integrar acervo real (~3000 imagens)
+- [x] Implementar busca e paginação
+- [x] Criar página de detalhe
+- [x] Preparar integração com IA (classificação)
+- [x] Configurar CI/CD para deploy automático
+- [ ] Implementar painel de administração (upload e gestão do acervo)
+- [ ] Adicionar suporte a múltiplos idiomas (i18n)
+- [ ] Implementar testes automatizados (unitários e E2E)
+- [ ] Configurar monitoramento e logging em produção
+- [ ] Otimizar SEO e performance para produção
+- [ ] Explorar integração com redes sociais (compartilhamento)
+- [ ] Criar versão mobile nativa (React Native ou Flutter)
+- [ ] Implementar funcionalidades de realidade aumentada (AR) para acervo
+- [ ] Explorar parcerias para digitalização e enriquecimento do acervo com IA
+- [ ] Criar campanhas de divulgação e engajamento online
 
 ## Executar localmente (sem Docker)
 
