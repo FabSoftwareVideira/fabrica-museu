@@ -1,5 +1,9 @@
 # Museu do Vinho Mario Pellegrin
 
+![GitHub repo size](https://img.shields.io/github/repo-size/FabSoftwareVideira/fabrica-museu)
+![GitHub last commit](https://img.shields.io/github/last-commit/FabSoftwareVideira/fabrica-museu)
+![GitHub tag](https://img.shields.io/github/v/tag/FabSoftwareVideira/fabrica-museu)
+
 ![Node.js](https://img.shields.io/badge/-Node.js-339933?logo=node.js&logoColor=white)
 ![Fastify](https://img.shields.io/badge/-Fastify-000000?logo=fastify&logoColor=white)
 ![Handlebars](https://img.shields.io/badge/-Handlebars-f0772b?logo=handlebarsdotjs&logoColor=white)
