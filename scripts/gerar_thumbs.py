@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 from datetime import datetime
 from PIL import Image
+from PIL import ImageOps
 
 try:
     from dotenv import load_dotenv
@@ -60,6 +61,8 @@ def criar_thumb(caminho_original, caminho_thumb, largura_max):
     os.makedirs(os.path.dirname(caminho_thumb), exist_ok=True)
 
     with Image.open(caminho_original) as img:
+        # Aplica orientacao EXIF antes de converter/salvar para preservar retrato/paisagem.
+        img = ImageOps.exif_transpose(img)
         img = img.convert("RGB")
 
         w_percent = largura_max / float(img.size[0])
@@ -73,7 +76,7 @@ def caminho_thumb_mesma_pasta(caminho_original):
     return f"{base_sem_ext}{SUFIXO_THUMB}.webp"
 
 
-def processar_por_json(arquivo_json, pasta_base_origem, pasta_destino, largura_max=200, caminho_log_erros=None):
+def processar_por_json(arquivo_json, pasta_base_origem, pasta_destino, largura_max=200, caminho_log_erros=None, regerar_existentes=False):
     with open(arquivo_json, 'r', encoding='utf-8') as f:
         dados = json.load(f)
 
@@ -100,7 +103,7 @@ def processar_por_json(arquivo_json, pasta_base_origem, pasta_destino, largura_m
         caminho_thumb = caminho_thumb_mesma_pasta(caminho_original)
 
         try:
-            if thumb_ja_gerada(caminho_thumb):
+            if thumb_ja_gerada(caminho_thumb) and not regerar_existentes:
                 puladas += 1
             elif os.path.exists(caminho_original):
                 criar_thumb(caminho_original, caminho_thumb, largura_max)
@@ -124,7 +127,7 @@ def processar_por_json(arquivo_json, pasta_base_origem, pasta_destino, largura_m
     print(f"Concluido via JSON. Sucesso: {ok} | Puladas: {puladas} | Erros: {erros}")
 
 
-def processar_por_pasta(pasta_base_origem, pasta_destino, largura_max=200, caminho_log_erros=None):
+def processar_por_pasta(pasta_base_origem, pasta_destino, largura_max=200, caminho_log_erros=None, regerar_existentes=False):
     pasta_fotos = os.path.join(pasta_base_origem, "photos")
     arquivos_imagem = []
     ok = 0
@@ -152,7 +155,7 @@ def processar_por_pasta(pasta_base_origem, pasta_destino, largura_max=200, camin
         caminho_thumb = caminho_thumb_mesma_pasta(caminho_original)
 
         try:
-            if thumb_ja_gerada(caminho_thumb):
+            if thumb_ja_gerada(caminho_thumb) and not regerar_existentes:
                 puladas += 1
             else:
                 criar_thumb(caminho_original, caminho_thumb, largura_max)
@@ -175,6 +178,7 @@ PASTA_RAIZ = os.environ.get("PASTA_RAIZ", "src/public")
 PASTA_THUMBS = os.environ.get("PASTA_THUMBS", PASTA_RAIZ)
 LARGURA_THUMB = int(os.environ.get("LARGURA_THUMB", "250"))
 USAR_JSON = os.environ.get("USAR_JSON", "1") != "0"
+REGERAR_EXISTENTES = os.environ.get("REGERAR_EXISTENTES", "0") == "1"
 ARQUIVO_LOG_ERROS = os.environ.get("ARQUIVO_LOG_ERROS", "logs/thumbs-erros.log")
 
 if __name__ == "__main__":
@@ -184,12 +188,13 @@ if __name__ == "__main__":
 
     print(f"Pasta base de processamento: {os.path.abspath(PASTA_RAIZ)}")
     print("Destino das thumbs: mesma pasta do arquivo original")
+    print(f"Regenerar thumbs existentes: {'sim' if REGERAR_EXISTENTES else 'nao'}")
 
     inicializar_log_erros(ARQUIVO_LOG_ERROS)
 
     if USAR_JSON and os.path.exists(ARQUIVO_JSON):
-        processar_por_json(ARQUIVO_JSON, PASTA_RAIZ, PASTA_THUMBS, LARGURA_THUMB, ARQUIVO_LOG_ERROS)
+        processar_por_json(ARQUIVO_JSON, PASTA_RAIZ, PASTA_THUMBS, LARGURA_THUMB, ARQUIVO_LOG_ERROS, REGERAR_EXISTENTES)
     else:
         if USAR_JSON:
             print("JSON nao encontrado. Fazendo fallback para varredura da pasta photos.")
-        processar_por_pasta(PASTA_RAIZ, PASTA_THUMBS, LARGURA_THUMB, ARQUIVO_LOG_ERROS)
+        processar_por_pasta(PASTA_RAIZ, PASTA_THUMBS, LARGURA_THUMB, ARQUIVO_LOG_ERROS, REGERAR_EXISTENTES)

@@ -11,36 +11,6 @@ Aplicacao web em Node.js com Fastify, Handlebars e Bulma.
 - Docker Compose (dev e prod)
 - Testes unitários com `node:test` (runner nativo)
 
-## Arquitetura
-
-Projeto organizado em camadas (MVC):
-
-```text
-src/
-  config/          # Configuração (env, constantes)
-  utils/           # Utilitários (slug, paths)
-  repositories/    # Acesso a dados
-  services/        # Regras de negócio
-  controllers/     # Handlers de requisição
-  routes/          # Registro de rotas
-  plugins/         # Plugins Fastify (view engine, etc.)
-  views/           # Templates Handlebars
-    partials/      # Componentes reutilizáveis
-  public/          # Assets (CSS, JS, imagens, ícones)
-  data/            # Dados JSON (acervo-index)
-  app.js           # Bootstrap da aplicação
-  server.js        # Ponto de entrada
-
-tests/             # Testes unitários
-  utils/
-  services/
-
-docker-compose.yml
-Dockerfile
-.env
-.env.example
-```
-
 ## Executar localmente (sem Docker)
 
 1. Instale as dependencias:
