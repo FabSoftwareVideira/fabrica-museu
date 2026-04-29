@@ -16,7 +16,8 @@ export const createGrid = (config = {}) => {
     const initialLoadedItems = grid.querySelectorAll('.column:not(.acervo-skeleton-item)').length;
 
     const state = {
-        category: config.category || grid.dataset.category || 'todos',
+        categoriaTematica: config.categoriaTematica || config.category || grid.dataset.category || 'todos',
+        subcategoria: config.subcategoria || grid.dataset.subcategory || 'todos',
         q: '',
         nextPage: 2,
         totalPages: 1,
@@ -93,7 +94,8 @@ export const createGrid = (config = {}) => {
 
         try {
             const params = new URLSearchParams({
-                categoria: state.category,
+                categoria_tematica: state.categoriaTematica,
+                subcategoria: state.subcategoria,
                 page: String(state.nextPage),
                 limit: String(state.pageSize),
             });
@@ -150,7 +152,8 @@ export const createGrid = (config = {}) => {
 
         try {
             const params = new URLSearchParams({
-                categoria: state.category,
+                categoria_tematica: state.categoriaTematica,
+                subcategoria: state.subcategoria,
                 page: '1',
                 limit: String(state.pageSize),
             });
@@ -197,7 +200,8 @@ export const createGrid = (config = {}) => {
     const bootstrapFromApi = async () => {
         try {
             const params = new URLSearchParams({
-                categoria: state.category,
+                categoria_tematica: state.categoriaTematica,
+                subcategoria: state.subcategoria,
                 page: '1',
                 limit: String(state.pageSize),
             });

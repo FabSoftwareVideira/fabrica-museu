@@ -92,7 +92,9 @@ export const createShowcase = (config = {}) => {
 
         try {
             const poolSize = Math.max(gridSize + 8, 20);
-            const response = await fetch(`${apiUrl}?categoria=todos&page=1&limit=${poolSize}`);
+            const response = await fetch(
+                `${apiUrl}?categoria_tematica=todos&subcategoria=todos&page=1&limit=${poolSize}`,
+            );
             if (!response.ok) throw new Error(`Erro HTTP ${response.status}`);
 
             const payload = await response.json();

@@ -43,8 +43,13 @@ export const createFiltersPanel = (config = {}) => {
         syncPageLock(isOpen);
     };
 
-    const storedState = readStoredState();
-    applyState(storedState === null ? !isMobile() : storedState);
+    const resolveInitialState = () => {
+        if (!isMobile()) return true;
+        const storedState = readStoredState();
+        return storedState === null ? false : storedState;
+    };
+
+    applyState(resolveInitialState());
 
     const onToggleClick = () => {
         const next = !shell.classList.contains('is-filters-open');
@@ -71,7 +76,14 @@ export const createFiltersPanel = (config = {}) => {
     };
     document.addEventListener('keydown', onKeydown);
 
-    const onResize = () => syncPageLock(shell.classList.contains('is-filters-open'));
+    const onResize = () => {
+        if (!isMobile() && !shell.classList.contains('is-filters-open')) {
+            applyState(true);
+            return;
+        }
+
+        syncPageLock(shell.classList.contains('is-filters-open'));
+    };
     window.addEventListener('resize', onResize, { passive: true });
 
     const destroy = () => {

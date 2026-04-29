@@ -53,9 +53,17 @@ const toThumbPath = (imagePath) => {
     return `${withoutExt}_thumb.webp`;
 };
 
-const normalizeCategories = (categories) => (Array.isArray(categories)
-    ? categories.map((category) => toSlug(category)).filter(Boolean)
-    : []);
+const toNormalizedLabel = (value, fallback) => {
+    const normalized = String(value || '').trim();
+    return normalized || fallback;
+};
+
+const resolveLegacyCategory = (item) => {
+    if (Array.isArray(item.categories) && item.categories.length > 0) {
+        return item.categories[0];
+    }
+    return item.category;
+};
 
 const resolveImageSources = (originalImagePath) => {
     const thumbImagePath = toThumbPath(originalImagePath);
@@ -87,7 +95,14 @@ const resolveImageSources = (originalImagePath) => {
 };
 
 const mapCollectionItem = (item, index) => {
-    const categories = normalizeCategories(item.categories);
+    const thematicCategoryLabel = toNormalizedLabel(
+        item.categoria_tematica || resolveLegacyCategory(item),
+        'Nao classificado',
+    );
+    const subcategoryLabel = toNormalizedLabel(item.subcategoria, 'Sem subcategoria');
+    const description = toNormalizedLabel(item.descricao || item.description, item.filename || 'Sem descricao');
+    const thematicCategory = toSlug(thematicCategoryLabel) || 'nao-classificado';
+    const subcategory = toSlug(subcategoryLabel) || 'sem-subcategoria';
     const originalImagePath = item.path;
     const imageSources = resolveImageSources(originalImagePath);
 
@@ -97,15 +112,19 @@ const mapCollectionItem = (item, index) => {
         imagePath: originalImagePath,
         ...imageSources,
         fileSize: item.file_size,
-        description: item.description,
+        description,
         tags: Array.isArray(item.tags) ? item.tags : [],
-        categories,
-        categoriesLabel: categories.map(toLabel),
-        peopleCount: item.people_count,
-        historicalPeriod: item.historical_period,
-        estimatedYear: item.estimated_year,
+        categories: [thematicCategory],
+        categoriesLabel: [thematicCategoryLabel, subcategoryLabel],
+        thematicCategory,
+        thematicCategoryLabel,
+        subcategory,
+        subcategoryLabel,
+        peopleCount: item.pessoas_identificadas ?? item.people_count,
+        historicalPeriod: item.periodo || item.historical_period,
+        estimatedYear: item.ano_estimado ?? item.estimated_year,
         sceneType: item.scene_type,
-        documentType: item.document_type,
+        documentType: item.tipo_documento || item.document_type,
         title: item.filename,
     };
 };
@@ -114,9 +133,14 @@ const mapCollectionItems = (rawItems) => rawItems.map(mapCollectionItem);
 
 const buildCollectionCategories = (collectionItems) => {
     const categoryCounts = collectionItems.reduce((acc, item) => {
-        item.categories.forEach((category) => {
-            acc[category] = (acc[category] || 0) + 1;
-        });
+        const slug = item.thematicCategory;
+        if (!slug) return acc;
+
+        if (!acc[slug]) {
+            acc[slug] = { count: 0, label: item.thematicCategoryLabel || toLabel(slug) };
+        }
+
+        acc[slug].count += 1;
         return acc;
     }, {});
 
@@ -126,10 +150,61 @@ const buildCollectionCategories = (collectionItems) => {
             .sort((a, b) => a.localeCompare(b))
             .map((slug) => ({
                 slug,
-                label: toLabel(slug),
-                count: categoryCounts[slug],
+                label: categoryCounts[slug].label,
+                count: categoryCounts[slug].count,
             })),
     ];
+};
+
+const buildCollectionSubcategories = (collectionItems, activeCategory = 'todos') => {
+    if (activeCategory === 'todos') {
+        return [];
+    }
+
+    const filteredItems = collectionItems.filter((item) => item.thematicCategory === activeCategory);
+
+    const subcategoryCounts = filteredItems.reduce((acc, item) => {
+        const slug = item.subcategory;
+        if (!slug) return acc;
+
+        if (!acc[slug]) {
+            acc[slug] = { count: 0, label: item.subcategoryLabel || toLabel(slug) };
+        }
+
+        acc[slug].count += 1;
+        return acc;
+    }, {});
+
+    return [
+        { slug: 'todos', label: 'Todas', count: filteredItems.length },
+        ...Object.keys(subcategoryCounts)
+            .sort((a, b) => a.localeCompare(b))
+            .map((slug) => ({
+                slug,
+                label: subcategoryCounts[slug].label,
+                count: subcategoryCounts[slug].count,
+            })),
+    ];
+};
+
+const buildAcervoPageUrl = ({ categoriaTematica = 'todos', subcategoria = 'todos' } = {}) => {
+    const params = new URLSearchParams();
+
+    if (categoriaTematica && categoriaTematica !== 'todos') {
+        params.set('categoria_tematica', categoriaTematica);
+    }
+
+    if (
+        categoriaTematica
+        && categoriaTematica !== 'todos'
+        && subcategoria
+        && subcategoria !== 'todos'
+    ) {
+        params.set('subcategoria', subcategoria);
+    }
+
+    const query = params.toString();
+    return query ? `/acervo?${query}` : '/acervo';
 };
 
 const resolveCategory = (selectedCategory, categories) => {
@@ -142,7 +217,17 @@ const filterItemsByCategory = (items, activeCategory) => {
     if (activeCategory === 'todos') {
         return items;
     }
-    return items.filter((item) => item.categories.includes(activeCategory));
+    return items.filter((item) => (
+        item.thematicCategory === activeCategory
+        || (Array.isArray(item.categories) && item.categories.includes(activeCategory))
+    ));
+};
+
+const filterItemsBySubcategory = (items, activeSubcategory) => {
+    if (activeSubcategory === 'todos') {
+        return items;
+    }
+    return items.filter((item) => item.subcategory === activeSubcategory);
 };
 
 const filterItemsByQuery = (items, q) => {
@@ -153,9 +238,12 @@ const filterItemsByQuery = (items, q) => {
     return items.filter((item) => item.description && item.description.toLowerCase().includes(needle));
 };
 
-const filterVisibleItemsByCategory = (items, activeCategory) => filterItemsByCategory(
-    items.filter((item) => item.hasImage),
-    activeCategory,
+const filterVisibleItems = (items, activeCategory, activeSubcategory) => filterItemsBySubcategory(
+    filterItemsByCategory(
+        items.filter((item) => item.hasImage),
+        activeCategory,
+    ),
+    activeSubcategory,
 );
 
 const toPositiveInteger = (value, fallback) => {
@@ -185,18 +273,35 @@ const createAcervoService = (rawItems) => {
 
     const getCollectionCategories = () => collectionCategories;
 
-    const getAcervoPageData = ({ categoria, pageSize = 24 } = {}) => {
-        const activeCategory = resolveCategory(categoria, collectionCategories);
-        const filteredItems = filterVisibleItemsByCategory(collectionItems, activeCategory);
+    const getAcervoPageData = ({ categoria_tematica, subcategoria, categoria, pageSize = 24 } = {}) => {
+        const activeCategory = resolveCategory(categoria_tematica || categoria, collectionCategories);
+        const collectionSubcategories = buildCollectionSubcategories(visibleItems, activeCategory);
+        const activeSubcategory = collectionSubcategories.length > 0
+            ? resolveCategory(subcategoria, collectionSubcategories)
+            : 'todos';
+        const filteredItems = filterVisibleItems(collectionItems, activeCategory, activeSubcategory);
         const pagination = paginateItems(filteredItems, 1, pageSize);
+        const hasSubcategoryFilter = activeCategory !== 'todos' && collectionSubcategories.length > 0;
 
         return {
             pageTitle: 'Museu do Vinho Mario Pellegrin - Acervo',
             activeCategory,
+            activeSubcategory,
+            clearFiltersHref: buildAcervoPageUrl(),
             categories: collectionCategories.map((category) => ({
                 ...category,
                 isActive: category.slug === activeCategory,
+                href: buildAcervoPageUrl({ categoriaTematica: category.slug }),
             })),
+            subcategories: collectionSubcategories.map((item) => ({
+                ...item,
+                isActive: item.slug === activeSubcategory,
+                href: buildAcervoPageUrl({
+                    categoriaTematica: activeCategory,
+                    subcategoria: item.slug,
+                }),
+            })),
+            hasSubcategoryFilter,
             items: pagination.items,
             hasItems: pagination.items.length > 0,
             acervoCurrentPage: String(pagination.page),
@@ -209,18 +314,21 @@ const createAcervoService = (rawItems) => {
         };
     };
 
-    const getAcervoApiData = ({ categoria, page = 1, limit = 24, q = '' } = {}) => {
-        const activeCategory = resolveCategory(categoria, collectionCategories);
+    const getAcervoApiData = ({ categoria_tematica, subcategoria, categoria, page = 1, limit = 24, q = '' } = {}) => {
+        const activeCategory = resolveCategory(categoria_tematica || categoria, collectionCategories);
+        const collectionSubcategories = buildCollectionSubcategories(visibleItems, activeCategory);
+        const activeSubcategory = resolveCategory(subcategoria, collectionSubcategories);
         const safePage = toPositiveInteger(page, 1);
         const safeLimit = Math.min(toPositiveInteger(limit, 24), 100);
         const safeQ = String(q || '').trim().slice(0, 200);
 
-        let filteredItems = filterVisibleItemsByCategory(collectionItems, activeCategory);
+        let filteredItems = filterVisibleItems(collectionItems, activeCategory, activeSubcategory);
         filteredItems = filterItemsByQuery(filteredItems, safeQ);
         const pagination = paginateItems(filteredItems, safePage, safeLimit);
 
         return {
             category: activeCategory,
+            subcategory: activeSubcategory,
             q: safeQ,
             pagination: {
                 page: pagination.page,
@@ -229,6 +337,7 @@ const createAcervoService = (rawItems) => {
                 totalPages: pagination.totalPages,
             },
             categories: collectionCategories,
+            subcategories: collectionSubcategories,
             items: pagination.items,
         };
     };
@@ -251,9 +360,10 @@ const createAcervoService = (rawItems) => {
     };
 };
 
-const fetchAcervo = async ({ categoria, page, limit, q }) => {
+const fetchAcervo = async ({ categoriaTematica = 'todos', subcategoria = 'todos', page, limit, q }) => {
     const params = new URLSearchParams({
-        categoria,
+        categoria_tematica: categoriaTematica,
+        subcategoria,
         page: String(page),
         limit: String(limit),
     });
@@ -272,8 +382,10 @@ const fetchAcervo = async ({ categoria, page, limit, q }) => {
 module.exports = {
     mapCollectionItems,
     buildCollectionCategories,
+    buildCollectionSubcategories,
     resolveCategory,
     filterItemsByCategory,
+    filterItemsBySubcategory,
     filterItemsByQuery,
     paginateItems,
     createAcervoService,

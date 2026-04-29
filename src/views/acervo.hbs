@@ -11,10 +11,16 @@
             <h2 class="title is-5 mb-1">Coleção Digital</h2>
             --}}
             <div class="acervo-content-context" aria-live="polite">
-              <span class="acervo-content-context-label">Categoria ativa</span>
+              <span class="acervo-content-context-label">Filtros ativos</span>
               {{#each categories}} {{#if this.isActive}}
               <span class="acervo-active-category-pill">
                 <span class="icon is-small"><i class="fa-solid fa-folder-open"></i></span>
+                <strong>{{this.label}}</strong>
+                <span class="acervo-active-category-count">{{this.count}}</span>
+              </span>
+              {{/if}} {{/each}} {{#each subcategories}} {{#if this.isActive}}
+              <span class="acervo-active-category-pill">
+                <span class="icon is-small"><i class="fa-solid fa-tag"></i></span>
                 <strong>{{this.label}}</strong>
                 <span class="acervo-active-category-count">{{this.count}}</span>
               </span>
@@ -33,7 +39,7 @@
               <span data-acervo-filters-toggle-label>Ocultar filtros</span>
             </button>
             <a
-              href="/acervo?categoria=todos"
+              href="{{clearFiltersHref}}"
               class="button is-small is-light acervo-clear-filters-btn"
               aria-label="Limpar filtros"
               title="Limpar filtros"
@@ -43,8 +49,8 @@
           </div>
         </div>
 
-        {{> acervo-grid hasItems=hasItems items=items activeCategory=activeCategory}} {{> acervo-empty-state
-        hasItems=hasItems}} {{> acervo-ai-warning}}
+        {{> acervo-grid hasItems=hasItems items=items activeCategory=activeCategory
+        activeSubcategory=activeSubcategory}} {{> acervo-empty-state hasItems=hasItems}} {{> acervo-ai-warning}}
       </section>
 
       <aside
@@ -53,7 +59,8 @@
         aria-label="Filtros do acervo"
         data-acervo-filters-sidebar
       >
-        {{> acervo-toolbar categories=categories items=items activeCategory=activeCategory}}
+        {{> acervo-toolbar categories=categories subcategories=subcategories items=items activeCategory=activeCategory
+        activeSubcategory=activeSubcategory}}
       </aside>
 
       <button

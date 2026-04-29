@@ -1,14 +1,18 @@
 const createAcervoController = ({ acervoService }) => {
     const acervoPageController = async (request, reply) => {
         const viewModel = acervoService.getAcervoPageData({
+            categoria_tematica: request.query.categoria_tematica,
+            subcategoria: request.query.subcategoria,
             categoria: request.query.categoria,
             pageSize: 24,
         });
 
         request.log.info({
             event: 'acervo.page',
-            categoria: request.query.categoria || 'todos',
+            categoriaTematica: request.query.categoria_tematica || request.query.categoria || 'todos',
+            subcategoria: request.query.subcategoria || 'todos',
             activeCategory: viewModel.activeCategory,
+            activeSubcategory: viewModel.activeSubcategory,
             totalItems: Number(viewModel.acervoTotalItems),
             totalPages: Number(viewModel.acervoTotalPages),
             pageSize: Number(viewModel.acervoPageSize),
@@ -22,6 +26,8 @@ const createAcervoController = ({ acervoService }) => {
 
     const acervoApiController = async (request, reply) => {
         const responsePayload = acervoService.getAcervoApiData({
+            categoria_tematica: request.query.categoria_tematica,
+            subcategoria: request.query.subcategoria,
             categoria: request.query.categoria,
             page: request.query.page,
             limit: request.query.limit,
@@ -30,7 +36,8 @@ const createAcervoController = ({ acervoService }) => {
 
         request.log.info({
             event: 'acervo.api',
-            categoria: request.query.categoria || 'todos',
+            categoriaTematica: request.query.categoria_tematica || request.query.categoria || 'todos',
+            subcategoria: request.query.subcategoria || 'todos',
             pageRequested: request.query.page || 1,
             limitRequested: request.query.limit || 24,
             totalItems: responsePayload.pagination.totalItems,
@@ -59,7 +66,7 @@ const createAcervoController = ({ acervoService }) => {
         }, 'Item do acervo carregado');
 
         return reply.view('acervo-item.hbs', {
-            pageTitle: item.description.slice(0, 60),
+            pageTitle: (item.description || item.title || 'Item do acervo').slice(0, 60),
             item,
             year: new Date().getFullYear(),
         });

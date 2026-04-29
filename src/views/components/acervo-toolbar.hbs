@@ -2,7 +2,7 @@
   <div class="acervo-toolbar-header">
     <div>
       <p class="acervo-toolbar-kicker">Filtros</p>
-      <h2 class="acervo-toolbar-title">Categorias</h2>
+      <h2 class="acervo-toolbar-title">Categoria e Subcategoria</h2>
     </div>
 
     <button
@@ -38,10 +38,11 @@
   </div>
 
   <div class="acervo-toolbar-row acervo-toolbar-row--categories">
+    <p class="is-size-7 has-text-grey mb-2">Categoria temática</p>
     <div class="acervo-category-chips" role="list">
       {{#each categories}}
       <a
-        href="/acervo?categoria={{this.slug}}"
+        href="{{this.href}}"
         class="button is-rounded is-small acervo-category-chip {{#if this.isActive}}is-dark{{else}}is-light{{/if}}"
         role="listitem"
       >
@@ -51,4 +52,28 @@
       {{/each}}
     </div>
   </div>
+
+  {{#if hasSubcategoryFilter}}
+  <div class="acervo-toolbar-row acervo-toolbar-row--categories">
+    <p class="is-size-7 has-text-grey mb-2">Subcategoria</p>
+    <div class="acervo-category-chips" role="list">
+      {{#each subcategories}}
+      <a
+        href="{{this.href}}"
+        class="button is-rounded is-small acervo-category-chip {{#if this.isActive}}is-dark{{else}}is-light{{/if}}"
+        role="listitem"
+      >
+        <span>{{this.label}}</span>
+        <span class="acervo-category-chip-count">{{this.count}}</span>
+      </a>
+      {{/each}}
+    </div>
+  </div>
+  {{else}}
+  <div class="acervo-toolbar-row acervo-toolbar-row--categories">
+    <p class="is-size-7 has-text-grey mb-0">
+      Selecione uma categoria temática para habilitar o filtro de subcategoria.
+    </p>
+  </div>
+  {{/if}}
 </section>

@@ -3,6 +3,7 @@
   id="acervo-grid"
   class="columns is-multiline is-mobile is-gapless acervo-grid acervo-grid--cards p-0"
   data-category="{{activeCategory}}"
+  data-subcategory="{{activeSubcategory}}"
   data-page-size="24"
 >
   {{#each items}} {{> acervo-item-card imageUrl=this.imageUrl originalImageUrl=this.originalImageUrl

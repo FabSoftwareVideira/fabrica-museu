@@ -225,6 +225,22 @@ test('mapCollectionItems usa original quando thumb nao existe mas original exist
     }
 });
 
+test('mapCollectionItems usa descricao do novo formato JSON', () => {
+    const mapped = mapCollectionItems([
+        {
+            file_hash: 'descricao-json',
+            filename: 'img004.jpg',
+            path: 'photos/parte-1/img004.jpg',
+            categoria_tematica: 'Viticultura e Producao',
+            subcategoria: 'Colheita',
+            descricao: 'Descricao vinda do campo novo do JSON.',
+            tags: [],
+        },
+    ]);
+
+    assert.equal(mapped[0].description, 'Descricao vinda do campo novo do JSON.');
+});
+
 test('acervoService nao retorna itens na listagem/API quando imagem e thumb nao existem', () => {
     const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'acervo-missing-'));
     const previousPhotosHostPath = process.env.PHOTOS_HOST_PATH;
