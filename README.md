@@ -142,3 +142,11 @@ Contribuições são bem-vindas! Para manter a qualidade do código, siga o flux
 ## 🤖 Desenvolvido com GitHub Copilot
 
 Este projeto foi desenvolvido com o auxílio do **GitHub Copilot**, ferramenta de IA da GitHub que sugere código em tempo real diretamente no editor. O Copilot contribuiu em diversas etapas do desenvolvimento — desde a geração de estruturas iniciais e lógica de negócio até revisão de configurações de infraestrutura (Docker, Nginx) e escrita de testes. Seu uso acelerou o ciclo de desenvolvimento e permitiu que a equipe dedicasse mais atenção à qualidade, arquitetura e às decisões de produto, mantendo o foco na missão do projeto: preservar e ampliar o acesso digital ao patrimônio histórico do Museu do Vinho Mário Pellegrin.
+
+## Novas Demandas
+
+- Na tela inicial, Serão três seções. Peças, acervo e exposições. Acervo já está pronto. Aguardando fotos de exposições e peças para criar as outras seções e uma página para cada uma delas. A página de exposições deve conter uma linha do tempo, onde cada exposição é um evento. A página de peças deve conter uma galeria de fotos, onde cada peça é um item da galeria. A página de acervo deve conter uma galeria de fotos, onde cada item é um item da galeria. Cada item da galeria deve conter uma descrição e um link para a página de detalhes do item. A página deve permitir que um usuário cadastre.
+
+- Cadastro de Exposições: pedíodo (data inicial e final), título, descrição. Criar o formulário no estilo blog, permitindo a inserção de imagens e formatação de texto.
+
+- Verificar a possibilidade de qualquer pessoa sugerir informações de imagens do acervo.
