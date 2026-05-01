@@ -39,13 +39,13 @@ test('env usa metadados de build fornecidos pelo ambiente', () => {
         IMAGE_TAG: 'v0.0.74',
         IMAGE_NAME: 'fabrica-museu:v0.0.74',
         GIT_COMMIT: '17e0d5d',
-        BUILD_DATE: '2026-04-27T17:29:09Z',
+        BUILD_DATE: '27/04/2026',
     });
 
     assert.equal(env.appVersion, 'v0.0.74');
     assert.equal(env.appImage, 'fabrica-museu:v0.0.74');
     assert.equal(env.appCommit, '17e0d5d');
-    assert.equal(env.appBuildDate, '2026-04-27T17:29:09Z');
+    assert.equal(env.appBuildDate, '27/04/2026');
 });
 
 test('env aplica fallback para dev quando IMAGE_TAG nao existe', () => {
@@ -53,11 +53,11 @@ test('env aplica fallback para dev quando IMAGE_TAG nao existe', () => {
         IMAGE_TAG: undefined,
         IMAGE_NAME: undefined,
         GIT_COMMIT: '17e0d5d',
-        BUILD_DATE: '2026-04-27T17:29:09Z',
+        BUILD_DATE: '27/04/2026',
     });
 
     assert.equal(env.appVersion, 'dev');
     assert.equal(env.appImage, '');
     assert.equal(env.appCommit, '17e0d5d');
-    assert.equal(env.appBuildDate, '2026-04-27T17:29:09Z');
+    assert.equal(env.appBuildDate, '27/04/2026');
 });

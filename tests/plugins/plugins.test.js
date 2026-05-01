@@ -70,7 +70,7 @@ test('view engine plugin disponibiliza reply.view para renderizar templates', as
     app.decorate('appMetadata', {
         appVersion: '1.2.3',
         appCommit: 'abc1234',
-        appBuildDate: '2026-04-27T10:00:00Z',
+        appBuildDate: '27/04/2026',
         appImage: 'fabrica-museu:1.2.3',
     });
 
@@ -87,7 +87,7 @@ test('view engine plugin disponibiliza reply.view para renderizar templates', as
     assert.equal(response.statusCode, 200);
     assert.match(response.headers['content-type'], /text\/html/);
     assert.match(response.payload, /<title>Teste Museu<\/title>/);
-    assert.match(response.payload, /Versão 1\.2\.3 \(abc1234\) - Build em 2026-04-27T10:00:00Z/);
+    assert.match(response.payload, /Versão 1\.2\.3 \(abc1234\) - Build em 27\/04\/2026/);
 
     await app.close();
 });

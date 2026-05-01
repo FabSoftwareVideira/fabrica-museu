@@ -24,7 +24,7 @@ const buildApp = () => {
     app.decorate('appMetadata', {
         appVersion: env.appVersion,
         appCommit: env.appCommit,
-        appBuildDate: env.appBuildDate,
+        appBuildDate: env.appBuildDate ? new Date(env.appBuildDate).toLocaleDateString('pt-BR') : '',
         appImage: env.appImage,
     });
     app.register(registerViewEngine, { isDevelopment: env.nodeEnv === 'development' });
