@@ -24,7 +24,9 @@ const buildApp = () => {
     app.decorate('appMetadata', {
         appVersion: env.appVersion,
         appCommit: env.appCommit,
-        appBuildDate: env.appBuildDate ? new Date(env.appBuildDate).toLocaleDateString('pt-BR') : '',
+        appBuildDate: env.appBuildDate
+            ? new Date(env.appBuildDate).toLocaleDateString('pt-BR', { timeZone: 'UTC' })
+            : '',
         appImage: env.appImage,
     });
     app.register(registerViewEngine, { isDevelopment: env.nodeEnv === 'development' });
