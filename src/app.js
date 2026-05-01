@@ -5,6 +5,7 @@ const { loadAcervoItems } = require('./repositories/acervoRepository');
 const { createAcervoService } = require('./services/acervoService');
 const { registerRoutes } = require('./routes');
 const { registerViewEngine } = require('./plugins/viewEngine');
+const { formatAppBuildDate } = require('./utils/date');
 
 // Bibliotecas adicionais
 const securityPlugin = require('./plugins/security');
@@ -24,14 +25,7 @@ const buildApp = () => {
     app.decorate('appMetadata', {
         appVersion: env.appVersion,
         appCommit: env.appCommit,
-        appBuildDate: env.appBuildDate
-            ? new Date(env.appBuildDate).toLocaleDateString('pt-BR', {
-                timeZone: 'America/Sao_Paulo',
-                day: '2-digit',
-                month: '2-digit',
-                year: 'numeric'
-            })
-            : '',
+        appBuildDate: formatAppBuildDate(env.appBuildDate, env.timeZone),
         appImage: env.appImage,
     });
     app.register(registerViewEngine, { isDevelopment: env.nodeEnv === 'development' });
