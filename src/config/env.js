@@ -14,7 +14,7 @@ const resolvePhotosHostPath = () => {
 
 const APP_VERSION = process.env.IMAGE_TAG || "dev";
 const APP_COMMIT = process.env.GIT_COMMIT || "unknown";
-const APP_BUILD_DATE = process.env.BUILD_DATE || "2026-04-30T00:00:00Z";
+const APP_BUILD_DATE = process.env.BUILD_DATE || "";
 const APP_IMAGE = process.env.IMAGE_NAME || ""; // opcional
 
 const env = {
