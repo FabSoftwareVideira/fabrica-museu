@@ -119,14 +119,14 @@ O workflow `.github/workflows/deploy-dokploy.yml` roda os testes, valida o compo
 
 Configuração (uma vez):
 
-1. **Fotos na VPS.** As fotos e thumbnails ficam em `/srv/fabrica-museu/photos` (a pasta base muda com `MUSEU_HOST_DIR`), fora do código, porque o Dokploy clona o repositório de novo a cada deploy. Não é preciso criar a pasta: a cada deploy o serviço `preparar-pasta` a cria, se faltar, e a entrega ao UID 1000 (o usuário `node` do container e, em geral, o primeiro usuário comum da VPS). Depois do primeiro deploy, copie as fotos sem `sudo`:
+1. **Fotos na VPS.** As fotos e thumbnails ficam em `/srv/fabrica-museu/photos` (a pasta base muda com `MUSEU_HOST_DIR`), fora do código, porque o Dokploy clona o repositório de novo a cada deploy. Não é preciso criar a pasta: a cada deploy o serviço `preparar-pastas` a cria, se faltar, e a entrega ao usuário da VPS que copia as fotos, informado em `MUSEU_HOST_UID` e `MUSEU_HOST_GID` (padrão 1000; veja com `id -u` e `id -g` nesse usuário). O app só lê a pasta, liberada para leitura de todos. Depois do primeiro deploy, copie as fotos sem `sudo`:
 
    ```bash
    rsync -avz --ignore-existing photos usuario@ip-da-vps:/srv/fabrica-museu
    ```
 
 2. **Recurso no Dokploy.** Crie um recurso **Docker Compose** apontando para este repositório, com **Compose Path** `./docker-compose.yml`. Deixe o *Autodeploy* desligado: quem dispara o deploy é o GitHub Actions.
-3. **Environment.** Na aba **Environment**, cole as variáveis do `.env.example` com os valores de produção (`MUSEU_HOST_DIR`, se não usar o padrão, `TZ`, rate limit e, se quiser, `IMAGE_TAG` com a versão exibida no rodapé). `NODE_ENV`, `HOST`, `PORT` e `TRUST_PROXY` são fixados pelo compose.
+3. **Environment.** Na aba **Environment**, cole as variáveis do `.env.example` com os valores de produção (`MUSEU_HOST_UID` e `MUSEU_HOST_GID`, `MUSEU_HOST_DIR` se não usar o padrão, `TZ`, rate limit e, se quiser, `IMAGE_TAG` com a versão exibida no rodapé). `NODE_ENV`, `HOST`, `PORT` e `TRUST_PROXY` são fixados pelo compose.
 4. **Domains.** Na aba **Domains**, adicione o domínio (ex.: `museudovinho.fsw-ifc.brdrive.cloud`) para o serviço `fabrica-museu-web`, porta `3000`, com HTTPS.
 5. **Secrets do GitHub.** Crie `DOKPLOY_URL`, `DOKPLOY_API_KEY` (token em Settings → Profile → API/CLI do Dokploy) e `DOKPLOY_COMPOSE_ID` (o id do recurso, na URL dele no painel). Sem eles, o workflow só roda os testes e valida o compose.
 6. Faça o primeiro deploy e confira `https://SEU-DOMINIO/health`.

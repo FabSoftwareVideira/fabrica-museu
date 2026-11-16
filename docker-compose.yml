@@ -7,23 +7,23 @@
 # - As fotos do acervo ficam numa pasta fixa da VPS (MUSEU_HOST_DIR, padrão
 #   /srv/fabrica-museu, com as fotos em photos/), fora do código: o Dokploy
 #   clona o repositório de novo a cada deploy. A pasta é criada pelo serviço
-#   "preparar-pasta", não é preciso criá-la à mão.
+#   "preparar-pastas", não é preciso criá-la à mão.
 # - Desenvolvimento: docker-compose.dev.yml.
 #
 name: fabrica-museu
 
 services:
-  preparar-pasta:
-    # Roda a cada deploy, antes do web, e termina. O Docker cria a pasta do host
-    # (MUSEU_HOST_DIR) se ela não existir, mas como root; aqui ela e a subpasta
-    # photos passam para o UID/GID 1000 (o usuário node do container e, em geral,
-    # o primeiro usuário comum da VPS), que pode copiar fotos sem sudo.
+  preparar-pastas:
+    # Roda a cada deploy, antes do app, e termina: cria a pasta de fotos do servidor e a passa para o usuário
+    # da VPS que copia as fotos (MUSEU_HOST_UID e MUSEU_HOST_GID, padrão 1000; veja com "id -u" e "id -g").
+    # Assim uma VPS nova (o Docker cria as pastas que faltam como root) e arquivos copiados com outro dono
+    # (sudo, cp -a) não precisam de chown manual. O app só lê as fotos: a leitura fica liberada para todos.
     image: busybox:1.36
     restart: "no"
     command:
       - sh
       - -c
-      - mkdir -p /dados/photos && chown -R 1000:1000 /dados && chmod -R u+rwX,go+rX /dados
+      - mkdir -p /dados/photos && chown -R ${MUSEU_HOST_UID:-1000}:${MUSEU_HOST_GID:-1000} /dados && chmod -R u+rwX,go+rX /dados
     volumes:
       - "${MUSEU_HOST_DIR:-/srv/fabrica-museu}:/dados"
     network_mode: none
@@ -63,7 +63,7 @@ services:
       # Pasta fixa da VPS com as fotos e thumbnails do acervo (só leitura)
       - "${MUSEU_HOST_DIR:-/srv/fabrica-museu}/photos:/app/src/public/photos:ro"
     depends_on:
-      preparar-pasta:
+      preparar-pastas:
         condition: service_completed_successfully
     init: true
     # Sem "ports": o Traefik do Dokploy alcança a porta 3000 pela dokploy-network
