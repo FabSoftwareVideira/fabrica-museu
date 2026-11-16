@@ -20,18 +20,25 @@
       <div class="column is-7-desktop">
         {{#if item.imageUrl}}
         <figure class="image acervo-item-figure">
-          <img
-            src="{{item.originalImageUrl}}"
-            data-fallback-src="{{item.imageUrl}}"
-            alt="{{item.description}}"
-            onerror="
-              const f = this.dataset.fallbackSrc;
-              if (f) {
-                this.removeAttribute('data-fallback-src');
-                this.src = f;
-              }
-            "
-          />
+          {{!-- O navegador usa o JPEG XL se souber abrir; senão, o JPEG --}}
+          <picture>
+            {{#if item.originalJxlUrl}}
+            <source srcset="{{item.originalJxlUrl}}" type="image/jxl" />
+            {{/if}}
+            <img
+              src="{{item.originalImageUrl}}"
+              data-fallback-src="{{item.imageUrl}}"
+              alt="{{item.description}}"
+              onerror="
+                const f = this.dataset.fallbackSrc;
+                if (f) {
+                  this.removeAttribute('data-fallback-src');
+                  this.parentElement.querySelectorAll('source').forEach((s) => s.remove());
+                  this.src = f;
+                }
+              "
+            />
+          </picture>
         </figure>
         {{/if}}
       </div>

@@ -322,3 +322,32 @@ test('acervoService calcula contadores de filtros apenas com itens que possuem i
         }
     }
 });
+
+test('mapCollectionItems oferece originalJxlUrl so quando existem o .jxl e o JPEG', () => {
+    const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'acervo-jxl-'));
+    const previousPhotosHostPath = process.env.PHOTOS_HOST_PATH;
+    process.env.PHOTOS_HOST_PATH = tempDir;
+
+    try {
+        // a: JPEG + JXL; b: só JPEG; c: JXL sem o JPEG (não deve ser oferecido)
+        fs.writeFileSync(path.join(tempDir, 'a.jpg'), 'jpg');
+        fs.writeFileSync(path.join(tempDir, 'a.jxl'), 'jxl');
+        fs.writeFileSync(path.join(tempDir, 'b.jpg'), 'jpg');
+        fs.writeFileSync(path.join(tempDir, 'c_thumb.webp'), 'thumb');
+        fs.writeFileSync(path.join(tempDir, 'c.jxl'), 'jxl');
+
+        const [a, b, c] = mapCollectionItems(sampleItems);
+
+        assert.equal(a.originalJxlUrl, '/public/photos/a.jxl');
+        assert.equal(a.originalImageUrl, '/public/photos/a.jpg');
+        assert.equal(b.originalJxlUrl, null);
+        assert.equal(c.originalJxlUrl, null);
+    } finally {
+        if (previousPhotosHostPath === undefined) {
+            delete process.env.PHOTOS_HOST_PATH;
+        } else {
+            process.env.PHOTOS_HOST_PATH = previousPhotosHostPath;
+        }
+        fs.rmSync(tempDir, { recursive: true, force: true });
+    }
+});

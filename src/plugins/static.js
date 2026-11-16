@@ -28,6 +28,17 @@ module.exports = fp(async (app, opts) => {
         maxAge: isProduction ? '7d' : 0,
     });
 
+    // A tabela de tipos do @fastify/send não conhece .jxl (e sobrescreve o que
+    // vier de setHeaders); sem isso o navegador recebe application/octet-stream
+    // e não exibe a imagem.
+    app.addHook('onSend', async (request, reply, payload) => {
+        const urlPath = request.url.split('?')[0].toLowerCase();
+        if (urlPath.startsWith('/public/photos/') && urlPath.endsWith('.jxl') && reply.statusCode < 400) {
+            reply.header('Content-Type', 'image/jxl');
+        }
+        return payload;
+    });
+
     app.register(fastifyStatic, {
         root: path.join(__dirname, '..', 'public'),
         prefix: '/public/',

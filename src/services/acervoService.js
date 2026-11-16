@@ -65,15 +65,30 @@ const resolveLegacyCategory = (item) => {
     return item.category;
 };
 
+// Versão JPEG XL do original (gerada por scripts/jxl), ao lado do JPEG
+const toJxlPath = (imagePath) => {
+    if (!imagePath || typeof imagePath !== 'string') {
+        return imagePath;
+    }
+
+    return imagePath.replace(/\.[^/.]+$/, '.jxl');
+};
+
 const resolveImageSources = (originalImagePath) => {
     const thumbImagePath = toThumbPath(originalImagePath);
+    const jxlImagePath = toJxlPath(originalImagePath);
     const thumbExists = fileExists(toDiskPhotoPath(thumbImagePath));
     const originalExists = fileExists(toDiskPhotoPath(originalImagePath));
+    // Só oferece o JXL junto com o JPEG, que fica de alternativa para quem não o abre
+    const originalJxlUrl = originalExists && fileExists(toDiskPhotoPath(jxlImagePath))
+        ? buildPublicPath(jxlImagePath)
+        : null;
 
     if (thumbExists) {
         return {
             imageUrl: buildPublicPath(thumbImagePath),
             originalImageUrl: originalExists ? buildPublicPath(originalImagePath) : null,
+            originalJxlUrl,
             hasImage: true,
         };
     }
@@ -83,6 +98,7 @@ const resolveImageSources = (originalImagePath) => {
         return {
             imageUrl: originalUrl,
             originalImageUrl: originalUrl,
+            originalJxlUrl,
             hasImage: true,
         };
     }
@@ -90,6 +106,7 @@ const resolveImageSources = (originalImagePath) => {
     return {
         imageUrl: null,
         originalImageUrl: null,
+        originalJxlUrl: null,
         hasImage: false,
     };
 };

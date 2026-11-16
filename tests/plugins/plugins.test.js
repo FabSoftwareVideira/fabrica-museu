@@ -37,6 +37,7 @@ test('static plugin serve fotos, assets publicos e modulos da UI', async () => {
 
     try {
         fs.writeFileSync(path.join(tempDir, 'foto-teste.jpg'), 'conteudo-foto');
+        fs.writeFileSync(path.join(tempDir, 'foto-teste.jxl'), 'conteudo-jxl');
 
         await app.register(staticPlugin, {
             env: {
@@ -54,6 +55,9 @@ test('static plugin serve fotos, assets publicos e modulos da UI', async () => {
 
         assert.equal(photoResponse.statusCode, 200);
         assert.equal(photoResponse.payload, 'conteudo-foto');
+        const jxlResponse = await app.inject({ method: 'GET', url: '/public/photos/foto-teste.jxl' });
+        assert.equal(jxlResponse.statusCode, 200);
+        assert.equal(jxlResponse.headers['content-type'], 'image/jxl');
         assert.equal(manifestResponse.statusCode, 200);
         assert.match(manifestResponse.payload, /name|short_name/i);
         assert.equal(uiResponse.statusCode, 200);

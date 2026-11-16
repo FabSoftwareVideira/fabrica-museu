@@ -167,3 +167,31 @@ docker build -t gerador-thumbs -f infra/Dockerfile.thumbs .
 # Rodar via Docker (recomendado)
 MSYS_NO_PATHCONV=1 docker run --rm -v "$(pwd)":/workspace --env-file scripts/.env gerador-thumbs
 ```
+
+---
+
+## JPEG XL
+
+As fotos originais podem ganhar uma versão JPEG XL (`.jxl`) ao lado de cada `.jpg`. A conversão é a recompressão **sem perda** do próprio JPEG: o `.jxl` fica cerca de 20% menor e devolve o JPEG original byte a byte. O script confere cada arquivo assim antes de mantê-lo e **não apaga nenhum JPEG**.
+
+Na página de detalhe do item, o navegador que abre JPEG XL (Chrome 155+, Firefox 158+, Safari 17+) baixa o `.jxl`; os demais continuam com o `.jpg`. As miniaturas da grade seguem em WebP.
+
+Na VPS, com o repositório já na `main` do GitHub:
+
+```bash
+docker build -t museu-jxl https://github.com/FabSoftwareVideira/fabrica-museu.git#main:scripts/jxl
+```
+
+```bash
+docker run --rm --network none --user "$(id -u):$(id -g)" -v /srv/fabrica-museu/photos:/fotos museu-jxl
+```
+
+Rode com o usuário dono das fotos (o de `MUSEU_HOST_UID`). Fotos que já têm `.jxl` são puladas, então dá para rodar de novo depois de copiar fotos novas. Opções: `-e JOBS=4` (conversões em paralelo), `-e REGERAR_EXISTENTES=1` (refaz os `.jxl`).
+
+Depois, **reinicie o app no Dokploy**: ele confere quais arquivos existem só ao subir.
+
+Para desfazer, apague os `.jxl`. Os JPEG nunca são alterados:
+
+```bash
+find /srv/fabrica-museu/photos -name '*.jxl' -delete
+```
