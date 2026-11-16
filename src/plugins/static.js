@@ -16,16 +16,23 @@ module.exports = fp(async (app, opts) => {
         photosHostPath: env.photosHostPath,
     }, 'Inicializando aplicacao');
 
+    // Em produção não há Nginx na frente (o Traefik do Dokploy só faz o proxy),
+    // então o cache do navegador é definido aqui. Os nomes dos arquivos não têm
+    // hash, por isso CSS/JS ficam com cache curto.
+    const isProduction = env.nodeEnv === 'production';
+
     app.register(fastifyStatic, {
         root: env.photosHostPath,
         prefix: '/public/photos/',
         decorateReply: false,
+        maxAge: isProduction ? '7d' : 0,
     });
 
     app.register(fastifyStatic, {
         root: path.join(__dirname, '..', 'public'),
         prefix: '/public/',
         decorateReply: false,
+        maxAge: isProduction ? '1h' : 0,
     });
 
     app.register(fastifyStatic, {

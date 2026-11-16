@@ -1,0 +1,76 @@
+# Desenvolvimento local (hot reload). Produção: docker-compose.yml (Dokploy).
+#
+#   docker compose -f docker-compose.dev.yml up -d --build
+#
+name: fabrica-museu-dev
+
+services:
+  fabrica-museu-dev:
+    container_name: fabrica-museu-dev
+    build:
+      context: .
+      target: dev
+    working_dir: /app
+    env_file: .env
+    environment:
+      NODE_ENV: development
+      HOST: 0.0.0.0
+      PORT: 3000
+      TRUST_PROXY: 'true'
+      PHOTOS_HOST_PATH: /app/src/public/photos
+    volumes:
+      # hot reload — monta o código local no container
+      - ./:/app
+      - /app/node_modules
+    command: npm run dev
+    init: true
+    ports:
+      - '127.0.0.1:3000:3000'
+    networks:
+      - fabrica-network
+    restart: unless-stopped
+    healthcheck:
+      test:
+        - CMD
+        - node
+        - -e
+        - "fetch('http://127.0.0.1:3000/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"
+      interval: 10s
+      timeout: 5s
+      start_period: 25s
+      retries: 5
+    logging:
+      driver: json-file
+      options:
+        max-size: '15m'
+        max-file: '4'
+
+  # Nginx opcional para testar HTTPS local (certificado gerado por npm run dev:ssl)
+  fabrica-museu-nginx-dev:
+    image: nginx:1.27-alpine
+    container_name: fabrica-museu-nginx-dev
+    depends_on:
+      - fabrica-museu-dev
+    ports:
+      - '8080:80'
+      - '8443:443'
+    volumes:
+      - ./infra/nginx/dev/http.conf:/etc/nginx/templates/http.conf:ro
+      - ./infra/nginx/dev/https.conf:/etc/nginx/templates/https.conf:ro
+      - ./infra/certs/dev:/etc/nginx/certs:ro
+      - ./infra/nginx/errors:/etc/nginx/errors:ro
+    command: >
+      /bin/sh -c '
+      if [ -f /etc/nginx/certs/tls.crt ] && [ -f /etc/nginx/certs/tls.key ]; then
+        cp /etc/nginx/templates/https.conf /etc/nginx/conf.d/default.conf;
+      else
+        cp /etc/nginx/templates/http.conf /etc/nginx/conf.d/default.conf;
+      fi;
+      exec nginx -g "daemon off;"'
+    networks:
+      - fabrica-network
+    restart: unless-stopped
+
+networks:
+  fabrica-network:
+    driver: bridge

@@ -3,8 +3,7 @@ node_modules
 .DS_Store
 **/photos/*
 infra/certs/dev/*
-infra/certs/prod/*
 !infra/certs/dev/.gitkeep
-!infra/certs/prod/.gitkeepscripts/.env
+scripts/.env
 logs/*
 .vscode

@@ -58,8 +58,9 @@ const main = () => {
     const options = parseArgs();
     const profile = (options.profile || 'dev').toLowerCase();
 
-    if (profile !== 'dev' && profile !== 'prod') {
-        throw new Error('Perfil invalido. Use --profile dev ou --profile prod.');
+    // Em producao o HTTPS fica com o Traefik do Dokploy; aqui so o ambiente local.
+    if (profile !== 'dev') {
+        throw new Error('Perfil invalido. Use --profile dev (em producao o HTTPS e do Dokploy).');
     }
 
     const certDir = path.join(rootDir, 'infra', 'certs', profile);
@@ -102,15 +103,17 @@ const main = () => {
         'Geracao do certificado TLS'
     );
 
-    console.log('>> Subindo stack Docker no perfil selecionado...');
-    run('docker', ['compose', '--profile', profile, 'up', '-d'], `docker compose --profile ${profile} up -d`);
+    const composeArgs = ['compose', '-f', 'docker-compose.dev.yml'];
+
+    console.log('>> Subindo stack Docker de desenvolvimento...');
+    run('docker', [...composeArgs, 'up', '-d'], 'docker compose -f docker-compose.dev.yml up -d');
 
     // Recria o nginx para garantir que ele releia o fallback HTTP/HTTPS apos gerar certificados.
-    const nginxService = profile === 'dev' ? 'fabrica-museu-nginx-dev' : 'fabrica-museu-nginx-prod';
+    const nginxService = 'fabrica-museu-nginx-dev';
     run(
         'docker',
-        ['compose', '--profile', profile, 'up', '-d', '--force-recreate', '--no-deps', nginxService],
-        `docker compose --profile ${profile} up -d --force-recreate --no-deps ${nginxService}`
+        [...composeArgs, 'up', '-d', '--force-recreate', '--no-deps', nginxService],
+        `docker compose -f docker-compose.dev.yml up -d --force-recreate --no-deps ${nginxService}`
     );
 
     console.log('');

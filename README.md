@@ -73,7 +73,7 @@ A iniciativa contribui diretamente para a **preservação da memória cultural r
 - [x] Implementar busca e paginação
 - [x] Criar página de detalhe
 - [x] Preparar integração com IA (classificação)
-- [x] Configurar CI/CD para deploy automático
+- [x] Configurar CI/CD para deploy automático (GitHub Actions → Dokploy)
 - [ ] Implementar painel de administração (upload e gestão do acervo)
 - [ ] Adicionar suporte a múltiplos idiomas (i18n)
 - [ ] Implementar testes automatizados (unitários e E2E)
@@ -91,6 +91,10 @@ A iniciativa contribui diretamente para a **preservação da memória cultural r
 - `GET /acervo` — galeria de fotos com filtros por categoria
 - `GET /api/acervo` — endpoint JSON para acervo (paginável)
 - `GET /health` — healthcheck (usado em Docker healthcheck)
+
+## Deploy
+
+A produção roda na VPS com Dokploy, a partir do `docker-compose.yml` (o desenvolvimento usa `docker-compose.dev.yml`). Cada push na `main` ou tag `v*` roda os testes e pede o deploy ao Dokploy. Passo a passo da configuração em [HOWTO.md](HOWTO.md#produção-vps-com-dokploy).
 
 > Para instruções detalhadas de como rodar, configurar e testar o projeto, consulte o [HOWTO.md](HOWTO.md).
 

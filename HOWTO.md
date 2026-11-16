@@ -42,7 +42,6 @@ http://localhost:3000
 | `npm start`                  | Inicia em modo normal (produção)                        |
 | `npm test`                   | Executa testes unitários com `node:test`                |
 | `npm run dev:ssl`            | Gera certificado local com mkcert e sobe ambiente dev   |
-| `npm run ssl:bootstrap:prod` | Gera certificado autoassinado para testes em prod       |
 
 ---
 
@@ -55,8 +54,7 @@ NODE_ENV=development         # development ou production
 HOST=0.0.0.0                 # Bind address
 PORT=3000                    # Porta de escuta
 TRUST_PROXY=false            # true se atrás de proxy reverso
-PHOTOS_HOST_PATH=/srv/fabrica-museu/photos  # Caminho das fotos na VPS (prod)
-# PHOTOS_HOST_PATH=/app/src/public/photos   # Caminho local (dev)
+# PHOTOS_HOST_PATH=/srv/fabrica-museu/photos  # Pasta das fotos na VPS (prod, Dokploy)
 
 # Rate limit (true/false)
 RATE_LIMIT_ENABLED=true
@@ -68,11 +66,15 @@ RATE_LIMIT_API_ENABLED=true
 
 ## 🐳 Executar com Docker
 
+| Arquivo                  | Uso                                             |
+| ------------------------ | ----------------------------------------------- |
+| `docker-compose.dev.yml` | Desenvolvimento local (hot reload + Nginx HTTPS) |
+| `docker-compose.yml`     | Produção, executado pelo Dokploy na VPS         |
+
 ### Desenvolvimento (local)
 
 ```bash
-# Sobe o app + Nginx com hot-reload ativo
-docker compose --profile dev up --build -d
+docker compose -f docker-compose.dev.yml up --build -d
 ```
 
 | Endpoint                 | Descrição                                              |
@@ -87,10 +89,10 @@ Alterações em `src/` são refletidas automaticamente (hot-reload via nodemon).
 
 ```bash
 # Ver logs em tempo real
-docker compose --profile dev logs -f
+docker compose -f docker-compose.dev.yml logs -f
 
 # Parar tudo
-docker compose --profile dev down
+docker compose -f docker-compose.dev.yml down
 ```
 
 #### HTTPS local com mkcert (via Docker — recomendado no Windows)
@@ -109,47 +111,27 @@ node infra/scripts/bootstrap-ssl.js --profile dev --domains 192.168.1.6,meu-host
 
 ---
 
-### Produção (VPS / servidor)
+### Produção (VPS com Dokploy)
 
-1. **Crie a rede externa** (apenas na primeira vez):
+A produção roda na VPS com [Dokploy](https://dokploy.com), a partir do `docker-compose.yml`. O serviço `fabrica-museu-web` não publica porta no host nem usa Nginx: o domínio e o HTTPS ficam com o Traefik do Dokploy, que alcança a porta 3000 pela `dokploy-network`. O cache do navegador para fotos e assets é definido pelo próprio app.
 
-```bash
-docker network create fabrica-network
-```
+O workflow `.github/workflows/deploy-dokploy.yml` roda os testes, valida o compose e pede o deploy pela API do Dokploy a cada push na `main` ou tag `v*` (também dá para disparar manualmente em *Actions*).
 
-2. **Configure o `.env`** com os valores de produção:
+Configuração (uma vez):
 
-```env
-NODE_ENV=production
-PHOTOS_HOST_PATH=/srv/fabrica-museu/photos
-```
+1. **Fotos na VPS.** Copie as fotos e thumbnails do acervo para `/srv/fabrica-museu/photos` (ou outra pasta, informada em `PHOTOS_HOST_PATH`). Essa pasta fica fora do código porque o Dokploy clona o repositório de novo a cada deploy:
 
-3. **Coloque os certificados TLS** em:
+   ```bash
+   rsync -avz --ignore-existing photos usuario@ip-da-vps:/srv/fabrica-museu
+   ```
 
-```text
-infra/certs/prod/tls.crt
-infra/certs/prod/tls.key
-```
+2. **Recurso no Dokploy.** Crie um recurso **Docker Compose** apontando para este repositório, com **Compose Path** `./docker-compose.yml`. Deixe o *Autodeploy* desligado: quem dispara o deploy é o GitHub Actions.
+3. **Environment.** Na aba **Environment**, cole as variáveis do `.env.example` com os valores de produção (`PHOTOS_HOST_PATH`, `TZ`, rate limit e, se quiser, `IMAGE_TAG` com a versão exibida no rodapé). `NODE_ENV`, `HOST`, `PORT` e `TRUST_PROXY` são fixados pelo compose.
+4. **Domains.** Na aba **Domains**, adicione o domínio (ex.: `museudovinho.fsw-ifc.brdrive.cloud`) para o serviço `fabrica-museu-web`, porta `3000`, com HTTPS.
+5. **Secrets do GitHub.** Crie `DOKPLOY_URL`, `DOKPLOY_API_KEY` (token em Settings → Profile → API/CLI do Dokploy) e `DOKPLOY_COMPOSE_ID` (o id do recurso, na URL dele no painel). Sem eles, o workflow só roda os testes e valida o compose.
+6. Faça o primeiro deploy e confira `https://SEU-DOMINIO/health`.
 
-4. **Suba os serviços:**
-
-```bash
-docker compose --profile prod up --build -d
-```
-
-5. **Verifique o status:**
-
-```bash
-docker compose --profile prod ps
-docker compose --profile prod logs -f
-```
-
-| Endpoint | Descrição                        |
-| -------- | -------------------------------- |
-| `:80`    | Redireciona para HTTPS           |
-| `:443`   | Nginx HTTPS com proxy para o app |
-
-> Em produção o app Node não é exposto diretamente no host; todo tráfego passa pelo Nginx.
+Para acompanhar: abas **Deployments** e **Logs** do recurso no Dokploy.
 
 ---
 
@@ -170,7 +152,7 @@ node --test tests/utils/slug.test.js
 Dentro do container dev:
 
 ```bash
-docker compose --profile dev exec fabrica-museu-dev npm test
+docker compose -f docker-compose.dev.yml exec fabrica-museu-dev npm test
 ```
 
 ---
