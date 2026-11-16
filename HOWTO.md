@@ -29,7 +29,7 @@ npm run dev
 3. Acesse:
 
 ```text
-http://localhost:3000
+http://localhost:3003
 ```
 
 ---
@@ -52,7 +52,7 @@ Configure em `.env` (use `.env.example` como base):
 ```env
 NODE_ENV=development         # development ou production
 HOST=0.0.0.0                 # Bind address
-PORT=3000                    # Porta de escuta
+PORT=3003                    # Porta de escuta (dev; em produção o compose fixa 3000)
 TRUST_PROXY=false            # true se atrás de proxy reverso
 # PHOTOS_HOST_PATH=/srv/fabrica-museu/photos  # Pasta das fotos na VPS (prod, Dokploy)
 
@@ -79,7 +79,7 @@ docker compose -f docker-compose.dev.yml up --build -d
 
 | Endpoint                 | Descrição                                              |
 | ------------------------ | ------------------------------------------------------ |
-| `http://localhost:3000`  | App Node.js direto                                     |
+| `http://localhost:3003`  | App Node.js direto                                     |
 | `http://localhost:8080`  | Nginx HTTP                                             |
 | `https://localhost:8443` | Nginx HTTPS (requer certificado em `infra/certs/dev/`) |
 

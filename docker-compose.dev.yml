@@ -15,7 +15,7 @@ services:
     environment:
       NODE_ENV: development
       HOST: 0.0.0.0
-      PORT: 3000
+      PORT: 3003
       TRUST_PROXY: 'true'
       PHOTOS_HOST_PATH: /app/src/public/photos
     volumes:
@@ -25,7 +25,7 @@ services:
     command: npm run dev
     init: true
     ports:
-      - '127.0.0.1:3000:3000'
+      - '127.0.0.1:3003:3003'
     networks:
       - fabrica-network
     restart: unless-stopped
@@ -34,7 +34,7 @@ services:
         - CMD
         - node
         - -e
-        - "fetch('http://127.0.0.1:3000/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"
+        - "fetch('http://127.0.0.1:3003/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"
       interval: 10s
       timeout: 5s
       start_period: 25s
