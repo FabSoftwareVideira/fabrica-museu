@@ -4,14 +4,39 @@
 #   Traefik do Dokploy, configurados na aba "Domains" do Dokploy para o serviço
 #   fabrica-museu-web, porta 3000.
 # - Sem container_name: o Dokploy dá nomes próprios aos containers.
-# - As fotos do acervo ficam numa pasta fixa da VPS (PHOTOS_HOST_PATH, padrão
-#   /srv/fabrica-museu/photos), fora do código: o Dokploy clona o repositório de
-#   novo a cada deploy.
+# - As fotos do acervo ficam numa pasta fixa da VPS (MUSEU_HOST_DIR, padrão
+#   /srv/fabrica-museu, com as fotos em photos/), fora do código: o Dokploy
+#   clona o repositório de novo a cada deploy. A pasta é criada pelo serviço
+#   "preparar-pasta", não é preciso criá-la à mão.
 # - Desenvolvimento: docker-compose.dev.yml.
 #
 name: fabrica-museu
 
 services:
+  preparar-pasta:
+    # Roda a cada deploy, antes do web, e termina. O Docker cria a pasta do host
+    # (MUSEU_HOST_DIR) se ela não existir, mas como root; aqui ela e a subpasta
+    # photos passam para o UID/GID 1000 (o usuário node do container e, em geral,
+    # o primeiro usuário comum da VPS), que pode copiar fotos sem sudo.
+    image: busybox:1.36
+    restart: "no"
+    command:
+      - sh
+      - -c
+      - mkdir -p /dados/photos && chown -R 1000:1000 /dados && chmod -R u+rwX,go+rX /dados
+    volumes:
+      - "${MUSEU_HOST_DIR:-/srv/fabrica-museu}:/dados"
+    network_mode: none
+    # Só as capacidades de criar a subpasta, trocar o dono e ajustar permissões
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    cap_add:
+      - CHOWN
+      - FOWNER
+      - DAC_OVERRIDE
+
   fabrica-museu-web:
     build:
       context: .
@@ -36,7 +61,10 @@ services:
       - BUILD_DATE=${BUILD_DATE:-unknown}
     volumes:
       # Pasta fixa da VPS com as fotos e thumbnails do acervo (só leitura)
-      - "${PHOTOS_HOST_PATH:-/srv/fabrica-museu/photos}:/app/src/public/photos:ro"
+      - "${MUSEU_HOST_DIR:-/srv/fabrica-museu}/photos:/app/src/public/photos:ro"
+    depends_on:
+      preparar-pasta:
+        condition: service_completed_successfully
     init: true
     # Sem "ports": o Traefik do Dokploy alcança a porta 3000 pela dokploy-network
     expose:
